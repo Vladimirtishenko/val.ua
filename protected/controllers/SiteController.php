@@ -29,17 +29,11 @@ class SiteController extends Controller
 	public function actionIndex()
 	{
 
-
-        // $href = 'https://sinoptik.ua/%D0%BF%D0%BE%D0%B3%D0%BE%D0%B4%D0%B0-%D1%87%D0%B5%D1%80%D0%BD%D0%B8%D0%B3%D0%BE%D0%B2';
-        // $page = file_get_contents($href); 
-        // $pages = htmlspecialchars($page);
-
-
         $lastVideos = Video::model()->findAll(array('order'=>'date DESC', 'limit'=>24));
         $provider = array();
 
         $mostViewed = News::model()->findAll(array('order'=>'date DESC', 'limit'=>9, 'condition'=>'main = 1 AND date < :now', 'params'=>array(':now'=>date('Y-m-d H:i:s', time()))));
-        $provider[Yii::app()->language == 'ru' ? 'НОВОСТИ ПОЛИТИКИ' : 'НОВИНИ ПОЛІТИКИ'] = News::model()->with(array('category'=>array('condition'=>'category.alias = "politics"', 'select'=>false)))->findAll(array('limit'=>5, 'order'=>'date DESC', 'condition'=>'date < :now','params'=>array(':now'=>date('Y-m-d H:i:s', time())),));
+        $provider[Yii::app()->language == 'ru' ? 'НОВОСТИ ПОЛИТИКИ' : 'НОВИНИ ПОЛІТИКИ'] = News::model()->with(array('category'=>array('condition'=>'category.id = "1"', 'select'=>false)))->findAll(array('limit'=>5, 'order'=>'date DESC', 'condition'=>'date < :now','params'=>array(':now'=>date('Y-m-d H:i:s', time())),));
         $provider[Yii::app()->language == 'ru' ? 'НОВОСТИ ЭКОНОМИКИ' : 'НОВИНИ ЕКОНОМІКИ'] = News::model()->with(array('category'=>array('condition'=>'category.alias = "economic"', 'select'=>false)))->findAll(array('limit'=>5, 'order'=>'date DESC', 'condition'=>'date < :now','params'=>array(':now'=>date('Y-m-d H:i:s', time())),));
         $provider[Yii::app()->language == 'ru' ? 'НОВОСТИ КУЛЬТУРЫ' : 'НОВИНИ КУЛЬТУРИ'] = News::model()->with(array('category'=>array('condition'=>'category.alias = "culture"', 'select'=>false)))->findAll(array('limit'=>5, 'order'=>'date DESC', 'condition'=>'date < :now','params'=>array(':now'=>date('Y-m-d H:i:s', time())),));
         $provider[Yii::app()->language == 'ru' ? 'НОВОСТИ СПОРТА' : 'НОВИНИ СПОРТУ'] = News::model()->with(array('category'=>array('condition'=>'category.alias = "sport"', 'select'=>false)))->findAll(array('limit'=>5, 'order'=>'date DESC', 'condition'=>'date < :now','params'=>array(':now'=>date('Y-m-d H:i:s', time())),));

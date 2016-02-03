@@ -7,7 +7,6 @@
     <?php else: ?>
        <meta http-equiv="Content-Language" content="ru" />
     <?php endif; ?>
-    <meta name='advmaker-verification' content='e2a7df1857a007dac67afadcd9004aee'/>
     <meta name="Description" content="<?= $this->pageDescription; ?>">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=1280, initial-scale=-1">
@@ -31,7 +30,7 @@
     <meta name="google-site-verification" content="ZKjQqhmkC9GTAIJI6KoY8DGJFhe_uTALVdqMQ2GrwZo" />
     <link rel="Shortcut Icon" type="image/x-icon" href="<?= Yii::app()->baseUrl; ?>/images/favicon.ico">
     <link rel="alternate" href="http://val.ua/feed/rss/" type="application/xml" title="Val.ua Rss">
-    <link rel="stylesheet" href="<?= Yii::app()->baseUrl; ?>/prodaction/bundle.min.css">
+    <link rel="stylesheet" href="<?= Yii::app()->baseUrl; ?>public/prodaction/bundle.min.css">
 </head>
 <body>
 <style>
@@ -258,12 +257,12 @@
 </div>
 <?php if(Yii::app()->language == 'uk'): ?>
     <?= CHtml::link(
-        CHtml::image(Yii::app()->baseUrl.'/images/logo.png', 'logo'),
+        CHtml::image(Yii::app()->baseUrl.'public/images/logo.png', 'logo'),
         array('/site/index')
     ); ?>
 <?php else: ?>
     <?= CHtml::link(
-        CHtml::image(Yii::app()->baseUrl.'/images/logorus.png', 'logo'),
+        CHtml::image(Yii::app()->baseUrl.'public/images/logorus.png', 'logo'),
         array('/site/index')
     ); ?>
 <?php endif; ?>
@@ -396,7 +395,7 @@
     </div>
 </footer>
 </div>
-<?php Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl.'/prodaction/bundle.min.js',CClientScript::POS_END, array('defer'=>true)); ?>
+<?php Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl.'public/prodaction/bundle.min.js',CClientScript::POS_END, array('defer'=>true)); ?>
 <script>
 window.addEventListener("DOMContentLoaded", function(){
     (function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,"script","//www.google-analytics.com/analytics.js","ga");ga("create","UA-61883338-1","auto");ga("send","pageview");

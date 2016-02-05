@@ -11,7 +11,7 @@ var gulp = require('gulp'),
 
 gulp.task('stylus', function () {
   return gulp.src('./public/styl/*.styl')
-    .pipe(stylus({linenos: true}))
+    .pipe(stylus({linenos: false}))
     .pipe(concatCss('styl.css'))
     .pipe(gulp.dest('./public/css/'));
 });
@@ -45,7 +45,7 @@ gulp.task('js', function() {
 
 gulp.task('watch', function() {
     gulp.watch("./public/css/*.css", ['css']);
-    gulp.watch("./public/styl/*.styl", ['styl']);
+    gulp.watch("./public/styl/*.styl", ['stylus']);
     gulp.watch("./public/js/*.js", ['js']);
 });
 

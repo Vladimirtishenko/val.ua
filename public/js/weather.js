@@ -56,9 +56,6 @@ return {
     init: function(){
        var xhr = new XMLHttpRequest();
            url = "http://"+location.hostname+"/site/tryWeather";
-
-           console.log(url);
-
            xhr.addEventListener("readystatechange", readestateHandler);
            function readestateHandler(){
               if(this.status == 200 && this.readyState == 4){

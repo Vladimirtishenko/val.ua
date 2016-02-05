@@ -27,13 +27,39 @@ class SiteController extends Controller
 	 * when an action is not explicitly requested by users.
 	 */
 	public function actionIndex()
-	{
+	{  
 
-        $lastVideos = Video::model()->findAll(array('order'=>'date DESC', 'limit'=>24));
-        $provider = array();
+        $mostViewed = News::model()->findAll(array('order'=>'date DESC', 'limit'=>10, 'condition'=>'main = 1 AND date < :now', 'params'=>array(':now'=>date('Y-m-d H:i:s', time()))));
+        $mostViewedSlider = array_slice($mostViewed, 0, 5);
+        $mostViewedLine = array_slice($mostViewed, 5, 5);
+        $lastVideos = Video::model()->findAll(array('order'=>'date DESC', 'limit'=>4));
+        $lastPhoto = PhotoCategory::model()->findAll(array('order'=>'date DESC', 'limit'=>4, 'select'=>'name_ru, name_uk, id, image'));
 
-        $mostViewed = News::model()->findAll(array('order'=>'date DESC', 'limit'=>9, 'condition'=>'main = 1 AND date < :now', 'params'=>array(':now'=>date('Y-m-d H:i:s', time()))));
-        $provider[Yii::app()->language == 'ru' ? 'НОВОСТИ ПОЛИТИКИ' : 'НОВИНИ ПОЛІТИКИ'] = News::model()->with(array('category'=>array('condition'=>'category.id = "1"', 'select'=>false)))->findAll(array('limit'=>5, 'order'=>'date DESC', 'condition'=>'date < :now','params'=>array(':now'=>date('Y-m-d H:i:s', time())),));
+        $multimedia = [];
+
+        $l = 0;
+
+        for ($i=0; $i < 8; $i++) { 
+            if($l%2){$l++;}
+            
+                if($i%2){
+                array_push($multimedia, $lastVideos[$l]);
+                } else {
+                    array_push($multimedia, $lastPhoto[$l]);
+                }
+ 
+        }
+
+        echo '<pre>';
+        print_r($multimedia);
+        print_r($lastPhoto);
+
+        exit;
+
+        //$provider = array();
+
+
+       /* $provider[Yii::app()->language == 'ru' ? 'НОВОСТИ ПОЛИТИКИ' : 'НОВИНИ ПОЛІТИКИ'] = News::model()->with(array('category'=>array('condition'=>'category.id = "1"', 'select'=>false)))->findAll(array('limit'=>5, 'order'=>'date DESC', 'condition'=>'date < :now','params'=>array(':now'=>date('Y-m-d H:i:s', time())),));
         $provider[Yii::app()->language == 'ru' ? 'НОВОСТИ ЭКОНОМИКИ' : 'НОВИНИ ЕКОНОМІКИ'] = News::model()->with(array('category'=>array('condition'=>'category.alias = "economic"', 'select'=>false)))->findAll(array('limit'=>5, 'order'=>'date DESC', 'condition'=>'date < :now','params'=>array(':now'=>date('Y-m-d H:i:s', time())),));
         $provider[Yii::app()->language == 'ru' ? 'НОВОСТИ КУЛЬТУРЫ' : 'НОВИНИ КУЛЬТУРИ'] = News::model()->with(array('category'=>array('condition'=>'category.alias = "culture"', 'select'=>false)))->findAll(array('limit'=>5, 'order'=>'date DESC', 'condition'=>'date < :now','params'=>array(':now'=>date('Y-m-d H:i:s', time())),));
         $provider[Yii::app()->language == 'ru' ? 'НОВОСТИ СПОРТА' : 'НОВИНИ СПОРТУ'] = News::model()->with(array('category'=>array('condition'=>'category.alias = "sport"', 'select'=>false)))->findAll(array('limit'=>5, 'order'=>'date DESC', 'condition'=>'date < :now','params'=>array(':now'=>date('Y-m-d H:i:s', time())),));
@@ -42,14 +68,15 @@ class SiteController extends Controller
         $provider[Yii::app()->language == 'ru' ? 'Курьезы' : 'Курйози'] = News::model()->with(array('category'=>array('condition'=>'category.alias = "curiosities"', 'select'=>false)))->findAll(array('limit'=>5, 'order'=>'date DESC', 'condition'=>'date < :now','params'=>array(':now'=>date('Y-m-d H:i:s', time())),));
         $provider[Yii::app()->language == 'ru' ? 'Общество' : 'Cуспiльство'] = News::model()->with(array('category'=>array('condition'=>'category.alias = "social"', 'select'=>false)))->findAll(array('limit'=>5, 'order'=>'date DESC', 'condition'=>'date < :now','params'=>array(':now'=>date('Y-m-d H:i:s', time())),));
         $analitic = News::model()->with(array('category'=>array('condition'=>'category.alias = "analitic"', 'select'=>false)))->findAll(array('limit'=>5, 'order'=>'date DESC', 'condition'=>'date < :now','params'=>array(':now'=>date('Y-m-d H:i:s', time()))));
-        $popularBlogers = User::model()->findAllBySql("SELECT DISTINCT *, (SELECT COUNT(*) FROM articles WHERE author_id = `user`.`id`) AS count,(SELECT date FROM articles WHERE articles.author_id = user.id ORDER BY date LIMIT 1) AS dertw FROM user WHERE (user.role = 'bloger') ORDER BY dertw DESC LIMIT 9");
+        $popularBlogers = User::model()->findAllBySql("SELECT DISTINCT *, (SELECT COUNT(*) FROM articles WHERE author_id = `user`.`id`) AS count,(SELECT date FROM articles WHERE articles.author_id = user.id ORDER BY date LIMIT 1) AS dertw FROM user WHERE (user.role = 'bloger') ORDER BY dertw DESC LIMIT 9");*/
 		$this->rightReclameId = 21;
         $this->render('index', array(
-            'mostViewed'=>$mostViewed,
-            'provider'=>$provider,
-            'analitic'=>$analitic,
-            'popularBlogers'=>$popularBlogers,
-            'lastVideos'=>$lastVideos
+            'mostViewedSlider'=>$mostViewedSlider,
+            'mostViewedLine'=>$mostViewedLine,
+            // 'provider'=>$provider,
+            // 'analitic'=>$analitic,
+            // 'popularBlogers'=>$popularBlogers,
+            'multimedia'=>$multimedia,
             //'pages'=>$pages,
         ));
 	}

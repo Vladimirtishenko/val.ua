@@ -1,0 +1,716 @@
+
+@font-face {
+  font-family: "HelveticaBold";
+  src: url("../fonts/HelveticaBold/HelveticaBold.eot");
+  src: url("../fonts/HelveticaBold/HelveticaBold.eot?#iefix") format("embedded-opentype"), url("../fonts/HelveticaBold/HelveticaBold.woff") format("woff"), url("../fonts/HelveticaBold/HelveticaBold.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+div,
+span,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+abbr,
+address,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+samp,
+small,
+strong,
+sub,
+sup,
+var,
+b,
+i,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  background: transparent;
+  border: 0;
+  font-size: 100%;
+  margin: 0;
+  outline: 0;
+  padding: 0;
+  vertical-align: baseline;
+}
+
+body {
+  line-height: 1;
+  background: #f6f6f6;
+  font-family: Arial;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+nav ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+
+a {
+  background: transparent;
+  font-size: 12px;
+  margin: 0;
+  padding: 0;
+  vertical-align: baseline;
+  text-decoration: none;
+}
+
+/* change colours to suit your needs */
+
+ins {
+  background-color: #ff9;
+  color: #000;
+  text-decoration: none;
+}
+
+/* change colours to suit your needs */
+
+mark {
+  background-color: #ff9;
+  color: #000;
+  font-style: italic;
+  font-weight: bold;
+}
+
+del {
+  text-decoration: line-through;
+}
+
+abbr[title],
+dfn[title] {
+  border-bottom: 1px dotted;
+  cursor: help;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* change border colour to suit your needs */
+
+hr {
+  border: 0;
+  border-top: 1px solid #ccc;
+  display: block;
+  height: 1px;
+  margin: 1em 0;
+  padding: 0;
+}
+
+input,
+select {
+  vertical-align: middle;
+}
+
+/* Defaults */
+
+.val-all-outer {
+  width: 100%;
+  display: table;
+  position: relative;
+}
+
+.button {
+  font-size: 12px;
+  color: #fff;
+  text-transform: uppercase;
+  padding: 10px 25px;
+  border: none;
+  margin-left: 7px;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.-gen-green {
+  background: #15948b;
+}
+
+.-gen-blue {
+  background: #60afb8;
+}
+
+.val-outer-news-block {
+  width: 1028px;
+  margin: 0 auto;
+  padding: 40px 0;
+  display: table;
+}
+
+.val-title-uppercase {
+  font-family: "HelveticaBold";
+  text-transform: uppercase;
+  font-size: 24px;
+  margin: 0 0 25px 0;
+}
+.val-header-outer-block {
+  width: 100%;
+  background: #fff;
+  padding: 20px 0 15px;
+}
+
+.val-header {
+  width: 1028px;
+  margin: 0 auto;
+  display: table;
+}
+
+.val-top-line {
+  display: table;
+  width: 100%;
+  position: relative;
+}
+
+.val-outer-left-button {
+  float: left;
+  display: table;
+}
+
+.val-button-menu {
+  padding: 10px 35px 10px 27px;
+  text-transform: uppercase;
+  display: inline-block;
+  position: relative;
+  color: #000;
+}
+
+.val-button-menu:before {
+  content: "";
+  position: absolute;
+  width: 21px;
+  height: 17px;
+  display: inline-block;
+  left: 0;
+  top: 8px;
+  background: url("../images/sprite.png") 0px 0px;
+}
+
+.val-button-menu:hover {
+  color: #15948b;
+}
+
+.val-button-menu:hover:before {
+  background: url("../images/sprite.png") -23px 0px;
+}
+
+.val-button-search {
+  padding: 10px 35px 10px 27px;
+  text-transform: uppercase;
+  display: inline-block;
+  position: relative;
+  color: #000;
+}
+
+.val-button-search:before {
+  content: "";
+  position: absolute;
+  width: 21px;
+  height: 17px;
+  display: inline-block;
+  left: 0;
+  top: 8px;
+  background: url("../images/sprite.png") -43px 0px;
+}
+
+.val-button-search:hover {
+  color: #15948b;
+}
+
+.val-button-search:hover:before {
+  background: url("../images/sprite.png") -61px 0px;
+}
+
+.val-outer-right-button {
+  float: right;
+  display: table;
+}
+
+.val-outer-social-button {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  margin-left: -145px;
+}
+
+.val-outer-social-button ul {
+  list-style: none;
+  padding: 0;
+}
+
+.val-outer-social-button ul li {
+  display: inline-block;
+}
+
+.val-outer-social-button ul li a {
+  width: 35px;
+  height: 35px;
+  display: inline-block;
+  margin: 0 5px;
+}
+
+.val-twitter {
+  background: url("../images/sprite.png") 0px -21px;
+}
+
+.val-vk {
+  background: url("../images/sprite.png") -35px -21px;
+}
+
+.val-g {
+  background: url("../images/sprite.png") -71px -21px;
+}
+
+.val-youtube {
+  background: url("../images/sprite.png") -107px -21px;
+}
+
+.val-fb {
+  background: url("../images/sprite.png") -142px -21px;
+}
+
+.val-rss {
+  background: url("../images/sprite.png") -178px -21px;
+}
+
+.val-logo-line {
+  text-align: center;
+  padding: 20px;
+  width: 100%;
+}
+
+.val-widget-line {
+  display: table;
+  margin: 0 auto;
+}
+
+.val-widget-line ul {
+  list-style: none;
+  padding: 0;
+}
+
+.val-widget-line ul li {
+  display: inline-block;
+  padding: 0 10px;
+}
+
+.val-widget-line ul li a,
+.val-widget-line ul li span {
+  color: #7d7d7d;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.val-widget-line ul li a:hover {
+  color: #15948b;
+}
+
+.val-redaction {
+  padding-left: 20px;
+  position: relative;
+}
+
+.val-redaction:before {
+  width: 20px;
+  height: 16px;
+  position: absolute;
+  left: 0;
+  top: -1px;
+  content: "";
+  display: inline-block;
+  background: url("../images/sprite.png") -85px 0;
+}
+
+.val-redaction:hover:before {
+  background: url("../images/sprite.png") -105px 0;
+}
+
+.val-market {
+  padding-left: 20px;
+  position: relative;
+}
+
+.val-market:before {
+  width: 20px;
+  height: 16px;
+  position: absolute;
+  left: 0;
+  top: -1px;
+  content: "";
+  display: inline-block;
+  background: url("../images/sprite.png") -128px 1px;
+}
+
+.val-market:hover:before {
+  background: url("../images/sprite.png") -148px 1px;
+}
+
+.val-currency-text {
+  padding-left: 20px;
+  position: relative;
+}
+
+.val-currency-text:before {
+  width: 20px;
+  height: 16px;
+  position: absolute;
+  left: 0;
+  top: -1px;
+  content: "";
+  display: inline-block;
+  background: url("../images/sprite.png") -166px 1px;
+}
+
+.val-currency-text:hover {
+  color: #15948b;
+}
+
+.val-currency-text:hover:before {
+  background: url("../images/sprite.png") -184px 0px;
+}
+
+.val-menu-line {
+  width: 100%;
+  padding-top: 35px;
+}
+
+.val-menu-list {
+  list-style: none;
+  padding: 13px 2px;
+  border-top: 2px solid #000;
+  display: flex;
+  justify-content: space-between;
+}
+
+.val-menu-list li a {
+  color: #000;
+  font-size: 13px;
+}
+
+.val-menu-list li a:hover {
+  color: #15948b;
+}
+.val-column-left {
+  width: 688px;
+  float: left;
+}
+
+.val-slider-general-news {
+  width: 100%;
+  height: 230px;
+  overflow: hidden;
+  position: relative;
+}
+
+.val-list-slider {
+  width: 4000px;
+  list-style: none;
+  position: relative;
+}
+
+.val-list-slider-item {
+  display: table;
+  float: left;
+  height: 230px;
+  width: 688px;
+  background: #fff;
+}
+
+.val-left-in-slide {
+  float: left;
+  display: table;
+  height: 230px;
+}
+
+.val-right-in-slide {
+  float: right;
+  display: table;
+  height: 230px;
+  width: calc(100% - 325px);
+  padding: 30px;
+}
+
+.val-content-news-data {
+  color: #15948b;
+  font-size: 12px;
+}
+
+.val-content-news-title {
+  color: #000;
+  font-size: 19px;
+  font-family: "HelveticaBold";
+  margin: 15px 0;
+  line-height: 23px;
+}
+
+.val-content-news-description {
+  font-size: 14px;
+  color: #000;
+}
+
+.val-display-controls {
+  position: absolute;
+  right: 30px;
+  bottom: 10px;
+}
+
+.val-display-controls > span {
+  width: 8px;
+  height: 8px;
+  border: 2px solid #15948b;
+  border-radius: 50%;
+  margin: 5px;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.val-display-controls > span.-active-slide {
+  background: #15948b;
+}
+
+.val-outer-line-news {
+  width: 100%;
+  display: table;
+  margin-top: 25px;
+}
+
+.val-gen-news-column {
+  width: 47%;
+  float: left;
+  display: table;
+}
+
+.val-block-gen-news {
+  height: 105px;
+  overflow: hidden;
+  margin-bottom: 10px;
+  background: #fff;
+  width: 100%;
+  display: block;
+}
+
+.val-description-block-gen-news {
+  padding: 15px 10px 0 0;
+}
+
+.val-image-block-gen-news {
+  width: 120px;
+  overflow: hidden;
+  float: left;
+  margin-right: 15px;
+}
+
+.val-image-block-gen-news img {
+  width: 125%;
+}
+
+.val-content-news-title-small {
+  font-size: 14px;
+  margin: 10px 0;
+  color: #000;
+  line-height: 18px;
+}
+
+.val-line-news-without-image {
+  width: 47%;
+  float: right;
+}
+
+.val-block-item-line-news {
+  width: 100%;
+  margin-bottom: 12px;
+  padding-right: 15px;
+}
+
+.val-date-line-news {
+  display: block;
+  width: 100%;
+  color: #7d7d7d;
+  font-size: 12px;
+}
+
+.val-block-item-line-news a {
+  color: #000;
+  font-size: 14px;
+  margin: 5px 0 0;
+  font-weight: normal;
+  line-height: 16px;
+  display: inline-block;
+}
+
+.val-block-item-line-news a:hover {
+  color: #15948b;
+}
+
+.val-more-news {
+  width: 100%;
+  background: #15948b;
+  height: 2px;
+  margin-top: 10px;
+  position: relative;
+}
+
+.val-more-news a {
+  position: absolute;
+  background-color: #fff;
+  display: inline-block;
+  padding: 0px 0px 0px 17px;
+  right: 0;
+  top: -7px;
+  font-size: 13px;
+  color: #15948b;
+}
+
+.val-more-news a:before {
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: 5px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 3.5px 5px 3.5px 0;
+  border-color: transparent #15948c transparent transparent;
+}
+
+.val-more-news a span {
+  border-bottom: 1px solid rgba(21,148,139,0.33);
+  padding: 0 0 2px 0;
+  display: inline-block;
+}
+
+.val-more-news a span:hover {
+  border-bottom: 1px solid transparent !important;
+}
+
+.val-steam-block {
+  width: 100%;
+  margin: 25px 0;
+}
+
+.val-iframe-streams {
+  display: flex;
+  justify-content: space-around;
+}
+
+.val-outer-frame {
+  width: 48%;
+  position: relative;
+}
+
+.val-ico-online {
+  color: #60afb8;
+  font-size: 13px;
+  position: absolute;
+  padding: 7px 35px 0;
+}
+
+.val-ico-online:before {
+  width: 30px;
+  height: 30px;
+  background: #60afb8;
+  display: inline-block;
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+}
+
+.val-ico-online:after {
+  width: 16px;
+  height: 9px;
+  content: "";
+  background: url("../images/sprite.png") -245px -3px;
+  z-index: 1;
+  position: absolute;
+  left: 6px;
+  top: 9px;
+}
+
+.val-conteiner-multimedia {
+  display: flex;
+  justify-content: space-around;
+}
+
+.val-conteiner-multimedia-items {
+  width: 24%;
+}

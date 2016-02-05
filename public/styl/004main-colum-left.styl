@@ -1,0 +1,207 @@
+@import '001func.styl'
+	
+.val-column-left
+	width 688px
+	float left
+	
+.val-slider-general-news
+	width 100%
+	height 230px
+	overflow hidden
+	position relative
+	
+.val-list-slider
+	width 4000px
+	list-style none
+	position relative
+	
+
+.val-list-slider-item
+	display table
+	float left
+	height 230px
+	width 688px
+	background #fff
+	
+.val-left-in-slide
+	float left
+	display table
+	height 230px
+	
+
+.val-right-in-slide
+	float right
+	display table
+	height 230px
+	width calc(100% - 325px)
+	padding 30px
+	
+.val-content-news-data
+	color generalGreenColor
+	font-size 12px
+	
+.val-content-news-title
+	color #000
+	font-size 19px
+	font-family "HelveticaBold"
+	margin 15px 0
+	line-height 23px
+	
+.val-content-news-description
+	font-size 14px
+	color #000
+	
+.val-display-controls
+	position absolute
+	right 30px
+	bottom 10px
+	
+.val-display-controls > span 
+	width 8px 
+	height 8px
+	border 2px solid generalGreenColor
+	border-radius 50%
+	margin 5px
+	display inline-block
+	cursor pointer
+	
+.val-display-controls > span.-active-slide
+	background generalGreenColor
+
+.val-outer-line-news
+	width 100%
+	display table
+	margin-top 25px
+	
+.val-gen-news-column
+	width 47%
+	float left
+	display table
+
+.val-block-gen-news
+	height 105px
+	overflow hidden
+	margin-bottom 10px
+	background #fff
+	width 100%
+	display block
+
+.val-description-block-gen-news
+	padding 15px 10px 0 0
+
+.val-image-block-gen-news
+	width 120px
+	overflow hidden
+	float left
+	margin-right 15px
+
+.val-image-block-gen-news img 
+	width 125%
+	
+.val-content-news-title-small
+	font-size 14px
+	margin 10px 0
+	color #000
+	line-height 18px
+	
+.val-line-news-without-image
+	width 47%
+	float right
+
+.val-block-item-line-news
+	width 100%
+	margin-bottom 12px
+	padding-right 15px
+	
+.val-date-line-news
+	display block
+	width 100%
+	color lightGreyText
+	font-size 12px
+
+.val-block-item-line-news a 
+	color #000
+	font-size 14px
+	margin 5px 0 0
+	font-weight normal
+	line-height 16px
+	display inline-block
+	&:hover 
+		color generalGreenColor
+
+.val-more-news
+	width 100%
+	background generalGreenColor
+	height 2px 
+	margin-top 10px
+	position relative
+	
+.val-more-news a 
+	position absolute
+	background-color #fff
+	display inline-block
+	padding 0px 0px 0px 17px
+	right 0
+	top -7px
+	font-size 13px
+	color generalGreenColor
+	&:before 
+		content ""
+		position absolute
+		left 5px
+		top 5px
+		width 0
+		height 0
+		border-style solid
+		border-width 3.5px 5px 3.5px 0
+		border-color transparent #15948c transparent transparent
+
+.val-more-news a span 
+	border-bottom 1px solid rgba(21, 148, 139, 0.33)
+	padding 0 0 2px 0
+	display inline-block
+	&:hover 
+		border-bottom 1px solid transparent i
+		
+.val-steam-block
+	width 100%
+	margin 25px 0
+
+.val-iframe-streams
+	display flex
+	justify-content space-around
+
+.val-outer-frame
+	width 48%
+	position relative
+	
+.val-ico-online
+	color generalBlueColor
+	font-size 13px
+	position absolute
+	padding 7px 35px 0
+	&:before
+		width 30px
+		height 30px 
+		background generalBlueColor
+		display inline-block
+		position absolute
+		content ""
+		top 0
+		left 0
+	&:after 
+		width 16px
+		height 9px
+		content ""
+		background url(../images/sprite.png) -245px -3px
+		z-index 1
+		position absolute
+		left 6px
+		top 9px
+
+.val-conteiner-multimedia
+	display flex
+	justify-content space-around
+	
+.val-conteiner-multimedia-items
+	width 24%

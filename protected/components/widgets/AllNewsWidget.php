@@ -5,7 +5,7 @@ class AllNewsWidget extends CWidget
 
     public function init()
     {
-        $this->allNews = News::model()->findAll(array('limit'=>30, 'order'=>'date DESC', 'condition'=>'date < :now','params'=>array(':now'=>date('Y-m-d H:i:s', time()))));
+        $this->allNews = News::model()->findAll(array('limit'=>10, 'order'=>'date DESC', 'condition'=>'date < :now','params'=>array(':now'=>date('Y-m-d H:i:s', time()))));
     }
     public function run()
     {

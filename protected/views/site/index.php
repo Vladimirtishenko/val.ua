@@ -34,6 +34,7 @@
                    <img src="<?=Yii::app()->baseUrl.'/uploads/news/thumb/'.$news->image?>" alt="">
                 </div>
                 <div class="val-description-block-gen-news">
+                     <span class="val-news-view"><?=$news->views;?></span>
                      <span class="val-content-news-data"><?= ($dateNow == date('Y-m-d', strtotime($news->date))) ? date('H:i', strtotime($news->date)) : intval(date('d', strtotime($news->date))).' '.Yii::app()->controller->getMonth($news->date).' '.date('Y', strtotime($news->date)); ?></span>
                     <h3 class="val-content-news-title-small"><?=CHtml::encode(Yii::app()->language == 'ru' ? $news->title_ru : $news->title_uk);?></h3>
                 </div>
@@ -51,28 +52,29 @@
         <h2 class="val-title-uppercase">
             Прямые включения
         </h2>
-        <div class="val-iframe-streams">
-            <div class="val-outer-frame">
-                <span class="val-ico-online"><i>Online</i></span>
-                <iframe width="100%" height="270px" src="<?= Streem::model()->findByPk(1)->url; ?>?chat=0" frameborder="0" allowfullscreen></iframe>
-            </div>
-            <div class="val-outer-frame">
-                <span class="val-ico-online"><i>Online</i></span>
-                <iframe width="100%" height="270px" src="<?= Streem::model()->findByPk(2)->url; ?>?chat=0" frameborder="0" allowfullscreen></iframe>
-            </div>
+        <div class="val-iframe-streams" data-src="<?= Streem::model()->findByPk(1)->url; ?>, <?= Streem::model()->findByPk(2)->url; ?>">
+            
         </div>
     </div>
     <div class="val-multimedia-block">
         <h2 class="val-title-uppercase">
-            Мультимедиа
+            <span>Мультимедиа</span>
+            <a href="#">Все видеорепортажи</a>
+            <a href="#">Все фоторепортажи</a>
         </h2>
         <div class="val-conteiner-multimedia">
             <?php foreach($multimedia as $videos): ?> 
                 <div class="val-conteiner-multimedia-items">
                     <? if(isset($videos->video)) : ?>
-                        <img src="http://img.youtube.com/vi/<?= $videos->video; ?>/mqdefault.jpg" alt="image01" />
+                        <a href="<?= Yii::app()->createUrl('/site/video', array('id'=>$videos->id)); ?>">
+                            <span class="val-ico-multimedia-video"></span>
+                            <img src="http://img.youtube.com/vi/<?= $videos->video; ?>/mqdefault.jpg" alt="image01" />
+                        </a>
                     <? else: ?>
-                        <?= CHtml::image(Yii::app()->baseUrl.'/uploads/galery/category/'.$videos->image, (Yii::app()->language == 'ru') ? $videos->name_ru : $video->name_uk); ?>
+                        <a href="<?= Yii::app()->createUrl('/site/photos', array('id'=>$videos->id)); ?>">
+                            <span class="val-ico-multimedia-photo"></span>
+                            <?= CHtml::image(Yii::app()->baseUrl.'/uploads/galery/category/'.$videos->image, (Yii::app()->language == 'ru') ? $videos->name_ru : $videos->name_uk); ?>
+                        </a>
                     <? endif; ?>
                 </div>
              <?php endforeach; ?>
@@ -81,4 +83,6 @@
 </article>
 <article class="val-column-right">
     
+</article>
+<article class="val-full-width-category">
 </article>

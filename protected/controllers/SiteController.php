@@ -37,49 +37,67 @@ class SiteController extends Controller
 
         $multimedia = [];
 
-        $l = 0;
-
-        for ($i=0; $i < 8; $i++) { 
-            if($l%2){$l++;}
+        for ($i = 0, $j = 0; $i < 8;) { 
             
-                if($i%2){
-                array_push($multimedia, $lastVideos[$l]);
-                } else {
-                    array_push($multimedia, $lastPhoto[$l]);
-                }
+            if($i%2){
+                array_push($multimedia, $lastVideos[$j]);
+                $j++;
+            } else {
+                array_push($multimedia, $lastPhoto[$j]);
+                
+            }
+            $i++;
  
         }
 
-        echo '<pre>';
-        print_r($multimedia);
-        print_r($lastPhoto);
 
-        exit;
-
-        //$provider = array();
+        
+        /*$popularBlogers = User::model()->findAllBySql("SELECT DISTINCT *, (SELECT COUNT(*) FROM articles WHERE author_id = `user`.`id`) AS count,(SELECT date FROM articles WHERE articles.author_id = user.id ORDER BY date LIMIT 1) AS dertw FROM user WHERE (user.role = 'bloger') ORDER BY dertw DESC LIMIT 9");*/
 
 
-       /* $provider[Yii::app()->language == 'ru' ? 'НОВОСТИ ПОЛИТИКИ' : 'НОВИНИ ПОЛІТИКИ'] = News::model()->with(array('category'=>array('condition'=>'category.id = "1"', 'select'=>false)))->findAll(array('limit'=>5, 'order'=>'date DESC', 'condition'=>'date < :now','params'=>array(':now'=>date('Y-m-d H:i:s', time())),));
-        $provider[Yii::app()->language == 'ru' ? 'НОВОСТИ ЭКОНОМИКИ' : 'НОВИНИ ЕКОНОМІКИ'] = News::model()->with(array('category'=>array('condition'=>'category.alias = "economic"', 'select'=>false)))->findAll(array('limit'=>5, 'order'=>'date DESC', 'condition'=>'date < :now','params'=>array(':now'=>date('Y-m-d H:i:s', time())),));
-        $provider[Yii::app()->language == 'ru' ? 'НОВОСТИ КУЛЬТУРЫ' : 'НОВИНИ КУЛЬТУРИ'] = News::model()->with(array('category'=>array('condition'=>'category.alias = "culture"', 'select'=>false)))->findAll(array('limit'=>5, 'order'=>'date DESC', 'condition'=>'date < :now','params'=>array(':now'=>date('Y-m-d H:i:s', time())),));
-        $provider[Yii::app()->language == 'ru' ? 'НОВОСТИ СПОРТА' : 'НОВИНИ СПОРТУ'] = News::model()->with(array('category'=>array('condition'=>'category.alias = "sport"', 'select'=>false)))->findAll(array('limit'=>5, 'order'=>'date DESC', 'condition'=>'date < :now','params'=>array(':now'=>date('Y-m-d H:i:s', time())),));
-        $provider[Yii::app()->language == 'ru' ? 'Чрезвычайные проишествия' : 'Надзвичайні події'] = News::model()->with(array('category'=>array('condition'=>'category.alias = "crime"', 'select'=>false)))->findAll(array('limit'=>5, 'order'=>'date DESC', 'condition'=>'date < :now','params'=>array(':now'=>date('Y-m-d H:i:s', time())),));
-        $provider[Yii::app()->language == 'ru' ? 'Технологии' : 'Технології'] = News::model()->with(array('category'=>array('condition'=>'category.alias = "it"', 'select'=>false)))->findAll(array('limit'=>5, 'order'=>'date DESC', 'condition'=>'date < :now','params'=>array(':now'=>date('Y-m-d H:i:s', time())),));
-        $provider[Yii::app()->language == 'ru' ? 'Курьезы' : 'Курйози'] = News::model()->with(array('category'=>array('condition'=>'category.alias = "curiosities"', 'select'=>false)))->findAll(array('limit'=>5, 'order'=>'date DESC', 'condition'=>'date < :now','params'=>array(':now'=>date('Y-m-d H:i:s', time())),));
-        $provider[Yii::app()->language == 'ru' ? 'Общество' : 'Cуспiльство'] = News::model()->with(array('category'=>array('condition'=>'category.alias = "social"', 'select'=>false)))->findAll(array('limit'=>5, 'order'=>'date DESC', 'condition'=>'date < :now','params'=>array(':now'=>date('Y-m-d H:i:s', time())),));
-        $analitic = News::model()->with(array('category'=>array('condition'=>'category.alias = "analitic"', 'select'=>false)))->findAll(array('limit'=>5, 'order'=>'date DESC', 'condition'=>'date < :now','params'=>array(':now'=>date('Y-m-d H:i:s', time()))));
-        $popularBlogers = User::model()->findAllBySql("SELECT DISTINCT *, (SELECT COUNT(*) FROM articles WHERE author_id = `user`.`id`) AS count,(SELECT date FROM articles WHERE articles.author_id = user.id ORDER BY date LIMIT 1) AS dertw FROM user WHERE (user.role = 'bloger') ORDER BY dertw DESC LIMIT 9");*/
+
+
+
 		$this->rightReclameId = 21;
         $this->render('index', array(
             'mostViewedSlider'=>$mostViewedSlider,
             'mostViewedLine'=>$mostViewedLine,
-            // 'provider'=>$provider,
             // 'analitic'=>$analitic,
             // 'popularBlogers'=>$popularBlogers,
             'multimedia'=>$multimedia,
             //'pages'=>$pages,
         ));
 	}
+
+
+    public function actionGetCategory()
+    {
+
+        $id = intval(trim(strip_tags($_GET['id'])));
+        $arrayOfCategory = Array();
+        $category = NewsCategory::model()->findAll(array('condition'=>'id = '.$id.'', 'limit'=>1));
+
+        if(is_int($id) == true && $id < 10){
+            $provider = News::model()->with(array('category'=>array('condition'=>'category.id = '.$id.'', 'select'=>false)))->findAll(array('limit'=>3, 'order'=>'date DESC', /*'condition'=>'date < :now','params'=>array(':now'=>date('Y-m-d H:i:s', time()))*/));
+
+            // foreach ($provider as $key => $value) {
+            //     $arrayTemplate = [];
+            //     foreach ($value as $keys => $values) {
+            //         $arrayTemplate[$keys] = strip_tags($values);
+            //     }
+            //     $arrayOfCategory[$key] = $arrayTemplate;
+            // }
+
+            $arrayOfCategory['news'] = CJSON::encode($provider);
+    
+            $arrayOfCategory['category'] = CJSON::encode($category);
+
+            $arrayOfCategory['language'] = Yii::app()->language;
+
+            echo json_encode($arrayOfCategory);
+        }
+        
+    }
 
     public function actionApp(){
 

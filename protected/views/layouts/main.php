@@ -38,8 +38,31 @@
             <header class="val-header">
                 <div class="val-top-line">
                     <div class="val-outer-left-button">
-                        <a href="#" class="val-button-menu">Меню</a>
-                        <a href="#" class="val-button-search">Поиск</a> 
+                        <div class="val-button-menu"><span>Меню</span></div>
+                        <div class="val-button-search">
+                            <span>Поиск</span>
+                            <div class="val-search-modal">
+                                <?php
+                                $this->beginWidget('CActiveForm', array(
+                                    'id'=>'srhiv',
+                                    'method'=>'get',
+                                    'action'=>array('/site/search'),
+                                ));
+                                ?>
+                                    <?= CHtml::textField('find', '', array('class'=>'val-form-control', 'placeholder'=>Yii::t('main', 'Запит...'))); ?>
+                                    <?= CHtml::dropDownList('category',
+                                        '',
+                                        CHtml::listData( NewsCategory::model()->findAll(),'id', Yii::app()->language == 'ru' ? 'name_ru' : 'name_uk') + array('video'=>Yii::t('main','Відео'), 'photo'=>Yii::t('main','Фото')),
+                                        array('class'=>'val-form-control', 'placeholder'=>Yii::t('main', 'Шукати...'), 'empty'=>Yii::t('main', 'Всі категорії'))
+                                    ); ?>
+                                    <?= CHtml::textField('publishDate', '', array('class'=>'val-form-control', 'placeholder'=>Yii::t('main', 'Формат: '.date('Y-m-d').''))); ?>
+                                    <?= CHtml::tag('button',
+                                        array('class' => 'button -gen-green'), 'Шукати'
+                                        ); ?>
+                                <?php $this->endWidget(); ?>
+                            </div>
+                        </div> 
+                        <?php $this->widget('application.components.widgets.LanguageSelector'); ?>
                     </div>
                     <div class="val-outer-social-button">
                         <ul>
@@ -118,5 +141,7 @@
         </section> 
     </section>
     <script src="public/js/controller.js"></script>
+    <script src="public/js/weather.js"></script>
+    <script src="public/js/currency.js"></script>
 </body>
 </html>

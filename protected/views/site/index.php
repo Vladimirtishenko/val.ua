@@ -82,7 +82,55 @@
     </div>
 </article>
 <article class="val-column-right">
-    
+    <div class="val-column-outer-right-line-news">
+         <h3 class="val-title-uppercase-small"><span>Не пропустите</span><a href="#">Все новости</a></h3>
+        <div class="val-line-news-with-img">
+           <a href="/ru/85437.html" class="val-block-gen-news -val-with-image-line-news">
+                <div class="val-image-block-gen-news">
+                   <img src="/uploads/news/thumb/56b1b4bdc9ad0.jpeg" alt="">
+                </div>
+                <div class="val-description-block-gen-news">
+                     <span class="val-date-line-news">3 февраля 2016</span>
+                     <p class="val-description-line-news-with-img">На Донбассе погиб боец из Черниговщины</p>
+                </div>
+            </a>
+            <a href="/ru/85437.html" class="val-block-gen-news -val-with-image-line-news">
+                <div class="val-image-block-gen-news">
+                   <img src="/uploads/news/thumb/56b1b4bdc9ad0.jpeg" alt="">
+                </div>
+                <div class="val-description-block-gen-news">
+                     <span class="val-date-line-news">3 февраля 2016</span>
+                     <p class="val-description-line-news-with-img">На Донбассе погиб боец из Черниговщины</p>
+                </div>
+            </a>
+            <a href="/ru/85437.html" class="val-block-gen-news -val-with-image-line-news">
+                <div class="val-image-block-gen-news">
+                   <img src="/uploads/news/thumb/56b1b4bdc9ad0.jpeg" alt="">
+                </div>
+                <div class="val-description-block-gen-news">
+                     <span class="val-date-line-news">3 февраля 2016</span>
+                     <p class="val-description-line-news-with-img">На Донбассе погиб боец из Черниговщины</p>
+                </div>
+            </a>
+            <a href="/ru/85437.html" class="val-block-gen-news -val-with-image-line-news">
+                <div class="val-image-block-gen-news">
+                   <img src="/uploads/news/thumb/56b1b4bdc9ad0.jpeg" alt="">
+                </div>
+                <div class="val-description-block-gen-news">
+                     <span class="val-date-line-news">3 февраля 2016</span>
+                     <p class="val-description-line-news-with-img">На Донбассе погиб боец из Черниговщины</p>
+                </div>
+            </a>
+            <a href="/ru/85437.html" class="val-block-gen-news -val-with-image-line-news">
+                <div class="val-image-block-gen-news">
+                   <img src="/uploads/news/thumb/56b1b4bdc9ad0.jpeg" alt="">
+                </div>
+                <div class="val-description-block-gen-news">
+                     <span class="val-date-line-news">3 февраля 2016</span>
+                     <p class="val-description-line-news-with-img">На Донбассе погиб боец из Черниговщины</p>
+                </div>
+            </a>
+        </div>
+    </div>
 </article>
-<article class="val-full-width-category">
-</article>
+<article class="val-full-width-category"></article>

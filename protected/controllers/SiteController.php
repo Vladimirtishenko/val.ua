@@ -80,15 +80,15 @@ class SiteController extends Controller
         if(is_int($id) == true && $id < 10){
             $provider = News::model()->with(array('category'=>array('condition'=>'category.id = '.$id.'', 'select'=>false)))->findAll(array('limit'=>3, 'order'=>'date DESC', /*'condition'=>'date < :now','params'=>array(':now'=>date('Y-m-d H:i:s', time()))*/));
 
-            // foreach ($provider as $key => $value) {
-            //     $arrayTemplate = [];
-            //     foreach ($value as $keys => $values) {
-            //         $arrayTemplate[$keys] = strip_tags($values);
-            //     }
-            //     $arrayOfCategory[$key] = $arrayTemplate;
-            // }
+            foreach ($provider as $key => $value) {
+                $arrayTemplate = [];
+                foreach ($value as $keys => $values) {
+                    $arrayTemplate[$keys] = strip_tags($values);
+                }
+                $arrayOfCategory[$key] = $arrayTemplate;
+            }
 
-            $arrayOfCategory['news'] = CJSON::encode($provider);
+            $arrayOfCategory['news'] = CJSON::encode($arrayOfCategory);
     
             $arrayOfCategory['category'] = CJSON::encode($category);
 

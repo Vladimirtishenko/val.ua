@@ -1,0 +1,36 @@
+@import '001func.styl'
+
+.val-column-right
+	float right
+	width 300px
+	
+.val-column-outer-right-line-news
+	width 100%
+	padding 20px
+	position relative
+	background #fff
+	&:before
+		width 250px
+		background generalGreenColor
+		height 2px 
+		position absolute
+		top 0
+		left 0
+		content ""
+
+.-val-with-image-line-news
+	padding 10px 0
+	box-sizing content-box
+	margin 0
+	border-bottom 1px solid backGrey
+	&:hover .val-description-line-news-with-img
+		color generalGreenColor
+	&:last-child
+		border none
+		
+.val-description-line-news-with-img	
+	color #000
+	font-size 14px
+	margin 10px 0 0
+	font-weight 400
+	line-height 16px

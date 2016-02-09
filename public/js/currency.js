@@ -74,7 +74,7 @@ var currensy = (function() {
 
     function templateForArray(a) {
 
-        var str = "<table class='-new-currensy'><tr><td><span>Банк</span></td><td><span style='font-size: 18px'>&#402;</span></td><td><span>Покупка</span></td><td><span>Продажа</span></td></tr>";
+        var str = "<table class='-new-currensy'><tr><th><span>Банк</span></th><th><span style='font-size: 18px'>&#402;</span></th><th><span>Покупка</span></th><th><span>Продажа</span></th></tr>";
 
         [].forEach.call(a, function(item, i) {
             str += "<tr>" + "<td><p><i>" + item.bankName + "</i></p></td>" + "<td><span><b>&euro;</b></span><span><b>$</b></span><span><b>R</b></span></td>" + "<td><span>" + gets(item, "EUR", "rateBuy") + "</span> <span>" + gets(item, "USD", "rateBuy") + "</span> <span>" + gets(item, "RUB", "rateBuy") + "</span></td>" + "<td><span>" + gets(item, "EUR", "rateSale") + "</span> <span>" + gets(item, "USD", "rateSale") + "</span> <span>" + gets(item, "RUB", "rateSale") + "</span></td>" + "</tr>"

@@ -1,13 +1,12 @@
-<div class="language">
+<div class="val-language-container">
     <?= CHtml::link(
         'Укр',
         $this->getOwner()->createMultilanguageReturnUrl('uk'),
-        array('class'=>'ukr')
+        array('class'=>'val-uk-lang -active-lang')
     ); ?>
-    <p class="languageText"><?= Yii::t('main', 'Мова'); ?></p>
     <?= CHtml::link(
         'Рус',
         $this->getOwner()->createMultilanguageReturnUrl('ru'),
-        array('class'=>'rus')
+        array('class'=>'val-ru-lang')
     ); ?>
 </div>

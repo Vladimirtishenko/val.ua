@@ -60,18 +60,9 @@ a
   vertical-align baseline
   text-decoration none
 
-/* change colours to suit your needs */
-ins 
-    background-color #ff9
-    color #000
-    text-decoration none
-
-/* change colours to suit your needs */
 mark
-  background-color #ff9
-  color #000
-  font-style italic
-  font-weight bold
+    font-style italic
+    font-weight 700
 
 del
   text-decoration line-through
@@ -95,9 +86,20 @@ hr
 
 input, select 
   vertical-align middle
-  
+
+span 
+  font-size 12px
 
 /* Defaults */
+
+.val-form-control
+  width 100%
+  height 32px
+  border 1px solid #DDDDDD
+  padding 0 10px
+  margin-bottom 15px
+  background #fff
+  color lightGreyText
 
 .val-all-outer
 	width 100%
@@ -134,6 +136,28 @@ input, select
   display table
   width 100%
 
+.val-title-uppercase-small
+  font-size 15px
+  font-family "HelveticaBold"
+  text-transform uppercase
+  display table
+  width 100%
+  margin 0 0 10px 0
+  
+.val-title-uppercase-small a 
+  display inline-block
+  float right
+  text-transform none
+  color generalGreenColor
+  font-weight normal !important
+  font-size 12px
+  font-family Arial
+  padding 0px 0px 3px
+  margin 0 10px
+  border-bottom 1px solid rgba(21,148,139,.33)
+  &:hover 
+    border-bottom 1px solid transparent
+
 .val-title-uppercase-with-line
   font-family "HelveticaBold"
   text-transform uppercase
@@ -143,6 +167,18 @@ input, select
   width 100%
   padding 12px 0 0 0
   border-top 2px solid generalGreenColor
+
+.val-title-uppercase-with-line a 
+  display inline-block
+  float right
+  text-transform none
+  color generalGreenColor
+  font-weight normal !important
+  font-size 12px
+  font-family Arial
+  padding 4px 0px 3px
+  margin 0 10px
+  border-bottom 1px solid rgba(21,148,139,.33)
 
 .val-title-uppercase a 
   display inline-block
@@ -155,3 +191,5 @@ input, select
   padding 4px 0px 3px
   margin 0 10px
   border-bottom 1px solid rgba(21,148,139,.33)
+  &:hover 
+    border-bottom 1px solid transparent

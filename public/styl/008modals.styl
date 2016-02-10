@@ -1,0 +1,74 @@
+@import '001func.styl'
+
+.val-modal-login-reg-outer
+	width 100%
+	height 100%
+	position fixed 
+	z-index 99999
+	display table
+	background rgba(90,90,90, .7)
+	opacity 0
+	transform translateY(-100%)
+	transition .5s
+
+.-active-outer
+	transform translate(0%)
+	opacity 1
+
+.val-cell-modal-outer
+	display table-cell
+	vertical-align middle
+
+.val-content-for-login
+	width 300px
+	position relative
+	margin 0 auto
+	background #fff
+	opacity 0
+	padding 20px
+	&:before
+		width 250px
+		background generalGreenColor
+		height 2px
+		position absolute
+		top 0
+		left 0
+		content ""
+	
+.-animate-content-window
+	animation-name opacitys
+	animation-delay .6s
+	animation-duration .6s
+	transition .2s
+	animation-fill-mode both
+
+@keyframes opacitys
+	from
+		opacity 0
+	to
+		opacity 1
+
+.sing
+	margin-top 10px
+
+.sing input
+	width 100%
+	height 32px
+	border none
+	background backGrey
+	margin 0px 0 20px
+	padding 0 10px
+	border 1px solid rgba(21, 148, 139, 0.1)
+
+.-no-margin-left-only-right
+	margin 0 10px 0 0
+
+.-val-remember-pass
+	color generalGreenColor
+	padding 2px 0
+	border-bottom 1px solid rgba(21,148,139,.33)
+	&:hover
+		border-bottom 1px solid transparent
+
+.remember
+	display none

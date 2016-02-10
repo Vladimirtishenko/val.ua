@@ -208,11 +208,38 @@ AjaxLoadCategory.prototype.templateWithoutImage = function (arrays, lang) {
     return template;
 }
 
+function Modal () {
+
+    var self = this;
+
+    this.login = document.querySelector('.-login');
+    this.registration = document.querySelector('.-registration');
+    this.outerModal = document.querySelector('.val-modal-login-reg-outer');
+
+    this.login.addEventListener('click', self.openLoginForm.bind(self));
+    this.registration.addEventListener('click', self.openRegForm.bind(self));
+
+}
+
+Modal.prototype.openLoginForm = function () {
+    var contentBox = document.querySelector("."+this.login.getAttribute('data-attr'));
+
+
+    this.outerModal.classList.add('-active-outer');
+    contentBox.classList.add('-animate-content-window');
+
+}
+
+Modal.prototype.openRegForm = function () {
+    // body...
+}
+
 
 function handlerAllStart(){
 	new Slider(document.querySelector('.val-list-slider'));
     new IframeGemerate(document.querySelector('.val-iframe-streams'));
-    new AjaxLoadCategory(document.querySelector('.val-full-width-category'))
+    new AjaxLoadCategory(document.querySelector('.val-full-width-category'));
+    new Modal();
 }
 
 

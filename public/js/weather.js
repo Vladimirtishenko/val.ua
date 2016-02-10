@@ -60,7 +60,6 @@ return {
            function readestateHandler(){
               if(this.status == 200 && this.readyState == 4){
                 var query = JSON.parse(this.responseText);
-                console.log(query);
                 tmp(query.forecast, query.now);
               }
            }

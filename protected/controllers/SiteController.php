@@ -453,7 +453,7 @@ class SiteController extends Controller
      */
     public function actionCategory($alias)
     {
-        $mostViewed = News::model()->with(array('category'=>array('condition'=>'category.alias = :alias', 'select'=>false, 'params'=>array(':alias'=>$alias))))->findAll(array('order'=>'date DESC', 'limit'=>6));
+       /* $mostViewed = News::model()->with(array('category'=>array('condition'=>'category.alias = :alias', 'select'=>false, 'params'=>array(':alias'=>$alias))))->findAll(array('order'=>'date DESC', 'limit'=>6));
         $notIn = '';
         foreach($mostViewed as $i => $model)
         {
@@ -476,13 +476,13 @@ class SiteController extends Controller
                     'pageSize'=>30
                 ),
         ));
-
+        */
         $category = NewsCategory::model()->findByAttributes(array('alias'=>$alias));
         $this->rightReclameId = 'rightColumnCategory'.ucfirst($category->alias);
         $this->render('category', array(
-            'dataProvider'=>$dataProvider,
-            'category'=>$category,
-            'mostViewed'=>$mostViewed,
+            //'dataProvider'=>$dataProvider,
+            'category'=>$category
+            //'mostViewed'=>$mostViewed,
         ));
     }
 

@@ -19,10 +19,8 @@
 
 <?php echo $form->passwordField($model,'password', array('placeholder'=>'Введите пароль...', 'class'=>'form-control', 'required'=>'required')); ?>
 
-<?= CHtml::tag('button',
-    array('class' => 'btn btn-info'),
-    '<span class="fa fa-sign-in"></span>'); ?>
-<button type="button" class="btn btn-info"><span class="fa fa-repeat rem"></span></button>
+<?= CHtml::tag('button', array('class' => 'button -gen-green -no-margin-left-only-right'), 'Войти') ?>
+<a href="#" class="-val-remember-pass">Напомнить пароль</a>
 
 
 <?php $this->endWidget(); ?>

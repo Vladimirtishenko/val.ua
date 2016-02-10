@@ -30,9 +30,17 @@
     <meta name="google-site-verification" content="ZKjQqhmkC9GTAIJI6KoY8DGJFhe_uTALVdqMQ2GrwZo" />
     <link rel="Shortcut Icon" type="image/x-icon" href="<?= Yii::app()->baseUrl; ?>/images/favicon.ico">
     <link rel="alternate" href="http://val.ua/feed/rss/" type="application/xml" title="Val.ua Rss">
-    <link rel="stylesheet" href="<?= Yii::app()->baseUrl; ?>public/prodaction/bundle.min.css">
+    <link rel="stylesheet" href="<?= Yii::app()->baseUrl; ?>/public/prodaction/bundle.min.css">
 </head>
 <body>
+    <div class="val-modal-login-reg-outer">
+        <div class="val-cell-modal-outer">
+            <div class="val-content-for-login -login-modal">
+                <h3 class="val-title-uppercase-small"><span>Вход</span></h3>
+                <?php $this->widget('application.components.widgets.AuthWidget'); ?>
+            </div>
+        </div>
+    </div>
     <section class="val-all-outer">
         <section class="val-header-outer-block">
             <header class="val-header">
@@ -87,12 +95,12 @@
                         </ul>
                     </div>
                     <div class="val-outer-right-button">
-                        <button class="button -gen-green">Вход</button>
-                        <button class="button -gen-blue">Регистрация</button>
+                        <button class="button -gen-green -login" data-attr="-login-modal">Вход</button>
+                        <button class="button -gen-blue -registration">Регистрация</button>
                     </div>
                 </div>
                 <div class="val-logo-line">
-                    <?= CHtml::link(CHtml::image(Yii::app()->baseUrl.'public/images/logo.png', 'logo'),array('/site/index')); ?>
+                    <?= CHtml::link(CHtml::image(Yii::app()->baseUrl.'/public/images/logo.png', 'logo'),array('/site/index')); ?>
                 </div>
                 <div class="val-widget-line">
                     <ul>
@@ -140,10 +148,10 @@
             <?= $content; ?>
         </section> 
     </section>
-    <script src="public/js/controller.js"></script>
-    <script src="public/js/weather.js"></script>
-    <script src="public/js/currency.js"></script>
-    <script src="public/js/pikaday.js"></script>
+    <script src="<?= Yii::app()->baseUrl; ?>/public/js/controller.js"></script>
+    <script src="<?= Yii::app()->baseUrl; ?>/public/js/weather.js"></script>
+    <script src="<?= Yii::app()->baseUrl; ?>/public/js/currency.js"></script>
+    <script src="<?= Yii::app()->baseUrl; ?>/public/js/pikaday.js"></script>
     <script>
         var picker = new Pikaday({ field: document.getElementById('datepicker') });
     </script>

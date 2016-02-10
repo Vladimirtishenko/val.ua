@@ -143,5 +143,9 @@
     <script src="public/js/controller.js"></script>
     <script src="public/js/weather.js"></script>
     <script src="public/js/currency.js"></script>
+    <script src="public/js/pikaday.js"></script>
+    <script>
+        var picker = new Pikaday({ field: document.getElementById('datepicker') });
+    </script>
 </body>
 </html>

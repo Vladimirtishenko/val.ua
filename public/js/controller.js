@@ -43,6 +43,8 @@ Slider.prototype._clickSlideHandlers = function(event) {
         self = this,
         clicked = parseInt(target.getAttribute('data-slide'));
 
+        if(!clicked) return;
+
     if (clicked > this.currentSlide) {
         if ((this.currentSlide + 1) < clicked) {
             var move = parseInt((-self.width) * clicked);

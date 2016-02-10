@@ -29,12 +29,28 @@ class SiteController extends Controller
 	public function actionIndex()
 	{  
 
-        $mostViewed = News::model()->findAll(array('order'=>'date DESC', 'limit'=>10, 'condition'=>'main = 1 AND date < :now', 'params'=>array(':now'=>date('Y-m-d H:i:s', time()))));
+        $mostViewed = News::model()->findAll(array(
+            'select'=>'id, date, image, title_ru, title_uk, description_ru, description_uk, views',
+            'limit'=>'10',
+            'order'=>'date DESC'
+        ));
+
         $mostViewedSlider = array_slice($mostViewed, 0, 5);
         $mostViewedLine = array_slice($mostViewed, 5, 5);
+        
+        // $allNews = News::model()->findAll(array('limit'=>15, 'order'=>'date DESC', 'condition'=>'date < :now','params'=>array(':now'=>date('Y-m-d H:i:s', time())))); ---- this is time in future don`t show
+
+        $allNews = News::model()->findAll(array(
+            'select'=>'id, date, image, title_ru, title_uk, views',
+            'limit'=>'15',
+            'order'=>'date DESC'
+        ));
+
+        $allNewsPhoto = array_slice($allNews, 0, 5);
+        $allNewsLine = array_slice($allNews, 5, 15);
+        
         $lastVideos = Video::model()->findAll(array('order'=>'date DESC', 'limit'=>4));
         $lastPhoto = PhotoCategory::model()->findAll(array('order'=>'date DESC', 'limit'=>4, 'select'=>'name_ru, name_uk, id, image'));
-
         $multimedia = [];
 
         for ($i = 0, $j = 0; $i < 8;) { 
@@ -47,25 +63,24 @@ class SiteController extends Controller
                 
             }
             $i++;
- 
         }
 
-
-        
-        /*$popularBlogers = User::model()->findAllBySql("SELECT DISTINCT *, (SELECT COUNT(*) FROM articles WHERE author_id = `user`.`id`) AS count,(SELECT date FROM articles WHERE articles.author_id = user.id ORDER BY date LIMIT 1) AS dertw FROM user WHERE (user.role = 'bloger') ORDER BY dertw DESC LIMIT 9");*/
-
-
-
-
+        $popularBlogers = Yii::app()->db->createCommand()
+            ->select('u.id AS user_id, u.name AS user_name, u.profession AS user_profession, u.avatar AS user_avatar, a.id AS article_id, a.date AS article_date, a.title AS article_title')
+            ->from('articles a')
+            ->join('user u', 'a.author_id=u.id')
+            ->limit(1)
+            ->order('date DESC')
+            ->queryRow();
 
 		$this->rightReclameId = 21;
         $this->render('index', array(
             'mostViewedSlider'=>$mostViewedSlider,
             'mostViewedLine'=>$mostViewedLine,
-            // 'analitic'=>$analitic,
-            // 'popularBlogers'=>$popularBlogers,
+            'allNewsPhoto'=>$allNewsPhoto,
+            'allNewsLine'=>$allNewsLine,
             'multimedia'=>$multimedia,
-            //'pages'=>$pages,
+            'popularBlogers'=>$popularBlogers,
         ));
 	}
 

@@ -30,7 +30,125 @@
 		
 .val-description-line-news-with-img	
 	color #000
-	font-size 14px
+	font-size 13px
 	margin 10px 0 0
 	font-weight 400
 	line-height 16px
+
+.-val-no-padding
+	padding 5px 0 0 0
+	
+.val-blogers-column
+	margin 25px 0
+	
+.val-text-article-text
+	border-width 2px 2px 2px 0px
+	border-color generalGreenColor
+	padding 15px 15px 15px 0
+	border-style solid
+	border-radius 0 20px 20px 0
+	position relative 
+	&:before
+		content ""
+		position absolute
+		right 39px
+		bottom -21px
+		display inline-block
+		width 0
+		height 0
+		border-top 20px solid generalGreenColor
+		border-left 20px solid transparent
+	&:after
+		content ""
+		position absolute
+		right 41px
+		bottom -16px
+		display inline-block
+		width 0
+		height 0
+		border-top 18px solid backGrey
+		border-left 18px solid transparent
+
+.val-text-article-text a 
+	font-size 14px
+	font-style italic
+	color #3e3e3e
+	&:hover
+		color generalGreenColor
+	
+.val-bloger-info
+	width 100%
+	display table
+	margin-top 10px
+
+.val-bloger-top
+	margin-top -5px
+	
+.val-bloger-avatar
+	width 60px 
+	height 60px
+	float left
+	margin-right 20px
+	
+.val-info-bloger-name
+	font-size 14px
+	font-weight 700
+	margin 5px 0 2px
+	color #000
+	display block
+	&:hover 
+		color lightGreyText
+	
+.val-bloger-info-description
+	padding 10px 0
+
+.val-info-bloger-prof
+	font-size 13px
+	color lightGreyText	
+	
+.val-list-accard
+	padding 0
+	margin 20px 0
+	list-style none
+
+.val-list-item-accrd
+	margin 10px 0
+
+.val-outer-block-item-accard
+	color #000
+	&:hover .-sinoptic
+		height 370px
+	&:hover .-else
+		height 620px
+		
+	
+.val-title-item-accard
+	padding 8px 15px
+	background #fff
+	display inline-block
+	width 100%
+	cursor pointer
+	
+.val-outer-hide-accrad
+	position relative
+	height 0px
+	overflow hidden
+	transition .5s
+
+.val-innre-hide-accard
+	position relative
+	top 10px
+
+.-gren-line-accrad
+	background generalGreenColor i
+	color #fff i
+	font-size 16px
+	font-family "HelveticaBold"
+	text-transform uppercase
+	padding 17px 20px
+	
+#datepicker
+	display none
+
+.-kalendar
+	height 235px i

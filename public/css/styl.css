@@ -177,6 +177,25 @@ span {
 
 /* Defaults */
 
+.val-alert {
+  position: relative;
+  z-index: 999999;
+}
+
+.val-alert p {
+  padding: 20px;
+}
+
+.val-flash-close {
+  width: 16px;
+  height: 16px;
+  background: url("../images/sprite.png") -218px 22px;
+  display: inline-block;
+  position: absolute;
+  right: 20px;
+  top: 10px;
+}
+
 .val-form-control {
   width: 100%;
   height: 32px;
@@ -201,6 +220,7 @@ span {
   border: none;
   margin-left: 7px;
   border-radius: 2px;
+  display: inline-block;
   cursor: pointer;
 }
 
@@ -215,7 +235,7 @@ span {
 .val-outer-news-block {
   width: 1028px;
   margin: 0 auto;
-  padding: 40px 0;
+  padding: 40px 0 10px;
   display: table;
 }
 
@@ -1139,12 +1159,28 @@ span {
   height: 620px;
 }
 
+.val-outer-block-item-accard:hover .val-title-item-accard:before {
+  background: url("../images/sprite.png") -275px -29px no-repeat;
+}
+
 .val-title-item-accard {
   padding: 8px 15px;
   background: #fff;
   display: inline-block;
   width: 100%;
   cursor: pointer;
+  position: relative;
+}
+
+.val-title-item-accard:before {
+  position: absolute;
+  width: 26px;
+  height: 26px;
+  display: inline-block;
+  content: "";
+  right: 20px;
+  top: 11px;
+  background: url("../images/sprite.png") -246px -28px no-repeat;
 }
 
 .val-outer-hide-accrad {
@@ -1818,6 +1854,7 @@ span.icon-weather-min-36 {
   margin: 0 auto;
   background: #fff;
   opacity: 0;
+  display: none;
   padding: 20px;
 }
 
@@ -1839,11 +1876,19 @@ span.icon-weather-min-36 {
   animation-fill-mode: both;
 }
 
-.sing {
-  margin-top: 10px;
+.-animate-content-window-close {
+  animation-name: hidens;
+  animation-delay: 0s;
+  animation-duration: 0.6s;
+  transition: 0.2s;
+  animation-fill-mode: both;
 }
 
-.sing input {
+.val-html-modal-form .val-title-uppercase-small {
+  margin-bottom: 20px;
+}
+
+.val-html-modal-form input {
   width: 100%;
   height: 32px;
   border: none;
@@ -1869,6 +1914,24 @@ span.icon-weather-min-36 {
 
 .remember {
   display: none;
+}
+
+.val-notice {
+  padding: 20px 0 0;
+  font-size: 13px;
+  color: #60afb8;
+  line-height: 16px;
+}
+
+.val-close-modals {
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  position: absolute;
+  right: 20px;
+  top: 16px;
+  cursor: pointer;
+  background: url("../images/sprite.png") -218px 22px;
 }
 
 @-moz-keyframes opacitys {
@@ -1909,4 +1972,162 @@ span.icon-weather-min-36 {
   to {
     opacity: 1;
   }
+}
+
+@-moz-keyframes hidens {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes hidens {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+@-o-keyframes hidens {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes hidens {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+.val-footer {
+  width: 100%;
+  background: #fff;
+}
+
+.val-inner-footer {
+  width: 1028px;
+  margin: 0 auto;
+  display: table;
+}
+
+.val-footer-list {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  list-style: none;
+  padding: 40px 0;
+}
+
+.val-footer-for-logo-first-container {
+  width: 30%;
+}
+
+.val-footer-second-container {
+  width: 20%;
+  margin-top: -10px;
+}
+
+.val-footer-third-container {
+  width: 35%;
+}
+
+.val-text-footer {
+  font-size: 12px;
+  line-height: 14px;
+}
+
+.val-logo-footer {
+  margin-bottom: 15px;
+  margin-top: -10px;
+}
+
+.val-text-footer a {
+  color: #15948b;
+}
+
+.val-title-content-text {
+  padding-bottom: 10px;
+  display: block;
+}
+
+.val-content-text {
+  padding-bottom: 15px;
+  display: block;
+  line-height: 18px;
+}
+
+.val-phones span {
+  color: #7d7d7d;
+  display: block;
+  line-height: 18px;
+}
+
+.val-phones span a {
+  color: #000;
+}
+
+.val-link-footer {
+  padding: 10px 5px;
+  border-bottom: 1px solid #ededed;
+}
+
+.val-link-footer a {
+  color: #000;
+  text-transform: uppercase;
+}
+
+.val-link-footer a:hover {
+  color: #15948b;
+}
+
+.val-footer-third-container {
+  position: relative;
+}
+
+.val-footer-third-container p {
+  font-size: 12px;
+  line-height: 18px;
+  padding: 15px 0 0;
+}
+
+.val-footer-third-container h5 {
+  text-transform: uppercase;
+  font-size: 13px;
+}
+
+.val-soc-in-footer .val-outer-social-button {
+  position: relative;
+  left: 0;
+  top: 15px;
+  margin: 0;
+}
+
+.val-development {
+  width: 1028px;
+  margin: 0 auto;
+  display: table;
+  border-top: 1px solid #e0e0e0;
+  padding: 20px;
+  text-align: center;
+}
+
+.val-text-development,
+.val-development a {
+  display: inline-block;
+  vertical-align: middle;
+  padding: 0 5px;
 }

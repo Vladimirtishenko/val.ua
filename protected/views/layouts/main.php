@@ -33,11 +33,18 @@
     <link rel="stylesheet" href="<?= Yii::app()->baseUrl; ?>/public/prodaction/bundle.min.css">
 </head>
 <body>
+    <!-- Flash message -->
+        <?php $this->widget('application.components.widgets.FlashWidget'); ?>
+    <!-- End Flash message -->
     <div class="val-modal-login-reg-outer">
         <div class="val-cell-modal-outer">
             <div class="val-content-for-login -login-modal">
-                <h3 class="val-title-uppercase-small"><span>Вход</span></h3>
+                <span class="val-close-modals"></span>
                 <?php $this->widget('application.components.widgets.AuthWidget'); ?>
+            </div>
+            <div class="val-content-for-login -reg-modal">
+                <span class="val-close-modals"></span>
+                <?php $this->widget('application.components.widgets.RegistrationWidget'); ?>
             </div>
         </div>
     </div>
@@ -95,8 +102,13 @@
                         </ul>
                     </div>
                     <div class="val-outer-right-button">
-                        <button class="button -gen-green -login" data-attr="-login-modal">Вход</button>
-                        <button class="button -gen-blue -registration">Регистрация</button>
+                        <?php if(Yii::app()->user->isGuest): ?>
+                            <button class="button -gen-green -login" data-attr="-login-modal"><?= Yii::t('main', 'Вхід'); ?></button>
+                            <button class="button -gen-blue -registration" data-attr="-reg-modal"><?= Yii::t('main', 'Реєстрація'); ?></button>
+                        <?php else: ?>
+                            <a href="<?= Yii::app()->createUrl('/blog/cabinet/index'); ?>" class="button -gen-blue"><?= Yii::t('main', 'Особистий кабінет'); ?></a>
+                            <a href="<?= Yii::app()->createUrl('/site/logout'); ?>" class="button -gen-green" data-attr="-login-modal"><?= Yii::t('main', 'Вихід'); ?></a>
+                        <?php endif; ?>
                     </div>
                 </div>
                 <div class="val-logo-line">
@@ -147,7 +159,71 @@
         <section class="val-outer-news-block">
             <?= $content; ?>
         </section> 
+        <footer class="val-footer">
+            <div class="val-inner-footer">
+                <ul class="val-footer-list">
+                    <li class="val-footer-for-logo-first-container">
+                       <div class="val-text-footer">
+                            <?=CHtml::image(Yii::app()->baseUrl.'/public/images/logo_footer.png', 'val-logo-footer'); ?>
+                             <span class="val-content-text">При будь-якому використанні матеріалів гіперпосилання на <a href="/">Val.ua</a> є обов'язковим. </span>
+                             <span class="val-content-text">Передрук в газетах і електронних ЗМІ - виключно за наявності письмової угоди з Редакцією! </span>
+                             <span class="val-content-text">E-mail редакції: <a href="mailto:news@val.ua">news@val.ua</a></span>
+                             <div class="val-phones">
+                                 <span>Тел.Чернігiв: <a href="#">931-931</a> </span>
+                                 <span>Тел.Киiв: <a href="#">232-79-79</a> </span>
+                                 <span>Тел.Нью-Йорку: <a href="#">+1-917-200-9214</a> </span>
+                             </div> 
+                        </div>  
+                    </li>
+                    <li class="val-footer-second-container">
+                        <p class="val-link-footer"><?= CHtml::link(Yii::t('main', 'Політика'), array('/site/category', 'alias'=>'politics')); ?></p>
+                        <p class="val-link-footer"><?= CHtml::link(Yii::t('main', 'Суспільство'), array('/site/category', 'alias'=>'social')); ?></p>
+                        <p class="val-link-footer"><?= CHtml::link(Yii::t('main', 'Всi новини'), array('/site/allNews')); ?></p>
+                        <p class="val-link-footer"><?= CHtml::link(Yii::t('main', 'Фоторепортажi'), array('/site/photos')); ?></p>
+                        <p class="val-link-footer"><?= CHtml::link(Yii::t('main', 'Вiдеоматерiали'), array('/site/videos')); ?></p>
+                        <p class="val-link-footer"><?= CHtml::link(Yii::t('main', 'Блоги'), array('/blog/default/index')); ?></p>
+                    </li>
+                     <li class="val-footer-third-container">
+                       <h5>Вiдповiдальнiсть та зобов`язання</h5>
+                       <p>Редакція може не поділяти точку зору авторів і не несе відповідальності за зміст републікованих матеріалів.</p>
+                       <p><b>ШАНОВНІ КОМЕНТАТОРИ!</b> Редакція веб-сайту не має намірів обмежувати свободу слова, але залишає за собою право видаляти висловлювання з уживанням нецензурної лексики та образ на адресу авторів матеріалів і їх фігурантів.</p>
+                       <p>Високий Вал у соцiальних мережах: </p>
+                      <div class="val-soc-in-footer">
+                          <div class="val-outer-social-button">
+                                <ul>
+                                    <li>
+                                        <a href="#" class="val-twitter"></a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="val-vk"></a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="val-g"></a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="val-youtube"></a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="val-fb"></a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="val-rss"></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>  
+            <div class="val-development">   
+                <span class="val-text-development">Разработка сайта</span>
+                <a href="http://4side.in.ua">
+                    <?=CHtml::image(Yii::app()->baseUrl.'/public/images/4side.png', '4side development')?>
+                </a>
+            </div>          
+        </footer>
     </section>
+    <script src="<?= Yii::app()->baseUrl; ?>/public/js/model.js"></script>
     <script src="<?= Yii::app()->baseUrl; ?>/public/js/controller.js"></script>
     <script src="<?= Yii::app()->baseUrl; ?>/public/js/weather.js"></script>
     <script src="<?= Yii::app()->baseUrl; ?>/public/js/currency.js"></script>

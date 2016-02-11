@@ -592,14 +592,15 @@ class SiteController extends Controller
             $model->verification = uniqid();
             $model->avatar = 'default-user-icon-profile.png';
             $link = 'http://' . $_SERVER['HTTP_HOST'].$this->createUrl('/site/verify', array('verification'=>$model->verification));
+            var_dump($link);
             if($model->sendMail($model, Yii::t('main', 'Підтвердження реєстрації'), $link) && $model->save())
             {
-                Yii::app()->user->setFlash('success',Yii::t('main', 'Дякуємо за реєстрацію, на вашу електронну адресу відправлено лист з подальшими інструкціями'));
-                $this->redirect('/site/index');
+                $message = Yii::t('main', 'Дякуємо за реєстрацію, на вашу електронну адресу відправлено лист з подальшими інструкціями');
+                echo json_encode($message);
             }
             else {
-                Yii::app()->user->setFlash('error', CHtml::errorSummary($model));
-                $this->redirect('index');
+                $message = CHtml::errorSummary($model);
+                echo json_encode($message);
             }
         }
     }
@@ -629,33 +630,26 @@ class SiteController extends Controller
      */
     public function actionLogin()
     {
-        $model=new LoginForm;
+        $model = new LoginForm;
 
-        // if it is ajax validation request
-        if(isset($_POST['ajax']) && $_POST['ajax']==='login-form')
-        {
-            echo CActiveForm::validate($model);
-            Yii::app()->end();
-        }
-
-        // collect user input data
-        if(isset($_POST['LoginForm']))
-        {
+        if(isset($_POST['LoginForm'])){
+            
             $model->attributes=$_POST['LoginForm'];
 
-            if($model->validate() && $model->login()) {
-                Yii::app()->user->setFlash('success', Yii::t('main', 'Логін і пароль пройшов перевірку тепер ви можете зайти в особистий кабінет'));
-                Yii::app()->user->role == 'admin' ? $this->redirect('/admin/default/index') : $this->redirect(Yii::app()->user->returnUrl);
-            }
-            else {
-                Yii::app()->user->setFlash('error', Yii::t('main', 'Не вірні ім`я користувача або пароль'));
-                $this->refresh();
-            }
-        }
-        else {
-            $this->redirect('index');
-        }
+                if($model->validate() && $model->login()) {
+                    $location = [];
+                    Yii::app()->user->role == 'admin' ? $location['href'] = '/admin/' :  $location['href'] = Yii::app()->user->returnUrl;
+                    echo json_encode($location);
+                } else {
+                    $message = "Користувач або пароль не знайденний";
+                    echo json_encode($message);
+                }
+            
 
+        } else {
+            $message = "Заповніть коректно всі поля";
+            echo json_encode($message);
+        }
     }
 
     /**

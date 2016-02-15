@@ -428,17 +428,13 @@
                 return;
             }
 
-
-
             if (!hasClass(target, 'is-disabled')) {
                 if (hasClass(target, 'pika-button') && !hasClass(target, 'is-empty')) {
 
                     var day = target.getAttribute('data-pika-day').length == 1 ? '0'+target.getAttribute('data-pika-day') : target.getAttribute('data-pika-day'),
                         month = target.getAttribute('data-pika-month').length == 1 ? '0'+(parseInt(target.getAttribute('data-pika-month'))+1) :(parseInt(target.getAttribute('data-pika-month'))+1);
 
-                        console.log('http://val.ua/uk/site/news/date/'+target.getAttribute('data-pika-year')+'-'+month+'-'+day+'.html')
-
-                    //location.href = 'http://val.ua/uk/site/news/date/'+target.getAttribute('data-pika-year')+'-'+month+'-'+day+'.html'
+                    location.href = 'http://val.ua/uk/site/news/date/'+target.getAttribute('data-pika-year')+'-'+month+'-'+day+'.html';
                 }
                 else if (hasClass(target, 'pika-prev')) {
                     self.prevMonth();

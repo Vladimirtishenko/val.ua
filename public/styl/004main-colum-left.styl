@@ -22,6 +22,8 @@
 	height 230px
 	width 688px
 	background #fff
+	&:hover .val-content-news-description
+		color generalGreenColor
 	
 .val-left-in-slide
 	float left
@@ -39,6 +41,9 @@
 .val-content-news-data
 	color generalGreenColor
 	font-size 12px
+
+.-val-line-all
+	margin-top 10px
 	
 .val-content-news-title
 	color #000
@@ -78,13 +83,32 @@
 	float left
 	display table
 
+.val-gen-news-column.-category
+	width 100%
+
+.-category .val-block-gen-news
+	float left
+	width 48%
+	margin 1%
+	&:hover .val-content-news-title-small
+		color generalGreenColor
+	&:hover .val-content-news-data
+		color lightGreyText
+
+.-category .val-content-news-title-small
+	font-size 13px
+	margin 10px 0
+	color #000
+	line-height 16px
+	font-weight 400
+
 .val-block-gen-news
 	height 105px
 	overflow hidden
-	margin-bottom 10px
 	background #fff
 	width 100%
 	display block
+	margin-bottom 10px
 
 .val-description-block-gen-news
 	padding 15px 10px 0 0
@@ -336,3 +360,5 @@
 	line-height 17px
 	color #000
 	padding 0 20px 20px 20px
+	
+	

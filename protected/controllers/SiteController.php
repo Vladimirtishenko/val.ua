@@ -2,10 +2,15 @@
 
 class SiteController extends Controller
 {
+
     public $rightReclameId = null;
+    public $menu = null;
+    public $categoryId = null;
 	/**
 	 * Declares class-based actions.
 	 */
+
+
 	public function actions()
 	{
 		return array(
@@ -22,12 +27,33 @@ class SiteController extends Controller
 		);
 	}
 
+
+    public function getMenu() {
+       return NewsCategory::model()->findAll();
+    }
+
+    public function init() {
+
+        $url = explode("/", Yii::app()->request->requestUri);
+        $categoryId = null;
+
+        if(in_array('category', $url)){
+            $categoryId = $_GET['id'] ? $_GET['id'] : null;
+        }
+
+        $this->menu = $this->getMenu();    
+        $this->categoryId = $categoryId;    
+
+        return $this->menu;
+
+    }
+
 	/**
 	 * This is the default 'index' action that is invoked
 	 * when an action is not explicitly requested by users.
 	 */
 	public function actionIndex()
-	{  
+	{      
 
         $mostViewed = News::model()->findAll(array(
             'select'=>'id, date, image, title_ru, title_uk, description_ru, description_uk, views',
@@ -65,25 +91,15 @@ class SiteController extends Controller
             $i++;
         }
 
-        $popularBlogers = Yii::app()->db->createCommand()
-            ->select('u.id AS user_id, u.name AS user_name, u.profession AS user_profession, u.avatar AS user_avatar, a.id AS article_id, a.date AS article_date, a.title AS article_title')
-            ->from('articles a')
-            ->join('user u', 'a.author_id=u.id')
-            ->limit(1)
-            ->order('date DESC')
-            ->queryRow();
-
 		$this->rightReclameId = 21;
         $this->render('index', array(
             'mostViewedSlider'=>$mostViewedSlider,
             'mostViewedLine'=>$mostViewedLine,
             'allNewsPhoto'=>$allNewsPhoto,
             'allNewsLine'=>$allNewsLine,
-            'multimedia'=>$multimedia,
-            'popularBlogers'=>$popularBlogers,
+            'multimedia'=>$multimedia
         ));
 	}
-
 
     public function actionGetCategory()
     {
@@ -104,11 +120,8 @@ class SiteController extends Controller
             }
 
             $arrayOfCategory['news'] = CJSON::encode($arrayOfCategory);
-    
             $arrayOfCategory['category'] = CJSON::encode($category);
-
             $arrayOfCategory['language'] = Yii::app()->language;
-
             echo json_encode($arrayOfCategory);
         }
         
@@ -365,7 +378,10 @@ class SiteController extends Controller
     }
 
     public function actionAllNews()
-    {
+    {   
+
+        $this->layout = '//layouts/column2';
+
         $news = new CActiveDataProvider('News',
             array(
                 'criteria'=>array(
@@ -379,7 +395,7 @@ class SiteController extends Controller
                 ),
             )
         );
-        $this->render('search', array('searchNews'=>$news, 'searchPhotos'=>null, 'searchVideos'=>null));
+        $this->render('allNews', array('allNews'=>$news));
     }
 
     public function actionVideos()
@@ -449,11 +465,12 @@ class SiteController extends Controller
     }
 
     /**
-     * @param $alias
+     * @param $id
      */
-    public function actionCategory($alias)
-    {
-       /* $mostViewed = News::model()->with(array('category'=>array('condition'=>'category.alias = :alias', 'select'=>false, 'params'=>array(':alias'=>$alias))))->findAll(array('order'=>'date DESC', 'limit'=>6));
+    public function actionCategory($id)
+    {   
+
+        $mostViewed = News::model()->with(array('category'=>array('condition'=>'category.id = :id', 'select'=>false, 'params'=>array(':id'=>$id))))->findAll(array('order'=>'date DESC', 'limit'=>5));
         $notIn = '';
         foreach($mostViewed as $i => $model)
         {
@@ -466,23 +483,24 @@ class SiteController extends Controller
         $dataProvider = new CActiveDataProvider('News',
             array(
                 'criteria'=>array(
-                    'condition'=>'category.alias = :alias AND t.id NOT IN('.trim($notIn, ',').')',
-                    'params'=>array(':alias'=>$alias),
+                    'condition'=>'category.id = :id AND t.id NOT IN('.trim($notIn, ',').')',
+                    'params'=>array(':id'=>$id),
                     'with'=>array('category'),
-                    'order'=>'date DESC',
+                    'order'=>'date DESC'
                 ),
                 'sort'=>false,
                 'pagination'=>array(
-                    'pageSize'=>30
+                    'pageSize'=>36
                 ),
         ));
-        */
-        $category = NewsCategory::model()->findByAttributes(array('alias'=>$alias));
-        $this->rightReclameId = 'rightColumnCategory'.ucfirst($category->alias);
+        
+        $this->layout = '//layouts/column2';
+        $category = NewsCategory::model()->findByAttributes(array('id'=>$id));
+        $this->rightReclameId = 'rightColumnCategory'.ucfirst($category->id);
         $this->render('category', array(
-            //'dataProvider'=>$dataProvider,
-            'category'=>$category
-            //'mostViewed'=>$mostViewed,
+            'dataProvider'=>$dataProvider,
+            'category'=>$category,
+            'mostViewed'=>$mostViewed
         ));
     }
 
@@ -491,6 +509,9 @@ class SiteController extends Controller
      */
     public function actionNews($id = 1)
     {
+
+        $this->layout = '//layouts/column2';
+
         if(isset($_GET['date']))
         {
             $criteria = new CDbCriteria();
@@ -503,7 +524,7 @@ class SiteController extends Controller
                     'criteria'=>$criteria,
                     'sort'=>false,
                     'pagination'=>array(
-                        'pageSize'=>27
+                        'pageSize'=>30
                     ),
                 ));
             $this->render('calendarSearch', array('searchNews'=>$news));
@@ -514,7 +535,7 @@ class SiteController extends Controller
 			if(!$data)
 				$data = NewsOld::model()->findByPk($id);
             $this->rightReclameId = 24;
-            $relatedNews = News::model()->findAll(array('condition'=>'category_id = :cat_id AND id NOT IN (:id)', 'params'=>array(':cat_id'=>$data->category_id, ':id'=>$data->id), 'limit'=>21, 'order'=>'date Desc'));
+            $relatedNews = News::model()->findAll(array('condition'=>'category_id = :cat_id AND id NOT IN (:id)', 'params'=>array(':cat_id'=>$data->category_id, ':id'=>$data->id), 'limit'=>24, 'order'=>'date Desc'));
             $this->render('news', array('data'=>$data, 'relatedNews'=>$relatedNews));
         }
     }

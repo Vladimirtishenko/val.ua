@@ -12,10 +12,12 @@
     <?php endif; ?>
 
     <?php if(!empty($searchNews->data)): ?>
-    <div class="forBlogH3">
-        <h3><?= Yii::t('main', 'Результати пошуку'); ?></h3> <span class="fa fa-search-plus"></span> <a><?= Yii::t('main', 'Новини'); ?></a>
-    </div>
     
+    <h3 class="val-title-uppercase-with-line">
+        <span> <?=Yii::t('main', 'Результати пошуку');?> </span>
+        <?= CHtml::link(Yii::t('main', 'Новини'), array('/site/allNews')); ?>
+     </h3>
+
     <div class="val-outer-line-news">
         <div class="val-gen-news-column -category">
             <?php
@@ -48,9 +50,10 @@
     <?php endif; ?>
 
     <?php if(!empty($searchPhotos->data)): ?>
-        <div class="forBlogH3">
-            <h3><?= Yii::t('main', 'Результати пошуку'); ?></h3> <span class="fa fa-camera"></span> <a><?= Yii::t('main', 'Фоторепортажі'); ?></a>
-        </div>
+         <h3 class="val-title-uppercase-with-line">
+            <span> <?=Yii::t('main', 'Результати пошуку');?> </span>
+            <?= CHtml::link(Yii::t('main', 'Фоторепортажі'), array('/site/photos')); ?>
+         </h3>
         <?php
         $this->widget('zii.widgets.CListView', array(
             'dataProvider'=>$searchPhotos,
@@ -76,10 +79,10 @@
         ?>
     <?php endif; ?>
     <?php if(!empty($searchVideos->data)): ?>
-    <div class="forBlogH3">
-        <h3><?= Yii::t('main', 'Результати пошуку'); ?></h3> <span class="fa fa-play-circle-o"></span> <a><?= Yii::t('main', 'Відеосюжети'); ?></a>
-    </div>
-
+     <h3 class="val-title-uppercase-with-line">
+        <span> <?=Yii::t('main', 'Результати пошуку');?> </span>
+        <?= CHtml::link(Yii::t('main', 'Відеосюжети'), array('/site/videos')); ?>
+     </h3>
         <?php
         $this->widget('zii.widgets.CListView', array(
             'dataProvider'=>$searchVideos,

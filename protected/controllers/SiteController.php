@@ -150,6 +150,8 @@ class SiteController extends Controller
 
     public function actionSearch()
     {
+        $this->layout = '//layouts/column2';
+
         if(isset($_GET['find']) && !empty($_GET['find']))
         {
             $params = array();
@@ -159,9 +161,9 @@ class SiteController extends Controller
             $criteria->distinct = true;
 
             if(Yii::app()->language == 'ru')
-                $criteria->condition = 'title_ru LIKE :keyword OR description_ru LIKE :keyword';
+                $criteria->condition = 'title_ru LIKE :keyword';
             else
-                $criteria->condition = 'title_uk LIKE :keyword OR description_uk LIKE :keyword';
+                $criteria->condition = 'title_uk LIKE :keyword';
 
             if(!empty($_GET['publishDate'])) {
                 $criteria->addCondition('date >= :date_start AND date <= :date_end', 'AND');

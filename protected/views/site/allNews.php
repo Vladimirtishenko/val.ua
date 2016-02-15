@@ -1,7 +1,7 @@
 <article class="val-column-left">
-     <h3 class="val-title-uppercase">
-        <span><?=Yii::t('main', 'Всi новини')?></span>
-    </h3>
+     <h3 class="val-title-uppercase-with-line">
+        <?=Yii::t('main', 'Всi новини')?>
+     </h3>
     
     <div class="val-outer-line-news">
         <div class="val-gen-news-column -category">

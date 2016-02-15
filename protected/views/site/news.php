@@ -31,7 +31,7 @@ $data->save();
                   <?php $this->widget('application.components.widgets.ReclameWidget', array('id'=>20)); ?>
             </div>
         </div>
-        <h2 class="val-title-uppercase">
+        <h2 class="val-title-uppercase-with-line">
             <span> <?= Yii::t('main', 'Читайте також'); ?> </span>
             <?= CHtml::link(Yii::app()->language == 'ru' ? $data->category->name_ru : $data->category->name_uk, array('/site/category', 'id'=>$data->category->id)); ?>
         </h2>

@@ -235,10 +235,11 @@ AjaxLoadCategory.prototype.templateWithoutImage = function(arrays, lang) {
 
 function AjaxLoaderCategorySingle(element, hidden){
 
+
     if(!element) return;
 
     this.element = element;
-    this.id = hidden.getAttribute('data-id');
+    this.id = hidden.getAttribute('data-id') ? hidden.getAttribute('data-id') : null;
     this.count = hidden.getAttribute('data-count');
     this.state = true;
 
@@ -254,12 +255,11 @@ AjaxLoaderCategorySingle.prototype = Object.create(Site.prototype);
 
 AjaxLoaderCategorySingle.prototype.generateDataAjax = function(){
 
-    this.Xhr('GET', '/site/GetCategoryByIdXhr?id=' + this.id + '&offset=' + this.count, null, this, this.template);
+    this.Xhr('GET', '/site/GetCategoryByIdXhrOrNotId?id=' + this.id + '&offset=' + this.count, null, this, this.template);
 
 }
 
 AjaxLoaderCategorySingle.prototype.template = function(data, self){
-
 
     var dataContent = JSON.parse(JSON.parse(data).news),
         lang = JSON.parse(data).language,
@@ -303,19 +303,24 @@ function StickyAccordeon(element){
 
     if(!element) return;
 
-    var accordeon = element.querySelector('.val-accordeons-block'),
-        self = this;
+    this.accordeon = element.querySelector('.val-accordeons-block');
+    
+    var self = this;
 
-    window.addEventListener('scroll', self.positionOfAccordeon.bind(self, accordeon))
+    window.addEventListener('scroll', self.positionOfAccordeon.bind(self))
 
 }
 
-StickyAccordeon.prototype.positionOfAccordeon = function (accordeon) {
+StickyAccordeon.prototype.positionOfAccordeon = function () {
 
-    var br=accordeon.getBoundingClientRect()
+    var elementOuterParent = this.accordeon.parentNode.getBoundingClientRect();
 
+    if(elementOuterParent.top <= 30 && this.accordeon.style.position != 'fixed'){
+        this.accordeon.style.position = 'fixed'
+    } else if(elementOuterParent.top > 30 && this.accordeon.getAttribute('style')) {
+        this.accordeon.removeAttribute('style')
+    } 
 
-    console.log(br.top);
 
 }   
 

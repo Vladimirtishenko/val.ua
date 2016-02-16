@@ -33,7 +33,7 @@
                     <div class="val-outer-hide-accrad -else">
                         <div class="val-innre-hide-accard">
                             <div class="twitter">
-                                <a data-chrome="noscrollbar"  class="twitter-timeline" href="https://twitter.com/svoboda_fm" data-widget-id="534429435424804864">Tweets by @svoboda_fm</a>
+                                <a data-chrome="noscrollbar" class="twitter-timeline" href="https://twitter.com/svoboda_fm" data-widget-id="534429435424804864">Tweets by @svoboda_fm</a>
                                 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.setAttribute('async', 'true');js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
                             </div>
                         </div>

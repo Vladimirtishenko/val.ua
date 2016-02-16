@@ -383,21 +383,11 @@ class SiteController extends Controller
     {   
 
         $this->layout = '//layouts/column2';
+        $this->render('allNews', array(
+            'count'=>0,
+            'id'=>null
+        ));
 
-        $news = new CActiveDataProvider('News',
-            array(
-                'criteria'=>array(
-                    'order'=>'date DESC',
-                    'condition'=>'date < :now',
-                    'params'=>array(':now'=>date('Y-m-d H:i:s', time())),
-                ),
-                'sort'=>false,
-                'pagination'=>array(
-                    'pageSize'=>36
-                ),
-            )
-        );
-        $this->render('allNews', array('allNews'=>$news));
     }
 
     public function actionVideos()
@@ -473,32 +463,6 @@ class SiteController extends Controller
     {   
 
         $mostViewed = News::model()->with(array('category'=>array('condition'=>'category.id = :id', 'select'=>false, 'params'=>array(':id'=>$id))))->findAll(array('order'=>'date DESC', 'limit'=>5));
-        // $notIn = '';
-        // foreach($mostViewed as $i => $model)
-        // {
-        //     if($i == 5)
-        //         $notIn .= $model->id;
-        //     else
-        //         $notIn .= $model->id.',';
-        // }
-
-        // $dataProvider = new CActiveDataProvider('News',
-        //     array(
-        //         'criteria'=>array(
-        //             'condition'=>'category.id = :id AND t.id NOT IN('.trim($notIn, ',').')',
-        //             'params'=>array(':id'=>$id),
-        //             'with'=>array('category'),
-        //             'order'=>'date DESC'
-        //         ),
-        //         'sort'=>false,
-        //         'pagination'=>array(
-        //             'pageSize'=>36
-        //         ),
-        // ));
-
-        // $dataProvider = News::model()->with(array('category'=>array('condition'=>'category.id = :id AND t.id NOT IN('.trim($notIn, ',').')', 'select'=>false, 'params'=>array(':id'=>$id))))->findAll(array('order'=>'date DESC', 'limit'=>36));
-
-
 
         $this->layout = '//layouts/column2';
         $category = NewsCategory::model()->findByAttributes(array('id'=>$id));
@@ -511,11 +475,14 @@ class SiteController extends Controller
         ));
     }
 
-    public function actionGetCategoryByIdXhr() {
+    public function actionGetCategoryByIdXhrOrNotId() {
 
-        $mostViewed = News::model()->with(array('category'=>array('condition'=>'category.id = :id', 'select'=>false, 'params'=>array(':id'=>$_GET['id']))))->findAll(array('order'=>'date DESC', 'offset'=>$_GET['offset'], 'limit'=>16));
-
-
+        if($_GET['id'] != 'null'){
+            $mostViewed = News::model()->with(array('category'=>array('condition'=>'category.id = :id', 'select'=>false, 'params'=>array(':id'=>$_GET['id']))))->findAll(array('order'=>'date DESC', 'offset'=>$_GET['offset'], 'limit'=>16));
+        } else {
+            $mostViewed = News::model()->findAll(array('order'=>'date DESC', 'offset'=>$_GET['offset'], 'limit'=>16));
+        }
+        
         $arrayOfCategory['news'] = CJSON::encode($mostViewed);
         $arrayOfCategory['language'] = Yii::app()->language;
         $arrayOfCategory['offset'] = $_GET['offset'] + 16;

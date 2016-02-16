@@ -15,6 +15,8 @@
         <h2 class="val-title-uppercase">Блоги и Блогеры</h2>
         <?php $this->widget('application.components.widgets.BloggerLayout'); ?>
     </div>
-    <?php $this->widget('application.components.widgets.AccordeonWidget'); ?>
+    <div id="val-only-else-pages">
+        <?php $this->widget('application.components.widgets.AccordeonWidget'); ?>
+    </div>
 </article>
 <?php $this->endContent(); ?>

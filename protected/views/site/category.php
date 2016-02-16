@@ -27,32 +27,9 @@ $this->pageDescription = Yii::app()->language == 'ru' ? $category->meta_descript
         <div class="val-display-controls"></div>
     </div>
     <div class="val-outer-line-news">
-    	<div class="val-gen-news-column -category">
-		    <?php
-		    $this->widget('zii.widgets.CListView', array(
-		        'dataProvider'=>$dataProvider,
-		        'ajaxUpdate'=>false,
-		        'itemView'=>'_category',
-		        'template'=>'{items}{pager}',
-		        'cssFile'=>false,
-		        'pager'=>array(
-		            'maxButtonCount' => 5,
-		            'lastPageLabel'=>'>>',
-		            'nextPageLabel'=>'>',
-		            'prevPageLabel'=>'<',
-		            'firstPageLabel'=>'<<',
-		            'class'=>'CLinkPager',
-		            'header'=>false,
-		            'htmlOptions'=>array('class'=>'sad'),
-		        ),
-		        'pagerCssClass'=>'pager',
-		        'sortableAttributes'=>array(
-		            'rating',
-		            'create_time',
-		        ),
-		        'itemsCssClass'=>'category',
-		    ));
-		    ?>
+    	<div class="val-gen-news-column -category" id="val-single-category">
+    	
 		</div>
 	</div>
 </article>
+<input type="hidden" id="val-count-and-id" data-id="<?=$id;?>" data-count="<?=$count;?>" >

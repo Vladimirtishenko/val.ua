@@ -1182,6 +1182,10 @@ span {
   color: #7d7d7d;
 }
 
+.val-accordeons-block {
+  position: relative;
+}
+
 .val-list-accard {
   padding: 0;
   margin: 20px 0;

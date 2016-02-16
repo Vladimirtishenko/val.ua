@@ -229,6 +229,97 @@ AjaxLoadCategory.prototype.templateWithoutImage = function(arrays, lang) {
 /*=====  End of IframeGemerate comment block  ======*/
 
 
+/*==============================================================
+=            Section AjaxLoaderCategorySingle block            =
+==============================================================*/
+
+function AjaxLoaderCategorySingle(element, hidden){
+
+    if(!element) return;
+
+    this.element = element;
+    this.id = hidden.getAttribute('data-id');
+    this.count = hidden.getAttribute('data-count');
+    this.state = true;
+
+    window.addEventListener('scroll', this.scrollHandler.bind(this));
+
+    this.generateDataAjax();
+
+}
+
+
+AjaxLoaderCategorySingle.prototype = Object.create(Site.prototype);
+
+
+AjaxLoaderCategorySingle.prototype.generateDataAjax = function(){
+
+    this.Xhr('GET', '/site/GetCategoryByIdXhr?id=' + this.id + '&offset=' + this.count, null, this, this.template);
+
+}
+
+AjaxLoaderCategorySingle.prototype.template = function(data, self){
+
+
+    var dataContent = JSON.parse(JSON.parse(data).news),
+        lang = JSON.parse(data).language,
+        template = '';
+
+
+    dataContent.forEach(function(item, i){
+        template += '<a href="/site/news/'+item.id+'" class="val-block-gen-news">' +
+                        '<div class="val-image-block-gen-news">' +
+                            '<img src="/uploads/news/thumb/'+item.image+'">' +
+                        '</div>' +
+                        '<div class="val-description-block-gen-news">' +
+                             '<span class="val-news-view">'+item.views+'</span>' +
+                             '<span class="val-content-news-data">'+item.date+'</span>' +
+                            '<h3 class="val-content-news-title-small">'+item['title_'+lang]+'</h3>' +
+                        '</div>' +
+                    '</a>';
+    })
+
+
+    self.element.insertAdjacentHTML('beforeend', template);
+
+    self.count = JSON.parse(data).offset;
+    self.state = true;
+
+}
+
+
+AjaxLoaderCategorySingle.prototype.scrollHandler = function() {
+
+    if (document.body.offsetHeight - 1200 < window.scrollY + window.innerHeight && this.state) {
+        this.state = false;
+        this.generateDataAjax();
+    }
+
+}
+
+/*=====  End of AjaxLoaderCategorySingle block  ======*/
+
+function StickyAccordeon(element){
+
+    if(!element) return;
+
+    var accordeon = element.querySelector('.val-accordeons-block'),
+        self = this;
+
+    window.addEventListener('scroll', self.positionOfAccordeon.bind(self, accordeon))
+
+}
+
+StickyAccordeon.prototype.positionOfAccordeon = function (accordeon) {
+
+    var br=accordeon.getBoundingClientRect()
+
+
+    console.log(br.top);
+
+}   
+
+
 /*=============================================
 =            Section Modal block            =
 =============================================*/
@@ -532,6 +623,8 @@ function handlerAllStart() {
     new Modal();
     new Currency();
     new weatherForVal();
+    new StickyAccordeon(document.getElementById('val-only-else-pages'));
+    new AjaxLoaderCategorySingle(document.getElementById('val-single-category'), document.getElementById('val-count-and-id'));
     new Pikaday({ field: document.getElementById('datepicker') });
 }
 

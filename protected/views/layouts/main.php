@@ -148,8 +148,7 @@
                             <li><?= CHtml::link(Yii::t('main', $menu->name_uk), array('/site/category', 'id'=>$menu->id), array('class' => $classie)); ?></li>
                        <? endforeach; ?>
                             <li><?= CHtml::link(Yii::t('main', 'Блоги'), array('/blog/default/index')); ?></li>
-                            <li><?= CHtml::link(Yii::t('main', 'Фото'), array('/site/photos')); ?></li>
-                            <li><?= CHtml::link(Yii::t('main', 'Відео'), array('/site/videos')); ?></li> 
+                            <li><?= CHtml::link(Yii::t('main', 'Мультимедіа'), array('/site/Multimedia')); ?></li>
                     </ul>
                 </div>
             </header>   

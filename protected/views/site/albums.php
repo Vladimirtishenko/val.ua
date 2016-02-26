@@ -6,6 +6,10 @@
 <div class="marketInOneCategoryPagebottom">
 <?php $this->widget('application.components.widgets.ReclameWidget', array('id'=>44)); ?>
 </div>
+
+<img src="/uploads/galery/category/56aa1f83aa237.jpeg" alt="">
+<img src="/uploads/galery/category/56aa1f83aa237.jpeg" alt="">
+<img src="/uploads/galery/category/56aa1f83aa237.jpeg" alt="">
 <?php
 $this->widget('zii.widgets.CListView', array(
     'dataProvider'=>$data,

@@ -2198,3 +2198,16 @@ span.icon-weather-min-36 {
 .val-container-one-news {
   margin-bottom: 25px;
 }
+.val-block-multimedia {
+  display: table;
+  float: left;
+  position: relative;
+}
+
+.val-block-multimedia img {
+  height: 110px;
+}
+
+.val-block-multimedia.-big-img img {
+  height: initial;
+}

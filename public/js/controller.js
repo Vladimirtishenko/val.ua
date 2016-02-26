@@ -299,6 +299,102 @@ AjaxLoaderCategorySingle.prototype.scrollHandler = function() {
 
 /*=====  End of AjaxLoaderCategorySingle block  ======*/
 
+
+
+/*==============================================================
+=            Section AjaxLoaderMultimedia block            =
+==============================================================*/
+
+function AjaxLoaderMultimedia(element, hidden){
+
+    if(!element) return;
+
+    this.element = element;
+    this.count = hidden.getAttribute('data-count');
+    this.state = true;
+
+    window.addEventListener('scroll', this.scrollHandler.bind(this));
+
+    this.generateDataAjax();
+
+}
+
+
+AjaxLoaderMultimedia.prototype = Object.create(Site.prototype);
+
+
+AjaxLoaderMultimedia.prototype.generateDataAjax = function(){
+
+    this.Xhr('GET', '/site/GetMultimedia?offset=' + this.count, null, this, this.template);
+
+}
+
+AjaxLoaderMultimedia.prototype.template = function(data, self){
+
+
+    var dataContent = JSON.parse(JSON.parse(data).multimedia),
+        lang = JSON.parse(data).language,
+        template = '',
+        j = 0,
+        classie = '';
+
+        console.log(dataContent);
+
+    var RandomNumberArray = [];
+    RandomNumberArrayFunc(0,4);
+
+    console.log(RandomNumberArray);
+
+    dataContent.forEach(function(item, i){
+        if(i == RandomNumberArray[0]){ 
+            classie = '-big-img';
+            RandomNumberArray.shift();
+        } else {
+            classie = ''
+        }
+        template += '<a href="/site/news/'+item.id+'" class="val-block-multimedia '+classie+'">' +
+                        '<div class="val-image-block-multimedia">' +
+                            '<img src="/uploads/galery/category/'+item.image+'">' +
+                        '</div>' +
+                    '</a>';
+    })
+
+    self.element.insertAdjacentHTML('beforeend', template);
+
+    self.count = JSON.parse(data).offset;
+    self.state = true;
+
+
+    function RandomNumberArrayFunc (x, n) {
+        if(j < 3){
+            RandomNumberArray.push(randomInteger(x, n));
+            j++;
+            RandomNumberArrayFunc(x=n+1, n+5);
+        }
+    }
+
+    function randomInteger(min, max) {
+      var rand = min + Math.random() * (max - min)
+      rand = Math.round(rand);
+      return rand;
+    }
+
+
+}
+
+
+AjaxLoaderMultimedia.prototype.scrollHandler = function() {
+
+    if (document.body.offsetHeight - 1200 < window.scrollY + window.innerHeight && this.state) {
+        this.state = false;
+        this.generateDataAjax();
+    }
+
+}
+
+/*=====  End of AjaxLoaderMultimedia block  ======*/
+
+
 function StickyAccordeon(element){
 
     if(!element) return;
@@ -630,6 +726,7 @@ function handlerAllStart() {
     new weatherForVal();
     new StickyAccordeon(document.getElementById('val-only-else-pages'));
     new AjaxLoaderCategorySingle(document.getElementById('val-single-category'), document.getElementById('val-count-and-id'));
+    new AjaxLoaderMultimedia(document.getElementById('val-single-multimedia'), document.getElementById('val-count-and-id'));
     new Pikaday({ field: document.getElementById('datepicker') });
 }
 

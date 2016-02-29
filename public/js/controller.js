@@ -312,6 +312,7 @@ function AjaxLoaderMultimedia(element, hidden){
     this.element = element;
     this.count = hidden.getAttribute('data-count');
     this.state = true;
+    this._Masonry_ = null;
 
     window.addEventListener('scroll', this.scrollHandler.bind(this));
 
@@ -338,12 +339,8 @@ AjaxLoaderMultimedia.prototype.template = function(data, self){
         j = 0,
         classie = '';
 
-        console.log(dataContent);
-
-    var RandomNumberArray = [];
-    RandomNumberArrayFunc(0,4);
-
-    console.log(RandomNumberArray);
+    var RandomNumberArray = [4,5,14];
+    //RandomNumberArrayFunc(0,4);
 
     dataContent.forEach(function(item, i){
         if(i == RandomNumberArray[0]){ 
@@ -357,27 +354,41 @@ AjaxLoaderMultimedia.prototype.template = function(data, self){
                             '<img src="/uploads/galery/category/'+item.image+'">' +
                         '</div>' +
                     '</a>';
-    })
+    });
+
+
 
     self.element.insertAdjacentHTML('beforeend', template);
+   
 
     self.count = JSON.parse(data).offset;
     self.state = true;
 
 
-    function RandomNumberArrayFunc (x, n) {
-        if(j < 3){
-            RandomNumberArray.push(randomInteger(x, n));
-            j++;
-            RandomNumberArrayFunc(x=n+1, n+5);
-        }
-    }
 
-    function randomInteger(min, max) {
-      var rand = min + Math.random() * (max - min)
-      rand = Math.round(rand);
-      return rand;
-    }
+    // function RandomNumberArrayFunc (x, n) {
+    //     if(j < 3){
+    //         RandomNumberArray.push(randomInteger(x, n));
+    //         j++;
+    //         RandomNumberArrayFunc(x=n+1, n+5);
+    //     }
+    // }
+
+    // function randomInteger(min, max) {
+    //   var rand = min + Math.random() * (max - min)
+    //   rand = Math.round(rand);
+    //   return rand;
+    // }
+
+    self._Masonry_ = null;
+
+    self._Masonry_ = new Masonry( self.element, {
+          itemSelector: '.val-block-multimedia',
+          columnWidth: 1
+    })
+
+    
+   
 
 
 }

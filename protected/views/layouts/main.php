@@ -221,9 +221,9 @@
             </div>          
         </footer>
     </section>
-    <script src="<?= Yii::app()->baseUrl; ?>/public/js/pikaday.js"></script>
-    <script src="<?= Yii::app()->baseUrl; ?>/public/js/model.js"></script>
-    <script src="<?= Yii::app()->baseUrl; ?>/public/js/controller.js"></script>
+    <? Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . '/public/js/pikaday.js', CClientScript::POS_END);?>
+    <? Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . '/public/js/model.js', CClientScript::POS_END);?>
+    <? Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . '/public/js/controller.js', CClientScript::POS_END);?>
     <script>
     window.addEventListener("DOMContentLoaded", function(){
         (function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,"script","//www.google-analytics.com/analytics.js","ga");ga("create","UA-61883338-1","auto");ga("send","pageview");

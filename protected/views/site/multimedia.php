@@ -3,6 +3,7 @@
 /* @var $data PhotoCategory */
 /* @var $page Pages */
 ?>
+<? Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . '/public/js/masonry.pkgd.min.js', CClientScript::POS_END);?>
 <div class="marketInOneCategoryPagebottom">
 <?php $this->widget('application.components.widgets.ReclameWidget', array('id'=>44)); ?>
 </div>

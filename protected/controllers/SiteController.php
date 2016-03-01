@@ -440,20 +440,36 @@ class SiteController extends Controller
         }
         else
         {
-            $data = new CActiveDataProvider('PhotoCategory',
-                array(
-                    'criteria'=>array(
-                        'order'=>'id DESC',
-                    ),
-                    'sort'=>false,
-                    'pagination'=>array(
-                        'pageSize'=>39
-                    ),
-                )
-            );
-            $this->rightReclameId = 46;
-            $this->render('albums', array('data'=>$data));
+
+            
         }
+    }
+
+    public function actionMultimedia()
+    {
+
+        $this->layout = '//layouts/column2';
+        $this->rightReclameId = 46;
+        $this->render('multimedia', array(
+            'count'=>0,
+            'id'=>null
+        ));
+
+    }
+
+    public function actionGetMultimedia()
+    {
+        $sql="(SELECT `date`, `id`, `image` FROM photo_category) UNION (SELECT `date`, `id`, `video` FROM video) ORDER BY `date` DESC LIMIT ".$_GET['offset'].", 15";
+        $connection = Yii::app()->db;
+        $command = $connection->createCommand($sql);
+        $multimedia = $command->queryAll();
+            
+        $arrayOfCategory['multimedia'] = CJSON::encode($multimedia);
+        $arrayOfCategory['language'] = Yii::app()->language;
+        $arrayOfCategory['offset'] = $_GET['offset'] + 15;
+
+
+        echo json_encode($arrayOfCategory);
     }
 
     /**

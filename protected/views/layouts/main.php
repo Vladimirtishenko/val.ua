@@ -223,6 +223,7 @@
         </footer>
     </section>
     <script src="<?= Yii::app()->baseUrl; ?>/public/js/pikaday.js"></script>
+    <script src="<?= Yii::app()->baseUrl; ?>/public/js/helper.js"></script>
     <script src="<?= Yii::app()->baseUrl; ?>/public/js/model.js"></script>
     <script src="<?= Yii::app()->baseUrl; ?>/public/js/controller.js"></script>
     <script>

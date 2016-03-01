@@ -17,6 +17,8 @@ function ModelXhr() {
     }
 }
 
+ModelXhr.prototype = Object.create(Helper.prototype);
+
 ModelXhr.prototype.Xhr = function(method, url, form, objectCaller, callback) {
 
     if (form) {

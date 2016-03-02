@@ -417,8 +417,7 @@ class SiteController extends Controller
 
     public function actionPhotos($id = null)
     {
-        if(isset($_GET['id']))
-        {
+
             $criteria = new CDbCriteria();
             $criteria->condition = 'category_id = :category_id';
             $criteria->params = array(':category_id'=>$id);
@@ -437,12 +436,7 @@ class SiteController extends Controller
             );
             $this->rightReclameId = 23;
             $this->render('single_album', array('photos'=>$photos, 'data'=>$data, 'category'=>$category));
-        }
-        else
-        {
-
-            
-        }
+       
     }
 
     public function actionMultimedia()
@@ -459,7 +453,7 @@ class SiteController extends Controller
 
     public function actionGetMultimedia()
     {
-        $sql="(SELECT `date`, `id`, `image` FROM photo_category) UNION (SELECT `date`, `id`, `video` FROM video) ORDER BY `date` DESC LIMIT ".$_GET['offset'].", 15";
+        $sql="(SELECT `date`, `id`, `image`, `type`, `name_ru`, `name_uk` FROM photo_category) UNION (SELECT `date`, `id`, `video`, `type`, `title_ru`, `title_uk` FROM video) ORDER BY `date` DESC LIMIT ".$_GET['offset'].", 15";
         $connection = Yii::app()->db;
         $command = $connection->createCommand($sql);
         $multimedia = $command->queryAll();

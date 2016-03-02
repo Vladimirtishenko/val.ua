@@ -6,6 +6,12 @@
 	width 155px
 	margin 5px 5px 0
 	overflow hidden
+	&:hover .-val-multimedia-description
+		opacity 1
+	&:hover:before
+		opacity 0
+	&:hover:after
+		opacity 0
 
 .-big-img
 	width 320px
@@ -17,4 +23,66 @@
 
 .val-block-multimedia.-big-img img
 	height initial
+
+#val-single-multimedia
+	padding 0 13px
+	opacity 0
 	
+.-val-multimedia-description
+	position absolute
+	width 100%
+	background-color rgba(255,255,255, 0.7)
+	opacity 0
+	transition .3s
+	padding 10px
+	height 100%
+	color #000
+	bottom 2px
+	font-size 13px
+	font-style italic
+	font-weight 700
+	line-height 16px
+	
+.-val-ico-photo:before
+	width 15px
+	height 12px
+	position absolute
+	content ""
+	background url(../images/sprite.png) -272px -2px
+	left 8px
+	top 9px
+	z-index 99
+
+.-val-ico-photo:after
+	display inline-block
+	position absolute
+	left 0
+	top 0
+	padding 0
+	content ""
+	background #15978b
+	z-index 9
+	width 30px
+	height 30px
+	
+.-val-ico-video:before
+	width 10px
+	height 12px
+	position absolute
+	content ""
+	background url(../images/sprite.png) -297px -2px
+	left 10px
+	top 8px
+	z-index 99
+
+.-val-ico-video:after
+	display inline-block
+	position absolute
+	left 0
+	top 0
+	padding 0
+	content ""
+	background #29ad7c
+	z-index 9
+	width 30px
+	height 30px

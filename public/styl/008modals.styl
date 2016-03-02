@@ -5,15 +5,25 @@
 	height 100%
 	position fixed 
 	z-index 99999
-	display table
+	display none
 	background rgba(255, 255, 255, 0.7)
 	opacity 0
-	transform translateY(-100%)
 	transition .5s
 
 .-active-outer
-	transform translate(0%)
-	opacity 1
+	display table
+	animation-name opacitys
+	animation-delay .1s
+	animation-duration .6s
+	transition .2s
+	animation-fill-mode both
+	
+.-active-outer-out
+	animation-name hidens
+	animation-delay 0s
+	animation-duration .6s
+	transition .2s
+	animation-fill-mode both
 
 .val-cell-modal-outer
 	display table-cell
@@ -39,7 +49,7 @@
 	
 .-animate-content-window
 	animation-name opacitys
-	animation-delay .6s
+	animation-delay .1s
 	animation-duration .6s
 	transition .2s
 	animation-fill-mode both
@@ -74,6 +84,36 @@
 	margin 0px 0 20px
 	padding 0 10px
 	border 1px solid rgba(21, 148, 139, 0.1)
+
+
+.-about-modal
+	width 760px
+
+.val-about-modal-content
+	font-size 14px
+	
+.val-about-modal-content p 
+	margin-bottom 15px
+	line-height 16px
+
+.val-about-modal-content p span
+	color #60AFB8
+	
+.val-about-modal-content a 
+	display inline-block
+	text-transform none
+	color #15948b
+	padding 0 0 3px
+	border-bottom 1px solid rgba(21,148,139,.33)
+	&:hover 
+		border-bottom 1px solid transparent
+
+.val-about-contacts
+	padding-left 20px 
+	margin-top -10px
+	
+.val-about-contacts li 
+	padding 3px 0
 
 .-no-margin-left-only-right
 	margin 0 10px 0 0

@@ -1,6 +1,6 @@
 <?php
 
-class AboutModalWidget extends CWidget
+class AboutWidget extends CWidget
 {
     public function init(){}
     public function run()

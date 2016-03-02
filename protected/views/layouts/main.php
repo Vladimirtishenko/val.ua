@@ -47,6 +47,10 @@
                 <span class="val-close-modals"></span>
                 <?php $this->widget('application.components.widgets.RegistrationWidget'); ?>
             </div>
+             <div class="val-content-for-login -about-modal">
+                <span class="val-close-modals"></span>
+                <?php $this->widget('application.components.widgets.AboutWidget'); ?>
+            </div>
         </div>
     </div>
     <section class="val-all-outer">
@@ -121,7 +125,7 @@
                             <span class="val-data-today"><?= $this->getCurrentDate(); ?></span>
                         </li>
                         <li>
-                            <a href="#" class="val-redaction">Редакция</a>
+                            <a href="#" class="val-redaction -about" data-attr="-about-modal" >Редакция</a>
                         </li>
                         <li>
                             <a href="#" class="val-market">Реклама</a>
@@ -147,7 +151,7 @@
                             <? if($menu->id == 10) continue; ?>
                             <li><?= CHtml::link(Yii::t('main', $menu->name_uk), array('/site/category', 'id'=>$menu->id), array('class' => $classie)); ?></li>
                        <? endforeach; ?>
-                            <li><?= CHtml::link(Yii::t('main', 'Блоги'), array('/blog/default/index')); ?></li>
+                            <!-- <li><?= CHtml::link(Yii::t('main', 'Блоги'), array('/blog/default/index')); ?></li> -->
                             <li><?= CHtml::link(Yii::t('main', 'Мультимедіа'), array('/site/Multimedia')); ?></li>
                     </ul>
                 </div>
@@ -222,9 +226,7 @@
         </footer>
     </section>
     <? Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . '/public/js/pikaday.js', CClientScript::POS_END);?>
-    <? Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . '/public/js/helper.js', CClientScript::POS_END);?>
-    <? Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . '/public/js/model.js', CClientScript::POS_END);?>
-    <? Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . '/public/js/controller.js', CClientScript::POS_END);?>
+    <? Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . '/public/prodaction/bundle.min.js', CClientScript::POS_END);?>
     <script>
     window.addEventListener("DOMContentLoaded", function(){
         (function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,"script","//www.google-analytics.com/analytics.js","ga");ga("create","UA-61883338-1","auto");ga("send","pageview");

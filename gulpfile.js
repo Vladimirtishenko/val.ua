@@ -27,18 +27,21 @@ gulp.task('css', function() {
 
 gulp.task('js', function() {
     return gulp.src([
-                    'js/bootstrap.min.js', 
-                    'js/jquery.liMarquee.js', 
-                    'js/move.min.js', 
-                    'js/change_category.js', 
-                    'js/grid-and-top-slider.js', 
-                    'js/default.js', 
-                    'js/weather.js', 
-                    'js/currency.js', 
-                    'js/jquery.pickmeup.js'
+                    './public/js/helper.js', 
+                    './public/js/model.js', 
+                    './public/js/controller.js', 
+                    './public/js/_block/_slider.js', 
+                    './public/js/_block/_iframe_load.js', 
+                    './public/js/_block/_stycky_accordeon.js', 
+                    './public/js/_block/_modal.js', 
+                    './public/js/_block/_currency.js', 
+                    './public/js/_block/_weather.js',
+                    './public/js/_block/_ajax_loader_index_page_category.js',
+                    './public/js/_block/_ajax_loader_single_category.js',
+                    './public/js/_block/_ajax_loader_multimedia.js'
                     ])
         .pipe(concat('bundle.js'))
-        .pipe(uglify())
+        //.pipe(uglify())
         .pipe(rename('bundle.min.js'))
         .pipe(gulp.dest('./public/prodaction'));
 });
@@ -47,6 +50,7 @@ gulp.task('watch', function() {
     gulp.watch("./public/css/*.css", ['css']);
     gulp.watch("./public/styl/*.styl", ['stylus']);
     gulp.watch("./public/js/*.js", ['js']);
+    gulp.watch("./public/js/_block/*.js", ['js']);
 });
 
 gulp.task('default', ['watch']);

@@ -11,18 +11,16 @@ $data->save();
 <article class="val-column-left">
     <div class="val-single-news-conainer-with-read-else">
         <div class='val-container-one-news'>
-            <h3 class="title">
-                <?= CHtml::encode(Yii::app()->language == 'ru' ? $data->title_ru : $data->title_uk); ?>
-            </h3>
+            <h2 class="val-title-uppercase-with-line val-title-uppercase-small"><?= CHtml::encode(Yii::app()->language == 'ru' ? $data->title_ru : $data->title_uk); ?></h2>
             <?= CHtml::image(Yii::app()->baseUrl.'/uploads/news/full/'.$data->image, Yii::app()->language == 'ru' ? $data->title_ru : $data->title_uk, array('class'=>'genImages')); ?>
-            <div class="textOneNews">
-                <p><?= date('d.m.Y | H:i', strtotime($data->date)); ?></p>
+            <div class="val-description-block-gen-news">
+                <span class="val-news-view"><?=$data->views;?></span>
+                <span class="val-content-news-data"><?= ($dateNow == date('Y-m-d', strtotime($data->date))) ? date('H:i', strtotime($data->date)) : intval(date('d', strtotime($data->date))).' '.Yii::app()->controller->getMonth($data->date).' '.date('Y', strtotime($data->date)); ?></span>
+            </div>
+            <div class="val-text-from-content-manager-wright">
                 <?= Yii::app()->language == 'ru' ? $data->description_ru : $data->description_uk; ?>
             </div>
             <div class="dateTimeSocial">
-                <div class="dateTime">
-                    <p> Автор: <?= CHtml::encode($data->author); ?></p> <p><span class="fa fa-eye"></span> Перегляди: <?= $data->views; ?></p>
-                </div>
                 <div class="Social">
                    <div class="share42init" data-url="http://val.ua<?=Yii::app()->request->requestUri;?>" data-title="<?= CHtml::encode(Yii::app()->language == 'ru' ? $data->title_ru : $data->title_uk); ?>" data-image="http://val.ua/uploads/news/full/<?=$data->image;?> " data-description="<?=$this->getShortDescription(Yii::app()->language == 'ru' ? $data->description_ru : $data->description_uk, 100)?>..."></div>
                 </div>

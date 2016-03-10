@@ -1,5 +1,5 @@
 function weatherForVal(){
-
+    "use strict";
     var url = "http://"+location.hostname+"/site/tryWeather";
 
     this.Xhr('GET', url, null, this, this.tmp);
@@ -9,10 +9,11 @@ function weatherForVal(){
 weatherForVal.prototype = Object.create(Site.prototype);
 
 weatherForVal.prototype.tmp = function(data, self){
-
-    var data = JSON.parse(data),
-        query = data.forecast,
-        queryNow = data.now;
+  "use strict";
+  var datas = JSON.parse(data),
+      query = datas.forecast,
+      queryNow = datas.now,
+      structure = self.creaters(query);
 
   var html = '<div class="drop-weather-button">'
               +'<div class="outer-today-ico">'
@@ -40,16 +41,17 @@ weatherForVal.prototype.tmp = function(data, self){
                   +'<div class="section-this-week">'
                       +'<h5 class="section-heading">Тиждень</h5>'
                       +'<ul class="item-list-temperature">'
-                          + self.creaters(query);
+                          + structure
                       +'</ul>'
                   +'</div>'
               +'</div>'
           +'</div>';
   var el = document.querySelector(".outer-for-weather");
   el.insertAdjacentHTML("beforeend", html);
-}
+};
 
 weatherForVal.prototype.creaters = function(query){
+  "use strict";
   var srt = "";
   [].forEach.call(query, function(item, i){
     if(i != 0){
@@ -61,6 +63,6 @@ weatherForVal.prototype.creaters = function(query){
                 +'<span class="temperature-days low-temperature">'+item.low+' С°</span>'
             +'</li>';
     }
-  })
+  });
   return srt;
-}
+};

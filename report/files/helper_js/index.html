@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Plato - helper.js</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <link href="../../assets/css/vendor/morris.css" rel="stylesheet">
+  <link href="../../assets/css/vendor/bootstrap.css" rel="stylesheet">
+  <link href="../../assets/css/vendor/font-awesome.css" rel="stylesheet">
+  <link href="../../assets/css/vendor/codemirror.css" rel="stylesheet">
+  <link href="../../assets/css/plato.css" rel="stylesheet">
+  <link href="../../assets/css/plato-file.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="navbar navbar-fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="http://github.com/es-analysis/plato">Plato on Github</a>
+    <ul class="nav navbar-nav">
+      <li>
+        <a href="../../index.html">Report Home</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="jumbotron">
+  <div class="container">
+    <h1>helper.js</h1>
+  </div>
+</div>
+
+<div class="container aggregate-stats">
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Maintainability <a href="http://blogs.msdn.com/b/codeanalysis/archive/2007/11/20/maintainability-index-range-and-meaning.aspx"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="A value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability." data-original-title="Maintainability Index"  data-container="body"></i></a></h2>
+      <p class="stat">64.02</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h2>
+      <p class="stat">130</p>
+    </div>
+  </div>
+  <div class="row historical">
+    <div class="col-md-6">
+      <p id="chart_historical_maint" class="chart"></p>
+    </div>
+    <div class="col-md-6">
+      <p id="chart_historical_sloc" class="chart"></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Difficulty  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="The difficulty measure is related to the difficulty of the program to write or understand." data-original-title="Difficulty" data-container="body"></i></a></h2>
+      <p class="stat">28.75</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Estimated Errors  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Halstead's delivered bugs is an estimate for the number of errors in the implementation." data-original-title="Delivered Bugs" data-container="body"></i></a></h2>
+      <p class="stat">1.28</p>
+    </div>
+  </div>
+</div>
+
+<div class="container charts">
+  <div class="row">
+    <h2 class="header">Function weight</h2>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h3 class="chart-header">By Complexity <a href="http://en.wikipedia.org/wiki/Cyclomatic_complexity"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="This metric counts the number of distinct paths through a block of code. Lower values are better." data-original-title="Cyclomatic Complexity" data-container="body"></i></a></h3>
+      <div id="fn-by-complexity" class="stat"></div>
+    </div>
+    <div class="col-md-6">
+      <h3 class="chart-header">By SLOC  <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h3>
+      <div id="fn-by-sloc" class="stat"></div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <textarea id="file-source" class="col-md-12">function Helper () {
+	&quot;use strict&quot;;
+}
+
+Helper.prototype.returnDateNow = function () {
+	&quot;use strict&quot;;
+	var now = new Date(),
+		currDate = now.getDate() &lt; 10 ? &#039;0&#039; + now.getDate() : now.getDate(),
+		currMonth = (now.getMonth() + 1) &lt; 10 ? &#039;0&#039; +(now.getMonth() + 1) : now.getMonth() + 1,
+		currYear = now.getFullYear();
+
+	return currYear + &#039;-&#039; + currMonth + &#039;-&#039; + currDate;
+};
+
+Helper.prototype.dateHalper = function (datas, lang){
+	&quot;use strict&quot;;
+	var data = datas.split(&#039; &#039;);
+
+	if(this.returnDateNow() &gt; data[0]){
+		
+		var thisDateMounth = this.mounthObject(new Date(data[0]).getMonth() + 1, lang),
+			thisDateDay = new Date(data[0]).getDate(),
+			thisDateYear = new Date(data[0]).getFullYear();
+
+		return thisDateDay + &#039; &#039; + thisDateMounth + &#039; &#039; + thisDateYear;
+
+	} else {
+		return data[1].slice(0, -3);
+	}
+
+};
+
+Helper.prototype.mounthObject = function(mount, lang){
+	&quot;use strict&quot;;
+	var mounthObject = {
+		ru: {
+			1: &#039;Января&#039;,
+			2: &#039;Февраля&#039;,
+			3: &#039;Марта&#039;,
+			4: &#039;Апреля&#039;,
+			5: &#039;Мая&#039;,
+			6: &#039;Июня&#039;,
+			7: &#039;Июля&#039;,
+			8: &#039;Августа&#039;,
+			9: &#039;Сентября&#039;,
+			10: &#039;Октября&#039;,
+			11: &#039;Ноября&#039;,
+			12: &#039;Декабря&#039;	
+		},
+		uk: {
+			1: &quot;Січня&quot;,
+			2: &quot;Лютого&quot;,
+			3: &quot;Березня&quot;,
+			4: &quot;Квітня&quot;,
+			5: &quot;Травня&quot;,
+			6: &quot;Червня&quot;,
+            7: &quot;Липня&quot;,
+            8: &quot;Серпня&quot;,
+            9: &quot;Вересня&quot;,
+            10: &quot;Жовтня&quot;,
+            11: &quot;Листопада&quot;,
+            12: &quot;Грудня&quot;
+		}
+	};
+
+	return mounthObject[lang][mount];
+
+};
+
+
+Helper.prototype.templateImage = function(arrays, lang){
+	&quot;use strict&quot;;
+
+	var template = &#039;&lt;a href=&quot;/site/news/&#039; + arrays.id + &#039;&quot; class=&quot;val-news-item-category val-category-image&quot;&gt;&#039; +
+        &#039;&lt;div class=&quot;val-item-outer-category-image&quot;&gt;&#039; +
+        &#039;&lt;img src=&quot;/uploads/news/thumb/&#039; + arrays.image + &#039;&quot; alt=&quot;&#039; + arrays[&#039;title_&#039; + lang] + &#039;&quot;&gt;&#039; +
+        &#039;&lt;/div&gt;&#039; +
+        &#039;&lt;div class=&quot;val-line-vews-data&quot;&gt;&#039; +
+        &#039;&lt;span class=&quot;val-content-news-data&quot;&gt;&#039; + arrays.date + &#039;&lt;/span&gt;&#039; +
+        &#039;&lt;span class=&quot;val-news-view&quot;&gt;&#039; + arrays.views + &#039;&lt;/span&gt;&#039; +
+        &#039;&lt;/div&gt;&#039; +
+        &#039;&lt;h2 class=&quot;val-title-news-category&quot;&gt;&#039; + arrays[&#039;title_&#039; + lang] + &#039;&lt;/h2&gt;&#039; +
+        &#039;&lt;/a&gt;&#039;;
+
+    return template;
+};
+
+
+Helper.prototype.templateWithoutImage = function(arrays, lang) {
+	&quot;use strict&quot;;
+    var template = &#039;&lt;a href=&quot;/site/news/&#039; + arrays.id + &#039;&quot; class=&quot;val-news-item-category&quot;&gt;&#039; +
+        &#039;&lt;div class=&quot;val-line-vews-data&quot;&gt;&#039; +
+        &#039;&lt;span class=&quot;val-content-news-data&quot;&gt;&#039; + arrays.date + &#039;&lt;/span&gt;&#039; +
+        &#039;&lt;span class=&quot;val-news-view&quot;&gt;&#039; + arrays.views + &#039;&lt;/span&gt;&#039; +
+        &#039;&lt;/div&gt;&#039; +
+        &#039;&lt;h2 class=&quot;val-title-news-category&quot;&gt;&#039; + arrays[&#039;title_&#039; + lang] + &#039;&lt;/h2&gt;&#039; +
+        &#039;&lt;p class=&quot;val-description-news-category&quot;&gt;&#039; + arrays[&#039;description_&#039; + lang].slice(0, 250) + &#039;...&lt;/p&gt;&#039; +
+        &#039;&lt;/a&gt;&#039;;
+
+    return template;
+};
+
+
+Helper.prototype.scrollHandler = function(general) {
+	&quot;use strict&quot;;
+
+    if (document.body.offsetHeight - 1200 &lt; window.scrollY + window.innerHeight &amp;&amp; this.state &amp;&amp; !general) {
+        this.state = false;
+        this.generateDataAjax();
+    }else if (document.body.offsetHeight - 500 &lt; window.scrollY + window.innerHeight &amp;&amp; this.state &amp;&amp; this.count &lt; 10 &amp;&amp; general) {
+
+        if (this.count === 7) {
+            this.count++;
+        }
+        this.state = false;
+        this.generateDataAjax(this.count);
+    }
+
+
+};
+
+Helper.prototype.inArray = function(needle, array) {
+    &quot;use strict&quot;;
+    for (var i = 0, l = array.length; i &lt; l; i++) {
+        if (array[i] == needle) {
+            return true;
+        }
+    }
+    return false;
+};</textarea>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <p>.</p>
+  </div>
+</footer>
+
+<script type="text/html" id="complexity-popover-template">
+  <div class="complexity-notice">
+    Complexity : {{ complexity.cyclomatic }} <br>
+    Length : {{ complexity.halstead.length }} <br>
+    Difficulty : {{ complexity.halstead.difficulty.toFixed(2) }} <br>
+    Est # bugs : {{ complexity.halstead.bugs.toFixed(2) }}<br>
+  </div>
+</script>
+
+<script type="text/javascript" src="../../assets/scripts/bundles/core-bundle.js"></script>
+<script type="text/javascript" src="../../assets/scripts/bundles/codemirror.js"></script>
+<script type="text/javascript" src="../../assets/scripts/codemirror.markpopovertext.js"></script>
+<script type="text/javascript" src="report.js"></script>
+<script type="text/javascript" src="report.history.js"></script>
+<script type="text/javascript" src="../../assets/scripts/plato-file.js"></script>
+</body>
+</html>

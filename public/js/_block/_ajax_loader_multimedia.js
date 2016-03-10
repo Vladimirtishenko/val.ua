@@ -1,6 +1,8 @@
 function AjaxLoaderMultimedia(element, hidden){
-
-    if(!element) return;
+    "use strict";
+    if(!element) {
+        return;
+    }
 
     this.element = element;
     this.count = hidden.getAttribute('data-count');
@@ -8,7 +10,6 @@ function AjaxLoaderMultimedia(element, hidden){
     this._Masonry_ = null;
 
     this.commonProps(this, null);
-
 }
 
 
@@ -16,18 +17,16 @@ AjaxLoaderMultimedia.prototype = Object.create(AjaxConstructor.prototype);
 
 
 AjaxLoaderMultimedia.prototype.generateDataAjax = function(){
-
+    "use strict";
     this.Xhr('GET', '/site/GetMultimedia?offset=' + this.count, null, this, this.template);
 
-}
+};
 
 AjaxLoaderMultimedia.prototype.template = function(data, self){
-
-
+    "use strict";
     var dataContent = JSON.parse(JSON.parse(data).multimedia),
         lang = JSON.parse(data).language,
         template = [],
-        j = 0,
         classie = '',
         classieType = '';
 
@@ -38,7 +37,7 @@ AjaxLoaderMultimedia.prototype.template = function(data, self){
             classie = '-big-img';
             RandomNumberArray.shift();
         } else {
-            classie = '' 
+            classie = '';
         }
         classieType = '-val-ico-'+item.type;
         var elementOuter = document.createElement('a'), 
@@ -63,7 +62,7 @@ AjaxLoaderMultimedia.prototype.template = function(data, self){
 
      for (var i = template.length - 1; i >= 0; i--) {
         self.element.appendChild(template[i]);
-    };
+    }
 
     if(self._Masonry_){
         self._Masonry_.appended(template);
@@ -74,10 +73,10 @@ AjaxLoaderMultimedia.prototype.template = function(data, self){
             self._Masonry_ = new Masonry( self.element, {
               itemSelector: '.val-block-multimedia',
               columnWidth: 1
-            })
+            });
             readyNextIteration();
             self.element.style.opacity = 1;
-        }, 500) 
+        }, 500);
     }
 
     function readyNextIteration(){
@@ -85,4 +84,4 @@ AjaxLoaderMultimedia.prototype.template = function(data, self){
         self.state = true;
     }
 
-}
+};

@@ -6,7 +6,8 @@ var gulp = require('gulp'),
     autoprefixer = require('gulp-autoprefixer'),
     uglify = require('gulp-uglify'),
     concat = require('gulp-concat'),
-    stylus = require('gulp-stylus');
+    eslint = require('gulp-eslint'),
+    plato = require('gulp-plato');
 
 
 gulp.task('stylus', function () {
@@ -40,10 +41,47 @@ gulp.task('js', function() {
                     './public/js/_block/_ajax_loader_single_category.js',
                     './public/js/_block/_ajax_loader_multimedia.js'
                     ])
+        .pipe(eslint({
+            ecmaFeatures: {
+                'modules': true
+            },
+            rules: {
+                'strict': 2,
+                'no-console': 2,
+                'no-alert': 2,
+                'no-dupe-keys': 2,
+                'no-duplicate-case' : 2,
+                'no-empty' : 2,
+                'no-caller': 2,
+                'no-extra-semi' : 2,
+                'no-invalid-regexp' : 2,
+                'no-regex-spaces' : 2,
+                'no-sparse-arrays' : 2,
+                'no-unreachable' : 2,
+                'use-isnan' : 2,
+                'valid-typeof' : 2,
+                'no-multi-spaces' : 2,
+                'complexity': [2, {'maximum': 8}],
+                'no-irregular-whitespace' : 2,
+                'curly': 2,
+                'no-redeclare': 2,
+                'no-unused-expressions': [2, {'allowTernary': true }],
+                'camelcase': [2, {'properties': 'always'}],
+                'no-multiple-empty-lines': [2, {'max': 2}],
+                'semi': [2, 'always']
+            },
+            envs: [
+                'browser'
+            ]
+        }))
+        .pipe(eslint.format())
+        .pipe(eslint.failAfterError())
+        .pipe(plato('report'))
         .pipe(concat('bundle.js'))
-        //.pipe(uglify())
+        .pipe(uglify())
         .pipe(rename('bundle.min.js'))
-        .pipe(gulp.dest('./public/prodaction'));
+        .pipe(gulp.dest('./public/prodaction'))
+        .pipe(gulp.dest('./public/jasmine/src/'))
 });
 
 gulp.task('watch', function() {

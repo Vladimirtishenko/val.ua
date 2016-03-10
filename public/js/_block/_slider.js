@@ -3,8 +3,10 @@
 =============================================*/
 
 function Slider(elem) {
-
-    if (!elem) return;
+    "use strict";
+    if (!elem) {
+        return;
+    }
 
     this.list = elem;
     this.countChild = elem.children.length;
@@ -14,53 +16,58 @@ function Slider(elem) {
 
     elem.style.width = this.width * this.countChild + 'px';
 
-    [].forEach.call(elem.children, staticSize)
+    [].forEach.call(elem.children, staticSize);
 
     function staticSize(item, i) {
-        item.setAttribute("data-slides-number", i)
+        item.setAttribute("data-slides-number", i);
     }
 
-    this.createControls(this.countChild)
+    this.createControls(this.countChild);
 
 }
 
 Slider.prototype.createControls = function(count) {
+    "use strict";
     var constrols = document.querySelector(".val-display-controls"),
         items = "",
         self = this;
 
     for (var i = 0; i < count; i++) {
-        items += (i == 0) ? "<span class='-active-slide' data-slide=" + i + "></span>" : "<span data-slide=" + i + "></span>";
-    };
+        items += (i === 0) ? "<span class='-active-slide' data-slide=" + i + "></span>" : "<span data-slide=" + i + "></span>";
+    }
 
     constrols.insertAdjacentHTML("afterbegin", items);
     constrols.addEventListener("click", self._clickSlideHandlers.bind(self));
     this.controlsBuild = true;
 
-}
+};
 
 Slider.prototype._clickSlideHandlers = function(event) {
+    "use strict";
     var target = event.target ? event.target : event,
         self = this,
-        clicked = parseInt(target.getAttribute('data-slide'));
+        clicked = parseInt(target.getAttribute('data-slide')),
+        move = null;
 
-    if (!clicked) return;
+    if (!clicked) {
+        return;
+    }
 
     if (clicked > this.currentSlide) {
         if ((this.currentSlide + 1) < clicked) {
-            var move = parseInt((-self.width) * clicked);
+            move = parseInt((-self.width) * clicked);
             toSlideAnimation(move, 0.5);
         } else {
-            var move = parseInt(self.move) + parseInt(-self.width)
+            move = parseInt(self.move) + parseInt(-self.width);
             toSlideAnimation(move, 0.8);
         }
 
     } else {
         if ((this.currentSlide - 1) > clicked) {
-            var move = parseInt((-self.width) * clicked)
+            move = parseInt((-self.width) * clicked);
             toSlideAnimation(move, 0.5);
         } else {
-            var move = parseInt(self.move) + parseInt(self.width)
+            move = parseInt(self.move) + parseInt(self.width);
             toSlideAnimation(move, 0.8);
         }
     }
@@ -79,6 +86,6 @@ Slider.prototype._clickSlideHandlers = function(event) {
 
     }
 
-}
+};
 
 /*=====  End of Slider comment block  ======*/

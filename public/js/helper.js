@@ -1,19 +1,20 @@
-"use strict";
-
-function Helper () {}
-
-Helper.prototype.returnDateNow = function () {
-	var now = new Date(),
-		curr_date = now.getDate() < 10 ? '0' + now.getDate() : now.getDate(),
-		curr_month = (now.getMonth() + 1) < 10 ?  '0' +(now.getMonth() + 1) : now.getMonth() + 1,
-		curr_year = now.getFullYear();
-
-	return curr_year + '-' + curr_month + '-' + curr_date;
+function Helper () {
+	"use strict";
 }
 
+Helper.prototype.returnDateNow = function () {
+	"use strict";
+	var now = new Date(),
+		currDate = now.getDate() < 10 ? '0' + now.getDate() : now.getDate(),
+		currMonth = (now.getMonth() + 1) < 10 ? '0' +(now.getMonth() + 1) : now.getMonth() + 1,
+		currYear = now.getFullYear();
+
+	return currYear + '-' + currMonth + '-' + currDate;
+};
+
 Helper.prototype.dateHalper = function (datas, lang){
-	
-	var data = datas.split(' ')
+	"use strict";
+	var data = datas.split(' ');
 
 	if(this.returnDateNow() > data[0]){
 		
@@ -27,10 +28,10 @@ Helper.prototype.dateHalper = function (datas, lang){
 		return data[1].slice(0, -3);
 	}
 
-}	
+};
 
 Helper.prototype.mounthObject = function(mount, lang){
-
+	"use strict";
 	var mounthObject = {
 		ru: {
 			1: 'Января',
@@ -60,15 +61,16 @@ Helper.prototype.mounthObject = function(mount, lang){
             11: "Листопада",
             12: "Грудня"
 		}
-	}
-
+	};
 
 	return mounthObject[lang][mount];
 
-}
+};
 
 
 Helper.prototype.templateImage = function(arrays, lang){
+	"use strict";
+
 	var template = '<a href="/site/news/' + arrays.id + '" class="val-news-item-category val-category-image">' +
         '<div class="val-item-outer-category-image">' +
         '<img src="/uploads/news/thumb/' + arrays.image + '" alt="' + arrays['title_' + lang] + '">' +
@@ -81,10 +83,11 @@ Helper.prototype.templateImage = function(arrays, lang){
         '</a>';
 
     return template;
-}
+};
 
 
 Helper.prototype.templateWithoutImage = function(arrays, lang) {
+	"use strict";
     var template = '<a href="/site/news/' + arrays.id + '" class="val-news-item-category">' +
         '<div class="val-line-vews-data">' +
         '<span class="val-content-news-data">' + arrays.date + '</span>' +
@@ -95,18 +98,18 @@ Helper.prototype.templateWithoutImage = function(arrays, lang) {
         '</a>';
 
     return template;
-}
+};
 
 
 Helper.prototype.scrollHandler = function(general) {
-
+	"use strict";
 
     if (document.body.offsetHeight - 1200 < window.scrollY + window.innerHeight && this.state && !general) {
         this.state = false;
         this.generateDataAjax();
     }else if (document.body.offsetHeight - 500 < window.scrollY + window.innerHeight && this.state && this.count < 10 && general) {
 
-        if (this.count == 7) {
+        if (this.count === 7) {
             this.count++;
         }
         this.state = false;
@@ -114,4 +117,14 @@ Helper.prototype.scrollHandler = function(general) {
     }
 
 
-}
+};
+
+Helper.prototype.inArray = function(needle, array) {
+    "use strict";
+    for (var i = 0, l = array.length; i < l; i++) {
+        if (array[i] == needle) {
+            return true;
+        }
+    }
+    return false;
+};

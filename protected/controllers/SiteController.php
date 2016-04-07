@@ -390,28 +390,12 @@ class SiteController extends Controller
 
     }
 
-    public function actionVideos()
-    {
-        $data = new CActiveDataProvider('Video',
-            array(
-                'criteria'=>array(
-                    'order'=>'id DESC',
-                ),
-                'sort'=>false,
-                'pagination'=>array(
-                    'pageSize'=>48
-                ),
-            ));
-        $this->rightReclameId = 45;
-
-        $this->render('videos', array('data'=>$data));
-    }
-
     public function actionVideo($id)
     {
         $model = Video::model()->findByPk($id);
         $relatedVideos = Video::model()->findAll(array('order'=>'date DESC', 'limit'=>33));
         $this->rightReclameId = 22;
+        $this->layout = '//layouts/column2';
         $this->render('videoOne', array('model'=>$model, 'relatedVideos'=>$relatedVideos));
     }
 
@@ -451,16 +435,24 @@ class SiteController extends Controller
 
     }
 
+
+    public function actionMarket()
+    {
+
+        $this->render('market');
+
+    }
+
     public function actionGetMultimedia()
     {
-        $sql="(SELECT `date`, `id`, `image`, `type`, `name_ru`, `name_uk` FROM photo_category) UNION (SELECT `date`, `id`, `video`, `type`, `title_ru`, `title_uk` FROM video) ORDER BY `date` DESC LIMIT ".$_GET['offset'].", 15";
+        $sql="(SELECT `date`, `id`, `image`, `type`, `name_ru`, `name_uk` FROM photo_category) UNION (SELECT `date`, `id`, `video`, `type`, `title_ru`, `title_uk` FROM video) ORDER BY `date` DESC LIMIT ".$_GET['offset'].", 30";
         $connection = Yii::app()->db;
         $command = $connection->createCommand($sql);
         $multimedia = $command->queryAll();
             
         $arrayOfCategory['multimedia'] = CJSON::encode($multimedia);
         $arrayOfCategory['language'] = Yii::app()->language;
-        $arrayOfCategory['offset'] = $_GET['offset'] + 15;
+        $arrayOfCategory['offset'] = $_GET['offset'] + 30;
 
 
         echo json_encode($arrayOfCategory);

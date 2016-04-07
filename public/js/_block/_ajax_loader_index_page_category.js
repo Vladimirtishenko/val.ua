@@ -34,7 +34,9 @@ AjaxLoadCategory.prototype.responseGetServer = function(response, self) {
 AjaxLoadCategory.prototype.templateCategory = function(news, category, lang) {
     "use strict";
     var self = this,
-        str = '<div class="val-category-block"><h2 class="val-title-uppercase-with-line">' + category[0]['name_' + lang] + '</h2><div class="val-news-list-category">';
+        str = '<div class="val-category-block">' +
+                '<h2 class="val-title-uppercase-with-line">' + category[0]['name_' + lang] + '</h2>'+
+                '<div class="val-news-list-category">';
 
 
     for (var i = 0; i < news.length; i++) {

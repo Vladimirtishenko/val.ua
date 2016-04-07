@@ -75,15 +75,15 @@ Currency.prototype.gets = function(item, items, rate) {
     var delta, str;
     if (item[items]) {
         if (rate == "rateBuy") {
-                srt = "<mark>" + Number(item[items][rate]).toFixed(2) + "</mark>";
+                str = "<mark>" + Number(item[items][rate]).toFixed(2) + "</mark>";
                 delta = (item[items]["rateBuyDelta"] > 0) ? "<i class='-to-hight'> &nbsp; &#9650;</i>" : (item[items]["rateBuyDelta"] < 0) ? "<i class='-to-low'> &nbsp; &#9660;</i>" : "";
-            srt += delta;
-            return srt;
+            str += delta;
+            return str;
         } else if (rate == "rateSale") {
-                srt = "<mark>" + Number(item[items][rate]).toFixed(2) + "</mark>";
+                str = "<mark>" + Number(item[items][rate]).toFixed(2) + "</mark>";
                 delta = (item[items]["rateSaleDelta"] > 0) ? "<i class='-to-hight'> &nbsp; &#9650;</i>" : (item[items]["rateSaleDelta"] < 0) ? "<i class='-to-low'> &nbsp; &#9660;</i>" : "";
-            srt += delta;
-            return srt;
+            str += delta;
+            return str;
         }
     } else {
         return '-';

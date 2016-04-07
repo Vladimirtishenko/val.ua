@@ -28,10 +28,12 @@ var handlerAllStart = function() {
     new Modal();
     new Currency();
     new weatherForVal();
+    new Market(document.querySelector('.val-market-table'));
     new StickyAccordeon(document.getElementById('val-only-else-pages'));
     new AjaxLoaderCategorySingle(document.getElementById('val-single-category'), document.getElementById('val-count-and-id'));
     new AjaxLoaderMultimedia(document.getElementById('val-single-multimedia'), document.getElementById('val-count-and-id'));
     new Pikaday({ field: document.getElementById('datepicker') });
+    new MansoryGenerator(document.getElementById('-for-mansory-container'));
 };
 
 if(location.href.indexOf('jasmine') == -1){

@@ -177,6 +177,11 @@ span {
 
 /* Defaults */
 
+.uptolike-buttons {
+  float: right;
+  margin: 20px 0;
+}
+
 .val-alert {
   position: relative;
   z-index: 999999;
@@ -304,6 +309,10 @@ span {
   padding: 4px 0px 3px;
   margin: 0 10px;
   border-bottom: 1px solid rgba(21,148,139,0.33);
+}
+
+.val-title-uppercase-with-line a:hover {
+  border-bottom: 1px solid transparent;
 }
 
 .val-title-uppercase a {
@@ -901,6 +910,10 @@ span {
   position: relative;
 }
 
+.val-conteiner-multimedia-items:hover {
+  opacity: 0.8;
+}
+
 .val-conteiner-multimedia-items img {
   width: 175%;
   left: -40%;
@@ -1362,7 +1375,7 @@ span {
   position: absolute;
   margin-top: 0px;
   display: none;
-  width: 365px;
+  width: 405px;
   z-index: 9999;
   background: #f6f6f6;
   left: -270px;
@@ -2268,14 +2281,19 @@ span.icon-weather-min-36 {
 
 .val-text-from-content-manager-wright {
   font-size: 14px;
+  line-height: 20px;
 }
 
 .val-text-from-content-manager-wright a {
   color: #15948b;
   font-size: 14px;
 }
+
+.val-text-from-content-manager-wright iframe {
+  width: 100%;
+  height: 350px;
+}
 .val-block-multimedia {
-  display: table;
   position: relative;
   width: 155px;
   margin: 5px 5px 0;
@@ -2301,7 +2319,6 @@ span.icon-weather-min-36 {
 
 .val-block-multimedia img {
   height: 110px;
-  width: 100%;
 }
 
 .val-block-multimedia.-big-img img {
@@ -2375,4 +2392,191 @@ span.icon-weather-min-36 {
   z-index: 9;
   width: 30px;
   height: 30px;
+}
+
+.-only-video:nth-child(3n+3) {
+  width: 320px;
+  overflow: hidden;
+}
+
+.-only-video:nth-child(3n+3) img {
+  height: 229px;
+}
+
+#-for-mansory-container {
+  margin: 10px;
+  opacity: 0;
+}
+.val-market-point {
+  background: #7d7d7d;
+  padding: 20px;
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.val-market-point img {
+  width: 100%;
+  display: block;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.val-descr-market {
+  font-size: 13px;
+}
+
+.val-market-table {
+  width: 100%;
+  border-width: 1px 1px 0px 1px;
+  border-style: solid;
+  border-color: #808080;
+}
+
+.val-descr-list-market {
+  padding-left: 20px;
+  margin: 20px 0;
+}
+
+.val-descr-list-market li {
+  padding: 5px 0;
+  font-size: 13px;
+}
+
+.val-market-title,
+.val-market-block {
+  display: flex;
+  align-items: stretch;
+  transition: 0.2s;
+  background: #fff;
+  cursor: pointer;
+}
+
+.val-market-block:hover {
+  background: rgba(21,148,139,0.2);
+}
+
+.val-market-first-block {
+  width: 50%;
+  padding: 10px;
+  border-right: 1px solid #808080;
+  border-bottom: 1px solid #808080;
+  font-size: 12px;
+  line-height: 16px;
+  display: flex;
+  align-items: center;
+}
+
+.val-market-last-block {
+  width: 50%;
+  padding: 10px;
+  text-align: center;
+  border-bottom: 1px solid #808080;
+  font-size: 12px;
+  line-height: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#-pushdown {
+  width: 512px;
+  position: absolute;
+  height: 160px;
+  top: 146px;
+  margin: 0;
+  left: 92px;
+  background: #15948b;
+  display: none;
+  z-index: 2;
+}
+
+#-premium-250 {
+  height: 124px;
+  position: absolute;
+  background: #15948b;
+  top: 171px;
+  right: 85px;
+  width: 149px;
+  background: #15948b;
+  display: none;
+  z-index: 2;
+}
+
+#-premium-600 {
+  height: 218px;
+  position: absolute;
+  background: #15948b;
+  top: 171px;
+  right: 85px;
+  width: 149px;
+  background: #15948b;
+  display: none;
+  z-index: 2;
+}
+
+#-premium-low-250 {
+  height: 150px;
+  position: absolute;
+  top: 954px;
+  right: 85px;
+  width: 149px;
+  background: #15948b;
+  display: none;
+  z-index: 2;
+}
+
+#-cat-fish {
+  width: 648px;
+  height: 183px;
+  position: fixed;
+  bottom: 0px;
+  background: #15948b;
+  display: none;
+  z-index: 2;
+}
+
+#-full-screen {
+  width: 648px;
+  height: 98%;
+  position: absolute;
+  top: 19px;
+  left: 20px;
+  background: #15948b;
+  display: none;
+  z-index: 2;
+}
+
+#-content {
+  width: 342px;
+  height: 323px;
+  position: absolute;
+  top: 435px;
+  left: 92px;
+  background: #15948b;
+  display: none;
+  z-index: 2;
+}
+
+#-video {
+  width: 512px;
+  position: absolute;
+  height: 248px;
+  top: 146px;
+  margin: 0;
+  left: 92px;
+  background: #15948b;
+  display: none;
+  z-index: 2;
+}
+
+#-full {
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  background: #15948b;
+  top: 0;
+  left: 0;
+  position: absolute;
+  display: none;
 }

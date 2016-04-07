@@ -2,12 +2,15 @@ var gulp = require('gulp'),
     concatCss = require('gulp-concat-css'),
     minifyCss = require('gulp-minify-css'),
     rename = require('gulp-rename'),
-    myth = require('gulp-myth'),
     autoprefixer = require('gulp-autoprefixer'),
     uglify = require('gulp-uglify'),
     concat = require('gulp-concat'),
     eslint = require('gulp-eslint'),
-    plato = require('gulp-plato');
+    plato = require('gulp-plato'),
+    stylus = require('gulp-stylus'),
+    source = require('./source.js').returnSource,
+    karma = require('karma').server,
+    jasmine = require('gulp-jasmine');
 
 
 gulp.task('stylus', function () {
@@ -20,28 +23,15 @@ gulp.task('stylus', function () {
 gulp.task('css', function() {
     return gulp.src('./public/css/*.css')
         .pipe(concatCss('bundle.css'))
-        .pipe(myth())
+        .pipe(autoprefixer())
         .pipe(minifyCss())
         .pipe(rename('bundle.min.css'))
         .pipe(gulp.dest('./public/prodaction'));
 });
 
 gulp.task('js', function() {
-    return gulp.src([
-                    './public/js/helper.js', 
-                    './public/js/model.js', 
-                    './public/js/controller.js', 
-                    './public/js/_block/_slider.js', 
-                    './public/js/_block/_iframe_load.js', 
-                    './public/js/_block/_stycky_accordeon.js', 
-                    './public/js/_block/_modal.js', 
-                    './public/js/_block/_currency.js', 
-                    './public/js/_block/_weather.js',
-                    './public/js/_block/_ajax_loader_index_page_category.js',
-                    './public/js/_block/_ajax_loader_single_category.js',
-                    './public/js/_block/_ajax_loader_multimedia.js'
-                    ])
-        .pipe(eslint({
+    return gulp.src(source())
+        /*.pipe(eslint({
             ecmaFeatures: {
                 'modules': true
             },
@@ -73,22 +63,32 @@ gulp.task('js', function() {
             envs: [
                 'browser'
             ]
-        }))
-        .pipe(eslint.format())
+        }))*/
+        /*.pipe(eslint.format())
         .pipe(eslint.failAfterError())
-        .pipe(plato('report'))
+        .pipe(plato('report'))*/
         .pipe(concat('bundle.js'))
+        .pipe(gulp.dest('./public/jasmine/src/'))
         .pipe(uglify())
         .pipe(rename('bundle.min.js'))
         .pipe(gulp.dest('./public/prodaction'))
-        .pipe(gulp.dest('./public/jasmine/src/'))
+        
 });
+
+
+/*gulp.task('tests', function (done) {
+    return karma.start({
+    configFile: __dirname + '/karma.conf.js',
+    singleRun: false
+  }, done);
+});*/
 
 gulp.task('watch', function() {
     gulp.watch("./public/css/*.css", ['css']);
     gulp.watch("./public/styl/*.styl", ['stylus']);
     gulp.watch("./public/js/*.js", ['js']);
     gulp.watch("./public/js/_block/*.js", ['js']);
+    /*gulp.watch("./public/jasmine/src/bundle.js", ['tests']);*/
 });
 
 gulp.task('default', ['watch']);

@@ -46,10 +46,10 @@ Slider.prototype._clickSlideHandlers = function(event) {
     "use strict";
     var target = event.target ? event.target : event,
         self = this,
-        clicked = parseInt(target.getAttribute('data-slide')),
+        clicked = target.getAttribute('data-slide') ? parseInt(target.getAttribute('data-slide')) : null,
         move = null;
 
-    if (!clicked) {
+    if (clicked == null || target.classList.contains('-active-slide')) {
         return;
     }
 

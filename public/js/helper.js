@@ -76,7 +76,7 @@ Helper.prototype.templateImage = function(arrays, lang){
         '<img src="/uploads/news/thumb/' + arrays.image + '" alt="' + arrays['title_' + lang] + '">' +
         '</div>' +
         '<div class="val-line-vews-data">' +
-        '<span class="val-content-news-data">' + arrays.date + '</span>' +
+        '<span class="val-content-news-data">' + this.dateHalper(arrays.date, lang) + '</span>' +
         '<span class="val-news-view">' + arrays.views + '</span>' +
         '</div>' +
         '<h2 class="val-title-news-category">' + arrays['title_' + lang] + '</h2>' +
@@ -90,7 +90,7 @@ Helper.prototype.templateWithoutImage = function(arrays, lang) {
 	"use strict";
     var template = '<a href="/site/news/' + arrays.id + '" class="val-news-item-category">' +
         '<div class="val-line-vews-data">' +
-        '<span class="val-content-news-data">' + arrays.date + '</span>' +
+        '<span class="val-content-news-data">' + this.dateHalper(arrays.date, lang) + '</span>' +
         '<span class="val-news-view">' + arrays.views + '</span>' +
         '</div>' +
         '<h2 class="val-title-news-category">' + arrays['title_' + lang] + '</h2>' +
@@ -104,10 +104,10 @@ Helper.prototype.templateWithoutImage = function(arrays, lang) {
 Helper.prototype.scrollHandler = function(general) {
 	"use strict";
 
-    if (document.body.offsetHeight - 1200 < window.scrollY + window.innerHeight && this.state && !general) {
+    if (document.body.offsetHeight - 1500 < window.scrollY + window.innerHeight && this.state && !general) {
         this.state = false;
         this.generateDataAjax();
-    }else if (document.body.offsetHeight - 500 < window.scrollY + window.innerHeight && this.state && this.count < 10 && general) {
+    }else if (document.body.offsetHeight - 700 < window.scrollY + window.innerHeight && this.state && this.count < 10 && general) {
 
         if (this.count === 7) {
             this.count++;

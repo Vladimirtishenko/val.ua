@@ -1,7 +1,6 @@
 @import '001func.styl'
 
 .val-block-multimedia
-	display table 
 	position relative
 	width 155px
 	margin 5px 5px 0
@@ -19,7 +18,6 @@
 
 .val-block-multimedia img 
 	height 110px
-	width 100%
 
 .val-block-multimedia.-big-img img
 	height initial
@@ -86,3 +84,14 @@
 	z-index 9
 	width 30px
 	height 30px
+	
+.-only-video:nth-child(3n+3)
+	width 320px
+	overflow hidden
+	
+.-only-video:nth-child(3n+3) img 
+	height 229px
+	
+#-for-mansory-container
+	margin 10px
+	opacity 0

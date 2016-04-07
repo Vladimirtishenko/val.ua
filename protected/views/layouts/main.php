@@ -128,7 +128,7 @@
                             <a href="#" class="val-redaction -about" data-attr="-about-modal" >Редакция</a>
                         </li>
                         <li>
-                            <a href="#" class="val-market">Реклама</a>
+                            <a href="<?= Yii::app()->createUrl('/site/market'); ?>" class="val-market">Реклама</a>
                         </li>
                         <li>
                             <div class="-with-before -currency-val" href="#">

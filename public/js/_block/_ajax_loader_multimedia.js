@@ -30,7 +30,7 @@ AjaxLoaderMultimedia.prototype.template = function(data, self){
         classie = '',
         classieType = '';
 
-    var RandomNumberArray = [4,5,14];
+    var RandomNumberArray = [0,5,14,17,22,28];
 
     dataContent.forEach(function(item, i){
         if(i == RandomNumberArray[0]){ 

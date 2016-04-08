@@ -407,19 +407,11 @@ class SiteController extends Controller
             $criteria->params = array(':category_id'=>$id);
             $category = PhotoCategory::model()->findByPk($id);
             $photos = Photo::model()->findAll($criteria);
-            $data = new CActiveDataProvider('PhotoCategory',
-                array(
-                    'criteria'=>array(
-                        'order'=>'id DESC',
-                    ),
-                    'sort'=>false,
-                    'pagination'=>array(
-                        'pageSize'=>24
-                    ),
-                )
-            );
+            $relatedPhotos = PhotoCategory::model()->findAll(array('order'=>'date DESC', 'limit'=>33));
+
+            $this->layout = '//layouts/column2';
             $this->rightReclameId = 23;
-            $this->render('single_album', array('photos'=>$photos, 'data'=>$data, 'category'=>$category));
+            $this->render('single_album', array('photos'=>$photos, 'relatedPhotos'=>$relatedPhotos, 'category'=>$category));
        
     }
 

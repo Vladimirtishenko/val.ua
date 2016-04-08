@@ -8,9 +8,17 @@ function MansoryGenerator(element) {
         return;
    }
 
-    var img = element.querySelectorAll('img'),
+   [].forEach.call(element, this.generateMansory);
+ 
+}
+
+
+MansoryGenerator.prototype.generateMansory = function(item){
+
+    var img = item.querySelectorAll('img'),
         count = img.length,
-        j = 1;
+        j = 1,
+        classie = item.querySelector('.val-block-multimedia-gallery') ? '.val-block-multimedia-gallery' : '.val-block-multimedia';
 
     [].forEach.call(img, function(item, i){
         var img = new Image();
@@ -26,12 +34,19 @@ function MansoryGenerator(element) {
         if(j < count){
             j++;
         } else {
-            new Masonry( element, {
-              itemSelector: '.val-block-multimedia',
+            new Masonry( item, {
+              itemSelector: classie,
               columnWidth: 1
             });
-            element.style.opacity = "1";
+
+            item.style.opacity = "1";
+            $(function(){$(classie).imageLightbox()})
         }
     }
+
+
+
+
 }
+
 /*=====  End of Section MansoryGenerator block  ======*/

@@ -908,10 +908,11 @@ span {
   height: 163px;
   margin-bottom: 7px;
   position: relative;
+  background: #15948b;
 }
 
-.val-conteiner-multimedia-items:hover {
-  opacity: 0.8;
+.val-conteiner-multimedia-items:hover img {
+  opacity: 0.7;
 }
 
 .val-conteiner-multimedia-items img {
@@ -2312,22 +2313,27 @@ span.icon-weather-min-36 {
   opacity: 0;
 }
 
-.-big-img {
+.val-block-multimedia:nth-child(3n+3) {
   width: 320px;
   overflow: hidden;
+}
+
+.val-block-multimedia:nth-child(3n+3) img {
+  height: initial;
 }
 
 .val-block-multimedia img {
   height: 110px;
 }
 
-.val-block-multimedia.-big-img img {
-  height: initial;
-}
-
 #val-single-multimedia {
   padding: 0 13px;
   opacity: 0;
+}
+
+#val-single-multimedia:nth-child(5n+5) {
+  width: 320px;
+  overflow: hidden;
 }
 
 .-val-multimedia-description {
@@ -2403,9 +2409,41 @@ span.icon-weather-min-36 {
   height: 229px;
 }
 
-#-for-mansory-container {
+.-for-mansory-container {
   margin: 10px;
   opacity: 0;
+}
+
+.-val-photo {
+  width: 31.1%;
+  margin: 1%;
+  display: block;
+  position: absolute;
+  background: #15948b;
+  line-height: 0;
+}
+
+.-val-photo:hover img {
+  opacity: 0.7;
+}
+
+.-val-photo img {
+  width: 100%;
+}
+
+.light {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  z-index: 9999;
+  background-color: rgba(255,255,255,0.7);
+}
+
+.light img {
+  position: absolute;
 }
 .val-market-point {
   background: #7d7d7d;

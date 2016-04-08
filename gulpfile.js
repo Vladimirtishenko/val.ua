@@ -76,6 +76,13 @@ gulp.task('js', function() {
 });
 
 
+gulp.task('js_lib', function() {
+    return gulp.src('./public/js/_lib/*.js')
+        .pipe(uglify())
+        .pipe(gulp.dest('./public/js/_lib/'))       
+});
+
+
 /*gulp.task('tests', function (done) {
     return karma.start({
     configFile: __dirname + '/karma.conf.js',

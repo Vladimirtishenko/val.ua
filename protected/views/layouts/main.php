@@ -225,7 +225,7 @@
             </div>          
         </footer>
     </section>
-    <? Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . '/public/js/pikaday.js', CClientScript::POS_END);?>
+    <? Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . '/public/js/_lib/pikaday.js', CClientScript::POS_END);?>
     <? Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . '/public/prodaction/bundle.min.js', CClientScript::POS_END);?>
     <script>
     window.addEventListener("DOMContentLoaded", function(){

@@ -5,34 +5,29 @@
 $this->pageTitle = Yii::app()->language == 'ru' ? $category->meta_title_ru : $category->meta_title_uk;
 $this->pageDescription = Yii::app()->language == 'ru' ? $category->meta_description_ru : $category->meta_description_uk;
 ?>
+<? Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . '/public/js/_lib/imagelightbox.min.js', CClientScript::POS_END);?>
+<? Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . '/public/js/_lib/masonry.pkgd.min.js', CClientScript::POS_END);?>
+<?php 
+    $dateNow = (new DateTime())->format('Y-m-d');
+?>
 
-<div class="forBlogH3">
-    <h3><?= Yii::t('main', 'Фоторепортажі'); ?></h3> <span class="fa fa-camera"></span> <?= CHtml::link(Yii::t('main', 'Мультимедіа'), array('/site/photos')); ?>
-</div>
+<article class="val-column-left">
+    <div class="val-single-news-conainer-with-read-else">
+        <div class='val-container-one-news'>
+            <h2 class="val-title-uppercase-with-line val-title-uppercase-small"><?= CHtml::encode(Yii::app()->language == 'ru' ? $category->name_ru : $category->name_uk); ?></h2>
 
-<div class="marketInOnePhotoPageTop">
-    <?php $this->widget('application.components.widgets.ReclameWidget', array('id'=>17)); ?>
-</div>
+            <div class="marketInOneVideoPageTop">
+                <?php $this->widget('application.components.widgets.ReclameWidget', array('id'=>15)); ?>
+            </div>
 
-<div class="oneNewsBlock">
-    <h3 class="title">
-        <?= (Yii::app()->language == 'ru') ? $category->name_ru : $category->name_uk; ?>
-    </h3>
-    <div class="dateTimeSocial -with-padding">
-        <div class="dateTime">
-            <p><?= date('d.m.Y | H:m', strtotime($category->date)); ?></p>
-        </div>
-        <div class="Social">
-             <div class="share42init" data-url="<?=Yii::app()->createAbsoluteUrl(Yii::app()->request->url);?>" data-title="<?= CHtml::encode(Yii::app()->language == 'ru' ? $category->name_ru : $category->name_uk); ?>" data-image="http://val.ua/uploads/images/<?=$photos[0]->name;?>"></div>
-        </div>
-    </div>
-        <div class="-val-outer-all-slider">
-            <mark></mark>
-            <div class="outer-for-controls">
-                <span class="val-prev-single -conrols" data-arrow="prevent"></span>
-                <div class="val-outer-slide">
+            <div class="val-description-block-gen-news">
+                <span class="val-content-news-data"><?= ($category == date('Y-m-d', strtotime($category->date))) ? date('H:i', strtotime($category->date)) : intval(date('d', strtotime($category->date))).' '.Yii::app()->controller->getMonth($category->date).' '.date('Y', strtotime($category->date)); ?></span>
+            </div>
+            <div class="-for-mansory-container">
                 <?php foreach($photos as $key => $photo): ?>
-                    <a href="#"><?= CHtml::image("/uploads/images/".$photo->name, $photo->name, array('data-num' => $key)); ?>
+                    <a href="/uploads/images/<?=$photo->name;?>" class="-val-photo val-block-multimedia-gallery">
+
+                    <?= CHtml::image("/uploads/images/".$photo->name, $photo->name, array('data-num' => $key)); ?>
                     
                     <?php if(!empty($photo->description_ru) && !empty($photo->description_uk)): ?>
                     <span><?= CHtml::encode(Yii::app()->language == 'ru' ? $photo->description_ru : $photo->description_uk); ?></span>
@@ -41,119 +36,36 @@ $this->pageDescription = Yii::app()->language == 'ru' ? $category->meta_descript
 
                     </a>
                 <?php endforeach; ?>
+            </div>
+        
+            <div class="marketInOneVideoPagebottom">
+                <?php $this->widget('application.components.widgets.ReclameWidget', array('id'=>16)); ?>
+            </div>
+            
+            <script type="text/javascript">(function(w,doc) {
+            if (!w.__utlWdgt ) {
+                w.__utlWdgt = true;
+                var d = doc, s = d.createElement('script'), g = 'getElementsByTagName';
+                s.type = 'text/javascript'; s.charset='UTF-8'; s.async = true;
+                s.src = ('https:' == w.location.protocol ? 'https' : 'http')  + '://w.uptolike.com/widgets/v1/uptolike.js';
+                var h=d[g]('body')[0];
+                h.appendChild(s);
+            }})(window,document);
+            </script>
+            <div data-background-alpha="0.0" data-buttons-color="#ffffff" data-counter-background-color="#ffffff" data-share-counter-size="12" data-top-button="true" data-share-counter-type="separate" data-share-style="1" data-mode="share" data-like-text-enable="false" data-hover-effect="scale" data-mobile-view="true" data-icon-color="#ffffff" data-orientation="horizontal" data-text-color="#000000" data-share-shape="round-rectangle" data-sn-ids="fb.vk.tw.ok.gp." data-share-size="30" data-background-color="#ffffff" data-preview-mobile="false" data-mobile-sn-ids="fb.vk.tw.wh.ok.vb." data-pid="1507613" data-counter-background-alpha="1.0" data-following-enable="false" data-exclude-show-more="true" data-selection-enable="true" class="uptolike-buttons" ></div>
+    </div>
+    <h2 class="val-title-uppercase-with-line">
+        <span> <?= Yii::t('main', 'Переглядайте також'); ?> </span>
+        <?= CHtml::link(Yii::t('main', 'Мультимедіа'), array('/site/multimedia')); ?>
+    </h2>
+    <div class="-for-mansory-container">
+        <?php foreach($relatedPhotos as $key => $video): ?>
+            <a href="<?= Yii::app()->createUrl('/site/photo/', array('id'=>$video->id)); ?>" class="val-block-multimedia -val-ico-photo -only-video">
+                <span class="-val-multimedia-description"><?=Yii::app()->language == 'ru' ? $video->name_ru : $video->name_uk;?></span>
+                <div class="val-image-block-multimedia">
+                    <img src="/uploads/galery/category/<?=$video->image;?>">
                 </div>
-                <span class="val-next-single -conrols" data-arrow="next"></span>
-            </div>
-            <div class="val-peview">
-                <div class="-overflow-previe"></div>
-            </div>
-            <span class="val-prev-single-bottom -conrols" data-arrow="prevent"></span>
-            <span class="val-next-single-bottom -conrols" data-arrow="next"></span>
-        </div>
-    <div class="dateTimeSocial">
-        <div class="dateTime">
-            <p>Автор: <?= $category->author; ?> </p>
-        </div>
-        <div class="Social"> 
-            <div class="share42init" data-url="<?=Yii::app()->createAbsoluteUrl(Yii::app()->request->url);?>" data-title="<?= CHtml::encode(Yii::app()->language == 'ru' ? $category->name_ru : $category->name_uk); ?>" data-image="http://val.ua/uploads/images/<?=$photos[0]->name;?>"></div>
-        </div>
+            </a>
+        <?php endforeach; ?>
     </div>
-  <div class="marketInOnePhotoPagebottom">
-      <?php $this->widget('application.components.widgets.ReclameWidget', array('id'=>18)); ?>
-</div>
-
-
-</div>
-<!-- TovarroComposite Start -->
-<!-- <div id="TovarroScriptRootC596083">
-    <div id="TovarroPreloadC596083">
-        <a id="mg_add596083" href="http://tovarro.com/clients.html?utm_source=links_mg&utm_medium=text&utm_campaign=add_goods" target="_blank"><img src="//cdn.marketgid.com/images/tovarro_add_link.png" style="border:0px"></a>
-    </div>
-    <script>
-        (function() {
-            var D = new Date(),
-                d = document,
-                b = 'body',
-                ce = 'createElement',
-                ac = 'appendChild',
-                st = 'style',
-                ds = 'display',
-                n = 'none',
-                gi = 'getElementById';
-            var i = d[ce]('iframe');
-            i[st][ds] = n;
-            d[gi]("TovarroScriptRootC596083")[ac](i);
-            try {
-                var iw = i.contentWindow.document;
-                iw.open();
-                iw.writeln("<ht" + "ml><bo" + "dy></bo" + "dy></ht" + "ml>");
-                iw.close();
-                var c = iw[b];
-            } catch (e) {
-                var iw = d;
-                var c = d[gi]("TovarroScriptRootC596083");
-            }
-            var dv = iw[ce]('div');
-            dv.id = "MG_ID";
-            dv[st][ds] = n;
-            dv.innerHTML = 596083;
-            c[ac](dv);
-            var s = iw[ce]('script');
-            s.async = 'async';
-            s.defer = 'defer';
-            s.charset = 'utf-8';
-            s.src = "//jsc.tovarro.com/v/a/val.ua.596083.js?t=" + D.getYear() + D.getMonth() + D.getDate() + D.getHours();
-            c[ac](s);
-        })();
-    </script>
-</div> -->
-<!-- TovarroComposite End -->
-<div class="custom-market">
-    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <!-- custum banner -->
-    <ins class="adsbygoogle"
-         style="display:inline-block;width:695px;height:90px"
-         data-ad-client="ca-pub-2479511460292648"
-         data-ad-slot="7553549215"></ins>
-    <script>
-    (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-</div>
-<script type="text/javascript">
-    teasernet_blockid = 690379;
-    teasernet_padid = 278808;
-</script>
-<script type="text/javascript" src="http://legandruk.com/48f/1/0cb01058e400.js"></script>
-<div class="forBlogH3">
-    <h3><?= Yii::t('main', 'Дивіться також'); ?></h3> <span class="fa fa-camera"></span> <?= CHtml::link(Yii::t('main', 'Фоторепортажі'), array('/site/photos')); ?>
-</div>
-
-<?php
-$this->widget('zii.widgets.CListView', array(
-    'dataProvider'=>$data,
-    'itemView'=>'_albums',
-    'template'=>'{items}{pager}',
-    'cssFile'=>false,
-    'pager'=>array(
-        'lastPageLabel'=>'>>',
-        'nextPageLabel'=>'>',
-        'prevPageLabel'=>'<',
-        'firstPageLabel'=>'<<',
-        'class'=>'CLinkPager',
-        'header'=>false,
-        'cssFile'=>false, // устанавливаем свой .css файл
-        'htmlOptions'=>array('class'=>'pager'),
-    ),
-    'sortableAttributes'=>array(
-        'rating',
-        'create_time',
-    ),
-    'pagerCssClass'=>'pager',
-    'itemsCssClass'=>'photoBlock',
-));
-?>
-<div class="marketOwnNewA">
-
-</div>
-<?php Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl.'/js/share42.js',CClientScript::POS_END, array('defer'=>true)); ?>
-<?php Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl.'/js/single-slider.js',CClientScript::POS_END, array('defer'=>true)); ?>
+</article>

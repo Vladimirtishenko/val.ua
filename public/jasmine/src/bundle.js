@@ -213,7 +213,7 @@ var handlerAllStart = function() {
     new AjaxLoaderCategorySingle(document.getElementById('val-single-category'), document.getElementById('val-count-and-id'));
     new AjaxLoaderMultimedia(document.getElementById('val-single-multimedia'), document.getElementById('val-count-and-id'));
     new Pikaday({ field: document.getElementById('datepicker') });
-    new MansoryGenerator(document.getElementById('-for-mansory-container'));
+    new MansoryGenerator(document.querySelectorAll('.-for-mansory-container'));
 };
 
 if(location.href.indexOf('jasmine') == -1){
@@ -699,9 +699,17 @@ function MansoryGenerator(element) {
         return;
    }
 
-    var img = element.querySelectorAll('img'),
+   [].forEach.call(element, this.generateMansory);
+ 
+}
+
+
+MansoryGenerator.prototype.generateMansory = function(item){
+
+    var img = item.querySelectorAll('img'),
         count = img.length,
-        j = 1;
+        j = 1,
+        classie = item.querySelector('.val-block-multimedia-gallery') ? '.val-block-multimedia-gallery' : '.val-block-multimedia';
 
     [].forEach.call(img, function(item, i){
         var img = new Image();
@@ -717,14 +725,21 @@ function MansoryGenerator(element) {
         if(j < count){
             j++;
         } else {
-            new Masonry( element, {
-              itemSelector: '.val-block-multimedia',
+            new Masonry( item, {
+              itemSelector: classie,
               columnWidth: 1
             });
-            element.style.opacity = "1";
+
+            item.style.opacity = "1";
+            $(function(){$(classie).imageLightbox()})
         }
     }
+
+
+
+
 }
+
 /*=====  End of Section MansoryGenerator block  ======*/
 
 function AjaxLoadCategory(element) {
@@ -865,27 +880,18 @@ AjaxLoaderMultimedia.prototype.template = function(data, self){
     "use strict";
     var dataContent = JSON.parse(JSON.parse(data).multimedia),
         lang = JSON.parse(data).language,
-        template = [],
-        classie = '',
-        classieType = '';
-
-    var RandomNumberArray = [0,5,14,17,22,28];
+        template = [];
 
     dataContent.forEach(function(item, i){
-        if(i == RandomNumberArray[0]){ 
-            classie = '-big-img';
-            RandomNumberArray.shift();
-        } else {
-            classie = '';
-        }
-        classieType = '-val-ico-'+item.type;
+        
         var elementOuter = document.createElement('a'), 
             elementInner = document.createElement('div'), 
             img = new Image(), 
-            elementSpan = document.createElement('span');
+            elementSpan = document.createElement('span'),
+            classieType = '-val-ico-'+item.type;
         
         elementOuter.href = (item.type == 'photo') ? '/'+lang+'/site/photos/'+item.id : '/'+lang+'/site/video/'+item.id;
-        classie ? elementOuter.classList.add('val-block-multimedia', classieType, classie) : elementOuter.classList.add('val-block-multimedia', classieType);
+        elementOuter.classList.add('val-block-multimedia', classieType);
         elementInner.classList.add('val-image-block-multimedia');
         (item.type == 'photo') ? img.src = '/uploads/galery/category/'+item.image+'' : img.src = 'http://img.youtube.com/vi/'+item.image+'/mqdefault.jpg';
         elementSpan.classList.add('-val-multimedia-description');

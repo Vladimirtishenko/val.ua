@@ -3,7 +3,7 @@
 $this->pageTitle = Yii::app()->language == 'ru' ? $model->meta_title_ru : $model->meta_title_uk;
 $this->pageDescription = Yii::app()->language == 'ru' ? $model->meta_description_ru : $model->meta_description_uk;
 ?>
-<? Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . '/public/js/masonry.pkgd.min.js', CClientScript::POS_END);?>
+<? Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . '/public/js/_lib/masonry.pkgd.min.js', CClientScript::POS_END);?>
 <?php 
     $dateNow = (new DateTime())->format('Y-m-d');
 ?>
@@ -42,7 +42,7 @@ $this->pageDescription = Yii::app()->language == 'ru' ? $model->meta_description
         <span> <?= Yii::t('main', 'Переглядайте також'); ?> </span>
         <?= CHtml::link(Yii::t('main', 'Мультимедіа'), array('/site/multimedia')); ?>
     </h2>
-    <div id="-for-mansory-container">
+    <div class="-for-mansory-container">
         <?php foreach($relatedVideos as $key => $video): ?>
             <a href="<?= Yii::app()->createUrl('/site/video', array('id'=>$video->id)); ?>" class="val-block-multimedia -val-ico-video -only-video">
                 <span class="-val-multimedia-description"><?=Yii::app()->language == 'ru' ? $video->title_ru : $video->title_uk;?></span>

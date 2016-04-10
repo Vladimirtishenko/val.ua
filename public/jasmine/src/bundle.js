@@ -208,6 +208,7 @@ var handlerAllStart = function() {
     new Modal();
     new Currency();
     new weatherForVal();
+    new MenuButton(document.querySelector('.val-button-menu'), document.querySelector('.val-all-outer'));
     new Market(document.querySelector('.val-market-table'));
     new StickyAccordeon(document.getElementById('val-only-else-pages'));
     new AjaxLoaderCategorySingle(document.getElementById('val-single-category'), document.getElementById('val-count-and-id'));
@@ -529,6 +530,31 @@ Market.prototype.HandlerToMouseEnterLeave = function() {
 
 /*=====  End of Section Market block  ======*/
 
+/*=============================================
+=            Section MenuButton block      =
+=============================================*/
+
+function MenuButton(button, element) {
+    "use strict";
+    if(!element && !button) {
+        return false;
+    }
+
+    button.addEventListener('click', this.slideMenu.bind(this, element, button));
+
+}
+
+
+MenuButton.prototype.slideMenu = function(element, button) {
+    "use strict";
+
+    button.classList.toggle('-val-active-menu-side');
+    element.classList.toggle('val-all-outer-animate');
+
+};
+
+
+/*=====  End of MenuButton comment block  ======*/
 function Currency() {
     "use strict";
 

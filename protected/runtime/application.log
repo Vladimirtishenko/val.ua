@@ -1172,3 +1172,388 @@ REQUEST_URI=/
 2016/02/26 18:54:35 [error] [system.db.CDbCommand] Не вдалося виконати CDbCommand::fetchAll(): SQLSTATE[42S22]: Column not found: 1054 Unknown column 'date' in 'order clause'. Спроба виконати SQL-запит: (SELECT `id` FROM photo_category) UNION (SELECT `id` FROM video) ORDER BY `date` DESC LIMIT 30.
 2016/02/26 18:55:48 [error] [system.db.CDbCommand] Не вдалося виконати CDbCommand::fetchAll(): SQLSTATE[42S22]: Column not found: 1054 Unknown column 'id' in 'order clause'. Спроба виконати SQL-запит: (SELECT `date` FROM photo_category) UNION (SELECT `date` FROM video) ORDER BY `id` DESC LIMIT 30.
 2016/02/26 20:49:57 [error] [system.db.CDbCommand] Не вдалося виконати CDbCommand::fetchAll(): SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'OFFSET 0 LIMIT 15' at line 1. Спроба виконати SQL-запит: (SELECT `date`, `id`, `image` FROM photo_category) UNION (SELECT `date`, `id`, `video` FROM video) ORDER BY `date` DESC OFFSET 0 LIMIT 15.
+2016/04/10 19:23:51 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "images/favicon.ico".' in /home/vladimirtishenko/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/vladimirtishenko/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('images/favicon....')
+#1 /home/vladimirtishenko/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/vladimirtishenko/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/images/favicon.ico
+HTTP_REFERER=http://val.dev/
+---
+2016/04/10 19:25:56 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/images/56a9dd053bcd0_C7K2145.JPG".' in /home/vladimirtishenko/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/vladimirtishenko/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/images/...')
+#1 /home/vladimirtishenko/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/vladimirtishenko/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/images/56a9dd053bcd0_C7K2145.JPG
+HTTP_REFERER=http://val.dev/uk/site/photos/360.html
+---
+2016/04/10 19:25:56 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/images/56a9dd062e190_C7K2152.JPG".' in /home/vladimirtishenko/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/vladimirtishenko/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/images/...')
+#1 /home/vladimirtishenko/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/vladimirtishenko/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/images/56a9dd062e190_C7K2152.JPG
+HTTP_REFERER=http://val.dev/uk/site/photos/360.html
+---
+2016/04/10 19:25:56 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/images/56a9dd0640c79_C7K2156.JPG".' in /home/vladimirtishenko/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/vladimirtishenko/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/images/...')
+#1 /home/vladimirtishenko/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/vladimirtishenko/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/images/56a9dd0640c79_C7K2156.JPG
+HTTP_REFERER=http://val.dev/uk/site/photos/360.html
+---
+2016/04/10 19:25:56 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/images/56a9dd0655760_C7K2158.JPG".' in /home/vladimirtishenko/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/vladimirtishenko/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/images/...')
+#1 /home/vladimirtishenko/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/vladimirtishenko/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/images/56a9dd0655760_C7K2158.JPG
+HTTP_REFERER=http://val.dev/uk/site/photos/360.html
+---
+2016/04/10 19:25:57 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/images/56a9dd0667932_C7K2161.JPG".' in /home/vladimirtishenko/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/vladimirtishenko/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/images/...')
+#1 /home/vladimirtishenko/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/vladimirtishenko/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/images/56a9dd0667932_C7K2161.JPG
+HTTP_REFERER=http://val.dev/uk/site/photos/360.html
+---
+2016/04/10 19:25:57 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/images/56a9dd067b72c_C7K2163.JPG".' in /home/vladimirtishenko/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/vladimirtishenko/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/images/...')
+#1 /home/vladimirtishenko/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/vladimirtishenko/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/images/56a9dd067b72c_C7K2163.JPG
+HTTP_REFERER=http://val.dev/uk/site/photos/360.html
+---
+2016/04/10 19:25:57 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/images/56a9dd069602e_C7K2164.JPG".' in /home/vladimirtishenko/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/vladimirtishenko/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/images/...')
+#1 /home/vladimirtishenko/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/vladimirtishenko/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/images/56a9dd069602e_C7K2164.JPG
+HTTP_REFERER=http://val.dev/uk/site/photos/360.html
+---
+2016/04/10 19:25:57 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/images/56a9dd06aacee_C7K2169.JPG".' in /home/vladimirtishenko/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/vladimirtishenko/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/images/...')
+#1 /home/vladimirtishenko/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/vladimirtishenko/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/images/56a9dd06aacee_C7K2169.JPG
+HTTP_REFERER=http://val.dev/uk/site/photos/360.html
+---
+2016/04/10 19:25:57 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/images/56a9dd06be99b_C7K2170.JPG".' in /home/vladimirtishenko/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/vladimirtishenko/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/images/...')
+#1 /home/vladimirtishenko/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/vladimirtishenko/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/images/56a9dd06be99b_C7K2170.JPG
+HTTP_REFERER=http://val.dev/uk/site/photos/360.html
+---
+2016/04/10 19:25:58 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/images/56a9dd06d291f_C7K2172.JPG".' in /home/vladimirtishenko/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/vladimirtishenko/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/images/...')
+#1 /home/vladimirtishenko/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/vladimirtishenko/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/images/56a9dd06d291f_C7K2172.JPG
+HTTP_REFERER=http://val.dev/uk/site/photos/360.html
+---
+2016/04/10 19:25:58 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/images/56a9dd06e6ac7_C7K2173.JPG".' in /home/vladimirtishenko/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/vladimirtishenko/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/images/...')
+#1 /home/vladimirtishenko/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/vladimirtishenko/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/images/56a9dd06e6ac7_C7K2173.JPG
+HTTP_REFERER=http://val.dev/uk/site/photos/360.html
+---
+2016/04/10 19:25:58 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/images/56a9dd0707569_C7K2176.JPG".' in /home/vladimirtishenko/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/vladimirtishenko/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/images/...')
+#1 /home/vladimirtishenko/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/vladimirtishenko/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/images/56a9dd0707569_C7K2176.JPG
+HTTP_REFERER=http://val.dev/uk/site/photos/360.html
+---
+2016/04/10 19:25:58 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/images/56a9dd071a7da_C7K2179.JPG".' in /home/vladimirtishenko/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/vladimirtishenko/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/images/...')
+#1 /home/vladimirtishenko/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/vladimirtishenko/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/images/56a9dd071a7da_C7K2179.JPG
+HTTP_REFERER=http://val.dev/uk/site/photos/360.html
+---
+2016/04/10 19:25:58 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/images/56a9dd072dbcc_C7K2187.JPG".' in /home/vladimirtishenko/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/vladimirtishenko/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/images/...')
+#1 /home/vladimirtishenko/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/vladimirtishenko/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/images/56a9dd072dbcc_C7K2187.JPG
+HTTP_REFERER=http://val.dev/uk/site/photos/360.html
+---
+2016/04/10 19:25:58 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/images/56a9dd0741a62_C7K2188.JPG".' in /home/vladimirtishenko/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/vladimirtishenko/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/images/...')
+#1 /home/vladimirtishenko/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/vladimirtishenko/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/images/56a9dd0741a62_C7K2188.JPG
+HTTP_REFERER=http://val.dev/uk/site/photos/360.html
+---
+2016/04/10 19:25:58 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/images/56a9dd5f06824_C7K2221.JPG".' in /home/vladimirtishenko/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/vladimirtishenko/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/images/...')
+#1 /home/vladimirtishenko/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/vladimirtishenko/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/images/56a9dd5f06824_C7K2221.JPG
+HTTP_REFERER=http://val.dev/uk/site/photos/360.html
+---
+2016/04/10 19:25:59 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/images/56a9dd5ea9551_C7K2206.JPG".' in /home/vladimirtishenko/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/vladimirtishenko/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/images/...')
+#1 /home/vladimirtishenko/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/vladimirtishenko/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/images/56a9dd5ea9551_C7K2206.JPG
+HTTP_REFERER=http://val.dev/uk/site/photos/360.html
+---
+2016/04/10 19:25:59 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/images/56a9dd5e5b2b4_C7K2199.JPG".' in /home/vladimirtishenko/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/vladimirtishenko/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/images/...')
+#1 /home/vladimirtishenko/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/vladimirtishenko/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/images/56a9dd5e5b2b4_C7K2199.JPG
+HTTP_REFERER=http://val.dev/uk/site/photos/360.html
+---
+2016/04/10 19:25:59 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/images/56a9dd5f19011_C7K2230.JPG".' in /home/vladimirtishenko/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/vladimirtishenko/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/images/...')
+#1 /home/vladimirtishenko/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/vladimirtishenko/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/images/56a9dd5f19011_C7K2230.JPG
+HTTP_REFERER=http://val.dev/uk/site/photos/360.html
+---
+2016/04/10 19:25:59 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/images/56a9dd5e78595_C7K2200.JPG".' in /home/vladimirtishenko/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/vladimirtishenko/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/images/...')
+#1 /home/vladimirtishenko/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/vladimirtishenko/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/images/56a9dd5e78595_C7K2200.JPG
+HTTP_REFERER=http://val.dev/uk/site/photos/360.html
+---
+2016/04/10 19:25:59 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/images/56a9dd5ee5294_C7K2220.JPG".' in /home/vladimirtishenko/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/vladimirtishenko/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/images/...')
+#1 /home/vladimirtishenko/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/vladimirtishenko/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/images/56a9dd5ee5294_C7K2220.JPG
+HTTP_REFERER=http://val.dev/uk/site/photos/360.html
+---
+2016/04/10 19:25:59 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/images/56a9dd5e94ad7_C7K2203.JPG".' in /home/vladimirtishenko/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/vladimirtishenko/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/images/...')
+#1 /home/vladimirtishenko/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/vladimirtishenko/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/images/56a9dd5e94ad7_C7K2203.JPG
+HTTP_REFERER=http://val.dev/uk/site/photos/360.html
+---
+2016/04/10 19:25:59 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/images/56a9dd5ebbfed_C7K2210.JPG".' in /home/vladimirtishenko/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/vladimirtishenko/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/images/...')
+#1 /home/vladimirtishenko/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/vladimirtishenko/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/images/56a9dd5ebbfed_C7K2210.JPG
+HTTP_REFERER=http://val.dev/uk/site/photos/360.html
+---
+2016/04/10 19:26:00 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/images/56a9dd5e450ff_C7K2197.JPG".' in /home/vladimirtishenko/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/vladimirtishenko/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/images/...')
+#1 /home/vladimirtishenko/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/vladimirtishenko/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/images/56a9dd5e450ff_C7K2197.JPG
+HTTP_REFERER=http://val.dev/uk/site/photos/360.html
+---
+2016/04/10 19:26:00 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/images/56a9dd5ed0028_C7K2216.JPG".' in /home/vladimirtishenko/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/vladimirtishenko/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/images/...')
+#1 /home/vladimirtishenko/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/vladimirtishenko/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/images/56a9dd5ed0028_C7K2216.JPG
+HTTP_REFERER=http://val.dev/uk/site/photos/360.html
+---
+2016/04/10 19:26:00 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/images/56a9dd5f2b394_C7K2233.JPG".' in /home/vladimirtishenko/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/vladimirtishenko/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/images/...')
+#1 /home/vladimirtishenko/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/vladimirtishenko/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/images/56a9dd5f2b394_C7K2233.JPG
+HTTP_REFERER=http://val.dev/uk/site/photos/360.html
+---
+2016/04/10 19:26:01 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/images/56a9dd053bcd0_C7K2145.JPG".' in /home/vladimirtishenko/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/vladimirtishenko/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/images/...')
+#1 /home/vladimirtishenko/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/vladimirtishenko/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/images/56a9dd053bcd0_C7K2145.JPG
+HTTP_REFERER=http://val.dev/uk/site/photos/360.html
+---
+2016/04/10 19:26:02 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/images/56a9dd0640c79_C7K2156.JPG".' in /home/vladimirtishenko/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/vladimirtishenko/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/images/...')
+#1 /home/vladimirtishenko/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/vladimirtishenko/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/images/56a9dd0640c79_C7K2156.JPG
+HTTP_REFERER=http://val.dev/uk/site/photos/360.html
+---
+2016/04/10 19:26:02 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/images/56a9dd062e190_C7K2152.JPG".' in /home/vladimirtishenko/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/vladimirtishenko/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/images/...')
+#1 /home/vladimirtishenko/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/vladimirtishenko/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/images/56a9dd062e190_C7K2152.JPG
+HTTP_REFERER=http://val.dev/uk/site/photos/360.html
+---
+2016/04/10 19:26:02 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/images/56a9dd0655760_C7K2158.JPG".' in /home/vladimirtishenko/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/vladimirtishenko/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/images/...')
+#1 /home/vladimirtishenko/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/vladimirtishenko/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/images/56a9dd0655760_C7K2158.JPG
+HTTP_REFERER=http://val.dev/uk/site/photos/360.html
+---
+2016/04/10 19:26:02 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/images/56a9dd0667932_C7K2161.JPG".' in /home/vladimirtishenko/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/vladimirtishenko/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/images/...')
+#1 /home/vladimirtishenko/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/vladimirtishenko/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/images/56a9dd0667932_C7K2161.JPG
+HTTP_REFERER=http://val.dev/uk/site/photos/360.html
+---
+2016/04/10 19:26:02 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/images/56a9dd067b72c_C7K2163.JPG".' in /home/vladimirtishenko/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/vladimirtishenko/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/images/...')
+#1 /home/vladimirtishenko/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/vladimirtishenko/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/images/56a9dd067b72c_C7K2163.JPG
+HTTP_REFERER=http://val.dev/uk/site/photos/360.html
+---
+2016/04/10 19:26:02 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/images/56a9dd069602e_C7K2164.JPG".' in /home/vladimirtishenko/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/vladimirtishenko/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/images/...')
+#1 /home/vladimirtishenko/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/vladimirtishenko/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/images/56a9dd069602e_C7K2164.JPG
+HTTP_REFERER=http://val.dev/uk/site/photos/360.html
+---
+2016/04/10 19:26:02 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/images/56a9dd06aacee_C7K2169.JPG".' in /home/vladimirtishenko/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/vladimirtishenko/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/images/...')
+#1 /home/vladimirtishenko/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/vladimirtishenko/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/images/56a9dd06aacee_C7K2169.JPG
+HTTP_REFERER=http://val.dev/uk/site/photos/360.html
+---
+2016/04/10 19:26:02 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/images/56a9dd06be99b_C7K2170.JPG".' in /home/vladimirtishenko/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/vladimirtishenko/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/images/...')
+#1 /home/vladimirtishenko/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/vladimirtishenko/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/images/56a9dd06be99b_C7K2170.JPG
+HTTP_REFERER=http://val.dev/uk/site/photos/360.html
+---
+2016/04/10 19:26:02 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/images/56a9dd06d291f_C7K2172.JPG".' in /home/vladimirtishenko/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/vladimirtishenko/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/images/...')
+#1 /home/vladimirtishenko/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/vladimirtishenko/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/images/56a9dd06d291f_C7K2172.JPG
+HTTP_REFERER=http://val.dev/uk/site/photos/360.html
+---
+2016/04/10 19:26:03 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/images/56a9dd06e6ac7_C7K2173.JPG".' in /home/vladimirtishenko/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/vladimirtishenko/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/images/...')
+#1 /home/vladimirtishenko/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/vladimirtishenko/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/images/56a9dd06e6ac7_C7K2173.JPG
+HTTP_REFERER=http://val.dev/uk/site/photos/360.html
+---
+2016/04/10 19:26:03 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/images/56a9dd071a7da_C7K2179.JPG".' in /home/vladimirtishenko/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/vladimirtishenko/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/images/...')
+#1 /home/vladimirtishenko/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/vladimirtishenko/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/images/56a9dd071a7da_C7K2179.JPG
+HTTP_REFERER=http://val.dev/uk/site/photos/360.html
+---
+2016/04/10 19:26:03 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/images/56a9dd0707569_C7K2176.JPG".' in /home/vladimirtishenko/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/vladimirtishenko/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/images/...')
+#1 /home/vladimirtishenko/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/vladimirtishenko/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/images/56a9dd0707569_C7K2176.JPG
+HTTP_REFERER=http://val.dev/uk/site/photos/360.html
+---
+2016/04/10 19:26:03 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/images/56a9dd072dbcc_C7K2187.JPG".' in /home/vladimirtishenko/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/vladimirtishenko/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/images/...')
+#1 /home/vladimirtishenko/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/vladimirtishenko/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/images/56a9dd072dbcc_C7K2187.JPG
+HTTP_REFERER=http://val.dev/uk/site/photos/360.html
+---
+2016/04/10 19:50:46 [error] [php] Undefined variable: classie (/home/vladimirtishenko/www/val.ua/protected/views/layouts/main.php:63)
+Stack trace:
+#0 /home/vladimirtishenko/www/val.ua/framework/web/CController.php(784): SiteController->renderFile()
+#1 /home/vladimirtishenko/www/val.ua/protected/controllers/SiteController.php(101): SiteController->render()
+#2 /home/vladimirtishenko/www/val.ua/framework/web/actions/CInlineAction.php(49): SiteController->actionIndex()
+#3 /home/vladimirtishenko/www/val.ua/framework/web/CController.php(308): CInlineAction->runWithParams()
+#4 /home/vladimirtishenko/www/val.ua/framework/web/CController.php(286): SiteController->runAction()
+#5 /home/vladimirtishenko/www/val.ua/framework/web/CController.php(265): SiteController->runActionWithFilters()
+#6 /home/vladimirtishenko/www/val.ua/framework/web/CWebApplication.php(282): SiteController->run()
+#7 /home/vladimirtishenko/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#8 /home/vladimirtishenko/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#9 /home/vladimirtishenko/www/val.ua/index.php(12): CWebApplication->run()
+REQUEST_URI=/uk.html
+in /home/vladimirtishenko/www/val.ua/protected/views/layouts/main.php (63)
+in /home/vladimirtishenko/www/val.ua/protected/controllers/SiteController.php (101)
+in /home/vladimirtishenko/www/val.ua/index.php (12)

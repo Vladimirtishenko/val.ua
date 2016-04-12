@@ -28,6 +28,7 @@ var handlerAllStart = function() {
     new Modal();
     new Currency();
     new weatherForVal();
+    new MenuButton(document.querySelector('.val-button-menu'), document.querySelector('.val-all-outer'));
     new Market(document.querySelector('.val-market-table'));
     new StickyAccordeon(document.getElementById('val-only-else-pages'));
     new AjaxLoaderCategorySingle(document.getElementById('val-single-category'), document.getElementById('val-count-and-id'));

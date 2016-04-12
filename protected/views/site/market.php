@@ -1,13 +1,13 @@
 <article class="val-column-left">
 	<div>
-		<h2 class="val-title-uppercase-with-line"><?= Yii::t('main', 'Реклама на сайте'); ?></h2>
+		<h2 class="val-title-uppercase-with-line"><?= Yii::t('main', 'Реклама на сайті'); ?></h2>
 
-		<p class="val-descr-market">По вопросам размещения рекламы на сайте обращайтесь:</p>
+		<p class="val-descr-market"><?= Yii::t('main', 'З питань розміщення реклами на сайті звертайтеся:'); ?></p>
 
 		<ul class="val-descr-list-market">
-			<li>01010 Киев, ул.Московская 19/1</li>
-			<li>Телефон: +380 (44) 931 931</li>
-			<li>Электронная почта: news@val.ua</li>
+			<li><?= Yii::t('main', '01010 Чернигов, ул.Белова 19/1'); ?></li>
+			<li>Телефон: +380 (462) 613 631</li>
+			<li><?= Yii::t('main', 'Електронна пошта'); ?>: news@val.ua</li>
 		</ul>
 
 	</div>

@@ -8,6 +8,7 @@ function returnSource(){
         './public/js/_block/_stycky_accordeon.js', 
         './public/js/_block/_modal.js', 
         './public/js/_block/_market.js', 
+        './public/js/_block/_menu_button.js', 
         './public/js/_block/_currency.js', 
         './public/js/_block/_weather.js',
         './public/js/_block/_mansory_generator.js',

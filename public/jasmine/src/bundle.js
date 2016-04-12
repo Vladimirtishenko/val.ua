@@ -208,6 +208,7 @@ var handlerAllStart = function() {
     new Modal();
     new Currency();
     new weatherForVal();
+    new MenuButton(document.querySelector('.val-button-menu'), document.querySelector('.val-all-outer'));
     new Market(document.querySelector('.val-market-table'));
     new StickyAccordeon(document.getElementById('val-only-else-pages'));
     new AjaxLoaderCategorySingle(document.getElementById('val-single-category'), document.getElementById('val-count-and-id'));
@@ -353,13 +354,9 @@ function StickyAccordeon(element){
     if(!element) {
         return;
     }
-
-    this.accordeon = element.querySelector('.val-accordeons-block');
-    
     var self = this;
-
+    self.accordeon = element.querySelector('.val-accordeons-block');
     window.addEventListener('scroll', self.positionOfAccordeon.bind(self));
-
 }
 
 StickyAccordeon.prototype.positionOfAccordeon = function () {
@@ -367,7 +364,7 @@ StickyAccordeon.prototype.positionOfAccordeon = function () {
     var elementOuterParent = this.accordeon.parentNode.getBoundingClientRect();
 
     if(elementOuterParent.top <= 30 && this.accordeon.style.position !== 'fixed'){
-        this.accordeon.style.position = 'fixed';
+        this.accordeon.style.paddingTop = ((-elementOuterParent.top)) +"px";
     } else if(elementOuterParent.top > 30 && this.accordeon.getAttribute('style')) {
         this.accordeon.removeAttribute('style');
     } 
@@ -529,6 +526,31 @@ Market.prototype.HandlerToMouseEnterLeave = function() {
 
 /*=====  End of Section Market block  ======*/
 
+/*=============================================
+=            Section MenuButton block      =
+=============================================*/
+
+function MenuButton(button, element) {
+    "use strict";
+    if(!element && !button) {
+        return false;
+    }
+
+    button.addEventListener('click', this.slideMenu.bind(this, element, button));
+
+}
+
+
+MenuButton.prototype.slideMenu = function(element, button) {
+    "use strict";
+
+    button.classList.toggle('-val-active-menu-side');
+    element.classList.toggle('val-all-outer-animate');
+
+};
+
+
+/*=====  End of MenuButton comment block  ======*/
 function Currency() {
     "use strict";
 
@@ -731,7 +753,10 @@ MansoryGenerator.prototype.generateMansory = function(item){
             });
 
             item.style.opacity = "1";
-            $(function(){$(classie).imageLightbox()})
+            if(item.querySelector('.val-block-multimedia-gallery')){
+                $(function(){$(classie).imageLightbox()})
+            }
+            
         }
     }
 

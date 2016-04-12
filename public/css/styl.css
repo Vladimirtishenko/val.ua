@@ -469,6 +469,10 @@ span {
   display: inline-block;
 }
 
+.val-outer-social-button ul li:hover {
+  opacity: 0.5;
+}
+
 .val-outer-social-button ul li a {
   width: 35px;
   height: 35px;
@@ -1005,6 +1009,10 @@ span {
 .val-news-item-category {
   width: 33%;
   position: relative;
+}
+
+.val-news-item-category:hover .val-description-news-category {
+  color: #15948b;
 }
 
 .val-category-image {

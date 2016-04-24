@@ -71,16 +71,20 @@ Modal.prototype.removeClass = function(element, argumentsArray) {
 Modal.prototype.openRememberPassOrBack = function() {
     "use strict";
 
-    for (var i = 0; i < this.formSubmit.length; i++) {
-        if (window.getComputedStyle(this.formSubmit[i]).getPropertyValue('display') === 'none') {
-            var notice = this.formSubmit[i].querySelector('.val-notice');
+    var target = event && event.target,
+        parent = target.parentNode.parentNode,
+        selector = parent.querySelectorAll('form');
+
+    for (var i = 0; i < selector.length; i++) {
+        if (window.getComputedStyle(selector[i]).getPropertyValue('display') === 'none') {
+            var notice = selector[i].querySelector('.val-notice');
             if (notice) {
                 notice.parentNode.removeChild(notice);
             }
-            this.formSubmit[i].style.display = 'block';
+            selector[i].style.display = 'block';
 
         } else {
-            this.formSubmit[i].style.display = 'none';
+            selector[i].style.display = 'none';
         }
 
     }

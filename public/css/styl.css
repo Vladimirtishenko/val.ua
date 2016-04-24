@@ -177,6 +177,75 @@ span {
 
 /* Defaults */
 
+.val-side-menu {
+  width: 200px;
+  background: #fff;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  height: 100%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.val-slide-top,
+.val-slide-bottom {
+  width: 100%;
+}
+
+.val-slide-bottom {
+  text-align: center;
+}
+
+.val-slide-development {
+  padding: 10px 0;
+  display: inline-block;
+}
+
+.val-side-menu h4 {
+  color: #000;
+  font-size: 19px;
+  font-family: HelveticaBold;
+  margin: 15px 0;
+  line-height: 19px;
+}
+
+.val-side-menu-list {
+  padding: 0 0 15px 5px;
+  list-style: none;
+}
+
+.val-side-menu-text {
+  display: block;
+  margin-bottom: 15px;
+}
+
+.val-side-menu-text a {
+  color: #15948b;
+  border-bottom: 1px solid #b1dcd9;
+  padding: 1px 0;
+}
+
+.val-side-menu-text a:hover {
+  border-bottom: 1px solid transparent;
+}
+
+.val-side-menu-list li {
+  padding: 3px 0;
+}
+
+.val-side-menu-list li a {
+  color: #000;
+  font-size: 13px;
+}
+
+.val-side-menu-list li a:hover {
+  color: #15948b;
+}
+
 .uptolike-buttons {
   float: right;
   margin: 20px 0;
@@ -215,6 +284,20 @@ span {
   width: 100%;
   display: table;
   position: relative;
+  z-index: 9;
+  transition: 0.5s;
+  transform: translateX(0);
+  background: #f6f6f6;
+  box-shadow: 0 0 7px 1px rgba(0,0,0,0.2);
+}
+
+.val-all-outer-animate {
+  transform: translateX(200px);
+}
+
+.val-slim-outer {
+  width: 100%;
+  overflow: hidden;
 }
 
 .button {
@@ -383,6 +466,14 @@ span {
   background: url("../images/sprite.png") -23px 0px;
 }
 
+.-val-active-menu-side {
+  color: #15948b !important;
+}
+
+.-val-active-menu-side:before {
+  background: url("../images/sprite.png") -23px 0px !important;
+}
+
 .val-button-search {
   padding: 10px 35px 10px 27px;
   text-transform: uppercase;
@@ -467,6 +558,10 @@ span {
 
 .val-outer-social-button ul li {
   display: inline-block;
+}
+
+.val-outer-social-button ul li:hover {
+  opacity: 0.5;
 }
 
 .val-outer-social-button ul li a {
@@ -688,6 +783,7 @@ span {
 .val-content-news-description {
   font-size: 14px;
   color: #000;
+  line-height: 16px;
 }
 
 .val-display-controls {
@@ -1005,6 +1101,10 @@ span {
 .val-news-item-category {
   width: 33%;
   position: relative;
+}
+
+.val-news-item-category:hover .val-description-news-category {
+  color: #15948b;
 }
 
 .val-category-image {
@@ -1495,6 +1595,7 @@ h5.section-heading {
   list-style: none;
   padding: 0 5px;
   color: #7d7d7d;
+  text-align: center;
 }
 
 .day {
@@ -1940,7 +2041,7 @@ span.icon-weather-min-36 {
   opacity: 0;
   display: none;
   padding: 20px;
-  box-shadow: 1px 1px 10px 3px rgba(0,0,0,0.3);
+  box-shadow: 0 0 7px 1px rgba(0,0,0,0.2);
 }
 
 .val-content-for-login:before {
@@ -1993,7 +2094,7 @@ span.icon-weather-min-36 {
 
 .val-about-modal-content p {
   margin-bottom: 15px;
-  line-height: 16px;
+  line-height: 19px;
 }
 
 .val-about-modal-content p span {
@@ -2567,8 +2668,8 @@ span.icon-weather-min-36 {
 #-cat-fish {
   width: 648px;
   height: 183px;
-  position: fixed;
-  bottom: 0px;
+  position: absolute;
+  top: 20px;
   background: #15948b;
   display: none;
   z-index: 2;

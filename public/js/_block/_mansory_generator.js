@@ -40,7 +40,10 @@ MansoryGenerator.prototype.generateMansory = function(item){
             });
 
             item.style.opacity = "1";
-            $(function(){$(classie).imageLightbox()})
+            if(item.querySelector('.val-block-multimedia-gallery')){
+                $(function(){$(classie).imageLightbox()})
+            }
+            
         }
     }
 

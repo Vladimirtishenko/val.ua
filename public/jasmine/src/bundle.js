@@ -1,91 +1,163 @@
-function Helper () {
-	"use strict";
+function Helper() {
+    "use strict";
 }
 
-Helper.prototype.returnDateNow = function () {
-	"use strict";
-	var now = new Date(),
-		currDate = now.getDate() < 10 ? '0' + now.getDate() : now.getDate(),
-		currMonth = (now.getMonth() + 1) < 10 ? '0' +(now.getMonth() + 1) : now.getMonth() + 1,
-		currYear = now.getFullYear();
+Helper.prototype.returnDateNow = function() {
+    "use strict";
+    var now = new Date(),
+        currDate = now.getDate() < 10 ? '0' + now.getDate() : now.getDate(),
+        currMonth = (now.getMonth() + 1) < 10 ? '0' + (now.getMonth() + 1) : now.getMonth() + 1,
+        currYear = now.getFullYear();
 
-	return currYear + '-' + currMonth + '-' + currDate;
+    return currYear + '-' + currMonth + '-' + currDate;
 };
 
-Helper.prototype.dateHalper = function (datas, lang){
-	"use strict";
-	var data = datas.split(' ');
+Helper.prototype.dateHalper = function(datas, lang) {
+    "use strict";
+    var data = datas.split(' ');
 
-	if(this.returnDateNow() > data[0]){
-		
-		var thisDateMounth = this.mounthObject(new Date(data[0]).getMonth() + 1, lang),
-			thisDateDay = new Date(data[0]).getDate(),
-			thisDateYear = new Date(data[0]).getFullYear();
+    if (this.returnDateNow() > data[0]) {
 
-		return thisDateDay + ' ' + thisDateMounth + ' ' + thisDateYear;
+        var thisDateMounth = this.mounthObject(new Date(data[0]).getMonth() + 1, lang),
+            thisDateDay = new Date(data[0]).getDate(),
+            thisDateYear = new Date(data[0]).getFullYear();
 
-	} else {
-		return data[1].slice(0, -3);
-	}
+        return thisDateDay + ' ' + thisDateMounth + ' ' + thisDateYear;
+
+    } else {
+        return data[1].slice(0, -3);
+    }
 
 };
 
-Helper.prototype.mounthObject = function(mount, lang){
-	"use strict";
-	var mounthObject = {
-		ru: {
-			1: 'Января',
-			2: 'Февраля',
-			3: 'Марта',
-			4: 'Апреля',
-			5: 'Мая',
-			6: 'Июня',
-			7: 'Июля',
-			8: 'Августа',
-			9: 'Сентября',
-			10: 'Октября',
-			11: 'Ноября',
-			12: 'Декабря'	
-		},
-		uk: {
-			1: "Січня",
-			2: "Лютого",
-			3: "Березня",
-			4: "Квітня",
-			5: "Травня",
-			6: "Червня",
+Helper.prototype.mounthObject = function(mount, lang) {
+    "use strict";
+    var mounthObject = {
+        ru: {
+            1: 'Января',
+            2: 'Февраля',
+            3: 'Марта',
+            4: 'Апреля',
+            5: 'Мая',
+            6: 'Июня',
+            7: 'Июля',
+            8: 'Августа',
+            9: 'Сентября',
+            10: 'Октября',
+            11: 'Ноября',
+            12: 'Декабря'
+        },
+        uk: {
+            1: "Січня",
+            2: "Лютого",
+            3: "Березня",
+            4: "Квітня",
+            5: "Травня",
+            6: "Червня",
             7: "Липня",
             8: "Серпня",
             9: "Вересня",
             10: "Жовтня",
             11: "Листопада",
             12: "Грудня"
-		}
-	};
+        }
+    };
 
-	return mounthObject[lang][mount];
+    return mounthObject[lang][mount];
 
 };
 
 
-Helper.prototype.inObject = function(obj){
+Helper.prototype.inObject = function(obj, why, callback, self) {
 
-	return (function forIN(objects) {
-		for(var mark in obj){
-			if(mark == 'forecast'){
-				return obj[mark];
-			}
-			if(Object.keys(obj[mark]).length > 0){
-				forIN(objects);
-			}
-		}
-	})();
+    for (var mark in obj) {
+        if (Object.keys(obj[mark]).indexOf(why) > -1) {
+            callback(obj[mark][why], self);
+            break;
+        }
+        if (Object.keys(obj[mark]).length > 0 && typeof obj[mark] == "object") {
+            this.inObject(obj[mark], why, callback, self);
+        }
+    }
+
+};
+
+Helper.prototype.dayInUkranian = function(witch) {
+
+    var days = {
+        Mon: 'Понедiлок',
+        Tue: 'Вiвторок',
+        Wed: 'Середа',
+        Thu: 'Четвер',
+        Fri: 'П`ятниця',
+        Sat: 'Субота',
+        Sun: 'Недiля'
+    }
+
+    return days[witch];
+
+};
+
+Helper.prototype.tempDescription = function(key) {
+
+    var description = {
+		0: 'Торнадо',
+		1: 'Тропічний шторм',
+		2: 'Ураган',
+		3: 'Сильні грози',
+		4: 'Грози',
+		5: 'Змішаний дощ зi снігом',
+		6: 'Змішаний дощ зi снігом',
+		7: 'Змішаний дощ зi снігом',
+		8: 'Паморозь',
+		9: 'Мряка',
+		10: 'Град',
+		11: 'Зливи',
+		12: 'Зливи',
+		13: 'Сніговi пориви',
+		14: 'Легкий сніг',
+		15: 'Хуртовина',
+		16: 'Снiг',
+		17: 'Град',
+		18: 'Дощ зі снігом',
+		19: 'Туманно',
+		20: 'Туманно',
+		21: 'Туманно',
+		22: 'Туманно',
+		23: 'Вітрянно',
+		24: 'Вітрянно',
+		25: 'Прохолодно',
+		26: 'Хмарно',
+		27: 'Переважно хмарно',
+		28: 'Переважно хмарно',
+		29: 'Мінлива хмарність',
+		30: 'Мінлива хмарність',
+		31: 'Ясно',
+		32: 'Сонячно',
+		33: 'Ясно',
+		34: 'Ясно',
+		35: 'Змішаний дощ з градом',
+		36: 'Спекотно',
+		37: 'Грози',
+		38: 'Розсіяні грози',
+		39: 'Розсіяні грози',
+		40: 'Мінлива хмарність',
+		41: 'Сильний снігопад',
+		42: 'Снігопад',
+		43: 'Сильний снігопад',
+		44: 'Мінлива хмарність',
+		45: 'Зливи',
+		46: 'Зливовий сніг',
+		47: 'Зливи'
+    }
+
+    return description[key];
 };
 
 Helper.prototype.templateImage = function(arrays, lang){
-	"use strict";
+    "use strict";
 
-	var template = '<a href="/site/news/' + arrays.id + '" class="val-news-item-category val-category-image">' +
+    var template = '<a href="/site/news/' + arrays.id + '" class="val-news-item-category val-category-image">' +
         '<div class="val-item-outer-category-image">' +
         '<img src="/uploads/news/thumb/' + arrays.image + '" alt="' + arrays['title_' + lang] + '">' +
         '</div>' +
@@ -101,7 +173,7 @@ Helper.prototype.templateImage = function(arrays, lang){
 
 
 Helper.prototype.templateWithoutImage = function(arrays, lang) {
-	"use strict";
+    "use strict";
     var template = '<a href="/site/news/' + arrays.id + '" class="val-news-item-category">' +
         '<div class="val-line-vews-data">' +
         '<span class="val-content-news-data">' + this.dateHalper(arrays.date, lang) + '</span>' +
@@ -114,14 +186,13 @@ Helper.prototype.templateWithoutImage = function(arrays, lang) {
     return template;
 };
 
-
 Helper.prototype.scrollHandler = function(general) {
-	"use strict";
+    "use strict";
 
     if (document.body.offsetHeight - 1500 < window.scrollY + window.innerHeight && this.state && !general) {
         this.state = false;
         this.generateDataAjax();
-    }else if (document.body.offsetHeight - 700 < window.scrollY + window.innerHeight && this.state && this.count < 10 && general) {
+    } else if (document.body.offsetHeight - 700 < window.scrollY + window.innerHeight && this.state && this.count < 10 && general) {
 
         if (this.count === 7) {
             this.count++;
@@ -142,6 +213,7 @@ Helper.prototype.inArray = function(needle, array) {
     }
     return false;
 };
+
 function ModelXhr() {
     "use strict";
     this.xhr = function() {
@@ -222,6 +294,7 @@ var handlerAllStart = function() {
     new Modal();
     new Currency();
     new weatherForVal();
+    new MenuButton(document.querySelector('.val-button-menu'), document.querySelector('.val-all-outer'));
     new Market(document.querySelector('.val-market-table'));
     new StickyAccordeon(document.getElementById('val-only-else-pages'));
     new AjaxLoaderCategorySingle(document.getElementById('val-single-category'), document.getElementById('val-count-and-id'));
@@ -367,21 +440,18 @@ function StickyAccordeon(element){
     if(!element) {
         return;
     }
-
-    this.accordeon = element.querySelector('.val-accordeons-block');
-    
     var self = this;
-
+    self.accordeon = element.querySelector('.val-accordeons-block');
     window.addEventListener('scroll', self.positionOfAccordeon.bind(self));
-
 }
 
 StickyAccordeon.prototype.positionOfAccordeon = function () {
     "use strict";
-    var elementOuterParent = this.accordeon.parentNode.getBoundingClientRect();
+    var elementOuterParent = this.accordeon.parentNode.getBoundingClientRect(),
+        footer = document.querySelector('.val-footer').getBoundingClientRect();
 
-    if(elementOuterParent.top <= 30 && this.accordeon.style.position !== 'fixed'){
-        this.accordeon.style.position = 'fixed';
+    if(elementOuterParent.top <= 30 && footer.top > 450){
+        this.accordeon.style.paddingTop = ((-elementOuterParent.top)) +"px";
     } else if(elementOuterParent.top > 30 && this.accordeon.getAttribute('style')) {
         this.accordeon.removeAttribute('style');
     } 
@@ -460,16 +530,20 @@ Modal.prototype.removeClass = function(element, argumentsArray) {
 Modal.prototype.openRememberPassOrBack = function() {
     "use strict";
 
-    for (var i = 0; i < this.formSubmit.length; i++) {
-        if (window.getComputedStyle(this.formSubmit[i]).getPropertyValue('display') === 'none') {
-            var notice = this.formSubmit[i].querySelector('.val-notice');
+    var target = event && event.target,
+        parent = target.parentNode.parentNode,
+        selector = parent.querySelectorAll('form');
+
+    for (var i = 0; i < selector.length; i++) {
+        if (window.getComputedStyle(selector[i]).getPropertyValue('display') === 'none') {
+            var notice = selector[i].querySelector('.val-notice');
             if (notice) {
                 notice.parentNode.removeChild(notice);
             }
-            this.formSubmit[i].style.display = 'block';
+            selector[i].style.display = 'block';
 
         } else {
-            this.formSubmit[i].style.display = 'none';
+            selector[i].style.display = 'none';
         }
 
     }
@@ -543,6 +617,31 @@ Market.prototype.HandlerToMouseEnterLeave = function() {
 
 /*=====  End of Section Market block  ======*/
 
+/*=============================================
+=            Section MenuButton block      =
+=============================================*/
+
+function MenuButton(button, element) {
+    "use strict";
+    if(!element && !button) {
+        return false;
+    }
+
+    button.addEventListener('click', this.slideMenu.bind(this, element, button));
+
+}
+
+
+MenuButton.prototype.slideMenu = function(element, button) {
+    "use strict";
+
+    button.classList.toggle('-val-active-menu-side');
+    element.classList.toggle('val-all-outer-animate');
+
+};
+
+
+/*=====  End of MenuButton comment block  ======*/
 function Currency() {
     "use strict";
 
@@ -639,72 +738,74 @@ function weatherForVal(){
     "use strict";
     var url = "https://query.yahooapis.com/v1/public/yql?q=select%20item%20from%20weather.forecast%20where%20woeid%3D918233%20and%20u%3D%22c%22&format=json&l=ru";
 
-    this.Xhr('GET', url, null, this, this.tmp);
+    this.Xhr('GET', url, null, this, this.queryForecast);
 
 }
 
 weatherForVal.prototype = Object.create(Site.prototype);
 
-weatherForVal.prototype.tmp = function(data, self){
+weatherForVal.prototype.generateTemp = function(data, self){
+  var forecast = data.forecast,
+      now = data.condition.temp,
+      structure = self.creaters(forecast);
+
+  var html = '<div class="drop-weather-button">'
+              +'<div class="outer-today-ico">'
+                  +'<span class="icons-for-c-min icon-weather-min-'+forecast[0].code+'"></span>'
+                  +'<i class="today-weather"> '+now+' С°</i>'
+              +'</div>'
+              +'<div class="drop-wether">'
+                  +'<p class="for-genwether"><span class="title-weather">Погода</span><span class="city-weather">Украина, Чернигов</span></p>'
+                  +'<div class="section-today">'
+                +'<div class="for-weather-icon">'
+                  +'<h5 class="section-heading">Сьогодні</h5>'
+                  +'<span class="icons-for-c icon-weather-'+forecast[0].code+'"></span>'
+                +'</div>'
+              +'<div class="weather-detail">'
+                  +'<h4 class="weather-heading">'
+                      +'<span class="temp-now"> '+now+' С° </span>'
+                      +'<span class="phrase"> Температура зараз</span>'
+                  +'</h4>'
+                  +'<span class="temperature high-temperature">'+forecast[0].high+' С°</span>'
+                  +'&nbsp; - &nbsp;'
+                  +'<span class="temperature low-temperature">'+forecast[0].low+' С°</span>'
+                  +'<p class="summary">'+self.tempDescription(forecast[0].code)+'</p>'
+              +'</div>'
+                  +'</div>'
+                  +'<div class="section-this-week">'
+                      +'<h5 class="section-heading">Тиждень</h5>'
+                      +'<ul class="item-list-temperature">'
+                          + structure
+                      +'</ul>'
+                  +'</div>'
+              +'</div>'
+          +'</div>';
+  var el = document.querySelector(".outer-for-weather");
+  el.insertAdjacentHTML("beforeend", html);
+}
+
+weatherForVal.prototype.queryForecast = function(data, self){
   "use strict";
   var datas = JSON.parse(data);
-
-  console.log(self.inObject(datas)());
-
-  //     query = datas.forecast,
-  //     queryNow = datas.now,
-  //     structure = self.creaters(query);
-
-  // var html = '<div class="drop-weather-button">'
-  //             +'<div class="outer-today-ico">'
-  //                 +'<span class="icons-for-c-min icon-weather-min-'+query[0].code+'"></span>'
-  //                 +'<i class="today-weather">'+queryNow+' С°</i>'
-  //             +'</div>'
-  //             +'<div class="drop-wether">'
-  //                 +'<p class="for-genwether"><span class="title-weather">Погода</span><span class="city-weather">Украина, Чернигов</span></p>'
-  //                 +'<div class="section-today">'
-  //               +'<div class="for-weather-icon">'
-  //                 +'<h5 class="section-heading">Сьогодні</h5>'
-  //                 +'<span class="icons-for-c icon-weather-'+query[0].code+'"></span>'
-  //               +'</div>'
-  //             +'<div class="weather-detail">'
-  //                 +'<h4 class="weather-heading">'
-  //                     +'<span class="temp-now">'+queryNow+' С°</span>'
-  //                     +'<span class="phrase">Температура зараз</span>'
-  //                 +'</h4>'
-  //                 +'<span class="temperature high-temperature">'+query[0].high+' С°</span>'
-  //                 +'&nbsp; - &nbsp;'
-  //                 +'<span class="temperature low-temperature">'+query[0].low+' С°</span>'
-  //                 +'<p class="summary">'+query[0].text+'</p>'
-  //             +'</div>'
-  //                 +'</div>'
-  //                 +'<div class="section-this-week">'
-  //                     +'<h5 class="section-heading">Тиждень</h5>'
-  //                     +'<ul class="item-list-temperature">'
-  //                         + structure
-  //                     +'</ul>'
-  //                 +'</div>'
-  //             +'</div>'
-  //         +'</div>';
-  // var el = document.querySelector(".outer-for-weather");
-  // el.insertAdjacentHTML("beforeend", html);
+  self.inObject(datas, 'item', self.generateTemp, self); 
 };
 
 weatherForVal.prototype.creaters = function(query){
-  // "use strict";
-  // var srt = "";
-  // [].forEach.call(query, function(item, i){
-  //   if(i != 0){
-  //     srt += '<li class="item-time-temperature">'
-  //               +'<span class="icons-for-c icon-weather-'+item.code+'"></span>'
-  //               +'<span class="day">'+item.date+'</span>'
-  //               +'<span class="temperature-days high-temperature">'+item.high+' С°</span>'
-  //               +'&nbsp;-&nbsp;'
-  //               +'<span class="temperature-days low-temperature">'+item.low+' С°</span>'
-  //           +'</li>';
-  //   }
-  // });
-  // return srt;
+  "use strict";
+  var srt = "",
+      self = this;
+  [].forEach.call(query, function(item, i){
+    if(i != 0 && i < 5){
+      srt += '<li class="item-time-temperature">'
+                +'<span class="icons-for-c icon-weather-'+item.code+'"></span>'
+                +'<span class="day">'+self.dayInUkranian(item.day)+'</span>'
+                +'<span class="temperature-days high-temperature">'+item.high+' С°</span>'
+                +'&nbsp;-&nbsp;'
+                +'<span class="temperature-days low-temperature">'+item.low+' С°</span>'
+            +'</li>';
+    }
+  });
+  return srt;
 };
 /*=============================================
 =            Section MansoryGenerator      =
@@ -748,7 +849,10 @@ MansoryGenerator.prototype.generateMansory = function(item){
             });
 
             item.style.opacity = "1";
-            $(function(){$(classie).imageLightbox()})
+            if(item.querySelector('.val-block-multimedia-gallery')){
+                $(function(){$(classie).imageLightbox()})
+            }
+            
         }
     }
 

@@ -35,7 +35,7 @@
 <body>
 
     <!-- Flash message -->
-        <?php $this->widget('application.components.widgets.FlashWidget'); ?>
+    <?php $this->widget('application.components.widgets.FlashWidget'); ?>
     <!-- End Flash message -->
     <div class="val-modal-login-reg-outer">
         <div class="val-cell-modal-outer">

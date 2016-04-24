@@ -68,6 +68,20 @@ Helper.prototype.mounthObject = function(mount, lang){
 };
 
 
+Helper.prototype.inObject = function(obj){
+
+	return (function forIN(objects) {
+		for(var mark in obj){
+			if(mark == 'forecast'){
+				return obj[mark];
+			}
+			if(Object.keys(obj[mark]).length > 0){
+				forIN(objects);
+			}
+		}
+	})();
+};
+
 Helper.prototype.templateImage = function(arrays, lang){
 	"use strict";
 

@@ -777,8 +777,7 @@ class SiteController extends Controller
 
         $units = ($units == 'c')?'c':'f';
         
-        $url = 'http://xml.weather.yahoo.com/forecastrss?p='.
-            $code.'&u='.$units.'&l';
+        $url = 'https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20weather.forecast%20where%20woeid%3D918233&format=xml';
         
         $xml_contents = file_get_contents($url);
         if($xml_contents === false) 
@@ -825,9 +824,10 @@ class SiteController extends Controller
         $forecast = array();
         $tmp = $xml->xpath('/rss/channel/item/yweather:forecast');
         if($tmp === false) throw new Exception("Error parsing XML.");
-        
+
         foreach($tmp as $day) {
             $forecast[] = array(
+                'fullDate' => $day['date'],
                 'date' => $days[(string)$day['day']],
                 'low' => (int)$day['low'],
                 'high' => (int)$day['high'],
@@ -839,13 +839,30 @@ class SiteController extends Controller
     }
 
     public function actiontryWeather(){
-        try {
-            $weather = $this->actionYahooWeather("UPXX0007", 'c', 'ru');
-            echo json_encode($weather);
-        } catch(Exception $e) {
-            echo "Caught exception: ".$e->getMessage();
-            exit();
-        }
+        // try {
+        $url = 'https://query.yahooapis.com/v1/public/yql?q=select%20item%20from%20weather.forecast%20where%20woeid%3D22724447%20and%20u%3D%22c%22&format=json&l=ru';
+        $ch = curl_init($url);                     
+        curl_setopt($ch, CURLOPT_HTTPHEADER, array("Content-Type: application/json")); 
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");                                                                     
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $data);                                                                  
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);                                                                      
+                                                                      
+ 
+    $result = curl_exec($ch);
+    var_dump($result); 
+
+            var_dump($ch);
+
+            $StringToWeather = preg_match('/("forecast":)(.*)(,"description")/', strval($ch));
+
+            // var_dump($StringToWeather[1]);
+
+            //$weather = $this->YahooWeather($weatherRequest);
+            //echo json_encode($weather);
+        // } catch(Exception $e) {
+        //     echo "Caught exception: ".$e->getMessage();
+        //     exit();
+        // }
     }
 
     public function actiontryCurrency(){

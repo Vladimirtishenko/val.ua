@@ -308,98 +308,279 @@ if(location.href.indexOf('jasmine') == -1){
 }
 
 
-/*=============================================
-=            Section Slider block            =
-=============================================*/
-
-function Slider(elem) {
+function AjaxLoadCategory(element) {
     "use strict";
-    if (!elem) {
+    if(!element) {
+        return;
+    }
+    
+    this.count = 1;
+    this.container = element;
+    this.state = true;
+
+    this.commonProps(this, 'general');
+}
+
+AjaxLoadCategory.prototype = Object.create(AjaxConstructor.prototype);
+
+
+AjaxLoadCategory.prototype.generateDataAjax = function(id) {
+    "use strict";
+    var self = this;
+    this.Xhr('GET', '/site/GetCategory?id=' + id, null, self, self.responseGetServer);
+
+};
+
+AjaxLoadCategory.prototype.responseGetServer = function(response, self) {
+    "use strict";
+    var res = JSON.parse(response),
+        news = JSON.parse(res.news),
+        category = JSON.parse(res.category),
+        lang = res.language;
+
+    self.templateCategory(news, category, lang);
+};
+
+AjaxLoadCategory.prototype.templateCategory = function(news, category, lang) {
+    "use strict";
+    var self = this,
+        str = '<div class="val-category-block">' +
+                '<h2 class="val-title-uppercase-with-line">' + category[0]['name_' + lang] + '</h2>'+
+                '<div class="val-news-list-category">';
+
+
+    for (var i = 0; i < news.length; i++) {
+        if (i === 0) {
+            str += self.templateImage(news[i], lang);
+        } else {
+            str += self.templateWithoutImage(news[i], lang);
+        }
+    }
+
+    str += '</div></div>';
+
+    self.container.insertAdjacentHTML('beforeend', str);
+
+    this.state = true;
+    this.count++;
+
+};
+function AjaxLoaderMultimedia(element, hidden){
+    "use strict";
+    if(!element) {
         return;
     }
 
-    this.list = elem;
-    this.countChild = elem.children.length;
-    this.width = parseInt(window.getComputedStyle(elem.parentNode).getPropertyValue('width'));
-    this.move = 0;
-    this.currentSlide = 0;
+    this.element = element;
+    this.count = hidden.getAttribute('data-count');
+    this.state = true;
+    this._Masonry_ = null;
 
-    elem.style.width = this.width * this.countChild + 'px';
+    this.commonProps(this, null);
+}
 
-    [].forEach.call(elem.children, staticSize);
 
-    function staticSize(item, i) {
-        item.setAttribute("data-slides-number", i);
+AjaxLoaderMultimedia.prototype = Object.create(AjaxConstructor.prototype);
+
+
+AjaxLoaderMultimedia.prototype.generateDataAjax = function(){
+    "use strict";
+    this.Xhr('GET', '/site/GetMultimedia?offset=' + this.count, null, this, this.template);
+
+};
+
+AjaxLoaderMultimedia.prototype.template = function(data, self){
+    "use strict";
+    var dataContent = JSON.parse(JSON.parse(data).multimedia),
+        lang = JSON.parse(data).language,
+        template = [];
+
+    dataContent.forEach(function(item, i){
+        
+        var elementOuter = document.createElement('a'), 
+            elementInner = document.createElement('div'), 
+            img = new Image(), 
+            elementSpan = document.createElement('span'),
+            classieType = '-val-ico-'+item.type;
+        
+        elementOuter.href = (item.type == 'photo') ? '/'+lang+'/site/photos/'+item.id : '/'+lang+'/site/video/'+item.id;
+        elementOuter.classList.add('val-block-multimedia', classieType);
+        elementInner.classList.add('val-image-block-multimedia');
+        (item.type == 'photo') ? img.src = '/uploads/galery/category/'+item.image+'' : img.src = 'http://img.youtube.com/vi/'+item.image+'/mqdefault.jpg';
+        elementSpan.classList.add('-val-multimedia-description');
+
+        elementSpan.innerHTML = item['name_'+lang];
+
+        elementInner.appendChild(img);
+        elementOuter.appendChild(elementSpan);
+        elementOuter.appendChild(elementInner);
+
+        template.push(elementOuter);
+    });
+
+     for (var i = template.length - 1; i >= 0; i--) {
+        self.element.appendChild(template[i]);
     }
 
-    this.createControls(this.countChild);
+    if(self._Masonry_){
+        self._Masonry_.appended(template);
+        self._Masonry_.layout();
+        readyNextIteration();
+    } else {
+        setTimeout(function () {
+            self._Masonry_ = new Masonry( self.element, {
+              itemSelector: '.val-block-multimedia',
+              columnWidth: 1
+            });
+            readyNextIteration();
+            self.element.style.opacity = 1;
+        }, 500);
+    }
+
+    function readyNextIteration(){
+        self.count = JSON.parse(data).offset;
+        self.state = true;
+    }
+
+};
+function AjaxLoaderCategorySingle(element, hidden){
+    "use strict";
+
+    if(!element) {
+        return;
+    }
+
+    this.element = element;
+    this.id = hidden.getAttribute('data-id') ? hidden.getAttribute('data-id') : null;
+    this.count = hidden.getAttribute('data-count');
+    this.state = true;
+
+    this.commonProps(this, null);
 
 }
 
-Slider.prototype.createControls = function(count) {
+
+AjaxLoaderCategorySingle.prototype = Object.create(AjaxConstructor.prototype);
+
+
+AjaxLoaderCategorySingle.prototype.generateDataAjax = function(){
     "use strict";
-    var constrols = document.querySelector(".val-display-controls"),
-        items = "",
-        self = this;
-
-    for (var i = 0; i < count; i++) {
-        items += (i === 0) ? "<span class='-active-slide' data-slide=" + i + "></span>" : "<span data-slide=" + i + "></span>";
-    }
-
-    constrols.insertAdjacentHTML("afterbegin", items);
-    constrols.addEventListener("click", self._clickSlideHandlers.bind(self));
-    this.controlsBuild = true;
+    this.Xhr('GET', '/site/GetCategoryByIdXhrOrNotId?id=' + this.id + '&offset=' + this.count, null, this, this.template);
 
 };
 
-Slider.prototype._clickSlideHandlers = function(event) {
+AjaxLoaderCategorySingle.prototype.template = function(data, self){
     "use strict";
-    var target = event.target ? event.target : event,
-        self = this,
-        clicked = target.getAttribute('data-slide') ? parseInt(target.getAttribute('data-slide')) : null,
-        move = null;
+    var dataContent = JSON.parse(JSON.parse(data).news),
+        lang = JSON.parse(data).language,
+        template = '';
 
-    if (clicked == null || target.classList.contains('-active-slide')) {
-        return;
-    }
 
-    if (clicked > this.currentSlide) {
-        if ((this.currentSlide + 1) < clicked) {
-            move = parseInt((-self.width) * clicked);
-            toSlideAnimation(move, 0.5);
-        } else {
-            move = parseInt(self.move) + parseInt(-self.width);
-            toSlideAnimation(move, 0.8);
+    dataContent.forEach(function(item){
+        template += '<a href="/site/news/'+item.id+'" class="val-block-gen-news">' +
+                        '<div class="val-image-block-gen-news">' +
+                            '<img src="/uploads/news/thumb/'+item.image+'">' +
+                        '</div>' +
+                        '<div class="val-description-block-gen-news">' +
+                             '<span class="val-news-view">'+item.views+'</span>' +
+                             '<span class="val-content-news-data">'+self.dateHalper(item.date, lang)+'</span>' +
+                            '<h3 class="val-content-news-title-small">'+item['title_'+lang]+'</h3>' +
+                        '</div>' +
+                    '</a>';
+    });
+
+
+    self.element.insertAdjacentHTML('beforeend', template);
+
+    self.count = JSON.parse(data).offset;
+    self.state = true;
+
+};
+function Currency() {
+    "use strict";
+
+    var url = "http://"+location.hostname+"/site/tryCurrency";
+
+    this.Xhr('GET', url, null, this, this.templates);
+}
+
+Currency.prototype = Object.create(Site.prototype);
+
+Currency.prototype.templates = function(query, self) {
+
+    "use strict";
+    var querys = JSON.parse(query),
+        InArray = ["ПриватБанк", "ПУМБ", "Укрсоцбанк"],
+        a = [],
+        stay;
+
+    [].reduce.call(querys, function(previousValue, currentValue, index) {
+
+        if(InArray.indexOf(currentValue.bankName) == -1){
+            return 0;
         }
 
+        if (previousValue == 0 || currentValue.bankName != previousValue) {
+            stay = {};
+            stay.bankName = currentValue.bankName; 
+        } 
+
+        stay[currentValue.codeAlpha] = {
+            rateBuy: currentValue.rateBuy,
+            rateBuyDelta: currentValue.rateBuyDelta,
+            rateSale: currentValue.rateSale,
+            rateSaleDelta: currentValue.rateSaleDelta
+        };
+
+        if (stay && Object.keys(stay).length > 3) {
+            a.push(stay);
+        }
+
+        return currentValue.bankName;
+
+    }, 0);
+
+
+    self.templateForArray(a, self);
+
+};
+
+Currency.prototype.templateForArray = function(a, self) {
+    "use strict";
+    var str = "<table class='-new-currensy'><tr><th><span>Банк</span></th><th><span style='font-size: 18px'>&#402;</span></th><th><span>Покупка</span></th><th><span>Продажа</span></th></tr>";
+
+    [].forEach.call(a, function(item, i) {
+        str += "<tr>" + "<td><p><i>" + item.bankName + "</i></p></td>" + "<td><span><b>&euro;</b></span><span><b>$</b></span><span><b>R</b></span></td>" + "<td><span>" + self.gets(item, "EUR", "rateBuy") + "</span> <span>" + self.gets(item, "USD", "rateBuy") + "</span> <span>" + self.gets(item, "RUB", "rateBuy") + "</span></td>" + "<td><span>" + self.gets(item, "EUR", "rateSale") + "</span> <span>" + self.gets(item, "USD", "rateSale") + "</span> <span>" + self.gets(item, "RUB", "rateSale") + "</span></td>" + "</tr>";
+    });
+
+    str += "</table>";
+
+    var div = document.querySelector(".-currency-val");
+    div.insertAdjacentHTML("beforeend", str);
+
+};
+
+
+Currency.prototype.gets = function(item, items, rate) {
+    "use strict";
+    var delta, str;
+    if (item[items]) {
+        if (rate == "rateBuy") {
+                str = "<mark>" + Number(item[items][rate]).toFixed(2) + "</mark>";
+                delta = (item[items]["rateBuyDelta"] > 0) ? "<i class='-to-hight'> &nbsp; &#9650;</i>" : (item[items]["rateBuyDelta"] < 0) ? "<i class='-to-low'> &nbsp; &#9660;</i>" : "";
+            str += delta;
+            return str;
+        } else if (rate == "rateSale") {
+                str = "<mark>" + Number(item[items][rate]).toFixed(2) + "</mark>";
+                delta = (item[items]["rateSaleDelta"] > 0) ? "<i class='-to-hight'> &nbsp; &#9650;</i>" : (item[items]["rateSaleDelta"] < 0) ? "<i class='-to-low'> &nbsp; &#9660;</i>" : "";
+            str += delta;
+            return str;
+        }
     } else {
-        if ((this.currentSlide - 1) > clicked) {
-            move = parseInt((-self.width) * clicked);
-            toSlideAnimation(move, 0.5);
-        } else {
-            move = parseInt(self.move) + parseInt(self.width);
-            toSlideAnimation(move, 0.8);
-        }
-    }
-
-    function toSlideAnimation(move, speed) {
-
-        var activeBeforeSlide = document.querySelector(".-active-slide");
-
-        self.list.style.cssText += "transition-duration: " + speed + "s; ";
-        self.list.style.cssText += "transform: translateX(" + move + "px)";
-        self.currentSlide = clicked;
-        self.move = move;
-
-        activeBeforeSlide.parentNode.querySelector("span[data-slide='" + clicked + "']").classList.add("-active-slide");
-        activeBeforeSlide.classList.remove("-active-slide");
-
+        return '-';
     }
 
 };
-
-/*=====  End of Slider comment block  ======*/
-
 /*=============================================
 =            Section IframeGemerate block      =
 =============================================*/
@@ -435,28 +616,130 @@ IframeGemerate.prototype.template = function(src) {
 
 
 /*=====  End of IframeGemerate comment block  ======*/
-function StickyAccordeon(element){
-    "use strict";
-    if(!element) {
+/*=============================================
+=            Section MansoryGenerator      =
+=============================================*/
+
+function MansoryGenerator(element) {
+
+   if(!element) {
         return;
-    }
-    var self = this;
-    self.accordeon = element.querySelector('.val-accordeons-block');
-    window.addEventListener('scroll', self.positionOfAccordeon.bind(self));
+   }
+
+   [].forEach.call(element, this.generateMansory);
+ 
 }
 
-StickyAccordeon.prototype.positionOfAccordeon = function () {
+
+MansoryGenerator.prototype.generateMansory = function(item){
+
+    var img = item.querySelectorAll('img'),
+        count = img.length,
+        j = 1,
+        classie = item.querySelector('.val-block-multimedia-gallery') ? '.val-block-multimedia-gallery' : '.val-block-multimedia';
+
+    [].forEach.call(img, function(item, i){
+        var img = new Image();
+            img.src = item.src;
+
+        img.onload = function(){
+            StackMansory(this);
+        }
+    })
+
+    function StackMansory(images){
+        delete images;
+        if(j < count){
+            j++;
+        } else {
+            new Masonry( item, {
+              itemSelector: classie,
+              columnWidth: 1
+            });
+
+            item.style.opacity = "1";
+            if(item.querySelector('.val-block-multimedia-gallery')){
+                $(function(){$(classie).imageLightbox()})
+            }
+            
+        }
+    }
+
+
+
+
+}
+
+/*=====  End of Section MansoryGenerator block  ======*/
+
+/*=============================================
+=            Section Market      =
+=============================================*/
+
+function Market(element) {
+
+    if (!element) {
+        return;
+    }
+
+    this.element = element;
+    var child = this.element.children;
+
+
+    for (var i = 0; i < child.length; i++) {
+        ("mouseenter mouseleave".split(" ")).forEach(function(e) {
+            child[i].addEventListener(e, this.HandlerToMouseEnterLeave, false);
+        }.bind(this));
+    }
+
+}
+
+Market.prototype.HandlerToMouseEnterLeave = function() {
+
+    var attr = this.getAttribute('data-attr'),
+        block = document.getElementById(attr);
+
+    if (!block) {
+        return;
+    }
+
+    if (event.type == "mouseenter") {
+        block.style.display = "block";
+    } else {
+        block.style.display = "none";
+    }
+
+};
+
+
+
+/*=====  End of Section Market block  ======*/
+
+/*=============================================
+=            Section MenuButton block      =
+=============================================*/
+
+function MenuButton(button, element) {
     "use strict";
-    var elementOuterParent = this.accordeon.parentNode.getBoundingClientRect(),
-        footer = document.querySelector('.val-footer').getBoundingClientRect();
+    if(!element && !button) {
+        return false;
+    }
 
-    if(elementOuterParent.top <= 30 && footer.top > 450){
-        this.accordeon.style.paddingTop = ((-elementOuterParent.top)) +"px";
-    } else if(elementOuterParent.top > 30 && this.accordeon.getAttribute('style')) {
-        this.accordeon.removeAttribute('style');
-    } 
+    button.addEventListener('click', this.slideMenu.bind(this, element, button));
 
-}; 
+}
+
+
+MenuButton.prototype.slideMenu = function(element, button) {
+    "use strict";
+
+    button.classList.toggle('-val-active-menu-side');
+    element.classList.toggle('val-all-outer-animate');
+
+};
+
+
+/*=====  End of MenuButton comment block  ======*/
 function Modal() {
     "use strict";
     var self = this;
@@ -575,165 +858,96 @@ Modal.prototype.responseFromServer = function(response, self) {
 
 };
 /*=============================================
-=            Section Market      =
+=            Section Slider block            =
 =============================================*/
 
-function Market(element) {
-
-    if (!element) {
+function Slider(elem) {
+    "use strict";
+    if (!elem) {
         return;
     }
 
-    this.element = element;
-    var child = this.element.children;
+    this.list = elem;
+    this.countChild = elem.children.length;
+    this.width = elem.parentNode.clientWidth;
+    this.currentSlide = 0;
 
+    elem.style.width = this.width * this.countChild + 'px';
 
-    for (var i = 0; i < child.length; i++) {
-        ("mouseenter mouseleave".split(" ")).forEach(function(e) {
-            child[i].addEventListener(e, this.HandlerToMouseEnterLeave, false);
-        }.bind(this));
-    }
+    this.createControls(this.countChild);
 
 }
 
-Market.prototype.HandlerToMouseEnterLeave = function() {
+Slider.prototype.createControls = function(count) {
+    "use strict";
+    var constrols = document.querySelector(".val-display-controls"),
+        items = "",
+        self = this;
 
-    var attr = this.getAttribute('data-attr'),
-        block = document.getElementById(attr);
+    for (var i = 0; i < count; i++) {
+        items += (i === 0) ? "<span class='-active-slide' data-slide=" + i + "></span>" : "<span data-slide=" + i + "></span>";
+    }
 
-    if (!block) {
+    constrols.insertAdjacentHTML("afterbegin", items);
+    constrols.addEventListener("click", self._clickSlideHandlers.bind(self));
+    this.controlsBuild = true;
+
+};
+
+Slider.prototype._clickSlideHandlers = function(event) {
+    "use strict";
+    var target = event.target ? event.target : event,
+        self = this,
+        clicked = target.getAttribute('data-slide') ? parseInt(target.getAttribute('data-slide')) : null,
+        move = null;
+
+    if (clicked == null || target.classList.contains('-active-slide')) {
         return;
     }
 
-    if (event.type == "mouseenter") {
-        block.style.display = "block";
-    } else {
-        block.style.display = "none";
+    toSlideAnimation(parseInt((-self.width) * clicked), 0.8);
+       
+
+    function toSlideAnimation(move, speed) {
+
+        var activeBeforeSlide = document.querySelector(".-active-slide");
+
+        self.list.style.cssText += "transition-duration: " + speed + "s; ";
+        self.list.style.cssText += "transform: translateX(" + move + "px)";
+        self.currentSlide = clicked;
+        self.move = move;
+
+        activeBeforeSlide.parentNode.querySelector("span[data-slide='" + clicked + "']").classList.add("-active-slide");
+        activeBeforeSlide.classList.remove("-active-slide");
+
     }
 
 };
 
+/*=====  End of Slider block  ======*/
 
-
-/*=====  End of Section Market block  ======*/
-
-/*=============================================
-=            Section MenuButton block      =
-=============================================*/
-
-function MenuButton(button, element) {
+function StickyAccordeon(element){
     "use strict";
-    if(!element && !button) {
-        return false;
+    if(!element) {
+        return;
     }
-
-    button.addEventListener('click', this.slideMenu.bind(this, element, button));
-
+    var self = this;
+    self.accordeon = element.querySelector('.val-accordeons-block');
+    window.addEventListener('scroll', self.positionOfAccordeon.bind(self));
 }
 
-
-MenuButton.prototype.slideMenu = function(element, button) {
+StickyAccordeon.prototype.positionOfAccordeon = function () {
     "use strict";
+    var elementOuterParent = this.accordeon.parentNode.getBoundingClientRect(),
+        footer = document.querySelector('.val-footer').getBoundingClientRect();
 
-    button.classList.toggle('-val-active-menu-side');
-    element.classList.toggle('val-all-outer-animate');
+    if(elementOuterParent.top <= 30 && footer.top > 450){
+        this.accordeon.style.paddingTop = ((-elementOuterParent.top)) +"px";
+    } else if(elementOuterParent.top > 30 && this.accordeon.getAttribute('style')) {
+        this.accordeon.removeAttribute('style');
+    } 
 
-};
-
-
-/*=====  End of MenuButton comment block  ======*/
-function Currency() {
-    "use strict";
-
-    var url = "http://"+location.hostname+"/site/tryCurrency";
-
-    this.Xhr('GET', url, null, this, this.templates);
-}
-
-Currency.prototype = Object.create(Site.prototype);
-
-Currency.prototype.templates = function(query, self) {
-
-    "use strict";
-    var querys = JSON.parse(query),
-        InArray = ["Альфа-Банк", "ПриватБанк", "ПУМБ", "Укрсоцбанк", "Райффайзен Банк Аваль"],
-        a = [],
-        stay;
-
-    [].reduce.call(querys, function(previousValue, currentValue, index) {
-
-        if (previousValue == 0 || currentValue.bankName != previousValue) {
-            if (stay) {
-                a.push(stay);
-            }
-            stay = {};
-            stay.bankName = currentValue.bankName;
-            stay[currentValue.codeAlpha] = {
-                rateBuy: currentValue.rateBuy,
-                rateBuyDelta: currentValue.rateBuyDelta,
-                rateSale: currentValue.rateSale,
-                rateSaleDelta: currentValue.rateSaleDelta
-            };
-        } else {
-            stay[currentValue.codeAlpha] = {
-                rateBuy: currentValue.rateBuy,
-                rateBuyDelta: currentValue.rateBuyDelta,
-                rateSale: currentValue.rateSale,
-                rateSaleDelta: currentValue.rateSaleDelta
-            };
-        }
-
-        return currentValue.bankName;
-
-    }, 0);
-
-
-    var newA = a.filter(function(item, i) {
-        if (self.inArray(item.bankName, InArray)) {
-            return item;
-        }
-    });
-
-    self.templateForArray(newA, self);
-
-};
-
-Currency.prototype.templateForArray = function(a, self) {
-    "use strict";
-    var str = "<table class='-new-currensy'><tr><th><span>Банк</span></th><th><span style='font-size: 18px'>&#402;</span></th><th><span>Покупка</span></th><th><span>Продажа</span></th></tr>";
-
-    [].forEach.call(a, function(item, i) {
-        str += "<tr>" + "<td><p><i>" + item.bankName + "</i></p></td>" + "<td><span><b>&euro;</b></span><span><b>$</b></span><span><b>R</b></span></td>" + "<td><span>" + self.gets(item, "EUR", "rateBuy") + "</span> <span>" + self.gets(item, "USD", "rateBuy") + "</span> <span>" + self.gets(item, "RUB", "rateBuy") + "</span></td>" + "<td><span>" + self.gets(item, "EUR", "rateSale") + "</span> <span>" + self.gets(item, "USD", "rateSale") + "</span> <span>" + self.gets(item, "RUB", "rateSale") + "</span></td>" + "</tr>";
-    });
-
-    str += "</table>";
-
-    var div = document.querySelector(".-currency-val");
-    div.insertAdjacentHTML("beforeend", str);
-
-};
-
-
-Currency.prototype.gets = function(item, items, rate) {
-    "use strict";
-    var delta, str;
-    if (item[items]) {
-        if (rate == "rateBuy") {
-                str = "<mark>" + Number(item[items][rate]).toFixed(2) + "</mark>";
-                delta = (item[items]["rateBuyDelta"] > 0) ? "<i class='-to-hight'> &nbsp; &#9650;</i>" : (item[items]["rateBuyDelta"] < 0) ? "<i class='-to-low'> &nbsp; &#9660;</i>" : "";
-            str += delta;
-            return str;
-        } else if (rate == "rateSale") {
-                str = "<mark>" + Number(item[items][rate]).toFixed(2) + "</mark>";
-                delta = (item[items]["rateSaleDelta"] > 0) ? "<i class='-to-hight'> &nbsp; &#9650;</i>" : (item[items]["rateSaleDelta"] < 0) ? "<i class='-to-low'> &nbsp; &#9660;</i>" : "";
-            str += delta;
-            return str;
-        }
-    } else {
-        return '-';
-    }
-
-};
+}; 
 function weatherForVal(){
     "use strict";
     var url = "https://query.yahooapis.com/v1/public/yql?q=select%20item%20from%20weather.forecast%20where%20woeid%3D918233%20and%20u%3D%22c%22&format=json&l=ru";
@@ -806,248 +1020,4 @@ weatherForVal.prototype.creaters = function(query){
     }
   });
   return srt;
-};
-/*=============================================
-=            Section MansoryGenerator      =
-=============================================*/
-
-function MansoryGenerator(element) {
-
-   if(!element) {
-        return;
-   }
-
-   [].forEach.call(element, this.generateMansory);
- 
-}
-
-
-MansoryGenerator.prototype.generateMansory = function(item){
-
-    var img = item.querySelectorAll('img'),
-        count = img.length,
-        j = 1,
-        classie = item.querySelector('.val-block-multimedia-gallery') ? '.val-block-multimedia-gallery' : '.val-block-multimedia';
-
-    [].forEach.call(img, function(item, i){
-        var img = new Image();
-            img.src = item.src;
-
-        img.onload = function(){
-            StackMansory(this);
-        }
-    })
-
-    function StackMansory(images){
-        delete images;
-        if(j < count){
-            j++;
-        } else {
-            new Masonry( item, {
-              itemSelector: classie,
-              columnWidth: 1
-            });
-
-            item.style.opacity = "1";
-            if(item.querySelector('.val-block-multimedia-gallery')){
-                $(function(){$(classie).imageLightbox()})
-            }
-            
-        }
-    }
-
-
-
-
-}
-
-/*=====  End of Section MansoryGenerator block  ======*/
-
-function AjaxLoadCategory(element) {
-    "use strict";
-    if(!element) {
-        return;
-    }
-    
-    this.count = 1;
-    this.container = element;
-    this.state = true;
-
-    this.commonProps(this, 'general');
-}
-
-AjaxLoadCategory.prototype = Object.create(AjaxConstructor.prototype);
-
-
-AjaxLoadCategory.prototype.generateDataAjax = function(id) {
-    "use strict";
-    var self = this;
-    this.Xhr('GET', '/site/GetCategory?id=' + id, null, self, self.responseGetServer);
-
-};
-
-AjaxLoadCategory.prototype.responseGetServer = function(response, self) {
-    "use strict";
-    var res = JSON.parse(response),
-        news = JSON.parse(res.news),
-        category = JSON.parse(res.category),
-        lang = res.language;
-
-    self.templateCategory(news, category, lang);
-};
-
-AjaxLoadCategory.prototype.templateCategory = function(news, category, lang) {
-    "use strict";
-    var self = this,
-        str = '<div class="val-category-block">' +
-                '<h2 class="val-title-uppercase-with-line">' + category[0]['name_' + lang] + '</h2>'+
-                '<div class="val-news-list-category">';
-
-
-    for (var i = 0; i < news.length; i++) {
-        if (i === 0) {
-            str += self.templateImage(news[i], lang);
-        } else {
-            str += self.templateWithoutImage(news[i], lang);
-        }
-    }
-
-    str += '</div></div>';
-
-    self.container.insertAdjacentHTML('beforeend', str);
-
-    this.state = true;
-    this.count++;
-
-};
-function AjaxLoaderCategorySingle(element, hidden){
-    "use strict";
-
-    if(!element) {
-        return;
-    }
-
-    this.element = element;
-    this.id = hidden.getAttribute('data-id') ? hidden.getAttribute('data-id') : null;
-    this.count = hidden.getAttribute('data-count');
-    this.state = true;
-
-    this.commonProps(this, null);
-
-}
-
-
-AjaxLoaderCategorySingle.prototype = Object.create(AjaxConstructor.prototype);
-
-
-AjaxLoaderCategorySingle.prototype.generateDataAjax = function(){
-    "use strict";
-    this.Xhr('GET', '/site/GetCategoryByIdXhrOrNotId?id=' + this.id + '&offset=' + this.count, null, this, this.template);
-
-};
-
-AjaxLoaderCategorySingle.prototype.template = function(data, self){
-    "use strict";
-    var dataContent = JSON.parse(JSON.parse(data).news),
-        lang = JSON.parse(data).language,
-        template = '';
-
-
-    dataContent.forEach(function(item){
-        template += '<a href="/site/news/'+item.id+'" class="val-block-gen-news">' +
-                        '<div class="val-image-block-gen-news">' +
-                            '<img src="/uploads/news/thumb/'+item.image+'">' +
-                        '</div>' +
-                        '<div class="val-description-block-gen-news">' +
-                             '<span class="val-news-view">'+item.views+'</span>' +
-                             '<span class="val-content-news-data">'+self.dateHalper(item.date, lang)+'</span>' +
-                            '<h3 class="val-content-news-title-small">'+item['title_'+lang]+'</h3>' +
-                        '</div>' +
-                    '</a>';
-    });
-
-
-    self.element.insertAdjacentHTML('beforeend', template);
-
-    self.count = JSON.parse(data).offset;
-    self.state = true;
-
-};
-function AjaxLoaderMultimedia(element, hidden){
-    "use strict";
-    if(!element) {
-        return;
-    }
-
-    this.element = element;
-    this.count = hidden.getAttribute('data-count');
-    this.state = true;
-    this._Masonry_ = null;
-
-    this.commonProps(this, null);
-}
-
-
-AjaxLoaderMultimedia.prototype = Object.create(AjaxConstructor.prototype);
-
-
-AjaxLoaderMultimedia.prototype.generateDataAjax = function(){
-    "use strict";
-    this.Xhr('GET', '/site/GetMultimedia?offset=' + this.count, null, this, this.template);
-
-};
-
-AjaxLoaderMultimedia.prototype.template = function(data, self){
-    "use strict";
-    var dataContent = JSON.parse(JSON.parse(data).multimedia),
-        lang = JSON.parse(data).language,
-        template = [];
-
-    dataContent.forEach(function(item, i){
-        
-        var elementOuter = document.createElement('a'), 
-            elementInner = document.createElement('div'), 
-            img = new Image(), 
-            elementSpan = document.createElement('span'),
-            classieType = '-val-ico-'+item.type;
-        
-        elementOuter.href = (item.type == 'photo') ? '/'+lang+'/site/photos/'+item.id : '/'+lang+'/site/video/'+item.id;
-        elementOuter.classList.add('val-block-multimedia', classieType);
-        elementInner.classList.add('val-image-block-multimedia');
-        (item.type == 'photo') ? img.src = '/uploads/galery/category/'+item.image+'' : img.src = 'http://img.youtube.com/vi/'+item.image+'/mqdefault.jpg';
-        elementSpan.classList.add('-val-multimedia-description');
-
-        elementSpan.innerHTML = item['name_'+lang];
-
-        elementInner.appendChild(img);
-        elementOuter.appendChild(elementSpan);
-        elementOuter.appendChild(elementInner);
-
-        template.push(elementOuter);
-    });
-
-     for (var i = template.length - 1; i >= 0; i--) {
-        self.element.appendChild(template[i]);
-    }
-
-    if(self._Masonry_){
-        self._Masonry_.appended(template);
-        self._Masonry_.layout();
-        readyNextIteration();
-    } else {
-        setTimeout(function () {
-            self._Masonry_ = new Masonry( self.element, {
-              itemSelector: '.val-block-multimedia',
-              columnWidth: 1
-            });
-            readyNextIteration();
-            self.element.style.opacity = 1;
-        }, 500);
-    }
-
-    function readyNextIteration(){
-        self.count = JSON.parse(data).offset;
-        self.state = true;
-    }
-
 };

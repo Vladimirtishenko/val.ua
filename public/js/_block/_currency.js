@@ -12,31 +12,30 @@ Currency.prototype.templates = function(query, self) {
 
     "use strict";
     var querys = JSON.parse(query),
-        InArray = ["Альфа-Банк", "ПриватБанк", "ПУМБ", "Укрсоцбанк", "Райффайзен Банк Аваль"],
+        InArray = ["ПриватБанк", "ПУМБ", "Укрсоцбанк"],
         a = [],
         stay;
 
     [].reduce.call(querys, function(previousValue, currentValue, index) {
 
+        if(InArray.indexOf(currentValue.bankName) == -1){
+            return 0;
+        }
+
         if (previousValue == 0 || currentValue.bankName != previousValue) {
-            if (stay) {
-                a.push(stay);
-            }
             stay = {};
-            stay.bankName = currentValue.bankName;
-            stay[currentValue.codeAlpha] = {
-                rateBuy: currentValue.rateBuy,
-                rateBuyDelta: currentValue.rateBuyDelta,
-                rateSale: currentValue.rateSale,
-                rateSaleDelta: currentValue.rateSaleDelta
-            };
-        } else {
-            stay[currentValue.codeAlpha] = {
-                rateBuy: currentValue.rateBuy,
-                rateBuyDelta: currentValue.rateBuyDelta,
-                rateSale: currentValue.rateSale,
-                rateSaleDelta: currentValue.rateSaleDelta
-            };
+            stay.bankName = currentValue.bankName; 
+        } 
+
+        stay[currentValue.codeAlpha] = {
+            rateBuy: currentValue.rateBuy,
+            rateBuyDelta: currentValue.rateBuyDelta,
+            rateSale: currentValue.rateSale,
+            rateSaleDelta: currentValue.rateSaleDelta
+        };
+
+        if (stay && Object.keys(stay).length > 3) {
+            a.push(stay);
         }
 
         return currentValue.bankName;
@@ -44,13 +43,7 @@ Currency.prototype.templates = function(query, self) {
     }, 0);
 
 
-    var newA = a.filter(function(item, i) {
-        if (self.inArray(item.bankName, InArray)) {
-            return item;
-        }
-    });
-
-    self.templateForArray(newA, self);
+    self.templateForArray(a, self);
 
 };
 

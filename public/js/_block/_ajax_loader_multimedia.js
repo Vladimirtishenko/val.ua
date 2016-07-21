@@ -39,7 +39,7 @@ AjaxLoaderMultimedia.prototype.template = function(data, self){
         elementOuter.href = (item.type == 'photo') ? '/'+lang+'/site/photos/'+item.id : '/'+lang+'/site/video/'+item.id;
         elementOuter.classList.add('val-block-multimedia', classieType);
         elementInner.classList.add('val-image-block-multimedia');
-        (item.type == 'photo') ? img.src = '/uploads/galery/category/'+item.image+'' : img.src = 'http://img.youtube.com/vi/'+item.image+'/mqdefault.jpg';
+        (item.type == 'photo') ? img.src = 'http://val.ua/uploads/galery/category/'+item.image+'' : img.src = 'http://img.youtube.com/vi/'+item.image+'/mqdefault.jpg';
         elementSpan.classList.add('-val-multimedia-description');
 
         elementSpan.innerHTML = item['name_'+lang];

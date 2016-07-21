@@ -52,6 +52,10 @@
                 <span class="val-close-modals"></span>
                 <?php $this->widget('application.components.widgets.AboutWidget'); ?>
             </div>
+            <div class="val-content-for-facebook">
+
+                
+            </div>
         </div>
     </div>
     <div class="val-slim-outer">

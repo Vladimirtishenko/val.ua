@@ -2,25 +2,24 @@ function Helper() {
     "use strict";
 }
 
-Helper.prototype.returnDateNow = function() {
+Helper.prototype.returnDateNow = function(date) {
     "use strict";
-    var now = new Date(),
-        currDate = now.getDate() < 10 ? '0' + now.getDate() : now.getDate(),
-        currMonth = (now.getMonth() + 1) < 10 ? '0' + (now.getMonth() + 1) : now.getMonth() + 1,
-        currYear = now.getFullYear();
+    var now = date ? new Date(date) : new Date(),
+        dateValue = (new Date(now.getDate(), now.getMonth(), now.getFullYear())).valueOf();
 
-    return currYear + '-' + currMonth + '-' + currDate;
+    return dateValue;
 };
 
 Helper.prototype.dateHalper = function(datas, lang) {
     "use strict";
-    var data = datas.split(' ');
+    var data = datas.split(' '),
+        dateStaticArguments = new Date(data[0]);
 
-    if (this.returnDateNow() > data[0]) {
+    if (this.returnDateNow() > this.returnDateNow(data[0])) {
 
-        var thisDateMounth = this.mounthObject(new Date(data[0]).getMonth() + 1, lang),
-            thisDateDay = new Date(data[0]).getDate(),
-            thisDateYear = new Date(data[0]).getFullYear();
+        var thisDateMounth = this.mounthObject(dateStaticArguments.getMonth() + 1, lang),
+            thisDateDay = dateStaticArguments.getDate(),
+            thisDateYear = dateStaticArguments.getFullYear();
 
         return thisDateDay + ' ' + thisDateMounth + ' ' + thisDateYear;
 
@@ -406,7 +405,7 @@ AjaxLoaderMultimedia.prototype.template = function(data, self){
         elementOuter.href = (item.type == 'photo') ? '/'+lang+'/site/photos/'+item.id : '/'+lang+'/site/video/'+item.id;
         elementOuter.classList.add('val-block-multimedia', classieType);
         elementInner.classList.add('val-image-block-multimedia');
-        (item.type == 'photo') ? img.src = '/uploads/galery/category/'+item.image+'' : img.src = 'http://img.youtube.com/vi/'+item.image+'/mqdefault.jpg';
+        (item.type == 'photo') ? img.src = 'http://val.ua/uploads/galery/category/'+item.image+'' : img.src = 'http://img.youtube.com/vi/'+item.image+'/mqdefault.jpg';
         elementSpan.classList.add('-val-multimedia-description');
 
         elementSpan.innerHTML = item['name_'+lang];

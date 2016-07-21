@@ -5,3 +5,5 @@
 /protected/runtime/debug/
 /uploads/
 /mail/
+/node_modules/
+/course/

@@ -7,7 +7,7 @@ class UploadController extends AdminController
         //номер функции обратного вызова
         $callback = $_GET['CKEditorFuncNum'];
         //имя фалйа
-        $file_name = uniqid().$_FILES['upload']['name'];
+        $file_name = microtime(true).uniqid().$_FILES['upload']['name'];
         //временное имя файла на сервере
         $file_name_tmp = $_FILES['upload']['tmp_name'];
         //указываем куда складывать изображения

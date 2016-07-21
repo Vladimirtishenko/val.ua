@@ -22,6 +22,7 @@ AjaxConstructor.prototype.commonProps = function(self, value){
 
 var handlerAllStart = function() {
     "use strict";
+    new FacebookPopUp();
     new Slider(document.querySelector('.val-list-slider'));
     new IframeGemerate(document.querySelector('.val-iframe-streams'));
     new AjaxLoadCategory(document.querySelector('.val-full-width-category'));
@@ -35,6 +36,7 @@ var handlerAllStart = function() {
     new AjaxLoaderMultimedia(document.getElementById('val-single-multimedia'), document.getElementById('val-count-and-id'));
     new Pikaday({ field: document.getElementById('datepicker') });
     new MansoryGenerator(document.querySelectorAll('.-for-mansory-container'));
+   
 };
 
 if(location.href.indexOf('jasmine') == -1){

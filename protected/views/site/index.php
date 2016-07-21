@@ -57,11 +57,11 @@
         </div>
     </div>
     <div class="val-more-news">
-        <a href="/"><span>Больше новостей</span></a>
+        <a href="/"><span><?=Yii::t('main', 'Більше новин');?></span></a>
     </div>
     <div class="val-steam-block">
         <h2 class="val-title-uppercase">
-            Прямые включения
+            <?=Yii::t('main', 'Прямые включения');?>
         </h2>
         <div class="val-iframe-streams" data-src="<?= Streem::model()->findByPk(1)->url; ?>, <?= Streem::model()->findByPk(2)->url; ?>">
             
@@ -69,9 +69,9 @@
     </div>
     <div class="val-multimedia-block">
         <h2 class="val-title-uppercase">
-            <span>Мультимедиа</span>
-            <a href="#">Все видеорепортажи</a>
-            <a href="#">Все фоторепортажи</a>
+            <span><?=Yii::t('main', 'Мультимедіа');?></span>
+            <a href="#"><?=Yii::t('main', 'Всі фоторепортажі');?></a>
+            <a href="#"><?=Yii::t('main', 'Всі відеорепортажі');?></a>
         </h2>
         <div class="val-conteiner-multimedia">
             <?php foreach($multimedia as $videos): ?> 
@@ -113,7 +113,7 @@
         </div>
     </div>
     <div class="val-blogers-column">
-        <h2 class="val-title-uppercase">Блоги и Блогеры</h2>
+        <h2 class="val-title-uppercase"><?=Yii::t('main', 'Блоги и Блогери');?></h2>
         <?php $this->widget('application.components.widgets.BloggerLayout'); ?>
     </div>
     <?php $this->widget('application.components.widgets.AccordeonWidget'); ?>

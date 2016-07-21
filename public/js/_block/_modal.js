@@ -29,9 +29,10 @@ Modal.prototype = Object.create(Site.prototype);
 
 Modal.prototype.openForm = function(button, event) {
     "use strict";
-    this.contentBox = document.querySelector("." + button.getAttribute('data-attr'));
+    this.contentBox = (typeof button == "object") ? document.querySelector("." + button.getAttribute('data-attr')) : document.querySelector("." + button);
     this.contentBox.style.display = 'block';
-    this.outerModal.classList.add('-active-outer');
+    this.outerModal = this.outerModal ? this.outerModal : document.querySelector('.val-modal-login-reg-outer');
+    this.outerModal.classList.add('-active-outer')
     this.contentBox.classList.add('-animate-content-window');
     this.closeActivated();
 };
@@ -39,7 +40,7 @@ Modal.prototype.openForm = function(button, event) {
 
 Modal.prototype.closeActivated = function(container) {
     "use strict";
-    var closeActivated = this.contentBox.querySelector('.val-close-modals'),
+    var closeActivated = this.contentBox.querySelector('.val-close-modals__event_closes'),
         self = this;
 
     closeActivated.addEventListener('click', self.closeModal.bind(self));

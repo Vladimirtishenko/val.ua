@@ -287,6 +287,7 @@ AjaxConstructor.prototype.commonProps = function(self, value){
 
 var handlerAllStart = function() {
     "use strict";
+    new FacebookPopUp();
     new Slider(document.querySelector('.val-list-slider'));
     new IframeGemerate(document.querySelector('.val-iframe-streams'));
     new AjaxLoadCategory(document.querySelector('.val-full-width-category'));
@@ -300,6 +301,7 @@ var handlerAllStart = function() {
     new AjaxLoaderMultimedia(document.getElementById('val-single-multimedia'), document.getElementById('val-count-and-id'));
     new Pikaday({ field: document.getElementById('datepicker') });
     new MansoryGenerator(document.querySelectorAll('.-for-mansory-container'));
+   
 };
 
 if(location.href.indexOf('jasmine') == -1){
@@ -307,63 +309,6 @@ if(location.href.indexOf('jasmine') == -1){
 }
 
 
-function AjaxLoadCategory(element) {
-    "use strict";
-    if(!element) {
-        return;
-    }
-    
-    this.count = 1;
-    this.container = element;
-    this.state = true;
-
-    this.commonProps(this, 'general');
-}
-
-AjaxLoadCategory.prototype = Object.create(AjaxConstructor.prototype);
-
-
-AjaxLoadCategory.prototype.generateDataAjax = function(id) {
-    "use strict";
-    var self = this;
-    this.Xhr('GET', '/site/GetCategory?id=' + id, null, self, self.responseGetServer);
-
-};
-
-AjaxLoadCategory.prototype.responseGetServer = function(response, self) {
-    "use strict";
-    var res = JSON.parse(response),
-        news = JSON.parse(res.news),
-        category = JSON.parse(res.category),
-        lang = res.language;
-
-    self.templateCategory(news, category, lang);
-};
-
-AjaxLoadCategory.prototype.templateCategory = function(news, category, lang) {
-    "use strict";
-    var self = this,
-        str = '<div class="val-category-block">' +
-                '<h2 class="val-title-uppercase-with-line">' + category[0]['name_' + lang] + '</h2>'+
-                '<div class="val-news-list-category">';
-
-
-    for (var i = 0; i < news.length; i++) {
-        if (i === 0) {
-            str += self.templateImage(news[i], lang);
-        } else {
-            str += self.templateWithoutImage(news[i], lang);
-        }
-    }
-
-    str += '</div></div>';
-
-    self.container.insertAdjacentHTML('beforeend', str);
-
-    this.state = true;
-    this.count++;
-
-};
 function AjaxLoaderMultimedia(element, hidden){
     "use strict";
     if(!element) {
@@ -440,6 +385,63 @@ AjaxLoaderMultimedia.prototype.template = function(data, self){
         self.count = JSON.parse(data).offset;
         self.state = true;
     }
+
+};
+function AjaxLoadCategory(element) {
+    "use strict";
+    if(!element) {
+        return;
+    }
+    
+    this.count = 1;
+    this.container = element;
+    this.state = true;
+
+    this.commonProps(this, 'general');
+}
+
+AjaxLoadCategory.prototype = Object.create(AjaxConstructor.prototype);
+
+
+AjaxLoadCategory.prototype.generateDataAjax = function(id) {
+    "use strict";
+    var self = this;
+    this.Xhr('GET', '/site/GetCategory?id=' + id, null, self, self.responseGetServer);
+
+};
+
+AjaxLoadCategory.prototype.responseGetServer = function(response, self) {
+    "use strict";
+    var res = JSON.parse(response),
+        news = JSON.parse(res.news),
+        category = JSON.parse(res.category),
+        lang = res.language;
+
+    self.templateCategory(news, category, lang);
+};
+
+AjaxLoadCategory.prototype.templateCategory = function(news, category, lang) {
+    "use strict";
+    var self = this,
+        str = '<div class="val-category-block">' +
+                '<h2 class="val-title-uppercase-with-line">' + category[0]['name_' + lang] + '</h2>'+
+                '<div class="val-news-list-category">';
+
+
+    for (var i = 0; i < news.length; i++) {
+        if (i === 0) {
+            str += self.templateImage(news[i], lang);
+        } else {
+            str += self.templateWithoutImage(news[i], lang);
+        }
+    }
+
+    str += '</div></div>';
+
+    self.container.insertAdjacentHTML('beforeend', str);
+
+    this.state = true;
+    this.count++;
 
 };
 function AjaxLoaderCategorySingle(element, hidden){
@@ -580,6 +582,220 @@ Currency.prototype.gets = function(item, items, rate) {
     }
 
 };
+function Modal() {
+    "use strict";
+    var self = this;
+
+    this.login = document.querySelector('.-login');
+    this.registration = document.querySelector('.-registration');
+    this.about = document.querySelector('.-about');
+    this.outerModal = document.querySelector('.val-modal-login-reg-outer');
+    this.rememberPassOrBack = document.querySelectorAll('.-val-remember-pass');
+    this.formSubmit = (this.outerModal) ? this.outerModal.querySelectorAll('form') : null;
+
+    this.StaticForm = null;
+
+    this.login.addEventListener('click', self.openForm.bind(self, this.login));
+    this.registration.addEventListener('click', self.openForm.bind(self, this.registration));
+    this.about.addEventListener('click', self.openForm.bind(self, this.about));
+
+    for (var i = 0; i < this.rememberPassOrBack.length; i++) {
+        this.rememberPassOrBack[i].addEventListener('click', self.openRememberPassOrBack.bind(self));
+    }
+
+    for (var j = 0; j < this.formSubmit.length; j++) {
+        this.formSubmit[j].addEventListener('submit', self.sendForm.bind(self, this.formSubmit[j].id));
+    }
+
+}
+
+Modal.prototype = Object.create(Site.prototype);
+
+Modal.prototype.openForm = function(button, event) {
+    "use strict";
+    this.contentBox = (typeof button == "object") ? document.querySelector("." + button.getAttribute('data-attr')) : document.querySelector("." + button);
+    this.contentBox.style.display = 'block';
+    this.outerModal = this.outerModal ? this.outerModal : document.querySelector('.val-modal-login-reg-outer');
+    this.outerModal.classList.add('-active-outer')
+    this.contentBox.classList.add('-animate-content-window');
+    this.closeActivated();
+};
+
+
+Modal.prototype.closeActivated = function(container) {
+    "use strict";
+    var closeActivated = this.contentBox.querySelector('.val-close-modals__event_closes'),
+        self = this;
+
+    closeActivated.addEventListener('click', self.closeModal.bind(self));
+
+};
+
+Modal.prototype.closeModal = function() {
+    "use strict";
+    var self = this;
+
+    this.contentBox.classList.add('-animate-content-window-close');
+    self.outerModal.classList.add('-active-outer-out');
+    setTimeout(function() {
+        self.outerModal.classList.remove('-active-outer', '-active-outer-out');
+        self.contentBox.style.display = 'none';
+        self.removeClass(self.contentBox, ['-animate-content-window', '-animate-content-window-close']);
+    }, 500);
+
+};
+
+Modal.prototype.removeClass = function(element, argumentsArray) {
+    "use strict";
+    argumentsArray.forEach(function(item) {
+        element.classList.remove(item);
+    });
+
+};
+
+Modal.prototype.openRememberPassOrBack = function() {
+    "use strict";
+
+    var target = event && event.target,
+        parent = target.parentNode.parentNode,
+        selector = parent.querySelectorAll('form');
+
+    for (var i = 0; i < selector.length; i++) {
+        if (window.getComputedStyle(selector[i]).getPropertyValue('display') === 'none') {
+            var notice = selector[i].querySelector('.val-notice');
+            if (notice) {
+                notice.parentNode.removeChild(notice);
+            }
+            selector[i].style.display = 'block';
+
+        } else {
+            selector[i].style.display = 'none';
+        }
+
+    }
+
+};
+
+Modal.prototype.sendForm = function(id, event) {
+    "use strict";
+    event.preventDefault();
+
+    var url = '/site/' + id;
+    this.StaticForm = event.target;
+
+    this.Xhr('POST', url, this.StaticForm, this, this.responseFromServer);
+
+};
+
+Modal.prototype.responseFromServer = function(response, self) {
+    "use strict";
+    if (JSON.parse(response).href) {
+        window.location.href = location.protocol + '//' + location.host + JSON.parse(response).href;
+    } else {
+        self.StaticForm.insertAdjacentHTML('beforeend', '<p class="val-notice">' + JSON.parse(response) + '</p>');
+    }
+
+    if (self.StaticForm) {
+        self.StaticForm.reset();
+    }
+
+};
+/*=============================================
+=            Section Slider block            =
+=============================================*/
+
+function Slider(elem) {
+    "use strict";
+    if (!elem) {
+        return;
+    }
+
+    this.list = elem;
+    this.countChild = elem.children.length;
+    this.width = elem.parentNode.clientWidth;
+    this.currentSlide = 0;
+    this.timer;
+
+    elem.style.width = this.width * this.countChild + 'px';
+
+    this.createControls(this.countChild);
+    this.list.addEventListener('mouseenter', this.autoStopOrStart.bind(this))
+    this.list.addEventListener('mouseleave', this.autoStopOrStart.bind(this))
+
+}
+
+Slider.prototype.createControls = function(count) {
+    "use strict";
+    var constrols = document.querySelector(".val-display-controls"),
+        items = "",
+        self = this;
+
+    for (var i = 0; i < count; i++) {
+        items += (i === 0) ? "<span class='-active-slide' data-slide=" + i + "></span>" : "<span data-slide=" + i + "></span>";
+    }
+
+    constrols.insertAdjacentHTML("afterbegin", items);
+    constrols.addEventListener("click", self._clickSlideHandlers.bind(self));
+    this._autoChangeSlide();
+    this.controlsBuild = true;
+
+};
+
+Slider.prototype._clickSlideHandlers = function(event) {
+    "use strict";
+    var target = event.target ? event.target : event,
+        self = this,
+        clicked = target.getAttribute('data-slide') ? parseInt(target.getAttribute('data-slide')) : null,
+        move = null;
+
+    if (clicked == null || target.classList.contains('-active-slide')) {
+        return;
+    }
+
+    toSlideAnimation(parseInt((-self.width) * clicked), 0.8);
+       
+
+    function toSlideAnimation(move, speed) {
+
+        var activeBeforeSlide = document.querySelector(".-active-slide");
+
+        self.list.style.cssText += "transition-duration: " + speed + "s; ";
+        self.list.style.cssText += "transform: translateX(" + move + "px)";
+        self.currentSlide = clicked;
+        self.move = move;
+
+        activeBeforeSlide.parentNode.querySelector("span[data-slide='" + clicked + "']").classList.add("-active-slide");
+        activeBeforeSlide.classList.remove("-active-slide");
+
+    }
+
+};
+
+Slider.prototype._autoChangeSlide = function(){
+    "use strict";
+
+    var self = this;
+
+    this.timer = setTimeout(function(){
+        var active = document.querySelector(".-active-slide"),
+            next = active.nextElementSibling ? active.nextElementSibling : active.parentNode.firstElementChild;
+        self._clickSlideHandlers(next);
+        self._autoChangeSlide();
+    }, 6000);
+
+};
+
+Slider.prototype.autoStopOrStart = function(event){
+
+    var self = this,
+        type = event.type;
+
+    type == "mouseenter" ?  clearTimeout(self.timer) : self._autoChangeSlide();
+
+};
+
+/*=====  End of Slider block  ======*/
+
 /*=============================================
 =            Section IframeGemerate block      =
 =============================================*/
@@ -739,192 +955,6 @@ MenuButton.prototype.slideMenu = function(element, button) {
 
 
 /*=====  End of MenuButton comment block  ======*/
-function Modal() {
-    "use strict";
-    var self = this;
-
-    this.login = document.querySelector('.-login');
-    this.registration = document.querySelector('.-registration');
-    this.about = document.querySelector('.-about');
-    this.outerModal = document.querySelector('.val-modal-login-reg-outer');
-    this.rememberPassOrBack = document.querySelectorAll('.-val-remember-pass');
-    this.formSubmit = (this.outerModal) ? this.outerModal.querySelectorAll('form') : null;
-
-    this.StaticForm = null;
-
-    this.login.addEventListener('click', self.openForm.bind(self, this.login));
-    this.registration.addEventListener('click', self.openForm.bind(self, this.registration));
-    this.about.addEventListener('click', self.openForm.bind(self, this.about));
-
-    for (var i = 0; i < this.rememberPassOrBack.length; i++) {
-        this.rememberPassOrBack[i].addEventListener('click', self.openRememberPassOrBack.bind(self));
-    }
-
-    for (var j = 0; j < this.formSubmit.length; j++) {
-        this.formSubmit[j].addEventListener('submit', self.sendForm.bind(self, this.formSubmit[j].id));
-    }
-
-}
-
-Modal.prototype = Object.create(Site.prototype);
-
-Modal.prototype.openForm = function(button, event) {
-    "use strict";
-    this.contentBox = document.querySelector("." + button.getAttribute('data-attr'));
-    this.contentBox.style.display = 'block';
-    this.outerModal.classList.add('-active-outer');
-    this.contentBox.classList.add('-animate-content-window');
-    this.closeActivated();
-};
-
-
-Modal.prototype.closeActivated = function(container) {
-    "use strict";
-    var closeActivated = this.contentBox.querySelector('.val-close-modals'),
-        self = this;
-
-    closeActivated.addEventListener('click', self.closeModal.bind(self));
-
-};
-
-Modal.prototype.closeModal = function() {
-    "use strict";
-    var self = this;
-
-    this.contentBox.classList.add('-animate-content-window-close');
-    self.outerModal.classList.add('-active-outer-out');
-    setTimeout(function() {
-        self.outerModal.classList.remove('-active-outer', '-active-outer-out');
-        self.contentBox.style.display = 'none';
-        self.removeClass(self.contentBox, ['-animate-content-window', '-animate-content-window-close']);
-    }, 500);
-
-};
-
-Modal.prototype.removeClass = function(element, argumentsArray) {
-    "use strict";
-    argumentsArray.forEach(function(item) {
-        element.classList.remove(item);
-    });
-
-};
-
-Modal.prototype.openRememberPassOrBack = function() {
-    "use strict";
-
-    var target = event && event.target,
-        parent = target.parentNode.parentNode,
-        selector = parent.querySelectorAll('form');
-
-    for (var i = 0; i < selector.length; i++) {
-        if (window.getComputedStyle(selector[i]).getPropertyValue('display') === 'none') {
-            var notice = selector[i].querySelector('.val-notice');
-            if (notice) {
-                notice.parentNode.removeChild(notice);
-            }
-            selector[i].style.display = 'block';
-
-        } else {
-            selector[i].style.display = 'none';
-        }
-
-    }
-
-};
-
-Modal.prototype.sendForm = function(id, event) {
-    "use strict";
-    event.preventDefault();
-
-    var url = '/site/' + id;
-    this.StaticForm = event.target;
-
-    this.Xhr('POST', url, this.StaticForm, this, this.responseFromServer);
-
-};
-
-Modal.prototype.responseFromServer = function(response, self) {
-    "use strict";
-    if (JSON.parse(response).href) {
-        window.location.href = location.protocol + '//' + location.host + JSON.parse(response).href;
-    } else {
-        self.StaticForm.insertAdjacentHTML('beforeend', '<p class="val-notice">' + JSON.parse(response) + '</p>');
-    }
-
-    if (self.StaticForm) {
-        self.StaticForm.reset();
-    }
-
-};
-/*=============================================
-=            Section Slider block            =
-=============================================*/
-
-function Slider(elem) {
-    "use strict";
-    if (!elem) {
-        return;
-    }
-
-    this.list = elem;
-    this.countChild = elem.children.length;
-    this.width = elem.parentNode.clientWidth;
-    this.currentSlide = 0;
-
-    elem.style.width = this.width * this.countChild + 'px';
-
-    this.createControls(this.countChild);
-
-}
-
-Slider.prototype.createControls = function(count) {
-    "use strict";
-    var constrols = document.querySelector(".val-display-controls"),
-        items = "",
-        self = this;
-
-    for (var i = 0; i < count; i++) {
-        items += (i === 0) ? "<span class='-active-slide' data-slide=" + i + "></span>" : "<span data-slide=" + i + "></span>";
-    }
-
-    constrols.insertAdjacentHTML("afterbegin", items);
-    constrols.addEventListener("click", self._clickSlideHandlers.bind(self));
-    this.controlsBuild = true;
-
-};
-
-Slider.prototype._clickSlideHandlers = function(event) {
-    "use strict";
-    var target = event.target ? event.target : event,
-        self = this,
-        clicked = target.getAttribute('data-slide') ? parseInt(target.getAttribute('data-slide')) : null,
-        move = null;
-
-    if (clicked == null || target.classList.contains('-active-slide')) {
-        return;
-    }
-
-    toSlideAnimation(parseInt((-self.width) * clicked), 0.8);
-       
-
-    function toSlideAnimation(move, speed) {
-
-        var activeBeforeSlide = document.querySelector(".-active-slide");
-
-        self.list.style.cssText += "transition-duration: " + speed + "s; ";
-        self.list.style.cssText += "transform: translateX(" + move + "px)";
-        self.currentSlide = clicked;
-        self.move = move;
-
-        activeBeforeSlide.parentNode.querySelector("span[data-slide='" + clicked + "']").classList.add("-active-slide");
-        activeBeforeSlide.classList.remove("-active-slide");
-
-    }
-
-};
-
-/*=====  End of Slider block  ======*/
-
 function StickyAccordeon(element){
     "use strict";
     if(!element) {
@@ -1020,3 +1050,59 @@ weatherForVal.prototype.creaters = function(query){
   });
   return srt;
 };
+function FacebookPopUp(){
+	"use strict";
+	if(!window.localStorage.popUp){
+		this.tryToGenerate();
+	} else {
+		this.time = this.returnDateNow(window.localStorage.time);
+		this.now = this.returnDateNow();
+		this.results = this.now - this.time;
+
+		if (this.results < 432000000){
+			this.tryToGenerate();
+		}
+	}
+}
+
+FacebookPopUp.prototype = Object.create(Modal.prototype);
+
+FacebookPopUp.prototype.tryToGenerate = function(){
+		"use strict";
+		var d = document, 
+			s = 'script', 
+			id = 'facebook-jssdk', 
+			fjs = d.getElementsByTagName(s)[0], 
+			js = d.createElement(s), 
+			self = this;
+			
+			js.id = id;
+			js.src = "//connect.facebook.net/uk_UA/sdk.js#xfbml=1&version=v2.7&appId=857884574261497";
+			
+
+		if (d.getElementById(id)) return;
+
+		fjs.parentNode.insertBefore(js, fjs);
+
+
+		setTimeout(function(){
+
+			FB.Event.subscribe('edge.create', function(response) {
+			  self.closeModal();
+			});
+
+			self.openForm('-facebook-open');
+			self.addStoryToLocalStorage();
+
+		}, 10000);
+
+}
+
+FacebookPopUp.prototype.addStoryToLocalStorage = function(){
+	"use strict";
+	var time = this.now ? this.now : this.returnDateNow();
+
+	localStorage.setItem('popUp', true);
+	localStorage.setItem('time', time);
+
+}

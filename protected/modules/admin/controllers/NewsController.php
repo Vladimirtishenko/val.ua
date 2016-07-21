@@ -31,23 +31,6 @@ class NewsController extends AdminController
 			$textReplace = preg_replace('/[\#\&\;]/', '', $textReplace);
 			$textReplace = str_replace($vowels, '', $textReplace);
 
-            // $textReplace = preg_replace("/\r\n/", "", $textDescr);
-            // $newText1 = str_replace('&nbsp;',' ',  $textReplace);
-            // $newText2 = str_replace('&laquo;',' ',  $newText1);
-            // $newText3 = str_replace('&ndash;',' ',  $newText2);
-            // $newText4 = str_replace('&rsquo;',' ',  $newText3);
-            // $newText5 = str_replace('&raquo;',' ',  $newText4);
-            // $newText6 = str_replace('&quot;',' ',  $newText5);
-            // $newText7 = str_replace('<pre>','<p>',  $newText6);
-            // $newText8 = str_replace('</pre>','</p>',  $newText7);
-            // $newText9 = str_replace('<div>','<p>',  $newText8);
-            // $newText10 = str_replace('</div>','</p>',  $newText9);
-            // $newText11 = str_replace('<strong>','',  $newText10);
-            // $newText12 = str_replace('</strong>','',  $newText11);
-            // $newText13 = str_replace('&#39;','',  $newText12);
-            // $newText14 = str_replace('&','',  $newText13);
-            // $newText15 = str_replace('#','',  $newText14);
-
             preg_match_all("/<p.*?>.+?<\/p>/i", $textReplace, $matches);
             $array = array();
             foreach($matches[0] as $item){

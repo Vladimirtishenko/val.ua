@@ -2054,6 +2054,56 @@ span.icon-weather-min-36 {
   content: "";
 }
 
+.val-content-for-facebook {
+  width: 345px;
+  position: relative;
+  margin: 0 auto;
+  background: #fff;
+  opacity: 0;
+  display: table;
+  padding: 0px;
+  box-shadow: 0 0 7px 1px rgba(0,0,0,0.2);
+}
+
+.val-content-for-facebook__follow-already {
+  width: 100%;
+  background: #f6f6f6;
+  text-align: center;
+  padding: 15px;
+  margin-top: 20px;
+  border-width: 1px 0px 0px 0px;
+  border-style: solid;
+  border-color: #e9ebee;
+}
+
+.val-content-for-facebook__text-for-follow {
+  color: #000;
+  font-size: 12px;
+  line-height: 13px;
+  border-bottom: 1px dashed #000;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  display: inline-block;
+  padding-bottom: 1px;
+  position: static;
+  backround: none;
+}
+
+.val-content-for-facebook__logo {
+  width: 100%;
+  background-color: #4867aa;
+  border-bottom: 1px solid #29487d;
+  padding: 5px 15px;
+  margin-bottom: 20px;
+  border-width: 0 0 1px;
+  border-style: solid;
+  border-color: #e9ebee;
+}
+
+.val-content-for-facebook__logo-image img {
+  width: 100px;
+}
+
 .-animate-content-window {
   animation-name: opacitys;
   animation-delay: 0.1s;

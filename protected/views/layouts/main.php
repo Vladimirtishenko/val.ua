@@ -33,7 +33,7 @@
     <link rel="stylesheet" href="<?= Yii::app()->baseUrl; ?>/public/prodaction/bundle.min.css">
 </head>
 <body>
-
+    
     <!-- Flash message -->
     <?php $this->widget('application.components.widgets.FlashWidget'); ?>
     <!-- End Flash message -->
@@ -41,20 +41,31 @@
     <div class="val-modal-login-reg-outer">
         <div class="val-cell-modal-outer">
             <div class="val-content-for-login -login-modal">
-                <span class="val-close-modals"></span>
+                <span class="val-close-modals val-close-modals__event_closes"></span>
                 <?php $this->widget('application.components.widgets.AuthWidget'); ?>
             </div>
             <div class="val-content-for-login -reg-modal">
-                <span class="val-close-modals"></span>
+                <span class="val-close-modals val-close-modals__event_closes"></span>
                 <?php $this->widget('application.components.widgets.RegistrationWidget'); ?>
             </div>
              <div class="val-content-for-login -about-modal">
-                <span class="val-close-modals"></span>
+                <span class="val-close-modals val-close-modals__event_closes"></span>
                 <?php $this->widget('application.components.widgets.AboutWidget'); ?>
             </div>
-            <div class="val-content-for-facebook">
-
-                
+            <div class="val-content-for-facebook -facebook-open">
+                <div class="val-content-for-facebook__logo">
+                     <a href="https://www.facebook.com/VysokyiVal/" class="val-content-for-facebook__logo-image">
+                        <?=CHtml::image(Yii::app()->baseUrl.'/public/images/f.png', 'facebook')?>
+                    </a>
+                </div>
+                <div class="fb-page" data-width="303" style="padding: 0 20px" data-href="https://www.facebook.com/VysokyiVal/" data-small-header="true" data-adapt-container-width="true" data-hide-cover="true" data-show-facepile="true">
+                    <blockquote cite="https://www.facebook.com/VysokyiVal/" class="fb-xfbml-parse-ignore">
+                        <a href="https://www.facebook.com/VysokyiVal/"></a>
+                    </blockquote>
+                </div>
+                <div class="val-content-for-facebook__follow-already">
+                    <span class="val-close-modals__event_closes val-content-for-facebook__text-for-follow"> <?=Yii::t('main', 'Я вже з вами');?></span>
+                </div>
             </div>
         </div>
     </div>
@@ -74,7 +85,7 @@
                  <span class="val-side-menu-text">Тел.: <a href="#">613-631</a> </span>
             </div>
             <div class="val-slide-bottom">   
-                    <span class="val-slide-development">Разработка сайта</span>
+                    <span class="val-slide-development"><?=Yii::t('main', 'Розробка сайту');?></span>
                     <a href="http://4side.in.ua">
                         <?=CHtml::image(Yii::app()->baseUrl.'/public/images/4side.png', '4side development')?>
                     </a>
@@ -87,7 +98,7 @@
                         <div class="val-outer-left-button">
                             <div class="val-button-menu"><span>Меню</span></div>
                             <div class="val-button-search">
-                                <span>Поиск</span>
+                                <span><?=Yii::t('main', 'Пошук');?></span>
                                 <div class="val-search-modal">
                                     <?php
                                     $this->beginWidget('CActiveForm', array(
@@ -152,14 +163,14 @@
                                 <span class="val-data-today"><?= $this->getCurrentDate(); ?></span>
                             </li>
                             <li>
-                                <a href="#" class="val-redaction -about" data-attr="-about-modal" >Редакция</a>
+                                <a href="#" class="val-redaction -about" data-attr="-about-modal" ><?=Yii::t('main', 'Редакція');?></a>
                             </li>
                             <li>
-                                <a href="<?= Yii::app()->createUrl('/site/market'); ?>" class="val-market">Реклама</a>
+                                <a href="<?= Yii::app()->createUrl('/site/market'); ?>" class="val-market"><?=Yii::t('main', 'Реклама');?></a>
                             </li>
                             <li>
                                 <div class="-with-before -currency-val" href="#">
-                                    <span class="val-currency-text">Валюта</span>
+                                    <span class="val-currency-text"><?=Yii::t('main', 'Валюта');?></span>
                                 </div>
                             </li>
                             <li>
@@ -243,7 +254,7 @@
                     </ul>
                 </div>  
                 <div class="val-development">   
-                    <span class="val-text-development">Разработка сайта</span>
+                    <span class="val-text-development"><?=Yii::t('main', 'Розробка сайту');?></span>
                     <a href="http://4side.in.ua">
                         <?=CHtml::image(Yii::app()->baseUrl.'/public/images/4side.png', '4side development')?>
                     </a>
@@ -251,6 +262,7 @@
             </footer>
         </section>
     </div>
+    <div id="fb-root"></div>
     <? Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . '/public/js/_lib/pikaday.js', CClientScript::POS_END);?>
     <? Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . '/public/prodaction/bundle.min.js', CClientScript::POS_END);?>
     <script>

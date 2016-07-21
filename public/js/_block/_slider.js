@@ -12,10 +12,13 @@ function Slider(elem) {
     this.countChild = elem.children.length;
     this.width = elem.parentNode.clientWidth;
     this.currentSlide = 0;
+    this.timer;
 
     elem.style.width = this.width * this.countChild + 'px';
 
     this.createControls(this.countChild);
+    this.list.addEventListener('mouseenter', this.autoStopOrStart.bind(this))
+    this.list.addEventListener('mouseleave', this.autoStopOrStart.bind(this))
 
 }
 
@@ -31,6 +34,7 @@ Slider.prototype.createControls = function(count) {
 
     constrols.insertAdjacentHTML("afterbegin", items);
     constrols.addEventListener("click", self._clickSlideHandlers.bind(self));
+    this._autoChangeSlide();
     this.controlsBuild = true;
 
 };
@@ -62,6 +66,29 @@ Slider.prototype._clickSlideHandlers = function(event) {
         activeBeforeSlide.classList.remove("-active-slide");
 
     }
+
+};
+
+Slider.prototype._autoChangeSlide = function(){
+    "use strict";
+
+    var self = this;
+
+    this.timer = setTimeout(function(){
+        var active = document.querySelector(".-active-slide"),
+            next = active.nextElementSibling ? active.nextElementSibling : active.parentNode.firstElementChild;
+        self._clickSlideHandlers(next);
+        self._autoChangeSlide();
+    }, 6000);
+
+};
+
+Slider.prototype.autoStopOrStart = function(event){
+
+    var self = this,
+        type = event.type;
+
+    type == "mouseenter" ?  clearTimeout(self.timer) : self._autoChangeSlide();
 
 };
 

@@ -11,16 +11,18 @@ function Modal() {
 
     this.StaticForm = null;
 
-    this.login.addEventListener('click', self.openForm.bind(self, this.login));
-    this.registration.addEventListener('click', self.openForm.bind(self, this.registration));
-    this.about.addEventListener('click', self.openForm.bind(self, this.about));
+    this.listen(
+        ['click'], 
+        [this.login, this.registration, this.about], 
+        [self.openForm.bind(self, this.login), self.openForm.bind(self, this.registration), self.openForm.bind(self, this.about)]
+        );
 
     for (var i = 0; i < this.rememberPassOrBack.length; i++) {
-        this.rememberPassOrBack[i].addEventListener('click', self.openRememberPassOrBack.bind(self));
+        this.listen(['click'], [this.rememberPassOrBack[i]], self.openRememberPassOrBack.bind(self))
     }
 
     for (var j = 0; j < this.formSubmit.length; j++) {
-        this.formSubmit[j].addEventListener('submit', self.sendForm.bind(self, this.formSubmit[j].id));
+        this.listen(['click'], [this.formSubmit[j]], self.sendForm.bind(self, this.formSubmit[j].id))
     }
 
 }
@@ -43,7 +45,7 @@ Modal.prototype.closeActivated = function(container) {
     var closeActivated = this.contentBox.querySelector('.val-close-modals__event_closes'),
         self = this;
 
-    closeActivated.addEventListener('click', self.closeModal.bind(self));
+    this.listen(['click'], [closeActivated], self.closeModal.bind(self));
 
 };
 

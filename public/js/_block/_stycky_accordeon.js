@@ -5,8 +5,11 @@ function StickyAccordeon(element){
     }
     var self = this;
     self.accordeon = element.querySelector('.val-accordeons-block');
-    window.addEventListener('scroll', self.positionOfAccordeon.bind(self));
+    self.listen(['scroll'],[window],self.positionOfAccordeon.bind(self))
+
 }
+
+StickyAccordeon.prototype = Object.create(Site.prototype)
 
 StickyAccordeon.prototype.positionOfAccordeon = function () {
     "use strict";

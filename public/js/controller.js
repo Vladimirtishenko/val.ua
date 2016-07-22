@@ -13,7 +13,7 @@ AjaxConstructor.prototype = Object.create(Site.prototype);
 
 AjaxConstructor.prototype.commonProps = function(self, value){
     "use strict";
-    window.addEventListener('scroll', self.scrollHandler.bind(self, value));
+    this.listen(['scroll'], [window], self.scrollHandler.bind(self, value));
     if(!value){
       self.generateDataAjax();  
     }
@@ -39,7 +39,12 @@ var handlerAllStart = function() {
    
 };
 
+var handlerToError = function(e){
+    console.log(e);
+}
+
 if(location.href.indexOf('jasmine') == -1){
     window.addEventListener('DOMContentLoaded', handlerAllStart);  
+    window.addEventListener('error', handlerToError);  
 }
 

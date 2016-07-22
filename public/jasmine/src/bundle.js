@@ -213,6 +213,28 @@ Helper.prototype.inArray = function(needle, array) {
     return false;
 };
 
+Helper.prototype.listen = function(listen, element, callback){
+
+    var oneCallback = false,
+        callbackTohandler;
+
+    if(typeof callback == "Object" && element.length != callback.length){
+        throw {
+            message: "The number of elements handler does not match"
+        }
+    } else {
+        oneCallback = true;
+    }
+
+    listen.forEach(function(item, i){
+        element.forEach(function(items, j){
+            callbackTohandler = oneCallback ? callback : callback[j];
+            items.addEventListener(item, callbackTohandler);
+        })
+    })
+
+}
+
 function ModelXhr() {
     "use strict";
     this.xhr = function() {
@@ -278,7 +300,7 @@ AjaxConstructor.prototype = Object.create(Site.prototype);
 
 AjaxConstructor.prototype.commonProps = function(self, value){
     "use strict";
-    window.addEventListener('scroll', self.scrollHandler.bind(self, value));
+    this.listen(['scroll'], [window], self.scrollHandler.bind(self, value));
     if(!value){
       self.generateDataAjax();  
     }
@@ -304,8 +326,13 @@ var handlerAllStart = function() {
    
 };
 
+var handlerToError = function(e){
+    console.log(e);
+}
+
 if(location.href.indexOf('jasmine') == -1){
     window.addEventListener('DOMContentLoaded', handlerAllStart);  
+    window.addEventListener('error', handlerToError);  
 }
 
 
@@ -595,16 +622,18 @@ function Modal() {
 
     this.StaticForm = null;
 
-    this.login.addEventListener('click', self.openForm.bind(self, this.login));
-    this.registration.addEventListener('click', self.openForm.bind(self, this.registration));
-    this.about.addEventListener('click', self.openForm.bind(self, this.about));
+    this.listen(
+        ['click'], 
+        [this.login, this.registration, this.about], 
+        [self.openForm.bind(self, this.login), self.openForm.bind(self, this.registration), self.openForm.bind(self, this.about)]
+        );
 
     for (var i = 0; i < this.rememberPassOrBack.length; i++) {
-        this.rememberPassOrBack[i].addEventListener('click', self.openRememberPassOrBack.bind(self));
+        this.listen(['click'], [this.rememberPassOrBack[i]], self.openRememberPassOrBack.bind(self))
     }
 
     for (var j = 0; j < this.formSubmit.length; j++) {
-        this.formSubmit[j].addEventListener('submit', self.sendForm.bind(self, this.formSubmit[j].id));
+        this.listen(['click'], [this.formSubmit[j]], self.sendForm.bind(self, this.formSubmit[j].id))
     }
 
 }
@@ -627,7 +656,7 @@ Modal.prototype.closeActivated = function(container) {
     var closeActivated = this.contentBox.querySelector('.val-close-modals__event_closes'),
         self = this;
 
-    closeActivated.addEventListener('click', self.closeModal.bind(self));
+    this.listen(['click'], [closeActivated], self.closeModal.bind(self));
 
 };
 
@@ -719,10 +748,11 @@ function Slider(elem) {
     elem.style.width = this.width * this.countChild + 'px';
 
     this.createControls(this.countChild);
-    this.list.addEventListener('mouseenter', this.autoStopOrStart.bind(this))
-    this.list.addEventListener('mouseleave', this.autoStopOrStart.bind(this))
+    this.listen(['mouseenter', 'mouseleave'], [this.list], this.autoStopOrStart.bind(this))
 
 }
+
+Slider.prototype = Object.create(Site.prototype)
 
 Slider.prototype.createControls = function(count) {
     "use strict";
@@ -735,7 +765,7 @@ Slider.prototype.createControls = function(count) {
     }
 
     constrols.insertAdjacentHTML("afterbegin", items);
-    constrols.addEventListener("click", self._clickSlideHandlers.bind(self));
+    this.listen(['click'], [constrols], self._clickSlideHandlers.bind(self));
     this._autoChangeSlide();
     this.controlsBuild = true;
 
@@ -902,12 +932,12 @@ function Market(element) {
 
 
     for (var i = 0; i < child.length; i++) {
-        ("mouseenter mouseleave".split(" ")).forEach(function(e) {
-            child[i].addEventListener(e, this.HandlerToMouseEnterLeave, false);
-        }.bind(this));
+        this.listen(['mouseenter', 'mouseleave'], [child[i]], this.HandlerToMouseEnterLeave);
     }
 
 }
+
+Market.prototype = Object.create(Site.prototype);
 
 Market.prototype.HandlerToMouseEnterLeave = function() {
 
@@ -940,9 +970,11 @@ function MenuButton(button, element) {
         return false;
     }
 
-    button.addEventListener('click', this.slideMenu.bind(this, element, button));
+    this.listen(['click'], [button], this.slideMenu.bind(this, element, button));
 
 }
+
+MenuButton.prototype = Object.create(Site.prototype);
 
 
 MenuButton.prototype.slideMenu = function(element, button) {
@@ -962,8 +994,11 @@ function StickyAccordeon(element){
     }
     var self = this;
     self.accordeon = element.querySelector('.val-accordeons-block');
-    window.addEventListener('scroll', self.positionOfAccordeon.bind(self));
+    self.listen(['scroll'],[window],self.positionOfAccordeon.bind(self))
+
 }
+
+StickyAccordeon.prototype = Object.create(Site.prototype)
 
 StickyAccordeon.prototype.positionOfAccordeon = function () {
     "use strict";

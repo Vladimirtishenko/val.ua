@@ -17,10 +17,11 @@ function Slider(elem) {
     elem.style.width = this.width * this.countChild + 'px';
 
     this.createControls(this.countChild);
-    this.list.addEventListener('mouseenter', this.autoStopOrStart.bind(this))
-    this.list.addEventListener('mouseleave', this.autoStopOrStart.bind(this))
+    this.listen(['mouseenter', 'mouseleave'], [this.list], this.autoStopOrStart.bind(this))
 
 }
+
+Slider.prototype = Object.create(Site.prototype)
 
 Slider.prototype.createControls = function(count) {
     "use strict";
@@ -33,7 +34,7 @@ Slider.prototype.createControls = function(count) {
     }
 
     constrols.insertAdjacentHTML("afterbegin", items);
-    constrols.addEventListener("click", self._clickSlideHandlers.bind(self));
+    this.listen(['click'], [constrols], self._clickSlideHandlers.bind(self));
     this._autoChangeSlide();
     this.controlsBuild = true;
 

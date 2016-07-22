@@ -13,12 +13,12 @@ function Market(element) {
 
 
     for (var i = 0; i < child.length; i++) {
-        ("mouseenter mouseleave".split(" ")).forEach(function(e) {
-            child[i].addEventListener(e, this.HandlerToMouseEnterLeave, false);
-        }.bind(this));
+        this.listen(['mouseenter', 'mouseleave'], [child[i]], this.HandlerToMouseEnterLeave);
     }
 
 }
+
+Market.prototype = Object.create(Site.prototype);
 
 Market.prototype.HandlerToMouseEnterLeave = function() {
 

@@ -8,9 +8,11 @@ function MenuButton(button, element) {
         return false;
     }
 
-    button.addEventListener('click', this.slideMenu.bind(this, element, button));
+    this.listen(['click'], [button], this.slideMenu.bind(this, element, button));
 
 }
+
+MenuButton.prototype = Object.create(Site.prototype);
 
 
 MenuButton.prototype.slideMenu = function(element, button) {

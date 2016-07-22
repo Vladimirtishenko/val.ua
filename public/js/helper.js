@@ -212,3 +212,25 @@ Helper.prototype.inArray = function(needle, array) {
     }
     return false;
 };
+
+Helper.prototype.listen = function(listen, element, callback){
+
+    var oneCallback = false,
+        callbackTohandler;
+
+    if(typeof callback == "Object" && element.length != callback.length){
+        throw {
+            message: "The number of elements handler does not match"
+        }
+    } else {
+        oneCallback = true;
+    }
+
+    listen.forEach(function(item, i){
+        element.forEach(function(items, j){
+            callbackTohandler = oneCallback ? callback : callback[j];
+            items.addEventListener(item, callbackTohandler);
+        })
+    })
+
+}

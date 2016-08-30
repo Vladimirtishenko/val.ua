@@ -11,9 +11,9 @@ class NewsController extends AdminController
 
 		if(isset($_POST['News']) && isset($_POST['News']['title_uk']) && isset($_POST['News']['description_uk']))
         {
-            $key = 'trnsl.1.1.20150529T174532Z.6cced0695ba61eeb.26310c886efe685d21289e67fdf0a7ebda5cc1b1';
-            $lang = 'uk-ru';
-            $format = 'html';
+            $key = Yii::app()->params['yandex_translater_key'];
+            $lang = Yii::app()->params['yandex_translater_lang'];
+            $format = Yii::app()->params['yandex_translater_format'];
             $textTitle = $_POST['News']['title_uk'];
             $textDescr = $_POST['News']['description_uk'];
 

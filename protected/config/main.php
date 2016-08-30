@@ -24,6 +24,7 @@ return array(
     'import'=>array(
         'application.models.*',
         'application.components.*',
+        'application.components.ImageHandler.CImageHandler'
     ),
     'modules'=>array(
         'admin',
@@ -39,6 +40,9 @@ return array(
 
     // application components
     'components'=>array(
+        'ih'=>array(
+            'class'=>'CImageHandler',
+        ),
         'debug' => array(
             'class' => 'ext.yii2-debug.Yii2Debug',
         ),
@@ -126,12 +130,14 @@ return array(
 		
 		
     ),
-	
-	
 
     // application-level parameters that can be accessed
     // using Yii::app()->params['paramName']
     'params'=>array(
         'languages'=>array('ru'=>'Русский', 'uk'=>'Українська'),
+        'watermark'=>'public/images/logo_footer.png',
+        'yandex_translater_key'=>'trnsl.1.1.20150529T174532Z.6cced0695ba61eeb.26310c886efe685d21289e67fdf0a7ebda5cc1b1',
+        'yandex_translater_lang'=>'uk-ru',
+        'yandex_translater_format'=>'html'
     ),
 );

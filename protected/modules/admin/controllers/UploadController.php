@@ -67,6 +67,7 @@ class UploadController extends AdminController
             324, 230, $dst_w, $dst_h);
 
         $function($resizeImage, Yii::getPathOfAlias('webroot.uploads.news.thumb').DIRECTORY_SEPARATOR.$name, $quality);
+        $this->watermark(Yii::getPathOfAlias('webroot.uploads.news.thumb').DIRECTORY_SEPARATOR.$name);
         $model = new News();
         echo CHtml::image(Yii::app()->baseUrl.'/uploads/news/full/'.$name);
         echo CHtml::image(Yii::app()->baseUrl.'/uploads/news/thumb/'.$name);
@@ -94,13 +95,29 @@ class UploadController extends AdminController
                 break;
             default: die('image type not supported');
         }
+ 
         $image->saveAs(Yii::getPathOfAlias('webroot.uploads.news.full').DIRECTORY_SEPARATOR.$name.$type);
         list($resource['width'], $resource['height']) = getimagesize(Yii::getPathOfAlias('webroot.uploads.news.full').DIRECTORY_SEPARATOR.$name.$type);
+
+        $this->watermark(Yii::getPathOfAlias('webroot.uploads.news.full').DIRECTORY_SEPARATOR.$name.$type);
 
         echo CHtml::image(Yii::app()->baseUrl.'/uploads/news/full/'.$name.$type, '', array('id'=>'crop'));
         echo CHtml::hiddenField('nameFull', $name.$type);
         echo CHtml::hiddenField('src_w', $resource['width']);
         echo CHtml::hiddenField('src_h', $resource['height']);
+
         Yii::app()->end();
+        
     }
+
+    public function watermark($path){
+        if(!$path){
+            return;
+        }
+        Yii::app()->ih
+            ->load($path)
+            ->watermark(Yii::app()->params['watermark'], 10, 20, CImageHandler::CORNER_LEFT_BOTTOM)
+            ->save($path);
+    }
+
 }

@@ -36,7 +36,6 @@ var handlerAllStart = function() {
     new AjaxLoaderMultimedia(document.getElementById('val-single-multimedia'), document.getElementById('val-count-and-id'));
     new Pikaday({ field: document.getElementById('datepicker') });
     new MansoryGenerator(document.querySelectorAll('.-for-mansory-container'));
-   
 };
 
 var handlerToError = function(e){

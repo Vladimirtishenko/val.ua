@@ -14,7 +14,7 @@ function Modal() {
     this.listen(
         ['click'], 
         [this.login, this.registration, this.about], 
-        [self.openForm.bind(self, this.login), self.openForm.bind(self, this.registration), self.openForm.bind(self, this.about)]
+        [this.openForm.bind(this, this.login), this.openForm.bind(this, this.registration), this.openForm.bind(this, this.about)]
         );
 
     for (var i = 0; i < this.rememberPassOrBack.length; i++) {

@@ -69,7 +69,9 @@ gulp.task('js', function() {
         .pipe(plato('report'))*/
         .pipe(concat('bundle.js'))
         .pipe(gulp.dest('./public/jasmine/src/'))
-        .pipe(uglify())
+        .pipe(uglify({
+            mangle: false
+        }))
         .pipe(rename('bundle.min.js'))
         .pipe(gulp.dest('./public/prodaction'))
         
@@ -78,7 +80,9 @@ gulp.task('js', function() {
 
 gulp.task('js_lib', function() {
     return gulp.src('./public/js/_lib/*.js')
-        .pipe(uglify())
+        .pipe(uglify({
+            mangle: false
+        }))
         .pipe(gulp.dest('./public/js/_lib/'))       
 });
 

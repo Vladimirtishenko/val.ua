@@ -216,20 +216,24 @@ Helper.prototype.inArray = function(needle, array) {
 Helper.prototype.listen = function(listen, element, callback){
 
     var oneCallback = false,
-        callbackTohandler;
+        callbackTohandler,
+        count = 0;
 
-    if(typeof callback == "Object" && element.length != callback.length){
+    if(callback instanceof Array && element.length != callback.length){
         throw {
             message: "The number of elements handler does not match"
         }
-    } else {
+    } else if(typeof callback == "function") {
         oneCallback = true;
     }
 
     listen.forEach(function(item, i){
         element.forEach(function(items, j){
-            callbackTohandler = oneCallback ? callback : callback[j];
-            items.addEventListener(item, callbackTohandler);
+            if(items){
+                callbackTohandler = oneCallback ? callback : callback[count];
+                items.addEventListener(item, callbackTohandler);
+            }  
+            count++;
         })
     })
 

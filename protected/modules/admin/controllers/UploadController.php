@@ -17,11 +17,9 @@ class UploadController extends AdminController
         //формируем адрес для атрибута src тега img
         $http_path = '/uploads/newsimages/'.$file_name;
         $error = '';
-        if( move_uploaded_file($file_name_tmp, $full_path) ) {}
-        else
-        {
-            $error = 'Some error occured please try again later';
-            $http_path = '';
+        if( !move_uploaded_file($file_name_tmp, $full_path) ) {
+             $error = 'Some error occured please try again later';
+             $http_path = '';
         }
         echo "<script type=\"text/javascript\">
                  window.parent.CKEDITOR.tools.callFunction(".$callback.",  \"".$http_path."\", \"".$error."\" );
@@ -33,8 +31,9 @@ class UploadController extends AdminController
         $name = $_POST['nameFull'];
         $fullImagePath = Yii::getPathOfAlias('webroot.uploads.news.full').DIRECTORY_SEPARATOR.$name;
         $quality = 100;
-
+        $model = new News();
         $fullImg = getimagesize($fullImagePath);
+
         switch(strtolower($fullImg['mime']))
         {
             case 'image/png':
@@ -52,7 +51,8 @@ class UploadController extends AdminController
                 break;
             default: die('image type not supported');
         }
-        $function = 'image'.$type;
+
+        $image = 'image'.$type;
 
         $resizeImage = imagecreatetruecolor(324, 230); //$_POST['h'], $_POST['h']
 
@@ -66,13 +66,13 @@ class UploadController extends AdminController
         imagecopyresampled($resizeImage,$source_image, 0, 0, $src_x, $src_y,
             324, 230, $dst_w, $dst_h);
 
-        $function($resizeImage, Yii::getPathOfAlias('webroot.uploads.news.thumb').DIRECTORY_SEPARATOR.$name, $quality);
+        $image($resizeImage, Yii::getPathOfAlias('webroot.uploads.news.thumb').DIRECTORY_SEPARATOR.$name, $quality);
+
         $this->watermark(Yii::getPathOfAlias('webroot.uploads.news.thumb').DIRECTORY_SEPARATOR.$name);
-        $model = new News();
+        
         echo CHtml::image(Yii::app()->baseUrl.'/uploads/news/full/'.$name);
         echo CHtml::image(Yii::app()->baseUrl.'/uploads/news/thumb/'.$name);
         echo CHtml::activeHiddenField($model, 'image', array('value'=>$name));
-
 
     }
 

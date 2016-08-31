@@ -147,9 +147,9 @@
                         <div class="val-outer-right-button">
                             <?php if(Yii::app()->user->isGuest): ?>
                                 <button class="button -gen-green -login" data-attr="-login-modal"><?= Yii::t('main', 'Вхід'); ?></button>
-                                <button class="button -gen-blue -registration" data-attr="-reg-modal"><?= Yii::t('main', 'Реєстрація'); ?></button>
+                                <button class="button -gen-blue -registration" disabled="disabled" data-attr="-reg-modal"><?= Yii::t('main', 'Реєстрація'); ?></button>
                             <?php else: ?>
-                                <a href="<?= Yii::app()->createUrl('/blog/cabinet/index'); ?>" class="button -gen-blue"><?= Yii::t('main', 'Особистий кабінет'); ?></a>
+                                <!-- <a href="<?= Yii::app()->createUrl('/blog/cabinet/index'); ?>" class="button -gen-blue"><?= Yii::t('main', 'Особистий кабінет'); ?></a> -->
                                 <a href="<?= Yii::app()->createUrl('/site/logout'); ?>" class="button -gen-green" data-attr="-login-modal"><?= Yii::t('main', 'Вихід'); ?></a>
                             <?php endif; ?>
                         </div>

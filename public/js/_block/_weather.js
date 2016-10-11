@@ -51,6 +51,7 @@ weatherForVal.prototype.generateTemp = function(data, self){
 weatherForVal.prototype.queryForecast = function(data, self){
   "use strict";
   var datas = JSON.parse(data);
+  if(!datas.query.results) return;
   self.inObject(datas, 'item', self.generateTemp, self); 
 };
 

@@ -4,10 +4,8 @@ function Helper() {
 
 Helper.prototype.returnDateNow = function(date) {
     "use strict";
-    var now = date ? new Date(date) : new Date(),
-        dateValue = (new Date(now.getDate(), now.getMonth(), now.getFullYear())).valueOf();
-
-    return dateValue;
+    var now = date ? +new Date(date) : +new Date();
+    return now;
 };
 
 Helper.prototype.dateHalper = function(datas, lang) {

@@ -286,7 +286,6 @@ span {
   position: relative;
   z-index: 9;
   transition: 0.5s;
-  transform: translateX(0);
   background: #f6f6f6;
   box-shadow: 0 0 7px 1px rgba(0,0,0,0.2);
 }
@@ -413,6 +412,10 @@ span {
 
 .val-title-uppercase a:hover {
   border-bottom: 1px solid transparent;
+}
+
+.val-margin-bottom {
+  margin-bottom: 25px;
 }
 .val-header-outer-block {
   width: 100%;
@@ -865,8 +868,17 @@ span {
   margin-right: 15px;
 }
 
+.val-image-block-gen-news img.val-video-template {
+  width: initial !important;
+  height: 110px !important;
+  position: relative !important;
+  left: -25% !important;
+}
+
 .val-image-block-gen-news img {
   width: 125%;
+  position: relative;
+  left: -12.5%;
 }
 
 .val-content-news-title-small {
@@ -2060,7 +2072,7 @@ span.icon-weather-min-36 {
   margin: 0 auto;
   background: #fff;
   opacity: 0;
-  display: table;
+  display: none;
   padding: 0px;
   box-shadow: 0 0 7px 1px rgba(0,0,0,0.2);
 }

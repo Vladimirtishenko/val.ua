@@ -25,7 +25,8 @@
 	</div>
 
 </article>
-<article class="val-column-right">
+<aside>
+<article id="val-only-else-pages" class="val-column-right val-market-sticky">
 	<div class="val-column-outer-right-line-news">
 	<h3 class="val-title-uppercase-small">
         <span><?=Yii::t('main', 'Цены на рекламу');?></span>
@@ -122,3 +123,4 @@
     </div>
     </div>
 </article>
+</aside>

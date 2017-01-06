@@ -42,7 +42,7 @@ FacebookPopUp.prototype.tryToGenerate = function(){
 			self.openForm('-facebook-open');
 			self.addStoryToLocalStorage();
 
-		}, 10000);
+		}, 5000);
 
 }
 

@@ -9,7 +9,7 @@
 // CWebApplication properties can be configured here.
 return array(
     'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
-    'name'=>'Великий Вал',
+    'name'=>'Високий Вал',
 
     // preloading 'log' component
     'preload' => array(
@@ -85,11 +85,11 @@ return array(
             ),
         ),
         'db'=>array(
-            'connectionString' => 'mysql:host=localhost;dbname=val',
+            'connectionString' => 'mysql:host=localhost;dbname=admin_val',
             'emulatePrepare' => true,
             'enableProfiling' => true,
             'enableParamLogging' => true,
-            'username' => 'val',
+            'username' => 'admin_val',
             'password' => 'qwedsazxc123',
             'charset' => 'utf8',
 			//'schemaCachingDuration' => 3600,

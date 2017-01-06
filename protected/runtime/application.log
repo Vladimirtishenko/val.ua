@@ -8615,3 +8615,75 @@ Stack trace:
 REQUEST_URI=/uploads/galery/category/56aa1f83aa237.jpeg
 HTTP_REFERER=http://val.dev/
 ---
+2017/01/06 12:17:18 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/galery/category/56a9dc60cc68c.jpeg".' in /home/vladimir/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/vladimir/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/galery/...')
+#1 /home/vladimir/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/vladimir/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/galery/category/56a9dc60cc68c.jpeg
+HTTP_REFERER=http://val.dev/
+---
+2017/01/06 12:17:18 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/galery/category/56a1ef95bbfe7.jpeg".' in /home/vladimir/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/vladimir/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/galery/...')
+#1 /home/vladimir/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/vladimir/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/galery/category/56a1ef95bbfe7.jpeg
+HTTP_REFERER=http://val.dev/
+---
+2017/01/06 12:17:19 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/galery/category/56a9d6c1c944a.jpeg".' in /home/vladimir/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/vladimir/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/galery/...')
+#1 /home/vladimir/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/vladimir/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/galery/category/56a9d6c1c944a.jpeg
+HTTP_REFERER=http://val.dev/
+---
+2017/01/06 12:17:19 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/galery/category/56aa1f83aa237.jpeg".' in /home/vladimir/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/vladimir/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/galery/...')
+#1 /home/vladimir/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/vladimir/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/galery/category/56aa1f83aa237.jpeg
+HTTP_REFERER=http://val.dev/
+---
+2017/01/06 15:44:30 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/galery/category/56aa1f83aa237.jpeg".' in /home/vladimir/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/vladimir/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/galery/...')
+#1 /home/vladimir/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/vladimir/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/galery/category/56aa1f83aa237.jpeg
+HTTP_REFERER=http://val.dev/
+---
+2017/01/06 15:44:30 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/galery/category/56a1ef95bbfe7.jpeg".' in /home/vladimir/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/vladimir/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/galery/...')
+#1 /home/vladimir/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/vladimir/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/galery/category/56a1ef95bbfe7.jpeg
+HTTP_REFERER=http://val.dev/
+---
+2017/01/06 15:44:30 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/galery/category/56a9dc60cc68c.jpeg".' in /home/vladimir/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/vladimir/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/galery/...')
+#1 /home/vladimir/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/vladimir/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/galery/category/56a9dc60cc68c.jpeg
+HTTP_REFERER=http://val.dev/
+---
+2017/01/06 15:44:30 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/galery/category/56a9d6c1c944a.jpeg".' in /home/vladimir/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/vladimir/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/galery/...')
+#1 /home/vladimir/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/vladimir/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/galery/category/56a9d6c1c944a.jpeg
+HTTP_REFERER=http://val.dev/
+---

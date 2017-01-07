@@ -12,7 +12,7 @@
         </div>
     </div>
     <div class="val-blogers-column">
-        <h2 class="val-title-uppercase">Блоги и Блогеры</h2>
+        <h2 class="val-title-uppercase"><?=Yii::t('main', 'Блоги і Блогери');?></h2>
         <?php $this->widget('application.components.widgets.BloggerLayout'); ?>
     </div>
     <div id="val-only-else-pages">

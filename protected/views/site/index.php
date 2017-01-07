@@ -113,7 +113,7 @@
         </div>
     </div>
     <div class="val-blogers-column">
-        <h2 class="val-title-uppercase"><?=Yii::t('main', 'Блоги и Блогери');?></h2>
+        <h2 class="val-title-uppercase"><?=Yii::t('main', 'Блоги і Блогери');?></h2>
         <?php $this->widget('application.components.widgets.BloggerLayout'); ?>
     </div>
     <?php $this->widget('application.components.widgets.AccordeonWidget'); ?>

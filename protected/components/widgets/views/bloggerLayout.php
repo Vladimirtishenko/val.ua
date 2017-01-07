@@ -6,7 +6,7 @@
 ?>
 <div class="val-bloger-top">
     <div class="val-text-article-text">
-        <a href="/blog/default/post/<?=$blogger['article_id']?>/uk.html"><?=$blogger['article_title'];?></a>
+        <a href="/"><?=$blogger['article_title'];?></a>
     </div>
     <div class="val-bloger-info">
         <img class="val-bloger-avatar" src="/uploads/users/avatars/<?=$blogger['user_avatar'];?>" alt="">
@@ -18,4 +18,4 @@
     </div>
 </div>
 
-<!-- blog/default/bloger/<?=$blogger['user_id']?>/uk.html -->
+<!-- blog/default/bloger/<?=$blogger['user_id']?>/uk.html; blog/default/post/<?=$blogger['article_id']?>/uk.html-->

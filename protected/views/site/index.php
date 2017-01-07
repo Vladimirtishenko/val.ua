@@ -61,7 +61,7 @@
     </div>
     <div class="val-steam-block">
         <h2 class="val-title-uppercase">
-            <?=Yii::t('main', 'Прямые включения');?>
+            <?=Yii::t('main', 'Прямі включення');?>
         </h2>
         <div class="val-iframe-streams" data-src='<?= Streem::model()->findByPk(1)->url; ?>, <?= Streem::model()->findByPk(2)->url; ?>' >
             
@@ -95,7 +95,7 @@
 <article class="val-column-right">
     <div class="val-column-outer-right-line-news">
          <h3 class="val-title-uppercase-small">
-            <span>Не пропустите</span>
+            <span><?=Yii::t('main', 'Не пропустіть');?></span>
             <?= CHtml::link(Yii::t('main', 'Всi новини'), array('/site/allNews')) ?>
         </h3>
         <div class="val-line-news-with-img">

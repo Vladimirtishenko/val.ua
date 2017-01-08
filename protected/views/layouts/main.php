@@ -124,11 +124,11 @@
                         </div>
                         <div class="val-outer-social-button">
                             <ul>
-                                <li>
-                                    <a href="#" class="val-twitter"></a>
+                                 <li>
+                                <a target="_blank" href="https://twitter.com/Vysokiy_Val" class="val-twitter"></a>
                                 </li>
                                 <li>
-                                    <a href="#" class="val-vk"></a>
+                                    <a target="_blank" href="https://vk.com/val_ua" class="val-vk"></a>
                                 </li>
                                 <li>
                                     <a href="#" class="val-g"></a>
@@ -137,10 +137,10 @@
                                     <a href="#" class="val-youtube"></a>
                                 </li>
                                 <li>
-                                    <a href="#" class="val-fb"></a>
+                                    <a target="_blank" href="https://www.facebook.com/VysokyiVal" class="val-fb"></a>
                                 </li>
                                 <li>
-                                    <a href="#" class="val-rss"></a>
+                                    <a target="_blank" href="http://val.ua/feed/rss" class="val-rss"></a>
                                 </li>
                             </ul>
                         </div>
@@ -229,11 +229,11 @@
                           <div class="val-soc-in-footer">
                               <div class="val-outer-social-button">
                                     <ul>
-                                        <li>
-                                            <a href="#" class="val-twitter"></a>
+                                       <li>
+                                            <a target="_blank" href="https://twitter.com/Vysokiy_Val" class="val-twitter"></a>
                                         </li>
                                         <li>
-                                            <a href="#" class="val-vk"></a>
+                                            <a target="_blank" href="https://vk.com/val_ua" class="val-vk"></a>
                                         </li>
                                         <li>
                                             <a href="#" class="val-g"></a>
@@ -242,10 +242,10 @@
                                             <a href="#" class="val-youtube"></a>
                                         </li>
                                         <li>
-                                            <a href="#" class="val-fb"></a>
+                                            <a target="_blank" href="https://www.facebook.com/VysokyiVal" class="val-fb"></a>
                                         </li>
                                         <li>
-                                            <a href="#" class="val-rss"></a>
+                                            <a target="_blank" href="http://val.ua/feed/rss" class="val-rss"></a>
                                         </li>
                                     </ul>
                                 </div>

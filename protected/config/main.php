@@ -85,11 +85,11 @@ return array(
             ),
         ),
         'db'=>array(
-            'connectionString' => 'mysql:host=localhost;dbname=admin_val',
+            'connectionString' => 'mysql:host=localhost;dbname=val',
             'emulatePrepare' => true,
             'enableProfiling' => true,
             'enableParamLogging' => true,
-            'username' => 'admin_val',
+            'username' => 'val',
             'password' => 'qwedsazxc123',
             'charset' => 'utf8',
 			//'schemaCachingDuration' => 3600,

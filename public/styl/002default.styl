@@ -201,12 +201,17 @@ span
   border-radius 2px
   display inline-block  
   cursor pointer
+  transition .2s ease-out
 
 .-gen-green
-	background generalGreenColor
+  background generalGreenColor
+  &:hover 
+    background generalBlueColor
 	
 .-gen-blue
-	background generalBlueColor
+  background generalBlueColor
+  &:hover 
+    background generalGreenColor 
 
 .val-outer-news-block
 	width staticWidth
@@ -290,3 +295,44 @@ span
     
 .val-margin-bottom
   margin-bottom 25px
+  
+.val-outer-error
+  padding 120px 0
+  display flex
+  align-items center
+  justify-content center
+  flex-wrap wrap
+  
+.val-outer-error__title
+  display flex 
+  align-items flex-end
+
+.val-outer-error__title i 
+  font-size 150px
+  font-family "HelveticaBold"
+  line-height 80px
+  font-style normal
+  
+.val-outer-error__title span 
+  font-size 12px
+  font-family Arial
+  font-weight 400
+  color #7d7d7d
+  text-transform uppercase
+  letter-spacing 1px
+  
+.val-outer-error__description
+  display block
+  width 100%
+  color #7d7d7d
+  font-size 12px
+  padding-top 20px
+  text-align center
+  
+.val-outer-error__home
+  padding-top 20px
+  margin 0 auto
+  
+.val-outer-error__home a
+  padding 15px 25px
+  

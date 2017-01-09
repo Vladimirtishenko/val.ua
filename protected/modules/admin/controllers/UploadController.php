@@ -68,7 +68,7 @@ class UploadController extends AdminController
 
         $image($resizeImage, Yii::getPathOfAlias('webroot.uploads.news.thumb').DIRECTORY_SEPARATOR.$name, $quality);
 
-        $this->watermarks(Yii::getPathOfAlias('webroot.uploads.news.thumb').DIRECTORY_SEPARATOR.$name);
+        //$this->watermarks(Yii::getPathOfAlias('webroot.uploads.news.thumb').DIRECTORY_SEPARATOR.$name);
         
         echo CHtml::image(Yii::app()->baseUrl.'/uploads/news/full/'.$name);
         echo CHtml::image(Yii::app()->baseUrl.'/uploads/news/thumb/'.$name);
@@ -120,7 +120,7 @@ class UploadController extends AdminController
             ->save($path);
     }
 
-    public function watermarks($path){
+   /* public function watermarks($path){
         if(!$path){
             return;
         }
@@ -128,6 +128,6 @@ class UploadController extends AdminController
             ->load($path)
             ->watermark(Yii::app()->params['watermarks'], 10, 20, CImageHandler::CORNER_RIGHT_BOTTOM)
             ->save($path);
-    }
+    }*/
 
 }

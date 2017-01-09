@@ -12,7 +12,7 @@
         </div>
         <div class="val-description-block-gen-news -val-no-padding">
             <span class="val-date-line-news"><?= ($dateNow == date('Y-m-d', strtotime($news->date))) ? date('H:i', strtotime($news->date)) : intval(date('d', strtotime($news->date))).' '.Yii::app()->controller->getMonth($news->date).' '.date('Y', strtotime($news->date)); ?></span>
-            <p class="val-description-line-news-with-img"><?=Yii::app()->language == 'ru' ? $news->title_ru : $news->title_uk;?></p>
+            <p class="val-description-line-news-with-img"><?=Yii::app()->language == 'ru' ? mb_substr($news->title_ru, 0, 60, 'UTF-8') . '...' : mb_substr($news->title_uk, 0, 60, 'UTF-8') . '...'; ?></p>
         </div>
     </a>
     <? else : ?>
@@ -21,9 +21,9 @@
         <?php if($news->marker == News::BOLD): ?>
             <b><?= CHtml::link(Yii::app()->language == 'ru' ? $news->title_ru : $news->title_uk, array('/site/news', 'id'=>$news->id)); ?></b>
         <?php elseif($news->marker == News::CAPS_BOLD): ?>
-            <b><?= CHtml::link(Yii::app()->language == 'ru' ? $news->title_ru : $news->title_uk, array('/site/news', 'id'=>$news->id), array('style'=>'text-transform: uppercase')); ?></b>
+            <b><?= CHtml::link(Yii::app()->language == 'ru' ? mb_substr($news->title_ru, 0, 60, 'UTF-8') . '...' : mb_substr($news->title_uk, 0, 60, 'UTF-8') . '...', array('/site/news', 'id'=>$news->id), array('style'=>'text-transform: uppercase')); ?></b>
         <?php else: ?>
-            <?= CHtml::link(Yii::app()->language == 'ru' ? $news->title_ru : $news->title_uk, array('/site/news', 'id'=>$news->id)); ?>
+            <?= CHtml::link(Yii::app()->language == 'ru' ? mb_substr($news->title_ru, 0, 60, 'UTF-8') . '...' : mb_substr($news->title_uk, 0, 60, 'UTF-8') . '...', array('/site/news', 'id'=>$news->id)); ?>
         <?php endif; ?>
     </div>
     <? endif ;?>

@@ -1,29 +1,48 @@
-<div class="forBlogH3">
-    <h3><?= Yii::t('main', 'Результати пошуку'); ?></h3> <span class="fa fa-search"></span> <a><?= Yii::t('main', 'Новини'); ?></a>
-</div>
-
-<?php
-$this->widget('zii.widgets.CListView', array(
-    'dataProvider'=>$searchNews,
-    'ajaxUpdate'=>true,
-    'itemView'=>'_category',
-    'template'=>'{items}{pager}',
-    'cssFile'=>false,
-    'pager'=>array(
-        'maxButtonCount' => 5,
-        'lastPageLabel'=>'>>',
-        'nextPageLabel'=>'>',
-        'prevPageLabel'=>'<',
-        'firstPageLabel'=>'<<',
-        'class'=>'CLinkPager',
-        'header'=>false,
-        'htmlOptions'=>array('class'=>'sfd'),
-    ),
-    'pagerCssClass'=>'pager',
-    'sortableAttributes'=>array(
-        'rating',
-        'create_time',
-    ),
-    'itemsCssClass'=>'category',
-));
+<?php 
+    $dateNow = (new DateTime())->format('Y-m-d');
 ?>
+<article class="val-column-left">
+    <?php if(empty($searchNews->data) && empty($searchPhotos->data) && empty($searchVideos->data)): ?>
+
+        <div class="forBlogH3">
+            <h3><?= Yii::t('main', 'Результати пошуку'); ?></h3> <span class="fa fa-search-minus"></span>
+        </div>
+        <div class="new-class">
+            <?= Yii::t('main', 'Нічого не знайдено'); ?>
+        </div>
+
+    <?php endif; ?>
+
+    <?php if(!empty($searchNews->data)): ?>
+    
+    <h3 class="val-title-uppercase-with-line">
+        <span> <?=Yii::t('main', 'Результати пошуку');?> </span>
+        <?= CHtml::link(Yii::t('main', 'Новини'), array('/site/allNews')); ?>
+     </h3>
+
+    <div class="val-outer-line-news val-margin-bottom">
+        <div class="val-gen-news-column -category">
+            <?php foreach ($searchNews->data as $key => $item): ?>
+
+                <a href="/<?=Yii::app()->language;?>/site/news/<?=$item['id']?>" class="val-block-gen-news">
+                    <div class="val-image-block-gen-news">
+                        <img src="/uploads/news/thumb/<?=$item['image'];?>">
+                    </div>
+                    <div class="val-description-block-gen-news">
+                         <span class="val-news-view"><?=$item['views'];?></span>
+                         <span class="val-content-news-data">
+                         <?= 
+                            ($dateNow == date('Y-m-d', strtotime($item['date']))) ? 
+                                date('H:i', strtotime($item['date'])) : 
+                                intval(date('d', strtotime($item['date']))).' '.Yii::app()->controller->getMonth($item['date']).' '.date('Y', strtotime($item['date'])); 
+                        ?>
+                        </span>
+                        <h3 class="val-content-news-title-small"><?=CHtml::encode(Yii::app()->language == 'ru' ? $item['title_ru'] : $item['title_uk']);?></h3>
+                    </div>
+                </a>
+           <? endforeach; ?>
+        </div>
+    </div>
+    <?php endif; ?>
+  
+</article>

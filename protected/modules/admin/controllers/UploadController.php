@@ -116,7 +116,7 @@ class UploadController extends AdminController
         }
         Yii::app()->ih
             ->load($path)
-            ->watermark(Yii::app()->params['watermark'], 10, 20, CImageHandler::CORNER_RIGHT_BOTTOM)
+            ->watermark(Yii::app()->params['watermark'], 20, 20, CImageHandler::CORNER_RIGHT_BOTTOM)
             ->save($path);
     }
 

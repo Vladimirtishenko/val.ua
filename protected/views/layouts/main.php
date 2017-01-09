@@ -134,7 +134,7 @@
                                     <a href="#" class="val-g"></a>
                                 </li>
                                 <li>
-                                    <a href="#" class="val-youtube"></a>
+                                    <a target="_blank" href="https://www.youtube.com/channel/UCcdS2pTuBwx2_g3ZyG8avFg" class="val-youtube"></a>
                                 </li>
                                 <li>
                                     <a target="_blank" href="https://www.facebook.com/VysokyiVal" class="val-fb"></a>
@@ -239,7 +239,7 @@
                                             <a href="#" class="val-g"></a>
                                         </li>
                                         <li>
-                                            <a href="#" class="val-youtube"></a>
+                                            <a target="_blank" href="https://www.youtube.com/channel/UCcdS2pTuBwx2_g3ZyG8avFg" class="val-youtube"></a>
                                         </li>
                                         <li>
                                             <a target="_blank" href="https://www.facebook.com/VysokyiVal" class="val-fb"></a>

@@ -55,11 +55,7 @@ class SiteController extends Controller
 	public function actionIndex()
 	{      
 
-        $mostViewed = News::model()->findAll(array(
-            'select'=>'id, date, image, title_ru, title_uk, description_ru, description_uk, views',
-            'limit'=>'10',
-            'order'=>'date DESC'
-        ));
+        $mostViewed = News::model()->findAll(array('order'=>'date DESC', 'limit'=>10, 'condition'=>'main = 1'));
 
         $mostViewedSlider = array_slice($mostViewed, 0, 5);
         $mostViewedLine = array_slice($mostViewed, 5, 5);
@@ -67,7 +63,6 @@ class SiteController extends Controller
         // $allNews = News::model()->findAll(array('limit'=>15, 'order'=>'date DESC', 'condition'=>'date < :now','params'=>array(':now'=>date('Y-m-d H:i:s', time())))); ---- this is time in future don`t show
 
         $allNews = News::model()->findAll(array(
-            'select'=>'id, date, image, title_ru, title_uk, views',
             'limit'=>'15',
             'order'=>'date DESC'
         ));

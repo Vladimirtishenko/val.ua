@@ -53,25 +53,25 @@ class SiteController extends Controller
 	 * when an action is not explicitly requested by users.
 	 */
 	public function actionIndex()
-	{      
-
+	{     
         $mostViewed = News::model()->findAll(array(
             'select'=>'id, date, image, title_ru, title_uk, description_ru, description_uk, views, marker',
             'order'=>'date DESC', 
             'limit'=>10, 
-            'condition'=>'main = 1'
+            'condition'=>'main = 1 AND date < :now',
+            'params'=>array(':now'=>date("Y-m-d H:i:s",time()+3600))
             )
         );
 
         $mostViewedSlider = array_slice($mostViewed, 0, 5);
         $mostViewedLine = array_slice($mostViewed, 5, 5);
         
-        // $allNews = News::model()->findAll(array('limit'=>15, 'order'=>'date DESC', 'condition'=>'date < :now','params'=>array(':now'=>date('Y-m-d H:i:s', time())))); ---- this is time in future don`t show
-
         $allNews = News::model()->findAll(array(
             'select'=>'id, date, image, title_ru, title_uk, views, marker',
             'limit'=>'15',
-            'order'=>'date DESC'
+            'order'=>'date DESC',
+            'condition'=>'date < :now',
+            'params'=>array(':now'=>date("Y-m-d H:i:s",time()+3600))
         ));
 
         $allNewsPhoto = array_slice($allNews, 0, 5);

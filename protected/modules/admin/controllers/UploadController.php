@@ -36,11 +36,6 @@ class UploadController extends AdminController
 
         switch(strtolower($fullImg['mime']))
         {
-            case 'image/png':
-                $source_image = imagecreatefrompng($fullImagePath);
-                $type = 'png';
-                $quality = 0;
-                break;
             case 'image/jpeg':
                 $source_image = imagecreatefromjpeg($fullImagePath);
                 $type = 'jpeg';
@@ -84,9 +79,6 @@ class UploadController extends AdminController
 
         switch(strtolower($image->type))
         {
-            case 'image/png':
-                $type = '.png';
-                break;
             case 'image/jpeg':
                 $type = '.jpeg';
                 break;

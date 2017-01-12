@@ -90,7 +90,10 @@ return array(
             'username' => 'admin_val',
             'password' => 'qwedsazxc123',
             'charset' => 'utf8',
-			//'schemaCachingDuration' => 3600,
+			'schemaCachingDuration' => 3600
+        ),
+        'cache'=>array(
+                'class' => 'CFileCache'
         ),
         'errorHandler'=>array(
             // use 'site/error' action to display errors

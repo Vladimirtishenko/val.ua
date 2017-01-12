@@ -22,14 +22,21 @@ class NewsController extends AdminController
 
 			$vowels = array('<pre>', '</pre>', '<div>', '</div>');
 			$textReplace = preg_replace('/\r\n/', '', $textDescr);
-			$textReplace = preg_replace('/&#39;/', '`', $textReplace);
-			$textReplace = preg_replace('/&raquo;/', '"', $textReplace);
-			$textReplace = preg_replace('/&laquo;/', '"', $textReplace);
+			$textReplace = preg_replace('/&#39;/', '', $textReplace);
+			$textReplace = preg_replace('/&raquo;/', '', $textReplace);
+			$textReplace = preg_replace('/&rsquo;/', '', $textReplace);
+			$textReplace = preg_replace('/&laquo;/', '', $textReplace);
+			$textReplace = preg_replace('/&nbsp;/', '', $textReplace);
+			$textReplace = preg_replace('/&ndash;/', '-', $textReplace);
 			$textReplace = preg_replace('/\&[\w\d\.\#]+;/', ' ', $textReplace);	
 			$textReplace = preg_replace('/[H]/', '<span>H<span>', $textReplace);
 			$textReplace = preg_replace('/style=".*?"/', '', $textReplace);
 			$textReplace = preg_replace('/[\#\&\;]/', '', $textReplace);
 			$textReplace = str_replace($vowels, '', $textReplace);
+
+			//echo $textReplace;
+
+			//die;
 
             preg_match_all("/<p.*?>.+?<\/p>/i", $textReplace, $matches);
             $array = array();
@@ -70,7 +77,7 @@ class NewsController extends AdminController
             $middleStringTitle = $newresultsTitle[0]->text[0];
         }
 
-		$model=new News;
+		$model = new News;
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);

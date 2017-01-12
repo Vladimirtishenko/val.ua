@@ -85,10 +85,8 @@ return array(
             ),
         ),
         'db'=>array(
+            'class'=>'system.db.CDbConnection',
             'connectionString' => 'mysql:host=localhost;dbname=admin_val',
-            'emulatePrepare' => true,
-            'enableProfiling' => true,
-            'enableParamLogging' => true,
             'username' => 'admin_val',
             'password' => 'qwedsazxc123',
             'charset' => 'utf8',

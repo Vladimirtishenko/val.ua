@@ -22,12 +22,8 @@ class NewsController extends AdminController
 
 			$vowels = array('<pre>', '</pre>', '<div>', '</div>');
 			$textReplace = preg_replace('/\r\n/', '', $textDescr);
-			$textReplace = preg_replace('/&#39;/', '', $textReplace);
-			$textReplace = preg_replace('/&raquo;/', '', $textReplace);
-			$textReplace = preg_replace('/&rsquo;/', '', $textReplace);
-			$textReplace = preg_replace('/&laquo;/', '', $textReplace);
-			$textReplace = preg_replace('/&nbsp;/', '', $textReplace);
-			$textReplace = preg_replace('/&ndash;/', '-', $textReplace);
+			$textReplace = preg_replace('/^&#+[0-9]+;$/', ' ', $textReplace);
+			$textReplace = preg_replace('/^&+[a-zA-z]+;$/', ' ', $textReplace);
 			$textReplace = preg_replace('/\&[\w\d\.\#]+;/', ' ', $textReplace);	
 			$textReplace = preg_replace('/[H]/', '<span>H<span>', $textReplace);
 			$textReplace = preg_replace('/style=".*?"/', '', $textReplace);

@@ -41,8 +41,12 @@ class NewsController extends AdminController
                     $array[] = $item;
                 }
                 else{
-                    $resultDescr = json_decode(file_get_contents('https://translate.yandex.net/api/v1.5/tr.json/translate?key='.$key.'&text='.$item.'&lang='.$lang.'&format='.$format));
-                    $array[] = $resultDescr;
+                	try{
+                		 $resultDescr = json_decode(file_get_contents('https://translate.yandex.net/api/v1.5/tr.json/translate?key='.$key.'&text='.$item.'&lang='.$lang.'&format='.$format));
+                		  $array[] = $resultDescr;
+                	} catch(Exception $e){
+                		echo $e;
+                	}
                 }
             };
 

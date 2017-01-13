@@ -9,6 +9,8 @@ class NewsController extends AdminController
 	public function actionCreate()
 	{
 
+		Yii::app()->db->setActive(false);
+
 		if(isset($_POST['News']) && isset($_POST['News']['title_uk']) && isset($_POST['News']['description_uk']))
         {
             $key = Yii::app()->params['yandex_translater_key'];
@@ -72,6 +74,8 @@ class NewsController extends AdminController
 
             $middleStringTitle = $newresultsTitle[0]->text[0];
         }
+
+        Yii::app()->db->setActive(true);
 
 		$model = new News;
 

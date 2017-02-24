@@ -255,7 +255,7 @@
                 </div>  
                 <div class="val-development">   
                     <span class="val-text-development"><?=Yii::t('main', 'Розробка сайту');?></span>
-                    <a href="http://4side.in.ua">
+                    <a href="http://4side.xyz">
                         <?=CHtml::image(Yii::app()->baseUrl.'/public/images/4side.png', '4side development')?>
                     </a>
                 </div>          

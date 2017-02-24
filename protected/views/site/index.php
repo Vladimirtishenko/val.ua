@@ -112,6 +112,7 @@
         <?php endforeach; ?>
         </div>
     </div>
+     <a target="_blank" style="margin-top: 10px; display:inline-block" href="https://kub.pb.ua/get-credit"><?=CHtml::image(Yii::app()->baseUrl.'/public/images/kub.jpg', 'kub.pb.ua')?></a>
     <div class="val-blogers-column">
         <h2 class="val-title-uppercase"><?=Yii::t('main', 'Блоги і Блогери');?></h2>
         <?php $this->widget('application.components.widgets.BloggerLayout'); ?>

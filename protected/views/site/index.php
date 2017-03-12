@@ -42,6 +42,10 @@
         <?php endforeach; ?>
         </div>
         <div class="val-line-news-without-image">
+            <h3 class="val-title-uppercase-small val-title-with-line">
+                <span><?=Yii::t('main', 'Останні новини');?></span>
+                <?= CHtml::link(Yii::t('main', 'Всі новини'), array('/site/allNews')) ?>
+            </h3>
             <?php foreach($allNewsLine as $key=>$news): ?>
                 <div class="val-block-item-line-news">
                     <span class="val-date-line-news"><?= ($dateNow == date('Y-m-d', strtotime($news->date))) ? date('H:i', strtotime($news->date)) : intval(date('d', strtotime($news->date))).' '.Yii::app()->controller->getMonth($news->date).' '.date('Y', strtotime($news->date)); ?></span>
@@ -70,23 +74,15 @@
     <div class="val-multimedia-block">
         <h2 class="val-title-uppercase">
             <span><?=Yii::t('main', 'Мультимедіа');?></span>
-            <a href="#"><?=Yii::t('main', 'Всі фоторепортажі');?></a>
-            <a href="#"><?=Yii::t('main', 'Всі відеорепортажі');?></a>
+            <a href="/site/Multimedia"><?=Yii::t('main', 'Мультимедіа');?></a>
         </h2>
         <div class="val-conteiner-multimedia">
-            <?php foreach($multimedia as $videos): ?> 
+            <?php foreach($photo as $photos): ?> 
                 <div class="val-conteiner-multimedia-items">
-                    <? if(isset($videos->video)) : ?>
-                        <a href="<?= Yii::app()->createUrl('/site/video', array('id'=>$videos->id)); ?>">
-                            <span class="val-ico-multimedia-video"></span>
-                            <img src="http://img.youtube.com/vi/<?= $videos->video; ?>/mqdefault.jpg" alt="image01" />
-                        </a>
-                    <? else: ?>
-                        <a href="<?= Yii::app()->createUrl('/site/photos', array('id'=>$videos->id)); ?>">
-                            <span class="val-ico-multimedia-photo"></span>
-                            <?= CHtml::image(Yii::app()->baseUrl.'/uploads/galery/category/'.$videos->image, (Yii::app()->language == 'ru') ? $videos->name_ru : $videos->name_uk); ?>
-                        </a>
-                    <? endif; ?>
+                    <a href="<?= Yii::app()->createUrl('/site/photos', array('id'=>$photos->id)); ?>">
+                        <span class="val-ico-multimedia-photo"></span>
+                        <?= CHtml::image('http://val.ua/uploads/galery/category/'.$photos->image, (Yii::app()->language == 'ru') ? $photos->name_ru : $photos->name_uk); ?>
+                    </a>
                 </div>
              <?php endforeach; ?>
         </div>
@@ -95,14 +91,14 @@
 <article class="val-column-right">
     <div class="val-column-outer-right-line-news">
          <h3 class="val-title-uppercase-small">
-            <span><?=Yii::t('main', 'Не пропустіть');?></span>
-            <?= CHtml::link(Yii::t('main', 'Всi новини'), array('/site/allNews')) ?>
+            <span><?=Yii::t('main', 'Відео');?></span>
+            <?= CHtml::link(Yii::t('main', 'Мультимедіа'), array('/site/Multimedia')) ?>
         </h3>
         <div class="val-line-news-with-img">
-        <?php foreach($allNewsPhoto as $key=>$news): ?>
-           <a href="<?= Yii::app()->createUrl('/site/news', array('id'=>$news->id)); ?>" class="val-block-gen-news -val-with-image-line-news">
+        <?php foreach($video as $key=>$news): ?>
+           <a href="<?= Yii::app()->createUrl('/site/video/', array('id'=>$news->id)); ?>" class="val-block-gen-news -val-with-image-line-news">
                 <div class="val-image-block-gen-news">
-                   <img src="<?=Yii::app()->baseUrl.'/uploads/news/thumb/'.$news->image?>" alt="">
+                   <img src="http://img.youtube.com/vi/<?= $news->video; ?>/mqdefault.jpg"" />
                 </div>
                 <div class="val-description-block-gen-news -val-no-padding">
                     <span class="val-date-line-news"><?= ($dateNow == date('Y-m-d', strtotime($news->date))) ? date('H:i', strtotime($news->date)) : intval(date('d', strtotime($news->date))).' '.Yii::app()->controller->getMonth($news->date).' '.date('Y', strtotime($news->date)); ?></span>

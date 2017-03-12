@@ -77,11 +77,11 @@ class SiteController extends Controller
         $allNewsPhoto = array_slice($allNews, 0, 5);
         $allNewsLine = array_slice($allNews, 5, 15);
         
-        $lastVideos = Video::model()->findAll(array('order'=>'date DESC', 'limit'=>4));
-        $lastPhoto = PhotoCategory::model()->findAll(array('order'=>'date DESC', 'limit'=>4, 'select'=>'name_ru, name_uk, id, image'));
-        $multimedia = [];
+        $lastVideos = Video::model()->findAll(array('order'=>'date DESC', 'limit'=>5));
+        $lastPhoto = PhotoCategory::model()->findAll(array('order'=>'date DESC', 'limit'=>8, 'select'=>'name_ru, name_uk, id, image'));
+        //$multimedia = [];
 
-        for ($i = 0, $j = 0; $i < 8;) { 
+        /*for ($i = 0, $j = 0; $i < 8;) { 
             
             if($i%2){
                 array_push($multimedia, $lastVideos[$j]);
@@ -91,7 +91,7 @@ class SiteController extends Controller
                 
             }
             $i++;
-        }
+        }*/
 
 		$this->rightReclameId = 21;
         $this->render('index', array(
@@ -99,7 +99,8 @@ class SiteController extends Controller
             'mostViewedLine'=>$mostViewedLine,
             'allNewsPhoto'=>$allNewsPhoto,
             'allNewsLine'=>$allNewsLine,
-            'multimedia'=>$multimedia
+            'photo'=>$lastPhoto,
+            'video'=>$lastVideos
         ));
 	}
 

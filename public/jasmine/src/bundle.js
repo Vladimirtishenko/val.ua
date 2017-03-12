@@ -347,13 +347,11 @@ function AjaxLoaderMultimedia(element, hidden){
     this.count = hidden.getAttribute('data-count');
     this.state = true;
     this._Masonry_ = null;
-
     this.commonProps(this, null);
 }
 
 
 AjaxLoaderMultimedia.prototype = Object.create(AjaxConstructor.prototype);
-
 
 AjaxLoaderMultimedia.prototype.generateDataAjax = function(){
     "use strict";
@@ -366,44 +364,45 @@ AjaxLoaderMultimedia.prototype.template = function(data, self){
     var dataContent = JSON.parse(JSON.parse(data).multimedia),
         lang = JSON.parse(data).language,
         elementOuter = document.createElement('div'),
-        templateArray = [];
+        template = '';
 
     dataContent.forEach(function(item, i){ 
         
-        elementOuter.innerHTML = "";
-
-
-        var template = "<a class='val-block-multimedia -val-ico-"+ item.type +"' href="+ ((item.type == 'photo') ? '/'+lang+'/site/photos/'+item.id : '/'+lang+'/site/video/'+item.id) +">" +
+            template += "<a class='val-block-multimedia -val-ico-"+ item.type +"' href="+ ((item.type == 'photo') ? '/'+lang+'/site/photos/'+item.id : '/'+lang+'/site/video/'+item.id) +">" +
                             "<span class='-val-multimedia-description'>"+item['name_'+lang]+"</span>" +
                             "<div class='val-image-block-multimedia'>" + 
                                 "<img src="+ ((item.type == 'photo') ? 'http://val.ua/uploads/galery/category/'+item.image+'' : 'http://img.youtube.com/vi/'+item.image+'/mqdefault.jpg') +" />"+
                             "</div>"+
-                        "</a>";
-
-        elementOuter.insertAdjacentHTML('afterbegin', template);
-
-        templateArray.push(elementOuter.firstElementChild);
+                        "</a>";               
     });
 
-   
-    for (var i = templateArray.length - 1; i >= 0; i--) {
-        self.element.appendChild(templateArray[i]);
-    }
+    elementOuter.innerHTML = template;
 
-    if(self._Masonry_){
-        self._Masonry_.appended(templateArray);
-        self._Masonry_.layout();
-    } else {
-        setTimeout(function () {
+    imagesLoaded( elementOuter, function( instance ) {
+
+        for (var i = 0; i < elementOuter.children.length; i++) {
+            var cloned = elementOuter.children[i].cloneNode(true);
+            self.element.appendChild(cloned);
+             if(self._Masonry_){
+                self._Masonry_.appended(cloned);
+             }
+        }
+
+        if(!self._Masonry_){
             self._Masonry_ = new Masonry( self.element, {
               itemSelector: '.val-block-multimedia',
               columnWidth: 1
             });
-            self._Masonry_.on( 'layoutComplete', readyNextIteration);
-            readyNextIteration();
             self.element.style.opacity = 1;
-        }, 500);
-    }
+        }
+
+        self._Masonry_.layout();
+
+        readyNextIteration();
+
+    });
+
+    
 
     function readyNextIteration(){
         self.count = JSON.parse(data).offset;

@@ -473,6 +473,10 @@ span {
 .val-outer-error__home a {
   padding: 15px 25px;
 }
+
+.val-height-auto {
+  height: auto !important;
+}
 .val-header-outer-block {
   width: 100%;
   background: #fff;

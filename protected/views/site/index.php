@@ -96,7 +96,7 @@
         </h3>
         <div class="val-line-news-with-img">
         <?php foreach($video as $key=>$news): ?>
-           <a href="<?= Yii::app()->createUrl('/site/video/', array('id'=>$news->id)); ?>" class="val-block-gen-news -val-with-image-line-news">
+           <a href="<?= Yii::app()->createUrl('/site/video/', array('id'=>$news->id)); ?>" class="val-block-gen-news val-height-auto -val-with-image-line-news">
                 <div class="val-image-block-gen-news">
                    <img src="http://img.youtube.com/vi/<?= $news->video; ?>/mqdefault.jpg"" />
                 </div>

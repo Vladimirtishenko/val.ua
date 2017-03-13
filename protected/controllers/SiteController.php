@@ -57,14 +57,14 @@ class SiteController extends Controller
         $mostViewed = News::model()->findAll(array(
             'select'=>'id, date, image, title_ru, title_uk, description_ru, description_uk, views, marker',
             'order'=>'date DESC', 
-            'limit'=>10, 
+            'limit'=>11, 
             'condition'=>'main = 1 AND date < :now',
             'params'=>array(':now'=>date("Y-m-d H:i:s",time()+3600))
             )
         );
 
         $mostViewedSlider = array_slice($mostViewed, 0, 5);
-        $mostViewedLine = array_slice($mostViewed, 5, 5);
+        $mostViewedLine = array_slice($mostViewed, 5, 6);
         
         $allNews = News::model()->findAll(array(
             'select'=>'id, date, image, title_ru, title_uk, views, marker',

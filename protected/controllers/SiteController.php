@@ -68,14 +68,11 @@ class SiteController extends Controller
         
         $allNews = News::model()->findAll(array(
             'select'=>'id, date, image, title_ru, title_uk, views, marker',
-            'limit'=>'15',
+            'limit'=>'10',
             'order'=>'date DESC',
             'condition'=>'date < :now',
             'params'=>array(':now'=>date("Y-m-d H:i:s",time()+3600))
         ));
-
-        $allNewsPhoto = array_slice($allNews, 0, 5);
-        $allNewsLine = array_slice($allNews, 5, 15);
         
         $lastVideos = Video::model()->findAll(array('order'=>'date DESC', 'limit'=>5));
         $lastPhoto = PhotoCategory::model()->findAll(array('order'=>'date DESC', 'limit'=>8, 'select'=>'name_ru, name_uk, id, image'));
@@ -97,8 +94,7 @@ class SiteController extends Controller
         $this->render('index', array(
             'mostViewedSlider'=>$mostViewedSlider,
             'mostViewedLine'=>$mostViewedLine,
-            'allNewsPhoto'=>$allNewsPhoto,
-            'allNewsLine'=>$allNewsLine,
+            'allNewsLine'=>$allNews,
             'photo'=>$lastPhoto,
             'video'=>$lastVideos
         ));

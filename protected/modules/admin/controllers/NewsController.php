@@ -13,7 +13,7 @@ class NewsController extends AdminController
 
 		if(isset($_POST['News']) && isset($_POST['News']['title_uk']) && isset($_POST['News']['description_uk']))
         {
-            $key = Yii::app()->params['yandex_translater_key'];
+            /*$key = Yii::app()->params['yandex_translater_key'];
             $lang = Yii::app()->params['yandex_translater_lang'];
             $format = Yii::app()->params['yandex_translater_format'];
             $textTitle = $_POST['News']['title_uk'];
@@ -72,7 +72,10 @@ class NewsController extends AdminController
             $space = implode(" ", $arrayNew);
             $newresultsTitle[] = $resultTitle;
 
-            $middleStringTitle = $newresultsTitle[0]->text[0];
+            $middleStringTitle = $newresultsTitle[0]->text[0];*/
+
+            $space = $_POST['News']['description_uk'];
+            $middleStringTitle = $_POST['News']['title_uk'];
         }
 
         Yii::app()->db->setActive(true);

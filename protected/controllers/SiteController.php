@@ -57,24 +57,24 @@ class SiteController extends Controller
         $mostViewed = News::model()->findAll(array(
             'select'=>'id, date, image, title_ru, title_uk, description_ru, description_uk, views, marker',
             'order'=>'date DESC', 
-            'limit'=>11, 
+            'limit'=>15, 
             'condition'=>'main = 1 AND date < :now',
             'params'=>array(':now'=>date("Y-m-d H:i:s",time()+3600))
             )
         );
 
         $mostViewedSlider = array_slice($mostViewed, 0, 5);
-        $mostViewedLine = array_slice($mostViewed, 5, 6);
+        $mostViewedLine = array_slice($mostViewed, 5, 10);
         
         $allNews = News::model()->findAll(array(
             'select'=>'id, date, image, title_ru, title_uk, views, marker',
-            'limit'=>'10',
+            'limit'=>'17',
             'order'=>'date DESC',
             'condition'=>'date < :now',
             'params'=>array(':now'=>date("Y-m-d H:i:s",time()+3600))
         ));
         
-        $lastVideos = Video::model()->findAll(array('order'=>'date DESC', 'limit'=>5));
+        $lastVideos = Video::model()->findAll(array('order'=>'date DESC', 'limit'=>12));
         $lastPhoto = PhotoCategory::model()->findAll(array('order'=>'date DESC', 'limit'=>8, 'select'=>'name_ru, name_uk, id, image'));
         //$multimedia = [];
 

@@ -9194,3 +9194,692 @@ Stack trace:
 REQUEST_URI=/uploads/galery/category/56a9dc60cc68c.jpeg
 HTTP_REFERER=http://val.dev/uk.html
 ---
+2017/06/02 22:02:43 [error] [exception.CDbException] CDbException: CDbConnection failed to open the DB connection: SQLSTATE[HY000] [1045] Access denied for user 'admin_val'@'localhost' (using password: YES) in /home/vladimir/www/val.ua/framework/db/CDbConnection.php:382
+Stack trace:
+#0 /home/vladimir/www/val.ua/framework/db/CDbConnection.php(330): CDbConnection->open()
+#1 /home/vladimir/www/val.ua/framework/db/CDbConnection.php(308): CDbConnection->setActive(true)
+#2 /home/vladimir/www/val.ua/framework/base/CModule.php(387): CDbConnection->init()
+#3 /home/vladimir/www/val.ua/framework/base/CApplication.php(450): CModule->getComponent('db')
+#4 /home/vladimir/www/val.ua/framework/db/ar/CActiveRecord.php(634): CApplication->getDb()
+#5 /home/vladimir/www/val.ua/framework/db/ar/CActiveRecord.php(667): CActiveRecord->getDbConnection()
+#6 /home/vladimir/www/val.ua/framework/db/ar/CActiveRecord.php(1469): CActiveRecord->getCommandBuilder()
+#7 /home/vladimir/www/val.ua/protected/controllers/SiteController.php(32): CActiveRecord->findAll()
+#8 /home/vladimir/www/val.ua/protected/controllers/SiteController.php(44): SiteController->getMenu()
+#9 /home/vladimir/www/val.ua/framework/web/CWebApplication.php(281): SiteController->init()
+#10 /home/vladimir/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('')
+#11 /home/vladimir/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#12 /home/vladimir/www/val.ua/index.php(12): CApplication->run()
+#13 {main}
+REQUEST_URI=/
+---
+2017/06/02 23:17:42 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection failed to open the DB connection: SQLSTATE[HY000] [1045] Access denied for user 'admin_val'@'localhost' (using password: YES)' in /home/vladimir/www/val.ua/framework/db/CDbConnection.php:382
+Stack trace:
+#0 /home/vladimir/www/val.ua/framework/db/CDbConnection.php(330): CDbConnection->open()
+#1 /home/vladimir/www/val.ua/framework/db/CDbConnection.php(308): CDbConnection->setActive(true)
+#2 /home/vladimir/www/val.ua/framework/base/CModule.php(387): CDbConnection->init()
+#3 /home/vladimir/www/val.ua/framework/base/CApplication.php(450): CModule->getComponent('db')
+#4 /home/vladimir/www/val.ua/framework/db/ar/CActiveRecord.php(634): CApplication->getDb()
+#5 /home/vladimir/www/val.ua/framework/db/ar/CActiveRecord.php(667): CActiveRecord->getDbConnection()
+#6 /home/vladimir/www/val.ua/framework/db/ar/CActiveRecord.php(1469): CActiveRecord->getCommandBuilder()
+#7 /home/vladimir/www/val.ua/protected/controllers/SiteController.php(32): CActiveRecord->findAll()
+#8 /home/vladimir/www/val.ua/protected/controllers/SiteController.php(44): SiteController->getMenu()
+#9 /home/vladimir/www/val.ua/framework/web/CWebApplication.php(281): SiteController->init()
+#10 /home/vladimir/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('')
+#11 /home/vladimir/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#12 /home/vladimir/www/val.ua/index.php(12): CApplication->run()
+#13 {main}
+REQUEST_URI=/
+---
+2017/06/02 23:18:23 [error] [system.db.CDbCommand] Не вдалося виконати CDbCommand::fetchAll(): SQLSTATE[42S02]: Base table or view not found: 1932 Table 'admin_val.news_category' doesn't exist in engine. Спроба виконати SQL-запит: SHOW FULL COLUMNS FROM `news_category`.
+in /home/vladimir/www/val.ua/protected/controllers/SiteController.php (32)
+in /home/vladimir/www/val.ua/protected/controllers/SiteController.php (44)
+in /home/vladimir/www/val.ua/index.php (12)
+2017/06/02 23:18:23 [error] [exception.CDbException] exception 'CDbException' with message 'Таблиця "news_category", яка згадана у записі active record класу "NewsCategory", не знайдена у базі даних.' in /home/vladimir/www/val.ua/framework/db/ar/CActiveRecord.php:2362
+Stack trace:
+#0 /home/vladimir/www/val.ua/framework/db/ar/CActiveRecord.php(411): CActiveRecordMetaData->__construct(Object(NewsCategory))
+#1 /home/vladimir/www/val.ua/framework/db/ar/CActiveRecord.php(658): CActiveRecord->getMetaData()
+#2 /home/vladimir/www/val.ua/framework/db/ar/CActiveRecord.php(1350): CActiveRecord->getTableSchema()
+#3 /home/vladimir/www/val.ua/framework/db/ar/CActiveRecord.php(1470): CActiveRecord->query(Object(CDbCriteria), true)
+#4 /home/vladimir/www/val.ua/protected/controllers/SiteController.php(32): CActiveRecord->findAll()
+#5 /home/vladimir/www/val.ua/protected/controllers/SiteController.php(44): SiteController->getMenu()
+#6 /home/vladimir/www/val.ua/framework/web/CWebApplication.php(281): SiteController->init()
+#7 /home/vladimir/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('')
+#8 /home/vladimir/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#9 /home/vladimir/www/val.ua/index.php(12): CApplication->run()
+#10 {main}
+REQUEST_URI=/
+---
+2017/06/02 23:18:24 [error] [system.db.CDbCommand] Не вдалося виконати CDbCommand::fetchAll(): SQLSTATE[42S02]: Base table or view not found: 1932 Table 'admin_val.news_category' doesn't exist in engine. Спроба виконати SQL-запит: SHOW FULL COLUMNS FROM `news_category`.
+in /home/vladimir/www/val.ua/protected/controllers/SiteController.php (32)
+in /home/vladimir/www/val.ua/protected/controllers/SiteController.php (44)
+in /home/vladimir/www/val.ua/index.php (12)
+2017/06/02 23:18:24 [error] [exception.CDbException] exception 'CDbException' with message 'Таблиця "news_category", яка згадана у записі active record класу "NewsCategory", не знайдена у базі даних.' in /home/vladimir/www/val.ua/framework/db/ar/CActiveRecord.php:2362
+Stack trace:
+#0 /home/vladimir/www/val.ua/framework/db/ar/CActiveRecord.php(411): CActiveRecordMetaData->__construct(Object(NewsCategory))
+#1 /home/vladimir/www/val.ua/framework/db/ar/CActiveRecord.php(658): CActiveRecord->getMetaData()
+#2 /home/vladimir/www/val.ua/framework/db/ar/CActiveRecord.php(1350): CActiveRecord->getTableSchema()
+#3 /home/vladimir/www/val.ua/framework/db/ar/CActiveRecord.php(1470): CActiveRecord->query(Object(CDbCriteria), true)
+#4 /home/vladimir/www/val.ua/protected/controllers/SiteController.php(32): CActiveRecord->findAll()
+#5 /home/vladimir/www/val.ua/protected/controllers/SiteController.php(44): SiteController->getMenu()
+#6 /home/vladimir/www/val.ua/framework/web/CWebApplication.php(281): SiteController->init()
+#7 /home/vladimir/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('')
+#8 /home/vladimir/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#9 /home/vladimir/www/val.ua/index.php(12): CApplication->run()
+#10 {main}
+REQUEST_URI=/
+---
+2017/06/02 23:18:24 [error] [system.db.CDbCommand] Не вдалося виконати CDbCommand::fetchAll(): SQLSTATE[42S02]: Base table or view not found: 1932 Table 'admin_val.news_category' doesn't exist in engine. Спроба виконати SQL-запит: SHOW FULL COLUMNS FROM `news_category`.
+in /home/vladimir/www/val.ua/protected/controllers/SiteController.php (32)
+in /home/vladimir/www/val.ua/protected/controllers/SiteController.php (44)
+in /home/vladimir/www/val.ua/index.php (12)
+2017/06/02 23:18:24 [error] [exception.CDbException] exception 'CDbException' with message 'Таблиця "news_category", яка згадана у записі active record класу "NewsCategory", не знайдена у базі даних.' in /home/vladimir/www/val.ua/framework/db/ar/CActiveRecord.php:2362
+Stack trace:
+#0 /home/vladimir/www/val.ua/framework/db/ar/CActiveRecord.php(411): CActiveRecordMetaData->__construct(Object(NewsCategory))
+#1 /home/vladimir/www/val.ua/framework/db/ar/CActiveRecord.php(658): CActiveRecord->getMetaData()
+#2 /home/vladimir/www/val.ua/framework/db/ar/CActiveRecord.php(1350): CActiveRecord->getTableSchema()
+#3 /home/vladimir/www/val.ua/framework/db/ar/CActiveRecord.php(1470): CActiveRecord->query(Object(CDbCriteria), true)
+#4 /home/vladimir/www/val.ua/protected/controllers/SiteController.php(32): CActiveRecord->findAll()
+#5 /home/vladimir/www/val.ua/protected/controllers/SiteController.php(44): SiteController->getMenu()
+#6 /home/vladimir/www/val.ua/framework/web/CWebApplication.php(281): SiteController->init()
+#7 /home/vladimir/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('')
+#8 /home/vladimir/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#9 /home/vladimir/www/val.ua/index.php(12): CApplication->run()
+#10 {main}
+REQUEST_URI=/
+---
+2017/06/02 23:18:24 [error] [system.db.CDbCommand] Не вдалося виконати CDbCommand::fetchAll(): SQLSTATE[42S02]: Base table or view not found: 1932 Table 'admin_val.news_category' doesn't exist in engine. Спроба виконати SQL-запит: SHOW FULL COLUMNS FROM `news_category`.
+in /home/vladimir/www/val.ua/protected/controllers/SiteController.php (32)
+in /home/vladimir/www/val.ua/protected/controllers/SiteController.php (44)
+in /home/vladimir/www/val.ua/index.php (12)
+2017/06/02 23:18:24 [error] [exception.CDbException] exception 'CDbException' with message 'Таблиця "news_category", яка згадана у записі active record класу "NewsCategory", не знайдена у базі даних.' in /home/vladimir/www/val.ua/framework/db/ar/CActiveRecord.php:2362
+Stack trace:
+#0 /home/vladimir/www/val.ua/framework/db/ar/CActiveRecord.php(411): CActiveRecordMetaData->__construct(Object(NewsCategory))
+#1 /home/vladimir/www/val.ua/framework/db/ar/CActiveRecord.php(658): CActiveRecord->getMetaData()
+#2 /home/vladimir/www/val.ua/framework/db/ar/CActiveRecord.php(1350): CActiveRecord->getTableSchema()
+#3 /home/vladimir/www/val.ua/framework/db/ar/CActiveRecord.php(1470): CActiveRecord->query(Object(CDbCriteria), true)
+#4 /home/vladimir/www/val.ua/protected/controllers/SiteController.php(32): CActiveRecord->findAll()
+#5 /home/vladimir/www/val.ua/protected/controllers/SiteController.php(44): SiteController->getMenu()
+#6 /home/vladimir/www/val.ua/framework/web/CWebApplication.php(281): SiteController->init()
+#7 /home/vladimir/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('')
+#8 /home/vladimir/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#9 /home/vladimir/www/val.ua/index.php(12): CApplication->run()
+#10 {main}
+REQUEST_URI=/
+---
+2017/06/02 23:18:24 [error] [system.db.CDbCommand] Не вдалося виконати CDbCommand::fetchAll(): SQLSTATE[42S02]: Base table or view not found: 1932 Table 'admin_val.news_category' doesn't exist in engine. Спроба виконати SQL-запит: SHOW FULL COLUMNS FROM `news_category`.
+in /home/vladimir/www/val.ua/protected/controllers/SiteController.php (32)
+in /home/vladimir/www/val.ua/protected/controllers/SiteController.php (44)
+in /home/vladimir/www/val.ua/index.php (12)
+2017/06/02 23:18:24 [error] [exception.CDbException] exception 'CDbException' with message 'Таблиця "news_category", яка згадана у записі active record класу "NewsCategory", не знайдена у базі даних.' in /home/vladimir/www/val.ua/framework/db/ar/CActiveRecord.php:2362
+Stack trace:
+#0 /home/vladimir/www/val.ua/framework/db/ar/CActiveRecord.php(411): CActiveRecordMetaData->__construct(Object(NewsCategory))
+#1 /home/vladimir/www/val.ua/framework/db/ar/CActiveRecord.php(658): CActiveRecord->getMetaData()
+#2 /home/vladimir/www/val.ua/framework/db/ar/CActiveRecord.php(1350): CActiveRecord->getTableSchema()
+#3 /home/vladimir/www/val.ua/framework/db/ar/CActiveRecord.php(1470): CActiveRecord->query(Object(CDbCriteria), true)
+#4 /home/vladimir/www/val.ua/protected/controllers/SiteController.php(32): CActiveRecord->findAll()
+#5 /home/vladimir/www/val.ua/protected/controllers/SiteController.php(44): SiteController->getMenu()
+#6 /home/vladimir/www/val.ua/framework/web/CWebApplication.php(281): SiteController->init()
+#7 /home/vladimir/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('')
+#8 /home/vladimir/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#9 /home/vladimir/www/val.ua/index.php(12): CApplication->run()
+#10 {main}
+REQUEST_URI=/
+---
+2017/06/02 23:26:52 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/news/thumb/59201658d7c4c.jpeg".' in /home/vladimir/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/vladimir/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/news/th...')
+#1 /home/vladimir/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/vladimir/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/news/thumb/59201658d7c4c.jpeg
+HTTP_REFERER=http://val.dev/
+---
+2017/06/02 23:26:52 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/news/thumb/5921a6d167db7.jpeg".' in /home/vladimir/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/vladimir/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/news/th...')
+#1 /home/vladimir/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/vladimir/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/news/thumb/5921a6d167db7.jpeg
+HTTP_REFERER=http://val.dev/
+---
+2017/06/02 23:26:52 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/news/thumb/591fe29ef31de.jpeg".' in /home/vladimir/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/vladimir/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/news/th...')
+#1 /home/vladimir/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/vladimir/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/news/thumb/591fe29ef31de.jpeg
+HTTP_REFERER=http://val.dev/
+---
+2017/06/02 23:26:52 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/news/thumb/591ff4a61d71d.jpeg".' in /home/vladimir/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/vladimir/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/news/th...')
+#1 /home/vladimir/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/vladimir/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/news/thumb/591ff4a61d71d.jpeg
+HTTP_REFERER=http://val.dev/
+---
+2017/06/02 23:26:54 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "images/favicon.ico".' in /home/vladimir/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/vladimir/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('images/favicon....')
+#1 /home/vladimir/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/vladimir/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/images/favicon.ico
+HTTP_REFERER=http://val.dev/
+---
+2017/06/02 23:26:57 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/news/thumb/591fee01a8dc2.jpeg".' in /home/vladimir/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/vladimir/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/news/th...')
+#1 /home/vladimir/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/vladimir/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/news/thumb/591fee01a8dc2.jpeg
+HTTP_REFERER=http://val.dev/
+---
+2017/06/02 23:26:57 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/news/thumb/591ffc7307295.jpeg".' in /home/vladimir/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/vladimir/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/news/th...')
+#1 /home/vladimir/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/vladimir/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/news/thumb/591ffc7307295.jpeg
+HTTP_REFERER=http://val.dev/
+---
+2017/06/02 23:26:58 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/news/thumb/5921d0242003b.jpeg".' in /home/vladimir/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/vladimir/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/news/th...')
+#1 /home/vladimir/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/vladimir/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/news/thumb/5921d0242003b.jpeg
+HTTP_REFERER=http://val.dev/
+---
+2017/06/03 09:25:25 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/news/thumb/59201658d7c4c.jpeg".' in /home/vladimir/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/vladimir/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/news/th...')
+#1 /home/vladimir/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/vladimir/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/news/thumb/59201658d7c4c.jpeg
+HTTP_REFERER=http://val.dev/
+---
+2017/06/03 09:25:25 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/news/thumb/5921a6d167db7.jpeg".' in /home/vladimir/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/vladimir/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/news/th...')
+#1 /home/vladimir/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/vladimir/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/news/thumb/5921a6d167db7.jpeg
+HTTP_REFERER=http://val.dev/
+---
+2017/06/03 09:25:25 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/news/thumb/591ff4a61d71d.jpeg".' in /home/vladimir/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/vladimir/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/news/th...')
+#1 /home/vladimir/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/vladimir/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/news/thumb/591ff4a61d71d.jpeg
+HTTP_REFERER=http://val.dev/
+---
+2017/06/03 09:25:25 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/news/thumb/591fe29ef31de.jpeg".' in /home/vladimir/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/vladimir/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/news/th...')
+#1 /home/vladimir/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/vladimir/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/news/thumb/591fe29ef31de.jpeg
+HTTP_REFERER=http://val.dev/
+---
+2017/06/03 09:26:03 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/news/thumb/5921a6d167db7.jpeg".' in /home/vladimir/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/vladimir/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/news/th...')
+#1 /home/vladimir/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/vladimir/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/news/thumb/5921a6d167db7.jpeg
+HTTP_REFERER=http://val.dev/
+---
+2017/06/03 09:26:03 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/news/thumb/591ff4a61d71d.jpeg".' in /home/vladimir/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/vladimir/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/news/th...')
+#1 /home/vladimir/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/vladimir/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/news/thumb/591ff4a61d71d.jpeg
+HTTP_REFERER=http://val.dev/
+---
+2017/06/03 09:26:03 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/news/thumb/59201658d7c4c.jpeg".' in /home/vladimir/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/vladimir/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/news/th...')
+#1 /home/vladimir/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/vladimir/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/news/thumb/59201658d7c4c.jpeg
+HTTP_REFERER=http://val.dev/
+---
+2017/06/03 09:26:03 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/news/thumb/591fe29ef31de.jpeg".' in /home/vladimir/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/vladimir/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/news/th...')
+#1 /home/vladimir/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/vladimir/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/news/thumb/591fe29ef31de.jpeg
+HTTP_REFERER=http://val.dev/
+---
+2017/06/03 09:26:50 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/news/thumb/59201658d7c4c.jpeg".' in /home/vladimir/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/vladimir/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/news/th...')
+#1 /home/vladimir/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/vladimir/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/news/thumb/59201658d7c4c.jpeg
+HTTP_REFERER=http://val.dev/
+---
+2017/06/03 09:26:50 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/news/thumb/5921a6d167db7.jpeg".' in /home/vladimir/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/vladimir/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/news/th...')
+#1 /home/vladimir/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/vladimir/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/news/thumb/5921a6d167db7.jpeg
+HTTP_REFERER=http://val.dev/
+---
+2017/06/03 09:26:50 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/news/thumb/591ff4a61d71d.jpeg".' in /home/vladimir/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/vladimir/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/news/th...')
+#1 /home/vladimir/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/vladimir/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/news/thumb/591ff4a61d71d.jpeg
+HTTP_REFERER=http://val.dev/
+---
+2017/06/03 09:26:51 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/news/thumb/591fe29ef31de.jpeg".' in /home/vladimir/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/vladimir/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/news/th...')
+#1 /home/vladimir/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/vladimir/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/news/thumb/591fe29ef31de.jpeg
+HTTP_REFERER=http://val.dev/
+---
+2017/06/03 09:27:13 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/news/thumb/591fe29ef31de.jpeg".' in /home/vladimir/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/vladimir/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/news/th...')
+#1 /home/vladimir/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/vladimir/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/news/thumb/591fe29ef31de.jpeg
+HTTP_REFERER=http://val.dev/
+---
+2017/06/03 09:27:13 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/news/thumb/591ff4a61d71d.jpeg".' in /home/vladimir/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/vladimir/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/news/th...')
+#1 /home/vladimir/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/vladimir/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/news/thumb/591ff4a61d71d.jpeg
+HTTP_REFERER=http://val.dev/
+---
+2017/06/03 09:27:13 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/news/thumb/5921a6d167db7.jpeg".' in /home/vladimir/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/vladimir/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/news/th...')
+#1 /home/vladimir/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/vladimir/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/news/thumb/5921a6d167db7.jpeg
+HTTP_REFERER=http://val.dev/
+---
+2017/06/03 09:27:13 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/news/thumb/59201658d7c4c.jpeg".' in /home/vladimir/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/vladimir/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/news/th...')
+#1 /home/vladimir/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/vladimir/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/news/thumb/59201658d7c4c.jpeg
+HTTP_REFERER=http://val.dev/
+---
+2017/06/03 09:27:19 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/news/thumb/5921a6d167db7.jpeg".' in /home/vladimir/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/vladimir/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/news/th...')
+#1 /home/vladimir/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/vladimir/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/news/thumb/5921a6d167db7.jpeg
+HTTP_REFERER=http://val.dev/
+---
+2017/06/03 09:27:19 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/news/thumb/59201658d7c4c.jpeg".' in /home/vladimir/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/vladimir/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/news/th...')
+#1 /home/vladimir/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/vladimir/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/news/thumb/59201658d7c4c.jpeg
+HTTP_REFERER=http://val.dev/
+---
+2017/06/03 09:27:19 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/news/thumb/591ff4a61d71d.jpeg".' in /home/vladimir/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/vladimir/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/news/th...')
+#1 /home/vladimir/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/vladimir/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/news/thumb/591ff4a61d71d.jpeg
+HTTP_REFERER=http://val.dev/
+---
+2017/06/03 09:27:19 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/news/thumb/591fe29ef31de.jpeg".' in /home/vladimir/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/vladimir/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/news/th...')
+#1 /home/vladimir/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/vladimir/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/news/thumb/591fe29ef31de.jpeg
+HTTP_REFERER=http://val.dev/
+---
+2017/06/03 09:27:44 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/news/thumb/5921a6d167db7.jpeg".' in /home/vladimir/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/vladimir/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/news/th...')
+#1 /home/vladimir/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/vladimir/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/news/thumb/5921a6d167db7.jpeg
+HTTP_REFERER=http://val.dev/
+---
+2017/06/03 09:27:44 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/news/thumb/591ff4a61d71d.jpeg".' in /home/vladimir/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/vladimir/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/news/th...')
+#1 /home/vladimir/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/vladimir/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/news/thumb/591ff4a61d71d.jpeg
+HTTP_REFERER=http://val.dev/
+---
+2017/06/03 09:27:44 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/news/thumb/59201658d7c4c.jpeg".' in /home/vladimir/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/vladimir/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/news/th...')
+#1 /home/vladimir/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/vladimir/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/news/thumb/59201658d7c4c.jpeg
+HTTP_REFERER=http://val.dev/
+---
+2017/06/03 09:27:44 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/news/thumb/591fe29ef31de.jpeg".' in /home/vladimir/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/vladimir/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/news/th...')
+#1 /home/vladimir/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/vladimir/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/news/thumb/591fe29ef31de.jpeg
+HTTP_REFERER=http://val.dev/
+---
+2017/06/03 09:27:48 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/news/thumb/591fee01a8dc2.jpeg".' in /home/vladimir/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/vladimir/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/news/th...')
+#1 /home/vladimir/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/vladimir/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/news/thumb/591fee01a8dc2.jpeg
+HTTP_REFERER=http://val.dev/
+---
+2017/06/03 09:27:54 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/news/thumb/5921a6d167db7.jpeg".' in /home/vladimir/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/vladimir/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/news/th...')
+#1 /home/vladimir/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/vladimir/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/news/thumb/5921a6d167db7.jpeg
+HTTP_REFERER=http://val.dev/
+---
+2017/06/03 09:27:54 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/news/thumb/591fe29ef31de.jpeg".' in /home/vladimir/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/vladimir/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/news/th...')
+#1 /home/vladimir/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/vladimir/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/news/thumb/591fe29ef31de.jpeg
+HTTP_REFERER=http://val.dev/
+---
+2017/06/03 09:27:54 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/news/thumb/591ff4a61d71d.jpeg".' in /home/vladimir/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/vladimir/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/news/th...')
+#1 /home/vladimir/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/vladimir/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/news/thumb/591ff4a61d71d.jpeg
+HTTP_REFERER=http://val.dev/
+---
+2017/06/03 09:27:55 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/news/thumb/59201658d7c4c.jpeg".' in /home/vladimir/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/vladimir/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/news/th...')
+#1 /home/vladimir/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/vladimir/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/news/thumb/59201658d7c4c.jpeg
+HTTP_REFERER=http://val.dev/
+---
+2017/06/03 09:27:57 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/news/thumb/591fee01a8dc2.jpeg".' in /home/vladimir/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/vladimir/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/news/th...')
+#1 /home/vladimir/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/vladimir/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/news/thumb/591fee01a8dc2.jpeg
+HTTP_REFERER=http://val.dev/
+---
+2017/06/03 09:28:35 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/news/thumb/59201658d7c4c.jpeg".' in /home/vladimir/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/vladimir/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/news/th...')
+#1 /home/vladimir/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/vladimir/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/news/thumb/59201658d7c4c.jpeg
+HTTP_REFERER=http://val.dev/
+---
+2017/06/03 09:28:35 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/news/thumb/591ff4a61d71d.jpeg".' in /home/vladimir/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/vladimir/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/news/th...')
+#1 /home/vladimir/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/vladimir/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/news/thumb/591ff4a61d71d.jpeg
+HTTP_REFERER=http://val.dev/
+---
+2017/06/03 09:28:35 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/news/thumb/591fe29ef31de.jpeg".' in /home/vladimir/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/vladimir/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/news/th...')
+#1 /home/vladimir/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/vladimir/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/news/thumb/591fe29ef31de.jpeg
+HTTP_REFERER=http://val.dev/
+---
+2017/06/03 09:28:35 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/news/thumb/5921a6d167db7.jpeg".' in /home/vladimir/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/vladimir/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/news/th...')
+#1 /home/vladimir/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/vladimir/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/news/thumb/5921a6d167db7.jpeg
+HTTP_REFERER=http://val.dev/
+---
+2017/06/03 09:28:52 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/news/thumb/5921a6d167db7.jpeg".' in /home/vladimir/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/vladimir/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/news/th...')
+#1 /home/vladimir/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/vladimir/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/news/thumb/5921a6d167db7.jpeg
+HTTP_REFERER=http://val.dev/
+---
+2017/06/03 09:28:52 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/news/thumb/591ff4a61d71d.jpeg".' in /home/vladimir/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/vladimir/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/news/th...')
+#1 /home/vladimir/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/vladimir/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/news/thumb/591ff4a61d71d.jpeg
+HTTP_REFERER=http://val.dev/
+---
+2017/06/03 09:28:52 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/news/thumb/59201658d7c4c.jpeg".' in /home/vladimir/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/vladimir/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/news/th...')
+#1 /home/vladimir/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/vladimir/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/news/thumb/59201658d7c4c.jpeg
+HTTP_REFERER=http://val.dev/
+---
+2017/06/03 09:28:52 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/news/thumb/591fe29ef31de.jpeg".' in /home/vladimir/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/vladimir/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/news/th...')
+#1 /home/vladimir/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/vladimir/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/news/thumb/591fe29ef31de.jpeg
+HTTP_REFERER=http://val.dev/
+---
+2017/06/03 09:29:15 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/news/thumb/591fee01a8dc2.jpeg".' in /home/vladimir/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/vladimir/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/news/th...')
+#1 /home/vladimir/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/vladimir/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/news/thumb/591fee01a8dc2.jpeg
+HTTP_REFERER=http://val.dev/
+---
+2017/06/03 09:29:16 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/news/thumb/591ffc7307295.jpeg".' in /home/vladimir/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/vladimir/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/news/th...')
+#1 /home/vladimir/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/vladimir/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/news/thumb/591ffc7307295.jpeg
+HTTP_REFERER=http://val.dev/
+---
+2017/06/03 09:29:18 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/news/thumb/5921d0242003b.jpeg".' in /home/vladimir/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/vladimir/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/news/th...')
+#1 /home/vladimir/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/vladimir/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/news/thumb/5921d0242003b.jpeg
+HTTP_REFERER=http://val.dev/
+---
+2017/06/03 09:29:18 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/news/thumb/592193a3ede24.jpeg".' in /home/vladimir/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/vladimir/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/news/th...')
+#1 /home/vladimir/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/vladimir/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/news/thumb/592193a3ede24.jpeg
+HTTP_REFERER=http://val.dev/
+---
+2017/06/03 09:29:54 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/news/thumb/5921a6d167db7.jpeg".' in /home/vladimir/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/vladimir/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/news/th...')
+#1 /home/vladimir/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/vladimir/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/news/thumb/5921a6d167db7.jpeg
+HTTP_REFERER=http://val.dev/
+---
+2017/06/03 09:29:54 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/news/thumb/591fe29ef31de.jpeg".' in /home/vladimir/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/vladimir/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/news/th...')
+#1 /home/vladimir/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/vladimir/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/news/thumb/591fe29ef31de.jpeg
+HTTP_REFERER=http://val.dev/
+---
+2017/06/03 09:29:54 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/news/thumb/59201658d7c4c.jpeg".' in /home/vladimir/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/vladimir/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/news/th...')
+#1 /home/vladimir/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/vladimir/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/news/thumb/59201658d7c4c.jpeg
+HTTP_REFERER=http://val.dev/
+---
+2017/06/03 09:29:54 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/news/thumb/591ff4a61d71d.jpeg".' in /home/vladimir/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/vladimir/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/news/th...')
+#1 /home/vladimir/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/vladimir/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/news/thumb/591ff4a61d71d.jpeg
+HTTP_REFERER=http://val.dev/
+---
+2017/06/03 09:30:01 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/news/thumb/5921a6d167db7.jpeg".' in /home/vladimir/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/vladimir/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/news/th...')
+#1 /home/vladimir/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/vladimir/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/news/thumb/5921a6d167db7.jpeg
+HTTP_REFERER=http://val.dev/
+---
+2017/06/03 09:30:01 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/news/thumb/59201658d7c4c.jpeg".' in /home/vladimir/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/vladimir/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/news/th...')
+#1 /home/vladimir/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/vladimir/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/news/thumb/59201658d7c4c.jpeg
+HTTP_REFERER=http://val.dev/
+---
+2017/06/03 09:30:01 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/news/thumb/591ff4a61d71d.jpeg".' in /home/vladimir/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/vladimir/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/news/th...')
+#1 /home/vladimir/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/vladimir/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/news/thumb/591ff4a61d71d.jpeg
+HTTP_REFERER=http://val.dev/
+---
+2017/06/03 09:30:01 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/news/thumb/591fe29ef31de.jpeg".' in /home/vladimir/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/vladimir/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/news/th...')
+#1 /home/vladimir/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/vladimir/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/news/thumb/591fe29ef31de.jpeg
+HTTP_REFERER=http://val.dev/
+---
+2017/06/03 09:35:55 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/news/thumb/591fe29ef31de.jpeg".' in /home/vladimir/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/vladimir/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/news/th...')
+#1 /home/vladimir/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/vladimir/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/news/thumb/591fe29ef31de.jpeg
+HTTP_REFERER=http://val.dev/
+---
+2017/06/03 09:35:55 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/news/thumb/5921a6d167db7.jpeg".' in /home/vladimir/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/vladimir/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/news/th...')
+#1 /home/vladimir/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/vladimir/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/news/thumb/5921a6d167db7.jpeg
+HTTP_REFERER=http://val.dev/
+---
+2017/06/03 09:35:55 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/news/thumb/59201658d7c4c.jpeg".' in /home/vladimir/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/vladimir/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/news/th...')
+#1 /home/vladimir/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/vladimir/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/news/thumb/59201658d7c4c.jpeg
+HTTP_REFERER=http://val.dev/
+---
+2017/06/03 09:35:55 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/news/thumb/591ff4a61d71d.jpeg".' in /home/vladimir/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/vladimir/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/news/th...')
+#1 /home/vladimir/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/vladimir/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/news/thumb/591ff4a61d71d.jpeg
+HTTP_REFERER=http://val.dev/
+---

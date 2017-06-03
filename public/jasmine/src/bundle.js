@@ -534,15 +534,10 @@ Currency.prototype.templates = function(query, self) {
 
     "use strict";
     var querys = JSON.parse(query),
-        InArray = ["ПриватБанк", "ПУМБ", "Укрсоцбанк"],
         a = [],
         stay;
 
     [].reduce.call(querys, function(previousValue, currentValue, index) {
-
-        if(InArray.indexOf(currentValue.bankName) == -1){
-            return 0;
-        }
 
         if (previousValue == 0 || currentValue.bankName != previousValue) {
             stay = {};

@@ -18,7 +18,7 @@
                     <div class="val-right-in-slide">
                         <span class="val-content-news-data"><?= ($dateNow == date('Y-m-d', strtotime($news->date))) ? date('H:i', strtotime($news->date)) : intval(date('d', strtotime($news->date))).' '.Yii::app()->controller->getMonth($news->date).' '.date('Y', strtotime($news->date)); ?></span>
                         <h3 class="val-content-news-title"><?=CHtml::encode(Yii::app()->language == 'ru' ? $news->title_ru : $news->title_uk);?></h3>
-                        <p class="val-content-news-description"><?=$this->getShortDescription(Yii::app()->language == 'ru' ? $news->description_ru : $news->description_uk, 150).'...'?></p>
+                        <p class="val-content-news-description"><?=$this->getShortDescription(Yii::app()->language == 'ru' ? $news->description_ru : $news->description_uk, 100).'...'?></p>
                     </div>
                 </a>
             </li>
@@ -36,7 +36,7 @@
                 <div class="val-description-block-gen-news">
                      <span class="val-news-view"><?=$news->views;?></span>
                      <span class="val-content-news-data"><?= ($dateNow == date('Y-m-d', strtotime($news->date))) ? date('H:i', strtotime($news->date)) : intval(date('d', strtotime($news->date))).' '.Yii::app()->controller->getMonth($news->date).' '.date('Y', strtotime($news->date)); ?></span>
-                    <h3 class="val-content-news-title-small"><?=Yii::app()->language == 'ru' ? mb_substr($news->title_ru, 0, 55, 'UTF-8') . '...' : mb_substr($news->title_uk, 0, 55, 'UTF-8') . '...' ?></h3>
+                    <h3 class="val-content-news-title-small"><?=Yii::app()->language == 'ru' ? mb_substr($news->title_ru, 0, 50, 'UTF-8') . '...' : mb_substr($news->title_uk, 0, 50, 'UTF-8') . '...' ?></h3>
                 </div>
             </a>
         <?php endforeach; ?>
@@ -102,7 +102,7 @@
                 </div>
                 <div class="val-description-block-gen-news -val-no-padding">
                     <span class="val-date-line-news"><?= ($dateNow == date('Y-m-d', strtotime($news->date))) ? date('H:i', strtotime($news->date)) : intval(date('d', strtotime($news->date))).' '.Yii::app()->controller->getMonth($news->date).' '.date('Y', strtotime($news->date)); ?></span>
-                    <p class="val-description-line-news-with-img"><?=Yii::app()->language == 'ru' ? mb_substr($news->title_ru, 0, 60, 'UTF-8') . '...' : mb_substr($news->title_uk, 0, 60, 'UTF-8') . '...' ?></p>
+                    <p class="val-description-line-news-with-img"><?=Yii::app()->language == 'ru' ? mb_substr($news->title_ru, 0, 45, 'UTF-8') . '...' : mb_substr($news->title_uk, 0, 45, 'UTF-8') . '...' ?></p>
                 </div>
             </a>
         <?php endforeach; ?>

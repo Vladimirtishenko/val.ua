@@ -2,11 +2,22 @@
 /* @var $model Video */
 $this->pageTitle = Yii::app()->language == 'ru' ? $model->meta_title_ru : $model->meta_title_uk;
 $this->pageDescription = Yii::app()->language == 'ru' ? $model->meta_description_ru : $model->meta_description_uk;
+$this->metaAttributes[] = '<meta property="fb:app_id" content="1361253320577547"/>';
 ?>
 <? Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . '/public/js/_lib/masonry.pkgd.min.js', CClientScript::POS_END);?>
 <?php 
     $dateNow = (new DateTime())->format('Y-m-d');
 ?>
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/uk_UA/sdk.js#xfbml=1&version=v2.9&appId=1361253320577547";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
 <article class="val-column-left">
     <div class="val-single-news-conainer-with-read-else">
         <div class='val-container-one-news'>
@@ -39,9 +50,17 @@ $this->pageDescription = Yii::app()->language == 'ru' ? $model->meta_description
             <div data-background-alpha="0.0" data-buttons-color="#ffffff" data-counter-background-color="#ffffff" data-share-counter-size="12" data-top-button="true" data-share-counter-type="separate" data-share-style="1" data-mode="share" data-like-text-enable="false" data-hover-effect="scale" data-mobile-view="true" data-icon-color="#ffffff" data-orientation="horizontal" data-text-color="#000000" data-share-shape="round-rectangle" data-sn-ids="fb.vk.tw.ok.gp." data-share-size="30" data-background-color="#ffffff" data-preview-mobile="false" data-mobile-sn-ids="fb.vk.tw.wh.ok.vb." data-pid="1507613" data-counter-background-alpha="1.0" data-following-enable="false" data-exclude-show-more="true" data-selection-enable="true" class="uptolike-buttons" ></div>
     </div>
     <h2 class="val-title-uppercase-with-line">
+            <span> <?= Yii::t('main', 'Коментарі'); ?> </span>
+    </h2>
+     <div class="val-outer-line-news">
+        <div class="fb-comments" data-href="https://www.facebook.com/VysokyiVal" data-width="100%" data-numposts="5"></div>
+    </div>
+   
+    <h2 class="val-title-uppercase-with-line">
         <span> <?= Yii::t('main', 'Переглядайте також'); ?> </span>
         <?= CHtml::link(Yii::t('main', 'Мультимедіа'), array('/site/multimedia')); ?>
     </h2>
+
     <div class="-for-mansory-container">
         <?php foreach($relatedVideos as $key => $video): ?>
             <a href="<?= Yii::app()->createUrl('/site/video', array('id'=>$video->id)); ?>" class="val-block-multimedia -val-ico-video -only-video">

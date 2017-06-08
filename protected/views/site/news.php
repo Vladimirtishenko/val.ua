@@ -7,9 +7,8 @@ $data->views ++;
 $data->save();
 ?>
 <?php
- $url = (!empty($_SERVER['HTTPS'])) ? 
- 'https://'.$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'] : 
- 'http://'.$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'];
+ $host = 'http://'.$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'];
+ $url = preg_replace('/\/ru\/|\/uk\//', '/', $host);
 ?>
 <?php 
     $dateNow = (new DateTime())->format('Y-m-d');

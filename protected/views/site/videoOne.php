@@ -9,9 +9,8 @@ $this->metaAttributes[] = '<meta property="fb:app_id" content="1361253320577547"
     $dateNow = (new DateTime())->format('Y-m-d');
 ?>
 <?php
- $url = (!empty($_SERVER['HTTPS'])) ? 
- 'https://'.$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'] : 
- 'http://'.$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'];
+ $host = 'http://'.$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'];
+ $url = preg_replace('/\/ru\/|\/uk\//', '/', $host);
 ?>
 
 <div id="fb-root"></div>

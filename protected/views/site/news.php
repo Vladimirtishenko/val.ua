@@ -6,10 +6,6 @@ $this->metaAttributes[] = '<meta property="fb:app_id" content="1361253320577547"
 $data->views ++;
 $data->save();
 ?>
-<?php
- $host = 'http://'.$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'];
- $url = preg_replace('/\/ru\/|\/uk\//', '/', $host);
-?>
 <?php 
     $dateNow = (new DateTime())->format('Y-m-d');
 ?>
@@ -49,7 +45,7 @@ $data->save();
             <span> <?= Yii::t('main', 'Коментарі'); ?> </span>
         </h2>
         <div class="val-outer-line-news">
-            <div class="fb-comments" data-href="<?php echo $url; ?>" data-width="100%" data-numposts="5"></div>
+            <div class="fb-comments" data-href="http://val.ua/uk/<?php echo $data->id; ?>" data-width="100%" data-numposts="5"></div>
         </div>
         <h2 class="val-title-uppercase-with-line">
             <span> <?= Yii::t('main', 'Читайте також'); ?> </span>

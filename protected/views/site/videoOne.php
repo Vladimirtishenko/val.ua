@@ -8,11 +8,6 @@ $this->metaAttributes[] = '<meta property="fb:app_id" content="1361253320577547"
 <?php 
     $dateNow = (new DateTime())->format('Y-m-d');
 ?>
-<?php
- $host = 'http://'.$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'];
- $url = preg_replace('/\/ru\/|\/uk\//', '/', $host);
-?>
-
 <div id="fb-root"></div>
 <script>(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
@@ -45,7 +40,7 @@ $this->metaAttributes[] = '<meta property="fb:app_id" content="1361253320577547"
             <span> <?= Yii::t('main', 'Коментарі'); ?> </span>
     </h2>
     <div class="val-outer-line-news">
-            <div class="fb-comments" data-href="<?php echo $url; ?>" data-width="100%" data-numposts="5"></div>
+            <div class="fb-comments" data-href="http://val.dev/uk/site/video/<?php echo $model->id; ?>" data-width="100%" data-numposts="5"></div>
     </div>
    
     <h2 class="val-title-uppercase-with-line">

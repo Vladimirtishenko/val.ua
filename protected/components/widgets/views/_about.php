@@ -21,7 +21,8 @@
     
     <p><i>Наші координати:</i></p>
     <ul class='val-about-contacts'>
-        <li>Tel.: (+380462) 931-931, (+38044) 491-88-85.</li>
+        <li>Телефон редакції: +380 (462) 613 631</li>
+        <li>Реклама на сайтi: +380 (462) 931 931</li>
         <li>E-mail: <a href="mailto:news@val.ua">news@val.ua</a></li>
     </ul>
 

@@ -81,8 +81,9 @@
                         <li><?= CHtml::link(Yii::t('main', 'Мультимедіа'), array('/site/Multimedia')); ?></li>
                 </ul>
                 <h4>Обратная связь</h4>
-                 <span class="val-side-menu-text">E-mail: <a href="mailto:news@val.ua">news@val.ua</a></span>
-                 <span class="val-side-menu-text">Тел.: <a href="#">613-631</a> </span>
+                 <span class="val-side-menu-text">E-mail: <a href="mailto:news@val.ua"> <br /><br /> news@val.ua</a></span>
+                 <span class="val-side-menu-text">Тел. редакції: <a href="tel:+380462613631"> <br /><br /> +380 (462) 613 631</a> </span>
+                 <span class="val-side-menu-text">Реклама на сайтi: <a href="tel:+380462931931"> <br /><br /> +380 (462) 931 931</a> </span>
             </div>
             <div class="val-slide-bottom">   
                     <span class="val-slide-development"><?=Yii::t('main', 'Розробка сайту');?></span>
@@ -209,7 +210,8 @@
                                  <span class="val-content-text">Передрук в газетах і електронних ЗМІ - виключно за наявності письмової угоди з Редакцією! </span>
                                  <span class="val-content-text">E-mail редакції: <a href="mailto:news@val.ua">news@val.ua</a></span>
                                  <div class="val-phones">
-                                     <span>Тел.Чернігiв: <a href="#">613-631</a> </span>
+                                     <span>Тел.редакції: <a href="tel:+380462613631">+380 (462) 613 631</a> </span>
+                                     <span>Реклама на сайтi: <a href="tel:+380462931931">+380 (462) 931 931</a> </span>
                                  </div> 
                             </div>  
                         </li>

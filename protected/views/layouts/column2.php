@@ -1,10 +1,7 @@
 ﻿<?php /* @var $this Controller */ ?>
 <?php $this->beginContent('//layouts/main'); ?>
     <?= $content; ?>
-	<article class="val-column-right">
-    <a href="http://desna.football/" target="_blank" style="display:block; margin-bottom: 20px">
-        <?=CHtml::image(Yii::app()->baseUrl.'/public/images/football_banner.jpg', 'Футбол')?>
-    </a> 
+	<article class="val-column-right"> 
     <div class="val-column-outer-right-line-news">
          <h3 class="val-title-uppercase-small">
             <span><?=Yii::t('main', 'Не пропустіть');?></span>

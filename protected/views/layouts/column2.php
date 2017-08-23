@@ -5,6 +5,14 @@
     <a href="http://desna.football/" target="_blank" style="display:block; margin-bottom: 20px">
          <?=CHtml::image(Yii::app()->baseUrl.'/public/images/football_banner.png', 'Футбол')?>
    </a> 
+   <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+   <ins class="adsbygoogle"
+     style="display:inline-block;width:300px;height:600px; margin-bottom: 30px"
+     data-ad-client="ca-pub-3024978264681114"
+     data-ad-slot="‎2792872191"></ins>
+    <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
     <div class="val-column-outer-right-line-news">
          <h3 class="val-title-uppercase-small">
             <span><?=Yii::t('main', 'Не пропустіть');?></span>

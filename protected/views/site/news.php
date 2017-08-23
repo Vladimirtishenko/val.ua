@@ -23,6 +23,14 @@ $data->save();
     <div class="val-single-news-conainer-with-read-else">
         <div class='val-container-one-news'>
             <h2 class="val-title-uppercase-with-line val-title-uppercase-small"><?= CHtml::encode(Yii::app()->language == 'ru' ? $data->title_ru : $data->title_uk); ?></h2>
+            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+              <ins class="adsbygoogle"
+                   style="display:block; text-align:center; margin-bottom: 30px"
+                   data-ad-format="fluid"
+                   data-ad-layout="in-article"
+                   data-ad-client="ca-pub-3024978264681114"
+                   data-ad-slot="‎2700716315"></ins>
+            <script> (adsbygoogle = window.adsbygoogle || []).push({});</script>
             <?= CHtml::image(Yii::app()->baseUrl.'/uploads/news/full/'.$data->image, Yii::app()->language == 'ru' ? $data->title_ru : $data->title_uk, array('class'=>'genImages')); ?>
             <div class="val-description-block-gen-news">
                 <span class="val-news-view"><?=$data->views;?></span>
@@ -47,6 +55,16 @@ $data->save();
         <div class="val-outer-line-news">
             <div class="fb-comments" data-href="http://val.ua/uk/<?php echo $data->id; ?>" data-width="100%" data-numposts="5"></div>
         </div>
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <ins class="adsbygoogle"
+             style="display:block; text-align:center; margin: 20px 0"
+             data-ad-format="fluid"
+             data-ad-layout="in-article"
+             data-ad-client="ca-pub-3024978264681114"
+             data-ad-slot="‎7481613163"></ins>
+        <script>
+             (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
         <h2 class="val-title-uppercase-with-line">
             <span> <?= Yii::t('main', 'Читайте також'); ?> </span>
             <?= CHtml::link(Yii::app()->language == 'ru' ? $data->category->name_ru : $data->category->name_uk, array('/site/category', 'id'=>$data->category->id)); ?>

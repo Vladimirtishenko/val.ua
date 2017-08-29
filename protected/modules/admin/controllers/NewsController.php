@@ -13,13 +13,13 @@ class NewsController extends AdminController
 
 		if(isset($_POST['News']) && isset($_POST['News']['title_uk']) && isset($_POST['News']['description_uk']))
         {
-            $key = Yii::app()->params['yandex_translater_key'];
+            /*$key = Yii::app()->params['yandex_translater_key'];
             $lang = Yii::app()->params['yandex_translater_lang'];
             $format = Yii::app()->params['yandex_translater_format'];
             $textTitle = $_POST['News']['title_uk'];
-            $textDescr = $_POST['News']['description_uk'];
+            $textDescr = $_POST['News']['description_uk'];*/
 
-            $resultTitle = json_decode(file_get_contents("https://translate.yandex.net/api/v1.5/tr.json/translate?key=".$key."&text=".urlencode($textTitle)."&lang=".$lang."&format=".$format));
+            /*$resultTitle = json_decode(file_get_contents("https://translate.yandex.net/api/v1.5/tr.json/translate?key=".$key."&text=".urlencode($textTitle)."&lang=".$lang."&format=".$format));
 
 
 			$vowels = array('<pre>', '</pre>', '<div>', '</div>');
@@ -68,10 +68,10 @@ class NewsController extends AdminController
             $space = implode(" ", $arrayNew);
             $newresultsTitle[] = $resultTitle;
 
-            $middleStringTitle = $newresultsTitle[0]->text[0];
+            $middleStringTitle = $newresultsTitle[0]->text[0];*/
 
-           /* $space = $_POST['News']['description_uk'];
-            $middleStringTitle = $_POST['News']['title_uk'];*/
+            $space = $_POST['News']['description_uk'];
+            $middleStringTitle = $_POST['News']['title_uk'];
         }
 
         Yii::app()->db->setActive(true);

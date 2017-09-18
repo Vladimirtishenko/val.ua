@@ -1,10 +1,7 @@
 ﻿<?php /* @var $this Controller */ ?>
 <?php $this->beginContent('//layouts/main'); ?>
     <?= $content; ?>
-	<article class="val-column-right"> 
-    <a href="http://desna.football/" target="_blank" style="display:block; margin-bottom: 20px">
-         <?=CHtml::image(Yii::app()->baseUrl.'/public/images/football_banner.png', 'Футбол')?>
-   </a> 
+	<article class="val-column-right">  
    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
    <ins class="adsbygoogle"
      style="display:inline-block;width:300px;height:600px; margin-bottom: 30px"

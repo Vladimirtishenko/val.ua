@@ -88,10 +88,7 @@
         </div>
     </div>
 </article>
-<article class="val-column-right">
-    <a href="http://desna.football/" target="_blank" style="display:block; margin-bottom: 20px">
-         <?=CHtml::image(Yii::app()->baseUrl.'/public/images/football_banner.png', 'Футбол')?>
-    </a> 
+<article class="val-column-right"> 
     <div class="val-column-outer-right-line-news">
          <h3 class="val-title-uppercase-small">
             <span><?=Yii::t('main', 'Відео');?></span>

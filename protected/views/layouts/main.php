@@ -260,6 +260,7 @@
                     <a href="http://4side.xyz">
                         <?=CHtml::image(Yii::app()->baseUrl.'/public/images/4side.png', '4side development')?>
                     </a>
+                    <p style="position:absolute; bottom: -20px; color:#fff">Инвестируй, торгуй, зарабатывай вместе с DAX100, вкладывай в индекс DAX - <a style="color:#fff" href="http://trader.dax100.org">http://trader.dax100.org</a></p>
                 </div>          
             </footer>
         </section>

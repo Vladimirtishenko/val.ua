@@ -2,8 +2,7 @@
 ~dump/
 assets/
 tmp/
-protected/runtime/debug/
-protected/runtime/
+runtime/
 uploads/
 mail/
 node_modules/

@@ -8,7 +8,7 @@
     <? if($key < 5) : ?>
     <a href="<?= Yii::app()->createUrl('/site/news', array('id'=>$news->id)); ?>" class="val-block-gen-news -val-with-image-line-news">
         <div class="val-image-block-gen-news">
-           <img src="<?=Yii::app()->baseUrl.'/uploads/news/thumb/'.$news->image?>" alt="">
+           <img src="<?='http://val.ua//uploads/news/thumb/'.$news->image?>" alt="">
         </div>
         <div class="val-description-block-gen-news -val-no-padding">
             <span class="val-date-line-news"><?= ($dateNow == date('Y-m-d', strtotime($news->date))) ? date('H:i', strtotime($news->date)) : intval(date('d', strtotime($news->date))).' '.Yii::app()->controller->getMonth($news->date).' '.date('Y', strtotime($news->date)); ?></span>

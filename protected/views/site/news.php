@@ -22,6 +22,17 @@ $data->save();
 <article class="val-column-left">
     <div class="val-single-news-conainer-with-read-else">
         <div class='val-container-one-news'>
+            <div id="adpartner-jsunit-2047">
+                <script type="text/javascript">
+                    var head = document.getElementsByTagName('head')[0];
+                    var script = document.createElement('script');
+                    script.type = 'text/javascript';
+                    script.src = "//a4p.adpartner.pro/jsunit?id=2047&" + Math.random();
+                    head.appendChild(script);
+                </script>
+            </div>
+            <br />
+            <br />
             <h2 class="val-title-uppercase-with-line val-title-uppercase-small"><?= CHtml::encode(Yii::app()->language == 'ru' ? $data->title_ru : $data->title_uk); ?></h2>
             <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
               <ins class="adsbygoogle"
@@ -31,7 +42,7 @@ $data->save();
                    data-ad-client="ca-pub-3024978264681114"
                    data-ad-slot="‎2700716315"></ins>
             <script> (adsbygoogle = window.adsbygoogle || []).push({});</script>
-            <?= CHtml::image(Yii::app()->baseUrl.'/uploads/news/full/'.$data->image, Yii::app()->language == 'ru' ? $data->title_ru : $data->title_uk, array('class'=>'genImages')); ?>
+            <?= CHtml::image('http://val.ua//uploads/news/full/'.$data->image, Yii::app()->language == 'ru' ? $data->title_ru : $data->title_uk, array('class'=>'genImages')); ?>
             <div class="val-description-block-gen-news">
                 <span class="val-news-view"><?=$data->views;?></span>
                 <span class="val-content-news-data"><?= ($dateNow == date('Y-m-d', strtotime($data->date))) ? date('H:i', strtotime($data->date)) : intval(date('d', strtotime($data->date))).' '.Yii::app()->controller->getMonth($data->date).' '.date('Y', strtotime($data->date)); ?></span>
@@ -74,7 +85,7 @@ $data->save();
              <?php foreach($relatedNews as $news): ?>
                 <a href="<?= Yii::app()->createUrl('/site/news', array('id'=>$news->id)); ?>" class="val-block-gen-news">
                     <div class="val-image-block-gen-news">
-                       <?=CHtml::image(Yii::app()->baseUrl.'/uploads/news/thumb/'.$news->image); ?>
+                       <?=CHtml::image('http://val.ua/uploads/news/thumb/'.$news->image); ?>
                     </div>
                     <div class="val-description-block-gen-news">
                          <span class="val-news-view"><?=$news->views;?></span>

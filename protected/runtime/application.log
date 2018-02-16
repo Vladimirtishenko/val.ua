@@ -9883,3 +9883,372 @@ Stack trace:
 REQUEST_URI=/uploads/news/thumb/591ff4a61d71d.jpeg
 HTTP_REFERER=http://val.dev/
 ---
+2018/02/17 00:15:12 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/news/thumb/5a85ac5eaa87c.jpeg".' in /Users/vladimirtisenko/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/vladimirtisenko/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/news/th...')
+#1 /Users/vladimirtisenko/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /Users/vladimirtisenko/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/news/thumb/5a85ac5eaa87c.jpeg
+HTTP_REFERER=http://val.bt/uk/100794.html
+---
+2018/02/17 00:15:13 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/news/full/5a8590f6ed13b.jpeg".' in /Users/vladimirtisenko/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/vladimirtisenko/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/news/fu...')
+#1 /Users/vladimirtisenko/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /Users/vladimirtisenko/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/news/full/5a8590f6ed13b.jpeg
+HTTP_REFERER=http://val.bt/uk/100794.html
+---
+2018/02/17 00:15:13 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/news/thumb/5a85416d3a779.jpeg".' in /Users/vladimirtisenko/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/vladimirtisenko/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/news/th...')
+#1 /Users/vladimirtisenko/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /Users/vladimirtisenko/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/news/thumb/5a85416d3a779.jpeg
+HTTP_REFERER=http://val.bt/uk/100794.html
+---
+2018/02/17 00:15:13 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/news/thumb/5a8549f579a4a.jpeg".' in /Users/vladimirtisenko/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/vladimirtisenko/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/news/th...')
+#1 /Users/vladimirtisenko/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /Users/vladimirtisenko/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/news/thumb/5a8549f579a4a.jpeg
+HTTP_REFERER=http://val.bt/uk/100794.html
+---
+2018/02/17 00:15:13 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/news/thumb/5a853cdd41206.jpeg".' in /Users/vladimirtisenko/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/vladimirtisenko/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/news/th...')
+#1 /Users/vladimirtisenko/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /Users/vladimirtisenko/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/news/thumb/5a853cdd41206.jpeg
+HTTP_REFERER=http://val.bt/uk/100794.html
+---
+2018/02/17 00:15:13 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/news/thumb/5a853796aec1a.jpeg".' in /Users/vladimirtisenko/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/vladimirtisenko/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/news/th...')
+#1 /Users/vladimirtisenko/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /Users/vladimirtisenko/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/news/thumb/5a853796aec1a.jpeg
+HTTP_REFERER=http://val.bt/uk/100794.html
+---
+2018/02/17 00:15:13 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/news/thumb/5a844bf21a631.jpeg".' in /Users/vladimirtisenko/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/vladimirtisenko/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/news/th...')
+#1 /Users/vladimirtisenko/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /Users/vladimirtisenko/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/news/thumb/5a844bf21a631.jpeg
+HTTP_REFERER=http://val.bt/uk/100794.html
+---
+2018/02/17 00:15:13 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/news/thumb/5a844654ab87a.jpeg".' in /Users/vladimirtisenko/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/vladimirtisenko/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/news/th...')
+#1 /Users/vladimirtisenko/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /Users/vladimirtisenko/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/news/thumb/5a844654ab87a.jpeg
+HTTP_REFERER=http://val.bt/uk/100794.html
+---
+2018/02/17 00:15:13 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/news/thumb/5a842c1db04f3.jpeg".' in /Users/vladimirtisenko/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/vladimirtisenko/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/news/th...')
+#1 /Users/vladimirtisenko/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /Users/vladimirtisenko/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/news/thumb/5a842c1db04f3.jpeg
+HTTP_REFERER=http://val.bt/uk/100794.html
+---
+2018/02/17 00:15:13 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/news/thumb/5a8415bcd1d14.jpeg".' in /Users/vladimirtisenko/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/vladimirtisenko/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/news/th...')
+#1 /Users/vladimirtisenko/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /Users/vladimirtisenko/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/news/thumb/5a8415bcd1d14.jpeg
+HTTP_REFERER=http://val.bt/uk/100794.html
+---
+2018/02/17 00:15:13 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/news/thumb/5a840781ef1f7.jpeg".' in /Users/vladimirtisenko/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/vladimirtisenko/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/news/th...')
+#1 /Users/vladimirtisenko/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /Users/vladimirtisenko/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/news/thumb/5a840781ef1f7.jpeg
+HTTP_REFERER=http://val.bt/uk/100794.html
+---
+2018/02/17 00:15:13 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/news/thumb/5a83e24a1618a.jpeg".' in /Users/vladimirtisenko/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/vladimirtisenko/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/news/th...')
+#1 /Users/vladimirtisenko/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /Users/vladimirtisenko/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/news/thumb/5a83e24a1618a.jpeg
+HTTP_REFERER=http://val.bt/uk/100794.html
+---
+2018/02/17 00:15:14 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/news/thumb/5a8313a43b3a7.jpeg".' in /Users/vladimirtisenko/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/vladimirtisenko/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/news/th...')
+#1 /Users/vladimirtisenko/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /Users/vladimirtisenko/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/news/thumb/5a8313a43b3a7.jpeg
+HTTP_REFERER=http://val.bt/uk/100794.html
+---
+2018/02/17 00:15:14 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/news/thumb/5a8306043a7f3.jpeg".' in /Users/vladimirtisenko/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/vladimirtisenko/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/news/th...')
+#1 /Users/vladimirtisenko/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /Users/vladimirtisenko/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/news/thumb/5a8306043a7f3.jpeg
+HTTP_REFERER=http://val.bt/uk/100794.html
+---
+2018/02/17 00:15:14 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/news/thumb/5a82fe1fd7eba.jpeg".' in /Users/vladimirtisenko/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/vladimirtisenko/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/news/th...')
+#1 /Users/vladimirtisenko/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /Users/vladimirtisenko/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/news/thumb/5a82fe1fd7eba.jpeg
+HTTP_REFERER=http://val.bt/uk/100794.html
+---
+2018/02/17 00:15:14 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/news/thumb/5a82e0af09abe.jpeg".' in /Users/vladimirtisenko/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/vladimirtisenko/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/news/th...')
+#1 /Users/vladimirtisenko/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /Users/vladimirtisenko/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/news/thumb/5a82e0af09abe.jpeg
+HTTP_REFERER=http://val.bt/uk/100794.html
+---
+2018/02/17 00:15:14 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/news/thumb/5a82d4abed6d2.jpeg".' in /Users/vladimirtisenko/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/vladimirtisenko/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/news/th...')
+#1 /Users/vladimirtisenko/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /Users/vladimirtisenko/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/news/thumb/5a82d4abed6d2.jpeg
+HTTP_REFERER=http://val.bt/uk/100794.html
+---
+2018/02/17 00:15:14 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/news/thumb/5a82901570c18.jpeg".' in /Users/vladimirtisenko/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/vladimirtisenko/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/news/th...')
+#1 /Users/vladimirtisenko/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /Users/vladimirtisenko/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/news/thumb/5a82901570c18.jpeg
+HTTP_REFERER=http://val.bt/uk/100794.html
+---
+2018/02/17 00:15:14 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/news/thumb/5a828dcf0958e.jpeg".' in /Users/vladimirtisenko/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/vladimirtisenko/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/news/th...')
+#1 /Users/vladimirtisenko/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /Users/vladimirtisenko/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/news/thumb/5a828dcf0958e.jpeg
+HTTP_REFERER=http://val.bt/uk/100794.html
+---
+2018/02/17 00:15:14 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/news/thumb/5a827785e568d.jpeg".' in /Users/vladimirtisenko/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/vladimirtisenko/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/news/th...')
+#1 /Users/vladimirtisenko/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /Users/vladimirtisenko/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/news/thumb/5a827785e568d.jpeg
+HTTP_REFERER=http://val.bt/uk/100794.html
+---
+2018/02/17 00:15:14 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/news/thumb/5a81c60d29653.jpeg".' in /Users/vladimirtisenko/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/vladimirtisenko/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/news/th...')
+#1 /Users/vladimirtisenko/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /Users/vladimirtisenko/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/news/thumb/5a81c60d29653.jpeg
+HTTP_REFERER=http://val.bt/uk/100794.html
+---
+2018/02/17 00:15:14 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/news/thumb/5a81b3563e53a.jpeg".' in /Users/vladimirtisenko/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/vladimirtisenko/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/news/th...')
+#1 /Users/vladimirtisenko/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /Users/vladimirtisenko/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/news/thumb/5a81b3563e53a.jpeg
+HTTP_REFERER=http://val.bt/uk/100794.html
+---
+2018/02/17 00:15:14 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/news/thumb/5a81ab2a2b5c6.jpeg".' in /Users/vladimirtisenko/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/vladimirtisenko/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/news/th...')
+#1 /Users/vladimirtisenko/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /Users/vladimirtisenko/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/news/thumb/5a81ab2a2b5c6.jpeg
+HTTP_REFERER=http://val.bt/uk/100794.html
+---
+2018/02/17 00:15:14 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/news/thumb/5a819b2ee01a4.jpeg".' in /Users/vladimirtisenko/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/vladimirtisenko/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/news/th...')
+#1 /Users/vladimirtisenko/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /Users/vladimirtisenko/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/news/thumb/5a819b2ee01a4.jpeg
+HTTP_REFERER=http://val.bt/uk/100794.html
+---
+2018/02/17 00:15:14 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/news/thumb/5a817a75b7098.jpeg".' in /Users/vladimirtisenko/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/vladimirtisenko/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/news/th...')
+#1 /Users/vladimirtisenko/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /Users/vladimirtisenko/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/news/thumb/5a817a75b7098.jpeg
+HTTP_REFERER=http://val.bt/uk/100794.html
+---
+2018/02/17 00:15:14 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/news/thumb/5a85b32f5a124.jpeg".' in /Users/vladimirtisenko/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/vladimirtisenko/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/news/th...')
+#1 /Users/vladimirtisenko/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /Users/vladimirtisenko/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/news/thumb/5a85b32f5a124.jpeg
+HTTP_REFERER=http://val.bt/uk/100794.html
+---
+2018/02/17 00:15:14 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/news/thumb/5a85b1d3d514e.jpeg".' in /Users/vladimirtisenko/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/vladimirtisenko/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/news/th...')
+#1 /Users/vladimirtisenko/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /Users/vladimirtisenko/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/news/thumb/5a85b1d3d514e.jpeg
+HTTP_REFERER=http://val.bt/uk/100794.html
+---
+2018/02/17 00:15:14 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/news/thumb/5a85af6a67b8d.jpeg".' in /Users/vladimirtisenko/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/vladimirtisenko/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/news/th...')
+#1 /Users/vladimirtisenko/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /Users/vladimirtisenko/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/news/thumb/5a85af6a67b8d.jpeg
+HTTP_REFERER=http://val.bt/uk/100794.html
+---
+2018/02/17 00:15:14 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/news/thumb/5a85ab13d859a.jpeg".' in /Users/vladimirtisenko/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/vladimirtisenko/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/news/th...')
+#1 /Users/vladimirtisenko/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /Users/vladimirtisenko/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/news/thumb/5a85ab13d859a.jpeg
+HTTP_REFERER=http://val.bt/uk/100794.html
+---
+2018/02/17 00:15:15 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/users/avatars/default-user-icon-profile.png".' in /Users/vladimirtisenko/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/vladimirtisenko/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/users/a...')
+#1 /Users/vladimirtisenko/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /Users/vladimirtisenko/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/users/avatars/default-user-icon-profile.png
+HTTP_REFERER=http://val.bt/uk/100794.html
+---
+2018/02/17 00:16:31 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/news/thumb/5a85b32f5a124.jpeg".' in /Users/vladimirtisenko/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/vladimirtisenko/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/news/th...')
+#1 /Users/vladimirtisenko/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /Users/vladimirtisenko/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/news/thumb/5a85b32f5a124.jpeg
+HTTP_REFERER=http://val.bt/uk/100794.html
+---
+2018/02/17 00:16:31 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/news/thumb/5a85b1d3d514e.jpeg".' in /Users/vladimirtisenko/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/vladimirtisenko/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/news/th...')
+#1 /Users/vladimirtisenko/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /Users/vladimirtisenko/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/news/thumb/5a85b1d3d514e.jpeg
+HTTP_REFERER=http://val.bt/uk/100794.html
+---
+2018/02/17 00:16:31 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/news/thumb/5a85af6a67b8d.jpeg".' in /Users/vladimirtisenko/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/vladimirtisenko/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/news/th...')
+#1 /Users/vladimirtisenko/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /Users/vladimirtisenko/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/news/thumb/5a85af6a67b8d.jpeg
+HTTP_REFERER=http://val.bt/uk/100794.html
+---
+2018/02/17 00:16:31 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/news/thumb/5a85ac5eaa87c.jpeg".' in /Users/vladimirtisenko/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/vladimirtisenko/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/news/th...')
+#1 /Users/vladimirtisenko/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /Users/vladimirtisenko/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/news/thumb/5a85ac5eaa87c.jpeg
+HTTP_REFERER=http://val.bt/uk/100794.html
+---
+2018/02/17 00:16:31 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/news/thumb/5a85ab13d859a.jpeg".' in /Users/vladimirtisenko/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/vladimirtisenko/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/news/th...')
+#1 /Users/vladimirtisenko/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /Users/vladimirtisenko/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/news/thumb/5a85ab13d859a.jpeg
+HTTP_REFERER=http://val.bt/uk/100794.html
+---
+2018/02/17 00:16:31 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/users/avatars/default-user-icon-profile.png".' in /Users/vladimirtisenko/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/vladimirtisenko/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/users/a...')
+#1 /Users/vladimirtisenko/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /Users/vladimirtisenko/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/users/avatars/default-user-icon-profile.png
+HTTP_REFERER=http://val.bt/uk/100794.html
+---
+2018/02/17 00:18:57 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/users/avatars/default-user-icon-profile.png".' in /Users/vladimirtisenko/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/vladimirtisenko/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/users/a...')
+#1 /Users/vladimirtisenko/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /Users/vladimirtisenko/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/users/avatars/default-user-icon-profile.png
+HTTP_REFERER=http://val.bt/uk/100794.html
+---
+2018/02/17 00:19:59 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/users/avatars/default-user-icon-profile.png".' in /Users/vladimirtisenko/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/vladimirtisenko/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/users/a...')
+#1 /Users/vladimirtisenko/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /Users/vladimirtisenko/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/users/avatars/default-user-icon-profile.png
+HTTP_REFERER=http://val.bt/uk/100794.html
+---
+2018/02/17 00:20:37 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/users/avatars/default-user-icon-profile.png".' in /Users/vladimirtisenko/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/vladimirtisenko/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/users/a...')
+#1 /Users/vladimirtisenko/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /Users/vladimirtisenko/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/users/avatars/default-user-icon-profile.png
+HTTP_REFERER=http://val.bt/uk/100794.html
+---
+2018/02/17 00:20:38 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/users/avatars/default-user-icon-profile.png".' in /Users/vladimirtisenko/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/vladimirtisenko/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/users/a...')
+#1 /Users/vladimirtisenko/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /Users/vladimirtisenko/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/users/avatars/default-user-icon-profile.png
+HTTP_REFERER=http://val.bt/uk/100794.html
+---
+2018/02/17 00:20:48 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "uploads/users/avatars/default-user-icon-profile.png".' in /Users/vladimirtisenko/www/val.ua/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/vladimirtisenko/www/val.ua/framework/web/CWebApplication.php(141): CWebApplication->runController('uploads/users/a...')
+#1 /Users/vladimirtisenko/www/val.ua/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /Users/vladimirtisenko/www/val.ua/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/uploads/users/avatars/default-user-icon-profile.png
+HTTP_REFERER=http://val.bt/uk/100794.html
+---

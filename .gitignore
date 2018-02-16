@@ -1,8 +1,9 @@
 .idea/
+*.log
 ~dump/
 assets/
 tmp/
-runtime/
+**/protected/runtime/**
 uploads/
 mail/
 node_modules/

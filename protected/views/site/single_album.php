@@ -14,6 +14,17 @@ $this->pageDescription = Yii::app()->language == 'ru' ? $category->meta_descript
 <article class="val-column-left">
     <div class="val-single-news-conainer-with-read-else">
         <div class='val-container-one-news'>
+            <div id="adpartner-jsunit-2047">
+                <script type="text/javascript">
+                    var head = document.getElementsByTagName('head')[0];
+                    var script = document.createElement('script');
+                    script.type = 'text/javascript';
+                    script.src = "//a4p.adpartner.pro/jsunit?id=2047&" + Math.random();
+                    head.appendChild(script);
+                </script>
+            </div>
+            <br />
+            <br />
             <h2 class="val-title-uppercase-with-line val-title-uppercase-small"><?= CHtml::encode(Yii::app()->language == 'ru' ? $category->name_ru : $category->name_uk); ?></h2>
 
             <div class="marketInOneVideoPageTop">

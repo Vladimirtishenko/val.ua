@@ -81,9 +81,12 @@
                         <li><?= CHtml::link(Yii::t('main', 'Мультимедіа'), array('/site/Multimedia')); ?></li>
                 </ul>
                 <h4>Обратная связь</h4>
-                 <span class="val-side-menu-text">E-mail: <a href="mailto:news@val.ua"> <br /><br /> news@val.ua</a></span>
+                 <span class="val-side-menu-text">E-mail редакції: <a href="mailto:news@val.ua"> <br /><br /> news@val.ua</a></span>
                  <span class="val-side-menu-text">Тел. редакції: <a href="tel:+380462613631"> <br /><br /> +380 (462) 613 631</a> </span>
+                 
                  <span class="val-side-menu-text">Реклама на сайтi: <a href="tel:+380462931931"> <br /><br /> +380 (462) 931 931</a> </span>
+                <span class="val-side-menu-text">Питання з реклами: <a href="mailto:tytvseok@gmail.com"> <br /><br /> tytvseok@gmail.com</a> </span>
+
             </div>
             <div class="val-slide-bottom">   
                     <span class="val-slide-development"><?=Yii::t('main', 'Розробка сайту');?></span>

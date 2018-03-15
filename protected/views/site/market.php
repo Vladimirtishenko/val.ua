@@ -7,10 +7,10 @@
 		<ul class="val-descr-list-market">
 			<li><?= Yii::t('main', '01010 Чернигов, ул.Белова 19/1'); ?></li>
 			<li>Телефон редакції: +380 (462) 613 631</li>
-            <li>Реклама на сайтi: +380 (462) 931 931</li>
-			<li><?= Yii::t('main', 'Електронна пошта'); ?>: news@val.ua</li>
+            <li><?= Yii::t('main', 'Електронна пошта'); ?>: news@val.ua</li>
+            <li>Реклама на сайтi: +380 (093) 773 0219</li>
+            <li>E-mail для питань з реклами: <a>tytvseok@gmail.com</a></li>
 		</ul>
-
 	</div>
 	<div class="val-market-point">
 		<?= CHtml::image(Yii::app()->baseUrl.'/public/images/market.png'); ?>

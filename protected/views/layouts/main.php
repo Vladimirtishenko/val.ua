@@ -208,10 +208,14 @@
                                 <?=CHtml::image(Yii::app()->baseUrl.'/public/images/logo_footer.png', 'val-logo-footer'); ?>
                                  <span class="val-content-text">При будь-якому використанні матеріалів гіперпосилання на <a href="/">Val.ua</a> є обов'язковим. </span>
                                  <span class="val-content-text">Передрук в газетах і електронних ЗМІ - виключно за наявності письмової угоди з Редакцією! </span>
-                                 <span class="val-content-text">E-mail редакції: <a href="mailto:news@val.ua">news@val.ua</a></span>
                                  <div class="val-phones">
-                                     <span>Тел.редакції: <a href="tel:+380462613631">+380 (462) 613 631</a> </span>
-                                     <span>Реклама на сайтi: <a href="tel:+380462931931">+380 (462) 931 931</a> </span>
+                                     <span>Редакція</span>
+                                     <span>Телефон: <a href="tel:+380462613631">‎+380 (462) 613 631</a> </span>
+                                     <span>E-mail: <a href="mailto:news@val.ua">news@val.ua</a> </span>
+                                     <br>
+                                     <span> Рекламний вiддiл </span>
+                                     <span>Телефон: <a href="tel:+380937730219">‎+380 (093) 773 0219</a></span>
+                                     <span>E-mail: <a href="mailto:tytvseok@gmail.com">‎tytvseok@gmail.com</a></span>
                                  </div> 
                             </div>  
                         </li>
@@ -260,7 +264,6 @@
                     <a href="http://4side.xyz">
                         <?=CHtml::image(Yii::app()->baseUrl.'/public/images/4side.png', '4side development')?>
                     </a>
-                    <p style="position:absolute; bottom: -20px; color:#fff">Инвестируй, торгуй, зарабатывай вместе с DAX100, вкладывай в индекс DAX - <a style="color:#fff" href="http://trader.dax100.org">http://trader.dax100.org</a></p>
                 </div>          
             </footer>
         </section>

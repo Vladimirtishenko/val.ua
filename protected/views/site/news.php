@@ -68,6 +68,17 @@ $data->save();
         <script>
              (adsbygoogle = window.adsbygoogle || []).push({});
         </script>
+        <br>
+        <div id="adpartner-jsunit-2047">
+            <script type="text/javascript">
+                var head = document.getElementsByTagName('head')[0];
+                var script = document.createElement('script');
+                script.type = 'text/javascript';
+                script.src = "//a4p.adpartner.pro/jsunit?id=2047&" + Math.random();
+                head.appendChild(script);
+            </script>
+        </div>
+        <br>
         <h2 class="val-title-uppercase-with-line">
             <span> <?= Yii::t('main', 'Читайте також'); ?> </span>
             <?= CHtml::link(Yii::app()->language == 'ru' ? $data->category->name_ru : $data->category->name_uk, array('/site/category', 'id'=>$data->category->id)); ?>

@@ -45,12 +45,22 @@ $this->metaAttributes[] = '<meta property="fb:app_id" content="1361253320577547"
     <div class="val-outer-line-news">
             <div class="fb-comments" data-href="http://val.dev/uk/site/video/<?php echo $model->id; ?>" data-width="100%" data-numposts="5"></div>
     </div>
-   
+    <br>
+    <div id="adpartner-jsunit-2047">
+        <script type="text/javascript">
+            var head = document.getElementsByTagName('head')[0];
+            var script = document.createElement('script');
+            script.type = 'text/javascript';
+            script.src = "//a4p.adpartner.pro/jsunit?id=2047&" + Math.random();
+            head.appendChild(script);
+        </script>
+    </div>
+    <br>
     <h2 class="val-title-uppercase-with-line">
         <span> <?= Yii::t('main', 'Переглядайте також'); ?> </span>
         <?= CHtml::link(Yii::t('main', 'Мультимедіа'), array('/site/multimedia')); ?>
     </h2>
-
+    
     <div class="-for-mansory-container">
         <?php foreach($relatedVideos as $key => $video): ?>
             <a href="<?= Yii::app()->createUrl('/site/video', array('id'=>$video->id)); ?>" class="val-block-multimedia -val-ico-video -only-video">

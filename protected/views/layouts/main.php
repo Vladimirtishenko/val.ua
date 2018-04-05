@@ -31,6 +31,7 @@
     <link rel="Shortcut Icon" type="image/x-icon" href="<?= Yii::app()->baseUrl; ?>/favicon.ico">
     <link rel="alternate" href="http://val.ua/feed/rss/" type="application/xml" title="Val.ua Rss">
     <link rel="stylesheet" href="<?= Yii::app()->baseUrl; ?>/public/prodaction/bundle.min.css">
+
 </head>
 <body>
     
@@ -286,6 +287,28 @@
         google_ad_client: "ca-pub-3024978264681114",
         enable_page_level_ads: true
       });
+    </script>
+    <script type="text/javascript" data-mrmnd-tag="iam" data-mrmnd-main="true">
+        var _MRMND = _MRMND || {};
+        _MRMND.cmd = _MRMND.cmd || [];
+
+        if (!_MRMND.req) {
+            var sc = document.createElement('script');
+            sc.type = 'text/javascript';
+            sc.setAttribute('async', 'async');
+            sc.setAttribute('data-mrmnd-tag', 'iam');
+            sc.src = '//m-shes.ru/dbp/pre/4f5d2bbc9a772c5029dc193ea0932c41/'
+                    + document.location.host.replace(/^www./, '')
+                    + '?' + Math.random();
+
+            if (document.head) {
+                document.head.appendChild(sc);
+            } else {
+                var node = document.getElementsByTagName("script")[0];
+                node.parentNode.insertBefore(sc, node);
+            }
+            _MRMND.req = true;
+        }
     </script>
 </body>
 </html>

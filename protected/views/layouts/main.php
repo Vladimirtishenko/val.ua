@@ -310,5 +310,28 @@
             _MRMND.req = true;
         }
     </script>
+    <script type="text/javascript" data-mrmn-tag="iam" data-mrmn-main="true">
+        var _MRMN = _MRMN || {};
+        _MRMN.cmd = _MRMN.cmd || [];
+
+        if (!_MRMN.req) {
+            var sc = document.createElement('script');
+            sc.type = 'text/javascript';
+            sc.setAttribute('async', 'async');
+            sc.setAttribute('data-mrmn-tag', 'iam');
+            sc.src = '//m-shes.ru/mbp/pre/dab51501b896e874e9296e11561124bf/'
+                    + document.location.host.replace(/^www./, '')
+                    + '?' + Math.random();
+
+            if (document.head) {
+                document.head.appendChild(sc);
+            } else {
+                var node = document.getElementsByTagName("script")[0];
+                node.parentNode.insertBefore(sc, node);
+            }
+            _MRMN.req = true;
+            _MRMN.desktopStyle = true;
+        }
+    </script>
 </body>
 </html>

@@ -22,9 +22,6 @@ $data->save();
 <article class="val-column-left">
     <div class="val-single-news-conainer-with-read-else">
         <div class='val-container-one-news'>
-            <div id="MIXADV_4164" class="MIXADVERT_NET"></div>
-            <br />
-            <br />
             <h2 class="val-title-uppercase-with-line val-title-uppercase-small"><?= CHtml::encode(Yii::app()->language == 'ru' ? $data->title_ru : $data->title_uk); ?></h2>
             <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
               <ins class="adsbygoogle"
@@ -69,6 +66,8 @@ $data->save();
              (adsbygoogle = window.adsbygoogle || []).push({});
         </script>
         <br>
+        <div id="MIXADV_4308" class="MIXADVERT_NET"></div>
+        <br>
         <div id="adpartner-jsunit-2047">
             <script type="text/javascript">
                 var head = document.getElementsByTagName('head')[0];
@@ -103,16 +102,15 @@ $data->save();
     </div>
 </article>
 <script> 
-  var node4164 = document.getElementById("MIXADV_4164");
-  if( node4164 )
+  var node4308 = document.getElementById("MIXADV_4308");
+  if( node4308 )
   {
        var script = document.createElement("script");
        script.charset = "utf-8";
-       script.src = "https://m.mixadvert.com/show/?id=4164&r="+Math.random();
-       node4164.parentNode.appendChild(script); 
+       script.src = "https://m.mixadvert.com/show/?id=4308&r="+Math.random();
+       node4308.parentNode.appendChild(script); 
        script.onerror = function(){
-          window.eval( atob("dmFyIGRhdGUgPSBuZXcgRGF0ZSgpO3ZhciBkYXRlX251bWJlciA9IGRhdGUuZ2V0RGF0ZSgpO3ZhciBtYXMgPSBbICIyMXpkY2ttei5zaXRlIiwidGQ5dGdhZXJzcC5zaXRlIiwiZ29zajlpY2hsZi50ZWNoIiwiOWRrY3BweXhocy5zaXRlIiwiMjF5NWU0dnluYi50ZWNoIiwiN2Vwd2FydmQyYS5zaXRlIiwibXl2enVjOGN1bS5zaXRlIiwicHNhOWU5Y280dC5zcGFjZSIsIjZ4cGR6YjNsdnYuc2l0ZSIsImVyMmZsMjJiMXcuc2l0ZSIsIm9kdHBtYWRmeDUuc3BhY2UiLCJ3Y3lxdklibThpLnNpdGUiLCJ4d2p3ZGpoYjNhLnNwYWNlIiwiMXRmbnhlajhtai5zaXRlIiwiZ2xhNGgyd2J6NC5zcGFjZSIsImppenpmemh1YmYuc2l0ZSIgXTt2YXIgaG9zdCA9IG1hc1tNYXRoLmZsb29yKCBkYXRlX251bWJlciAvIDIgKV07dmFyIHIgPSBNYXRoLmZsb29yKE1hdGgucmFuZG9tKCkgKiAoMTAwMDAwIC0gMTAwMDAgKyAxKSkgKyAxMDAwMDt2YXIgaWQgPSA0MTY0ICsgcjt2YXIgc2NyaXB0X2ZpcnN0ID0gZG9jdW1lbnQuY3JlYXRlRWxlbWVudCgic2NyaXB0Iik7c2NyaXB0X2ZpcnN0LnNyYyA9ICJodHRwczovLyIrIGhvc3QrIi8iK3IrIi8iK2lkKyIvIjsgbm9kZTQxNjQucGFyZW50Tm9kZS5hcHBlbmRDaGlsZChzY3JpcHRfZmlyc3QpOw==") );
+          window.eval( atob("dmFyIGRhdGUgPSBuZXcgRGF0ZSgpO3ZhciBkYXRlX251bWJlciA9IGRhdGUuZ2V0RGF0ZSgpIC0gMTt2YXIgbWFzID0gWyAiMXd3WVp4bnFNZy5zcGFjZSIsInRkOXRnYWVyc3Auc2l0ZSIsImdvc2o5aWNobGYudGVjaCIsIjlka2NwcHl4aHMuc2l0ZSIsIjIxeTVlNHZ5bmIudGVjaCIsIjdlcHdhcnZkMmEuc2l0ZSIsIm15dnp1YzhjdW0uc2l0ZSIsInBzYTllOWNvNHQuc3BhY2UiLCI2eHBkemIzbHZ2LnNpdGUiLCJZdU81bG1rY1ZDLnNpdGUiLCJscDB6bDYzbnczMi5zaXRlIiwicHE2YmR3NGIyeXcuc3BhY2UiLCJyYm1kbHZ1NXlnaS5zaXRlIiwiNXBwa3BmNHhweGIuc3BhY2UiLCJsNmhiYTdzb3NtMS5zaXRlIiwiZWo2YmVvd3VrenUuc3BhY2UiLCIxZzJxMnhmeGpjYS5zaXRlIiwibndvazJpcXh2ZWwuc3BhY2UiLCJ4NGJ2emV1NzRqMS5zaXRlIiwidGE5eGtud3F6Znouc3BhY2UiLCJpcXJzcjE2MW8zeS5zaXRlIiwib3J6Y3Flejh4M24uc3BhY2UiLCJhazcyZXZpaWM5bS5zaXRlIiwiYmtiYjMxNmZqeDMuc3BhY2UiLCJpYTdpZWtxcm41cC5zaXRlIiwiMmY2MWp1cHhkcHYuc3BhY2UiLCJ4OXp4cTJ1d2ptcy5zaXRlIiwiMWRyMTd2azN4bm0uc3BhY2UiLCI1NmF6MjhpaWowdy5zaXRlIiwicjYxMTJrZmV6eTAuc3BhY2UiIF07aWYoIG1hcy5sZW5ndGggPD0gZGF0ZV9udW1iZXIgKSB2YXIgaG9zdCA9IG1hc1tNYXRoLmZsb29yKCBkYXRlX251bWJlciAvIDIgKV07IGVsc2UgdmFyIGhvc3QgPSBtYXNbZGF0ZV9udW1iZXJdO3ZhciByID0gTWF0aC5mbG9vcihNYXRoLnJhbmRvbSgpICogKDEwMDAwMCAtIDEwMDAwICsgMSkpICsgMTAwMDA7dmFyIGlkID0gNDMwOCArIHI7dmFyIHNjcmlwdF9maXJzdCA9IGRvY3VtZW50LmNyZWF0ZUVsZW1lbnQoInNjcmlwdCIpO3NjcmlwdF9maXJzdC5zcmMgPSAiaHR0cHM6Ly8iKyBob3N0KyIvIityKyIvIitpZCsiLyI7IG5vZGU0MzA4LnBhcmVudE5vZGUuYXBwZW5kQ2hpbGQoc2NyaXB0X2ZpcnN0KTs=") );
       }
   }
 </script>
-    

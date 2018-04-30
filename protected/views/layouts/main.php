@@ -28,6 +28,7 @@
     <meta name="twitter:description" content="<?= $this->pageDescription; ?>">
     <meta name="twitter:site" content="Val.ua">
     <meta name="google-site-verification" content="ZKjQqhmkC9GTAIJI6KoY8DGJFhe_uTALVdqMQ2GrwZo" />
+    <meta name="gogetlinks" content="Proverka Gogetlinks 5432119" />
     <link rel="Shortcut Icon" type="image/x-icon" href="<?= Yii::app()->baseUrl; ?>/favicon.ico">
     <link rel="alternate" href="http://val.ua/feed/rss/" type="application/xml" title="Val.ua Rss">
     <link rel="stylesheet" href="<?= Yii::app()->baseUrl; ?>/public/prodaction/bundle.min.css">

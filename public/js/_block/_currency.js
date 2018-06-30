@@ -1,6 +1,10 @@
 function Currency() {
     "use strict";
 
+    this.temporaryDisabled();
+
+    return;
+
     var url = "http://"+location.hostname+"/site/tryCurrency";
 
     this.Xhr('GET', url, null, this, this.templates);
@@ -8,12 +12,30 @@ function Currency() {
 
 Currency.prototype = Object.create(Site.prototype);
 
+Currency.prototype.temporaryDisabled = function(){
+    var element = document.querySelector(".-currency-val");
+
+    element.parentNode.remove(element);
+}
+
 Currency.prototype.templates = function(query, self) {
 
     "use strict";
-    var querys = JSON.parse(query),
-        a = [],
-        stay;
+
+    var a = [],
+        querys,
+        stay,
+        element = document.querySelector(".-currency-val");
+
+
+    try {
+        querys = JSON.parse(query);
+    } catch (e){
+        console.info('It is not JSON!');
+        element.parentNode.remove(element);
+        return;
+    }
+
 
     [].reduce.call(querys, function(previousValue, currentValue, index) {
 

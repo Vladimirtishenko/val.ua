@@ -523,6 +523,10 @@ AjaxLoaderCategorySingle.prototype.template = function(data, self){
 function Currency() {
     "use strict";
 
+    this.temporaryDisabled();
+
+    return;
+
     var url = "http://"+location.hostname+"/site/tryCurrency";
 
     this.Xhr('GET', url, null, this, this.templates);
@@ -530,12 +534,30 @@ function Currency() {
 
 Currency.prototype = Object.create(Site.prototype);
 
+Currency.prototype.temporaryDisabled = function(){
+    var element = document.querySelector(".-currency-val");
+
+    element.parentNode.remove(element);
+}
+
 Currency.prototype.templates = function(query, self) {
 
     "use strict";
-    var querys = JSON.parse(query),
-        a = [],
-        stay;
+
+    var a = [],
+        querys,
+        stay,
+        element = document.querySelector(".-currency-val");
+
+
+    try {
+        querys = JSON.parse(query);
+    } catch (e){
+        console.info('It is not JSON!');
+        element.parentNode.remove(element);
+        return;
+    }
+
 
     [].reduce.call(querys, function(previousValue, currentValue, index) {
 
@@ -839,12 +861,11 @@ function IframeGemerate(element) {
 
 }
 
-
 IframeGemerate.prototype.template = function(src) {
     "use strict";
     var str = "<div class='val-outer-frame'>" +
         "<span class='val-ico-online'><i>Online</i></span>" +
-        "<iframe width='100%' height='270px' src='" + src + "' frameborder='0' allowfullscreen></iframe>" +
+        "<iframe width='100%' height='320px' src='" + src + "' frameborder='0' allowfullscreen></iframe>" +
         "</div>";
 
     return str;

@@ -9,3 +9,4 @@ mail/
 node_modules/
 course/
 tests/
+package-lock.json

@@ -67,7 +67,7 @@
         <h2 class="val-title-uppercase">
             <?=Yii::t('main', 'Прямі включення');?>
         </h2>
-        <div class="val-iframe-streams" data-src='<?= Streem::model()->findByPk(1)->url; ?>, <?= Streem::model()->findByPk(2)->url; ?>' >
+        <div class="val-iframe-streams" data-src='<?= Streem::model()->findByPk(2)->url; ?>' >
             
         </div>
     </div>

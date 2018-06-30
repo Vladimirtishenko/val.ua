@@ -693,8 +693,7 @@ class SiteController extends Controller
     }
 
     public function actiontryCurrency(){
-        $a = file_get_contents("http://bank-ua.com/export/exchange_rate_cash.json");
-        echo $a;
+        echo null;
     }
 
 

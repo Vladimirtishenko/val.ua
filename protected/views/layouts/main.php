@@ -126,7 +126,7 @@
                                     <?php $this->endWidget(); ?>
                                 </div>
                             </div> 
-                            <?php $this->widget('application.components.widgets.LanguageSelector'); ?>
+                            <?php // $this->widget('application.components.widgets.LanguageSelector'); ?>
                         </div>
                         <div class="val-outer-social-button">
                             <ul>
